@@ -10,6 +10,8 @@ import UIKit
 
 class TopicsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var topicLabel: UILabel!
+  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
