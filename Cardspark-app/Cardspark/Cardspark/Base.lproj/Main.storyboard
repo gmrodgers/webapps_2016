@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-pM-VMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="961"/>
+            <point key="canvasLocation" x="0.0" y="675"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -78,6 +78,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="xai-yY-cao" kind="relationship" relationship="viewControllers" id="GP7-iK-8iJ"/>
+                        <segue destination="lhP-1r-Zcj" kind="relationship" relationship="viewControllers" id="eta-sW-DPA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -97,19 +98,19 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cth-Zp-rW5" id="AUg-gx-1s2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-nM-GAZ">
                                             <rect key="frame" x="8" y="8" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmA-Hl-FE1">
                                             <rect key="frame" x="570" y="8" width="22" height="22"/>
                                             <connections>
-                                                <segue destination="U6b-cc-bKN" kind="show" id="vGQ-mP-img"/>
+                                                <segue destination="U6b-cc-bKN" kind="show" id="P0G-SL-amn"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -140,9 +141,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfM-0X-WeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-821"/>
+            <point key="canvasLocation" x="1400" y="-821"/>
         </scene>
-        <!--Card View Controller-->
+        <!--Card Viewer-->
         <scene sceneID="245-3v-5bc">
             <objects>
                 <viewController id="U6b-cc-bKN" customClass="CardViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,6 +186,8 @@
                             <constraint firstItem="9pR-jw-pjH" firstAttribute="top" secondItem="a0H-GD-hPs" secondAttribute="topMargin" constant="25" id="qRz-nK-vfT"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Card Viewer" id="x9X-AK-rfy"/>
+                    <navigationItem key="navigationItem" id="8vX-yY-wth"/>
                     <connections>
                         <outlet property="infoTextField" destination="YvF-VJ-FWT" id="oE2-OH-o6O"/>
                         <outlet property="photoImageView" destination="alX-1U-Qnb" id="Wjb-96-S0u"/>
@@ -197,7 +200,36 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2296" y="-821"/>
+            <point key="canvasLocation" x="2066" y="-821"/>
+        </scene>
+        <!--Messenger-->
+        <scene sceneID="iOT-R6-nBH">
+            <objects>
+                <tableViewController id="lhP-1r-Zcj" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BgX-Ej-VpB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessengerTableViewCell" id="XOQ-qu-i2Q">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XOQ-qu-i2Q" id="UMu-sZ-wWi">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lhP-1r-Zcj" id="sJg-To-i9v"/>
+                            <outlet property="delegate" destination="lhP-1r-Zcj" id="tlp-Aq-yNz"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Messenger" image="first" id="Qso-2I-zPI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4B-Qg-J3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="312"/>
         </scene>
         <!--Cards-->
         <scene sceneID="q29-Za-IHo">
