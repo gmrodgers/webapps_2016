@@ -9,6 +9,9 @@
 import UIKit
 
 class TopicsTableViewController: UITableViewController {
+  
+    // MARK: Properties
+    var topics = [Topic]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +21,15 @@ class TopicsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+      
+      loadSampleData()
     }
+  
+  func loadSampleData() {
+    let topic1 = Topic(name: "Compilers")
+    let topic2 = Topic(name: "OS")
+    topics += [topic1, topic2]
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -28,24 +39,49 @@ class TopicsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return topics.count
     }
+  
+    // MARK: Actions
+  @IBAction func createNewTopicAlert(sender: UIBarButtonItem) {
+    // Create alert controller
+    let alert = UIAlertController(title: "Enter New Topic", message: "", preferredStyle: .Alert)
+    
+    //2. Add the text field. You can configure it however you need.
+    alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+      textField.text = "topic name here please"
+    })
+    
+    //3. Grab the value from the text field, and print it when the user clicks OK.
+    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+      let textField = alert.textFields![0] as UITextField
+      let topic = Topic(name: textField.text!)
+      self.topics += [topic]
+    }))
+    
+    // 4. Present the alert.
+    self.presentViewController(alert, animated: true, completion: nil)
+  }
+  
 
-    /*
+  
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+      // Table view cells are reused and should be dequeued using a cell identifier.
+      let cellIdentifier = "TopicsTableViewCell"
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
+      
+      // Fetches the appropriate meal for the data source layout.
+      let topic = topics[indexPath.row]
+      
+      cell.topicLabel.text = topic.name
+      
+      return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
