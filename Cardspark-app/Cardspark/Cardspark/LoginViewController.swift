@@ -12,8 +12,8 @@ class LoginViewController: UIViewController {
 
     @IBAction func login(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as UITabBarController
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         appDelegate.window?.rootViewController = tabBar
     }

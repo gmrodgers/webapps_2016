@@ -6,4 +6,13 @@
 //  Copyright © 2016 Mango Productions. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class Topic {
+  
+  var name: String
+  
+  init(name: String) {
+    self.name = name
+  }
+}
