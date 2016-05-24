@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as LoginViewController
+        let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
         self.window?.rootViewController = loginVC
         return true
     }

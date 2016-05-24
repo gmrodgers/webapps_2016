@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		308C22E31CF4A00F003B77B5 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E21CF4A00F003B77B5 /* CardViewController.swift */; };
+		308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */; };
+		308C22E91CF4AED9003B77B5 /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */; };
+		308C22EB1CF4B1DE003B77B5 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22EA1CF4B1DE003B77B5 /* Topic.swift */; };
 		3EBF5F3D1CF213900079B23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F3C1CF213900079B23F /* AppDelegate.swift */; };
-		3EBF5F3F1CF213900079B23F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F3E1CF213900079B23F /* FirstViewController.swift */; };
-		3EBF5F411CF213900079B23F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F401CF213900079B23F /* SecondViewController.swift */; };
 		3EBF5F441CF213900079B23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F421CF213900079B23F /* Main.storyboard */; };
 		3EBF5F461CF213900079B23F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F451CF213900079B23F /* Images.xcassets */; };
 		3EBF5F491CF213900079B23F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F471CF213900079B23F /* LaunchScreen.xib */; };
@@ -29,11 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		308C22E21CF4A00F003B77B5 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
+		308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
+		308C22EA1CF4B1DE003B77B5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		3EBF5F371CF213900079B23F /* Cardspark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardspark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBF5F3B1CF213900079B23F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EBF5F3C1CF213900079B23F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3EBF5F3E1CF213900079B23F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		3EBF5F401CF213900079B23F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3EBF5F431CF213900079B23F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EBF5F451CF213900079B23F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3EBF5F481CF213900079B23F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -85,9 +89,11 @@
 			children = (
 				3EBF5F5E1CF215500079B23F /* LoginViewController.swift */,
 				3EBF5F3C1CF213900079B23F /* AppDelegate.swift */,
-				3EBF5F3E1CF213900079B23F /* FirstViewController.swift */,
-				3EBF5F401CF213900079B23F /* SecondViewController.swift */,
 				3EBF5F421CF213900079B23F /* Main.storyboard */,
+				308C22E21CF4A00F003B77B5 /* CardViewController.swift */,
+				308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */,
+				308C22EA1CF4B1DE003B77B5 /* Topic.swift */,
+				308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */,
 				3EBF5F451CF213900079B23F /* Images.xcassets */,
 				3EBF5F471CF213900079B23F /* LaunchScreen.xib */,
 				3EBF5F3A1CF213900079B23F /* Supporting Files */,
@@ -165,7 +171,9 @@
 		3EBF5F2F1CF213900079B23F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Mango Productions";
 				TargetAttributes = {
 					3EBF5F361CF213900079B23F = {
@@ -223,9 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EBF5F5F1CF215500079B23F /* LoginViewController.swift in Sources */,
-				3EBF5F411CF213900079B23F /* SecondViewController.swift in Sources */,
+				308C22EB1CF4B1DE003B77B5 /* Topic.swift in Sources */,
 				3EBF5F3D1CF213900079B23F /* AppDelegate.swift in Sources */,
-				3EBF5F3F1CF213900079B23F /* FirstViewController.swift in Sources */,
+				308C22E31CF4A00F003B77B5 /* CardViewController.swift in Sources */,
+				308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */,
+				308C22E91CF4AED9003B77B5 /* TopicsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +297,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -301,7 +312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -337,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -350,6 +361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cardspark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mango.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -360,6 +372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cardspark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mango.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -378,6 +391,7 @@
 				);
 				INFOPLIST_FILE = CardsparkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mango.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardspark.app/Cardspark";
 			};
@@ -393,6 +407,7 @@
 				);
 				INFOPLIST_FILE = CardsparkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mango.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardspark.app/Cardspark";
 			};
@@ -417,6 +432,7 @@
 				3EBF5F5A1CF213900079B23F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3EBF5F5B1CF213900079B23F /* Build configuration list for PBXNativeTarget "CardsparkTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +441,7 @@
 				3EBF5F5D1CF213900079B23F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
