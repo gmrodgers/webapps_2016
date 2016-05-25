@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524163955) do
+ActiveRecord::Schema.define(version: 20160525144210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +29,19 @@ ActiveRecord::Schema.define(version: 20160524163955) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_topic", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "topic_id"
+  create_table "topics_users", id: false, force: :cascade do |t|
+    t.integer "user_id",  null: false
+    t.integer "topic_id", null: false
   end
+
+  add_index "topics_users", ["topic_id", "user_id"], name: "index_topics_users_on_topic_id_and_user_id", using: :btree
+  add_index "topics_users", ["user_id", "topic_id"], name: "index_topics_users_on_user_id_and_topic_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
-    t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_hash"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
