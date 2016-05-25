@@ -11,36 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523222548) do
+ActiveRecord::Schema.define(version: 20160524163955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "group_files", force: :cascade do |t|
-    t.integer  "group_id"
-    t.string   "file_location"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+  create_table "cards", force: :cascade do |t|
+    t.integer  "topic_id"
+    t.string   "string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_groups", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "user_topic", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "topic_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
