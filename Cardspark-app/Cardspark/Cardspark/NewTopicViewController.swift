@@ -13,7 +13,6 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
     // MARK: Properties
   
   @IBOutlet weak var topicTextField: UITextField!
-  @IBOutlet weak var photoImageView: UIImageView!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   
   var topic: Topic?
@@ -50,39 +49,6 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   func textFieldDidEndEditing(textField: UITextField) {
     checkValidTopicName()
     navigationItem.title = topicTextField.text
-  }
-  
-  // MARK: Actions
-  
-  @IBAction func selectPhotoFromLibary(sender: UITapGestureRecognizer) {
-    // Hide the keyboard
-    topicTextField.resignFirstResponder()
-    
-    let imagePickerController = UIImagePickerController()
-    
-    imagePickerController.sourceType = .PhotoLibrary
-    
-    // Make sure TopicsViewController is notified when the user picks an image.
-    imagePickerController.delegate = self
-    
-    presentViewController(imagePickerController, animated: true, completion: nil)
-    
-  }
-  
-  // MARK: UIImagePickerControllerDelegate
-  
-  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-    
-    // Set photoImageView to display the selected image.
-    photoImageView.image = selectedImage
-    
-    // Dismiss the picker.
-    dismissViewControllerAnimated(true, completion: nil)
   }
 
   // MARK: - Navigation
