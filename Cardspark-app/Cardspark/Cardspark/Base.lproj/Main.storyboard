@@ -18,14 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardspark white.png" translatesAutoresizingMaskIntoConstraints="NO" id="YEc-Zb-WeN">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="cardspark white.png" translatesAutoresizingMaskIntoConstraints="NO" id="YEc-Zb-WeN">
+                                <rect key="frame" x="20" y="20" width="320" height="320"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="63" y="45" width="275" height="307"/>
+                                    <rect key="frame" x="40" y="63" width="320" height="320"/>
                                 </variation>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FuZ-zQ-hrE">
+                                <rect key="frame" x="132" y="387" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="158" y="449" width="84" height="30"/>
+                                </variation>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qq-Vr-5qT">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="145" y="425" width="70" height="35"/>
                                 <state key="normal" title=" Login ">
                                     <color key="titleColor" red="0.98417819049999999" green="0.99291905309999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,12 +45,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="165" y="360" width="70" height="35"/>
+                                    <rect key="frame" x="177" y="487" width="46" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="login:" destination="Oeu-2J-ouq" eventType="touchUpInside" id="2Q4-lf-IpH"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="alD-zV-Uaa">
+                                <rect key="frame" x="132" y="348" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="156" y="411" width="88" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.52753785185124202" blue="0.13990598817237998" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
@@ -51,13 +67,17 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="YEc-Zb-WeN"/>
+                                <exclude reference="FuZ-zQ-hrE"/>
                                 <exclude reference="4Qq-Vr-5qT"/>
+                                <exclude reference="alD-zV-Uaa"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="YEc-Zb-WeN"/>
+                                <include reference="FuZ-zQ-hrE"/>
                                 <include reference="4Qq-Vr-5qT"/>
+                                <include reference="alD-zV-Uaa"/>
                             </mask>
                         </variation>
                     </view>
@@ -85,7 +105,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Topics Table View Controller-->
+        <!--Topics-->
         <scene sceneID="O67-Un-pab">
             <objects>
                 <tableViewController id="nni-N2-6Mo" customClass="TopicsTableViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +130,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmA-Hl-FE1">
                                             <rect key="frame" x="570" y="8" width="22" height="22"/>
                                             <connections>
-                                                <segue destination="U6b-cc-bKN" kind="show" id="P0G-SL-amn"/>
+                                                <segue destination="t6a-bc-CQb" kind="show" id="uic-zr-2dy"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -131,10 +151,11 @@
                             <outlet property="delegate" destination="nni-N2-6Mo" id="PI7-UB-bry"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="BAK-NU-NmX">
+                    <navigationItem key="navigationItem" title="Topics" id="BAK-NU-NmX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WEj-gm-fcd">
                             <connections>
                                 <action selector="createNewTopicAlert:" destination="nni-N2-6Mo" id="Bh3-ti-CY8"/>
+                                <segue destination="U6b-cc-bKN" kind="show" id="h5V-dK-Ece"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -143,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="1400" y="-821"/>
         </scene>
-        <!--Card Viewer-->
+        <!--New Topic-->
         <scene sceneID="245-3v-5bc">
             <objects>
-                <viewController id="U6b-cc-bKN" customClass="CardViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="U6b-cc-bKN" customClass="NewTopicViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IlN-Ho-AC3"/>
                         <viewControllerLayoutGuide type="bottom" id="Jca-3O-juY"/>
@@ -155,52 +176,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9pR-jw-pjH">
-                                <rect key="frame" x="20" y="25" width="561" height="539"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YvF-VJ-FWT">
-                                        <rect key="frame" x="0.0" y="0.0" width="561" height="219"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                    </textView>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="card viewer" translatesAutoresizingMaskIntoConstraints="NO" id="alX-1U-Qnb">
-                                        <rect key="frame" x="121" y="219" width="320" height="320"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="I3A-D2-vgT" appends="YES" id="eBa-5S-65e"/>
-                                        </connections>
-                                    </imageView>
-                                </subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ja8-KB-EHm">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <constraints>
-                                    <constraint firstItem="YvF-VJ-FWT" firstAttribute="leading" secondItem="9pR-jw-pjH" secondAttribute="leading" id="KnB-EX-wif"/>
+                                    <constraint firstAttribute="width" constant="97" id="Gck-Cg-AKP"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gck-Cg-AKP"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Gck-Cg-AKP"/>
+                                    </mask>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9pR-jw-pjH" firstAttribute="leading" secondItem="a0H-GD-hPs" secondAttribute="leadingMargin" id="CnW-Wg-jt7"/>
-                            <constraint firstItem="9pR-jw-pjH" firstAttribute="centerX" secondItem="a0H-GD-hPs" secondAttribute="centerX" id="FF8-aE-Vmh"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="9pR-jw-pjH" secondAttribute="bottom" constant="36" id="nvt-Q8-NiW"/>
-                            <constraint firstItem="9pR-jw-pjH" firstAttribute="top" secondItem="a0H-GD-hPs" secondAttribute="topMargin" constant="25" id="qRz-nK-vfT"/>
+                            <constraint firstItem="ja8-KB-EHm" firstAttribute="centerX" secondItem="a0H-GD-hPs" secondAttribute="centerX" id="6Fb-Jp-wnZ"/>
+                            <constraint firstItem="ja8-KB-EHm" firstAttribute="top" secondItem="IlN-Ho-AC3" secondAttribute="bottom" constant="53" id="wXd-g3-aX0"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ja8-KB-EHm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6Fb-Jp-wnZ"/>
+                                <exclude reference="wXd-g3-aX0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ja8-KB-EHm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="6Fb-Jp-wnZ"/>
+                                <include reference="wXd-g3-aX0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Card Viewer" id="x9X-AK-rfy"/>
-                    <navigationItem key="navigationItem" id="8vX-yY-wth"/>
+                    <navigationItem key="navigationItem" title="New Topic" id="8vX-yY-wth">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OHR-GS-Vg5">
+                            <connections>
+                                <action selector="cancel:" destination="U6b-cc-bKN" id="yvL-Bo-elH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="voF-5K-3PF">
+                            <connections>
+                                <segue destination="g1j-GT-Cii" kind="unwind" unwindAction="unwindToTopicsList:" id="LZR-zW-aai"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="infoTextField" destination="YvF-VJ-FWT" id="oE2-OH-o6O"/>
                         <outlet property="photoImageView" destination="alX-1U-Qnb" id="Wjb-96-S0u"/>
+                        <outlet property="saveButton" destination="voF-5K-3PF" id="YvR-0z-MNb"/>
+                        <outlet property="topicTextField" destination="ja8-KB-EHm" id="8v1-p2-Mpf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twG-jL-HSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="I3A-D2-vgT">
-                    <connections>
-                        <action selector="selectPhotoFromLibary:" destination="U6b-cc-bKN" id="TxI-Vf-JWy"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <exit id="g1j-GT-Cii" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2066" y="-821"/>
+            <point key="canvasLocation" x="2089.5" y="-821"/>
         </scene>
         <!--Messenger-->
         <scene sceneID="iOT-R6-nBH">
@@ -230,6 +271,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4B-Qg-J3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="734" y="312"/>
+        </scene>
+        <!--Card View Controller-->
+        <scene sceneID="BYJ-n9-3fX">
+            <objects>
+                <viewController id="t6a-bc-CQb" customClass="CardViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5IA-aQ-ktf"/>
+                        <viewControllerLayoutGuide type="bottom" id="2qd-RX-vF6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mXA-nW-mlC">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="card viewer" translatesAutoresizingMaskIntoConstraints="NO" id="alX-1U-Qnb">
+                                <rect key="frame" x="121" y="219" width="320" height="320"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="9aD-UB-E4K" appends="YES" id="aNm-Eh-Qgr"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="alX-1U-Qnb" firstAttribute="top" secondItem="5IA-aQ-ktf" secondAttribute="bottom" constant="76" id="MGz-MT-uJr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="alX-1U-Qnb" secondAttribute="trailing" constant="20" id="VBV-ar-Qme"/>
+                            <constraint firstItem="alX-1U-Qnb" firstAttribute="leading" secondItem="mXA-nW-mlC" secondAttribute="leadingMargin" constant="20" id="rIH-zm-2Ow"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="alX-1U-Qnb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="MGz-MT-uJr"/>
+                                <exclude reference="VBV-ar-Qme"/>
+                                <exclude reference="rIH-zm-2Ow"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="alX-1U-Qnb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="MGz-MT-uJr"/>
+                                <include reference="VBV-ar-Qme"/>
+                                <include reference="rIH-zm-2Ow"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="alX-1U-Qnb" id="1nu-LY-Ext"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSN-1R-5Q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9aD-UB-E4K">
+                    <connections>
+                        <action selector="selectPhotoFromLibary:" destination="t6a-bc-CQb" id="bIl-q9-zYG"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1399.5" y="-96"/>
         </scene>
         <!--Cards-->
         <scene sceneID="q29-Za-IHo">
