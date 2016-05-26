@@ -8,12 +8,16 @@
 
 import UIKit
 
-class TopicsTableViewController: UITableViewController {
+class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
     // MARK: Properties
-    var topics = [Topic]()
-
-    override func viewDidLoad() {
+  @IBOutlet weak var searchBar: UISearchBar!
+  
+  var searchActive : Bool = false
+  var topics = [Topic]()
+  var filtered = [Topic]()
+  
+  override func viewDidLoad() {
       super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -23,6 +27,7 @@ class TopicsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
       
       navigationItem.leftBarButtonItem = editButtonItem()
+      searchBar.delegate = self
       
       if let savedTopics = loadTopics() {
         topics += savedTopics
@@ -41,6 +46,38 @@ class TopicsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  // MARK: SearchBar Delegate
+  func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    searchActive = true;
+  }
+  
+  func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    searchActive = false;
+  }
+  
+  func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    searchActive = false;
+  }
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    searchActive = false;
+  }
+  
+  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    
+    filtered = topics.filter({ (topic) -> Bool in
+      let tmp: NSString = topic.name
+      let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+      return range.location != NSNotFound
+    })
+    if(filtered.count == 0){
+      searchActive = false;
+    } else {
+      searchActive = true;
+    }
+    self.tableView.reloadData()
+  }
 
     // MARK: - Table view data source
 
@@ -49,7 +86,10 @@ class TopicsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.count
+      if(searchActive) {
+        return filtered.count
+      }
+      return topics.count
     }
   
     // MARK: Actions
@@ -58,12 +98,14 @@ class TopicsTableViewController: UITableViewController {
       // Table view cells are reused and should be dequeued using a cell identifier.
       let cellIdentifier = "TopicsTableViewCell"
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
+      if(searchActive){
+        cell.topicLabel.text = filtered[indexPath.row].name
+      } else {
+        // Fetches the appropriate topic for the data source layout.
+        let topic = topics[indexPath.row]
       
-      // Fetches the appropriate meal for the data source layout.
-      let topic = topics[indexPath.row]
-      
-      cell.topicLabel.text = topic.name
-      
+        cell.topicLabel.text = topic.name
+      }
       return cell
     }
  
