@@ -123,24 +123,21 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-nM-GAZ">
                                             <rect key="frame" x="8" y="8" width="42" height="21"/>
+                                            <gestureRecognizers/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmA-Hl-FE1">
-                                            <rect key="frame" x="570" y="8" width="22" height="22"/>
-                                            <connections>
-                                                <segue destination="t6a-bc-CQb" kind="show" id="uic-zr-2dy"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="IyS-nM-GAZ" firstAttribute="top" secondItem="AUg-gx-1s2" secondAttribute="topMargin" id="14p-Mi-PXU"/>
                                         <constraint firstItem="IyS-nM-GAZ" firstAttribute="leading" secondItem="AUg-gx-1s2" secondAttribute="leadingMargin" id="6yJ-uM-tf7"/>
-                                        <constraint firstItem="PmA-Hl-FE1" firstAttribute="top" secondItem="IyS-nM-GAZ" secondAttribute="top" id="AuO-d5-Rz5"/>
-                                        <constraint firstItem="PmA-Hl-FE1" firstAttribute="trailing" secondItem="AUg-gx-1s2" secondAttribute="trailingMargin" id="KBG-XI-scG"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="85S-4P-YXq" appends="YES" id="uQk-B9-2nN"/>
+                                    </connections>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="topicLabel" destination="IyS-nM-GAZ" id="rsz-u9-Add"/>
                                 </connections>
@@ -155,12 +152,17 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WEj-gm-fcd">
                             <connections>
                                 <action selector="createNewTopicAlert:" destination="nni-N2-6Mo" id="Bh3-ti-CY8"/>
-                                <segue destination="U6b-cc-bKN" kind="show" id="h5V-dK-Ece"/>
+                                <segue destination="auv-Vy-qA6" kind="presentation" id="h5V-dK-Ece"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfM-0X-WeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="85S-4P-YXq">
+                    <connections>
+                        <segue destination="t6a-bc-CQb" kind="show" id="MYt-7T-PVH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1400" y="-821"/>
         </scene>
@@ -219,7 +221,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Card Viewer" id="x9X-AK-rfy"/>
                     <navigationItem key="navigationItem" title="New Topic" id="8vX-yY-wth">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OHR-GS-Vg5">
                             <connections>
@@ -241,7 +242,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twG-jL-HSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="g1j-GT-Cii" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2089.5" y="-821"/>
+            <point key="canvasLocation" x="2805" y="-821"/>
         </scene>
         <!--Messenger-->
         <scene sceneID="iOT-R6-nBH">
@@ -329,7 +330,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1399.5" y="-96"/>
+            <point key="canvasLocation" x="1399.5" y="-114"/>
         </scene>
         <!--Cards-->
         <scene sceneID="q29-Za-IHo">
@@ -349,6 +350,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSw-AX-qN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="734" y="-821"/>
+        </scene>
+        <!--Card Viewer-->
+        <scene sceneID="QCd-nh-FeA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="auv-Vy-qA6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Card Viewer" id="x9X-AK-rfy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4SE-cT-C9O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="U6b-cc-bKN" kind="relationship" relationship="rootViewController" id="PgY-Wd-Uug"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmx-jc-3bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2089.5" y="-821"/>
         </scene>
     </scenes>
     <resources>

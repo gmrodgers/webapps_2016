@@ -49,28 +49,6 @@ class TopicsTableViewController: UITableViewController {
     }
   
     // MARK: Actions
-//  @IBAction func createNewTopicAlert(sender: UIBarButtonItem) {
-//    // Create alert controller
-//    let alert = UIAlertController(title: "Enter New Topic", message: "", preferredStyle: .Alert)
-//    
-//    //2. Add the text field. You can configure it however you need.
-//    alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-//      textField.text = "Topic Name"
-//    })
-//    
-//    //3. Grab the value from the text field, and print it when the user clicks OK.
-//    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-//      let textField = alert.textFields![0] as UITextField
-//      print("text: \(textField.text)")
-//      let topic = Topic(name: textField.text!)
-//      self.topics += [topic]
-//    }))
-//    
-//    // 4. Present the alert.
-//    self.presentViewController(alert, animated: true, completion: nil)
-//  }
-  
-
   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       // Table view cells are reused and should be dequeued using a cell identifier.
