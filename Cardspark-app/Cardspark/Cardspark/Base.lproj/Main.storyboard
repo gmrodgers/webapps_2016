@@ -287,8 +287,12 @@
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="card viewer" translatesAutoresizingMaskIntoConstraints="NO" id="alX-1U-Qnb">
                                 <rect key="frame" x="121" y="219" width="320" height="320"/>
                                 <gestureRecognizers/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="40" y="140" width="320" height="320"/>
+                                </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="9aD-UB-E4K" appends="YES" id="aNm-Eh-Qgr"/>
+                                    <outletCollection property="gestureRecognizers" destination="D2x-Pe-Hdb" appends="YES" id="0Cg-Hl-uDe"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -329,6 +333,7 @@
                         <action selector="selectPhotoFromLibary:" destination="t6a-bc-CQb" id="bIl-q9-zYG"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="D2x-Pe-Hdb"/>
             </objects>
             <point key="canvasLocation" x="1399.5" y="-114"/>
         </scene>

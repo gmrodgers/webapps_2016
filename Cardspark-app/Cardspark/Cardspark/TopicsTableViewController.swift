@@ -24,7 +24,11 @@ class TopicsTableViewController: UITableViewController {
       
       navigationItem.leftBarButtonItem = editButtonItem()
       
-      loadSampleData()
+      if let savedTopics = loadTopics() {
+        topics += savedTopics
+      } else {
+        loadSampleData()
+      }
     }
   
   func loadSampleData() {
@@ -77,8 +81,8 @@ class TopicsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-          
             topics.removeAtIndex(indexPath.row)
+            saveTopics()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -117,8 +121,20 @@ class TopicsTableViewController: UITableViewController {
       let newIndexPath = NSIndexPath(forRow: topics.count, inSection: 0)
       topics.append(topic)
       tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+      saveTopics()
     }
-    
+  }
+  
+  // MARK: NSCoding
+  func saveTopics() {
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(topics, toFile: Topic.ArchiveURL.path!)
+    if !isSuccessfulSave {
+      print("Failed to save topics")
+    }
+  }
+  
+  func loadTopics() -> [Topic]? {
+    return NSKeyedUnarchiver.unarchiveObjectWithFile(Topic.ArchiveURL.path!) as? [Topic]
     
   }
 
