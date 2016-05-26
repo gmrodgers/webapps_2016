@@ -582,6 +582,16 @@
                                     <rect key="frame" x="16" y="273" width="54" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgu-x3-sOc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="340" y="541" width="34" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="saveCard:" destination="BN3-3k-9dP" eventType="touchUpInside" id="xhe-fb-ONf"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-gg-mrD">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -600,13 +610,6 @@
                                     <rect key="frame" x="20" y="112" width="333" height="33"/>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgu-x3-sOc">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="340" y="541" width="34" height="30"/>
-                                </variation>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -618,8 +621,8 @@
                                 <exclude reference="ki7-5p-jHy"/>
                                 <exclude reference="NHT-M0-c4V"/>
                                 <exclude reference="s6e-GW-QqL"/>
-                                <exclude reference="6ng-gg-mrD"/>
                                 <exclude reference="Hgu-x3-sOc"/>
+                                <exclude reference="6ng-gg-mrD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -631,8 +634,8 @@
                                 <include reference="ki7-5p-jHy"/>
                                 <include reference="NHT-M0-c4V"/>
                                 <include reference="s6e-GW-QqL"/>
-                                <include reference="6ng-gg-mrD"/>
                                 <include reference="Hgu-x3-sOc"/>
+                                <include reference="6ng-gg-mrD"/>
                             </mask>
                         </variation>
                     </view>
@@ -644,6 +647,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="point1TextField" destination="42v-o5-iHy" id="C6a-eu-tZc"/>
+                        <outlet property="point2TextField" destination="ki7-5p-jHy" id="BfA-Qi-Dfw"/>
+                        <outlet property="point3TextField" destination="NHT-M0-c4V" id="oog-UG-Juy"/>
+                        <outlet property="titleTextField" destination="6ng-gg-mrD" id="Vvm-bg-y9q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-qd-NTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
