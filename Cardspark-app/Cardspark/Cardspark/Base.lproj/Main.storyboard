@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -99,6 +99,7 @@
                     <connections>
                         <segue destination="xai-yY-cao" kind="relationship" relationship="viewControllers" id="GP7-iK-8iJ"/>
                         <segue destination="lhP-1r-Zcj" kind="relationship" relationship="viewControllers" id="eta-sW-DPA"/>
+                        <segue destination="UjX-Od-8Bo" kind="relationship" relationship="viewControllers" id="Lb1-pc-OFy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -272,6 +273,137 @@
             </objects>
             <point key="canvasLocation" x="734" y="312"/>
         </scene>
+        <!--Timer-->
+        <scene sceneID="fMw-qS-flo">
+            <objects>
+                <viewController id="UjX-Od-8Bo" customClass="TimerViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cWZ-16-j1p"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tma-Hy-8ib"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NDS-CI-soU">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGL-o1-Koe">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="7dV-5h-uHx"/>
+                                    <constraint firstAttribute="height" constant="72" id="Y4e-7g-Vof"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Start"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7dV-5h-uHx"/>
+                                        <exclude reference="Y4e-7g-Vof"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="152" y="241" width="96" height="72"/>
+                                    <mask key="constraints">
+                                        <include reference="7dV-5h-uHx"/>
+                                        <include reference="Y4e-7g-Vof"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="startTimerButtonTapped:" destination="UjX-Od-8Bo" eventType="touchUpInside" id="suw-fN-X1J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjw-hd-WWS">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="hG4-p3-etg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hG4-p3-etg"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="145" y="336" width="110" height="97"/>
+                                    <mask key="constraints">
+                                        <include reference="hG4-p3-etg"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelTimerButtonTapped:" destination="UjX-Od-8Bo" eventType="touchUpInside" id="tMz-IA-Sm3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7d-Pu-ES5">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="ySs-gj-oB9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ySs-gj-oB9"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="113" y="135" width="175" height="73"/>
+                                    <mask key="constraints">
+                                        <include reference="ySs-gj-oB9"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pjw-hd-WWS" firstAttribute="centerX" secondItem="uGL-o1-Koe" secondAttribute="centerX" id="7yl-8l-vQH"/>
+                            <constraint firstItem="uGL-o1-Koe" firstAttribute="top" secondItem="G7d-Pu-ES5" secondAttribute="bottom" constant="54" id="Ait-dw-3Pe"/>
+                            <constraint firstItem="G7d-Pu-ES5" firstAttribute="top" secondItem="cWZ-16-j1p" secondAttribute="bottom" constant="119" id="KB3-vx-tEK"/>
+                            <constraint firstItem="uGL-o1-Koe" firstAttribute="centerX" secondItem="G7d-Pu-ES5" secondAttribute="centerX" id="lsc-jN-0Qg"/>
+                            <constraint firstItem="Tma-Hy-8ib" firstAttribute="top" secondItem="pjw-hd-WWS" secondAttribute="bottom" constant="118" id="oxT-ni-0NT"/>
+                            <constraint firstItem="pjw-hd-WWS" firstAttribute="top" secondItem="uGL-o1-Koe" secondAttribute="bottom" constant="23" id="vDz-cM-zLS"/>
+                            <constraint firstItem="G7d-Pu-ES5" firstAttribute="centerX" secondItem="NDS-CI-soU" secondAttribute="centerX" id="vhl-bL-tm5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="uGL-o1-Koe"/>
+                                <exclude reference="pjw-hd-WWS"/>
+                                <exclude reference="G7d-Pu-ES5"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="KB3-vx-tEK"/>
+                                <exclude reference="vhl-bL-tm5"/>
+                                <exclude reference="Ait-dw-3Pe"/>
+                                <exclude reference="lsc-jN-0Qg"/>
+                                <exclude reference="7yl-8l-vQH"/>
+                                <exclude reference="vDz-cM-zLS"/>
+                                <exclude reference="oxT-ni-0NT"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="uGL-o1-Koe"/>
+                                <include reference="pjw-hd-WWS"/>
+                                <include reference="G7d-Pu-ES5"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="KB3-vx-tEK"/>
+                                <include reference="vhl-bL-tm5"/>
+                                <include reference="Ait-dw-3Pe"/>
+                                <include reference="lsc-jN-0Qg"/>
+                                <include reference="7yl-8l-vQH"/>
+                                <include reference="vDz-cM-zLS"/>
+                                <include reference="oxT-ni-0NT"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Timer" image="first" id="iz3-En-JID"/>
+                    <connections>
+                        <outlet property="label" destination="G7d-Pu-ES5" id="KPI-ji-6ZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPb-L1-yGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733.5" y="985"/>
+        </scene>
         <!--Cards-->
         <scene sceneID="q29-Za-IHo">
             <objects>
@@ -318,9 +450,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nxb-Z5-Djm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" id="nxb-Z5-Djm">
+                                <rect key="frame" x="0.0" y="92" width="0.0" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nxb-Z5-Djm" id="qXa-L8-M6p">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -357,12 +491,13 @@
                         <viewControllerLayoutGuide type="bottom" id="FQs-kM-xQl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VlG-rx-c5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBn-oq-ky1">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="83" width="34" height="21"/>
@@ -371,7 +506,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9h-xa-ocK">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="153" width="51" height="21"/>
@@ -380,7 +515,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YB-DT-pUy">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="401" width="54" height="21"/>
@@ -443,7 +578,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-GW-QqL">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="273" width="54" height="21"/>

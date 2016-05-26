@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306881571CF78A1A00D16BC1 /* TimerViewController.swift */; };
 		308C22E31CF4A00F003B77B5 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */; };
 		308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */; };
 		308C22E91CF4AED9003B77B5 /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		306881571CF78A1A00D16BC1 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
 		308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
 		308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				3EBF5F5E1CF215500079B23F /* LoginViewController.swift */,
 				3EBF5F3C1CF213900079B23F /* AppDelegate.swift */,
 				3EBF5F421CF213900079B23F /* Main.storyboard */,
+				306881571CF78A1A00D16BC1 /* TimerViewController.swift */,
 				3E004C361CF77C3E00474F16 /* AddCardViewController.swift */,
 				3E004C341CF77B4000474F16 /* CardTableViewController.swift */,
 				30D290D81CF5EA84006E3AED /* CardViewController.swift */,
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */,
 				3EBF5F5F1CF215500079B23F /* LoginViewController.swift in Sources */,
 				3E004C351CF77B4000474F16 /* CardTableViewController.swift in Sources */,
 				30D290D91CF5EA84006E3AED /* CardViewController.swift in Sources */,
