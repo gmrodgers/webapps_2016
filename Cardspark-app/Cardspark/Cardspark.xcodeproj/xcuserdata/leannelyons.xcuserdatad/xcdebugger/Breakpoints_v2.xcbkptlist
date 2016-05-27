@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cardspark/CardViewController.swift"
+            timestampString = "485877424.760514"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cardspark.CardViewController.topicTextField.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "Cardspark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leannelyons/webapps_2016/Cardspark-app/Cardspark/Cardspark/CardViewController.swift"
+                  timestampString = "485877424.769564"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cardspark.CardViewController.topicTextField.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "Cardspark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leannelyons/webapps_2016/Cardspark-app/Cardspark/Cardspark/CardViewController.swift"
+                  timestampString = "485877424.769727"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cardspark.CardViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Cardspark.CardViewController"
+                  moduleName = "Cardspark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leannelyons/webapps_2016/Cardspark-app/Cardspark/Cardspark/CardViewController.swift"
+                  timestampString = "485877424.769826"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cardspark.CardViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cardspark.CardViewController&gt;"
+                  moduleName = "Cardspark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leannelyons/webapps_2016/Cardspark-app/Cardspark/Cardspark/CardViewController.swift"
+                  timestampString = "485877424.769917"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

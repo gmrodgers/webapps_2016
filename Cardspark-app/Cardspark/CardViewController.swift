@@ -24,6 +24,7 @@ class CardViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   // MARK: Actions
   
   @IBAction func selectPhotoFromLibary(sender: UITapGestureRecognizer) {
+
     
     let imagePickerController = UIImagePickerController()
     
@@ -35,6 +36,19 @@ class CardViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     presentViewController(imagePickerController, animated: true, completion: nil)
     
   }
+  
+//  func initializeGestureRecognizer()
+//  {
+//    //For RotateGesture Recoginsation
+//    let rotateGesture: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: Selector("recogniseRotateGesture:"))
+//    photoImageView.addGestureRecognizer(rotateGesture)
+//  }
+//  
+//  func recogniseRotateGesture(sender: UIRotationGestureRecognizer)
+//  {
+//    sender.view!.transform = CGAffineTransformRotate(sender.view!.transform, sender.rotation)
+//    sender.rotation = 0
+//  }
   
   // MARK: UIImagePickerControllerDelegate
   
