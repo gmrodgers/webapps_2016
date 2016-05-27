@@ -47,6 +47,11 @@ class UsersController < ApplicationController
 	  redirect_to users_path
 	end 
 
+  def utopics
+    @topics = Topic.select(:topic_id, :name).joins(:users).find(params[:id])
+    render :nothing => true 
+  end
+
 private
 def user_params
   params.require(:user).permit(:name)

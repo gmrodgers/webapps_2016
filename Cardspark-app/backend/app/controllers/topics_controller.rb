@@ -47,10 +47,6 @@ class TopicsController < ApplicationController
 	  redirect_to topics_path
 	end
 
-	def get_topics
-		@topics = User.find(params[:id]).topics
-  end
-
 private
 def topic_params
   params.require(:topic).permit(:name)

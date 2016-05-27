@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
+
+  get '/users/utopics/:id' => 'users#utopics'
   resources :users
   resources :topics
   resources :cards
