@@ -42,6 +42,7 @@
                                     <rect key="frame" x="177" y="487" width="46" height="30"/>
                                 </variation>
                                 <connections>
+                                    <action selector="createAccount:" destination="Oeu-2J-ouq" eventType="touchUpInside" id="HgJ-2T-MFJ"/>
                                     <action selector="login:" destination="Oeu-2J-ouq" eventType="touchUpInside" id="2Q4-lf-IpH"/>
                                 </connections>
                             </button>
@@ -92,6 +93,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="alD-zV-Uaa" id="X61-ex-KAz"/>
+                        <outlet property="passwordTextField" destination="FuZ-zQ-hrE" id="0bC-zG-iBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-pM-VMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,7 +140,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cth-Zp-rW5" id="AUg-gx-1s2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-nM-GAZ">
@@ -465,14 +470,15 @@
             <objects>
                 <tableViewController id="c6b-99-XhE" customClass="CardTableViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LBR-MZ-O0o">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CardTableViewCell" id="nxb-Z5-Djm">
-                                <rect key="frame" x="0.0" y="92" width="0.0" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nxb-Z5-Djm" id="qXa-L8-M6p">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

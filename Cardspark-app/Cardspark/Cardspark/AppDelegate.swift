@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         UINavigationBar.appearance().barTintColor = UIColor.orangeColor()
@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
         self.window?.rootViewController = loginVC
+      
+        FIRApp.configure()
         return true
     }
 

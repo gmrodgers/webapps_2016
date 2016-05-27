@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304CCFD31CF85C7600EE0489 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 304CCFD21CF85C7600EE0489 /* GoogleService-Info.plist */; };
 		306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306881571CF78A1A00D16BC1 /* TimerViewController.swift */; };
 		308C22E31CF4A00F003B77B5 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */; };
 		308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */; };
@@ -22,6 +23,7 @@
 		3EBF5F551CF213900079B23F /* CardsparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F541CF213900079B23F /* CardsparkTests.swift */; };
 		3EBF5F5F1CF215500079B23F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F5E1CF215500079B23F /* LoginViewController.swift */; };
 		3EBF5F611CF238360079B23F /* cardspark white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F601CF238360079B23F /* cardspark white.png */; };
+		9E08721EBC6922CEEDFE2DDC /* libPods-Cardspark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		304CCFD21CF85C7600EE0489 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		306881571CF78A1A00D16BC1 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
 		308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +57,9 @@
 		3EBF5F541CF213900079B23F /* CardsparkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsparkTests.swift; sourceTree = "<group>"; };
 		3EBF5F5E1CF215500079B23F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EBF5F601CF238360079B23F /* cardspark white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardspark white.png"; sourceTree = "<group>"; };
+		61E15A3DF9901B414F165A3F /* Pods-Cardspark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardspark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark.debug.xcconfig"; sourceTree = "<group>"; };
+		D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cardspark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97028E318C2E008C941002B /* Pods-Cardspark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardspark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E08721EBC6922CEEDFE2DDC /* libPods-Cardspark.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		037203CAFA3CF66C17363400 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61E15A3DF9901B414F165A3F /* Pods-Cardspark.debug.xcconfig */,
+				E97028E318C2E008C941002B /* Pods-Cardspark.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3EBF5F2E1CF213900079B23F = {
 			isa = PBXGroup;
 			children = (
 				3EBF5F391CF213900079B23F /* Cardspark */,
 				3EBF5F511CF213900079B23F /* CardsparkTests */,
 				3EBF5F381CF213900079B23F /* Products */,
+				037203CAFA3CF66C17363400 /* Pods */,
+				4D4161F28160625AFD572F5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBF5F601CF238360079B23F /* cardspark white.png */,
+				304CCFD21CF85C7600EE0489 /* GoogleService-Info.plist */,
 				3EBF5F3B1CF213900079B23F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -139,6 +158,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4D4161F28160625AFD572F5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EBF5F581CF213900079B23F /* Build configuration list for PBXNativeTarget "Cardspark" */;
 			buildPhases = (
+				CDEFA3425C31E0BF74CE0ADE /* 📦 Check Pods Manifest.lock */,
 				3EBF5F331CF213900079B23F /* Sources */,
 				3EBF5F341CF213900079B23F /* Frameworks */,
 				3EBF5F351CF213900079B23F /* Resources */,
+				F85FED01A042B0ECE608AA4B /* 📦 Embed Pods Frameworks */,
+				DB9810A9D23D21C51310B336 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,6 +253,7 @@
 			files = (
 				3EBF5F441CF213900079B23F /* Main.storyboard in Resources */,
 				3EBF5F491CF213900079B23F /* LaunchScreen.xib in Resources */,
+				304CCFD31CF85C7600EE0489 /* GoogleService-Info.plist in Resources */,
 				3EBF5F611CF238360079B23F /* cardspark white.png in Resources */,
 				3EBF5F461CF213900079B23F /* Images.xcassets in Resources */,
 			);
@@ -236,6 +267,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CDEFA3425C31E0BF74CE0ADE /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB9810A9D23D21C51310B336 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F85FED01A042B0ECE608AA4B /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3EBF5F331CF213900079B23F /* Sources */ = {
@@ -373,6 +452,7 @@
 		};
 		3EBF5F591CF213900079B23F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61E15A3DF9901B414F165A3F /* Pods-Cardspark.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cardspark/Info.plist;
@@ -384,6 +464,7 @@
 		};
 		3EBF5F5A1CF213900079B23F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E97028E318C2E008C941002B /* Pods-Cardspark.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cardspark/Info.plist;
