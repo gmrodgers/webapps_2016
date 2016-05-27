@@ -72,11 +72,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
       return range.location != NSNotFound
     })
-    if(filtered.count == 0){
-      searchActive = false;
-    } else {
-      searchActive = true;
-    }
+    searchActive = !(filtered.count == 0)
     self.tableView.reloadData()
   }
 
@@ -103,9 +99,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
         cell.topicLabel.text = filtered[indexPath.row].name
       } else {
         // Fetches the appropriate topic for the data source layout.
-        let topic = topics[indexPath.row]
-      
-        cell.topicLabel.text = topic.name
+        cell.topicLabel.text = topics[indexPath.row].name
       }
       return cell
     }

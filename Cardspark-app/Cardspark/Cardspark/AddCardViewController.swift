@@ -59,6 +59,7 @@ class AddCardViewController: UIViewController {
     @IBAction func dissmissAddCard(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

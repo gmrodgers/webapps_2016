@@ -32,7 +32,7 @@ class TimerViewController: UIViewController {
     timer.invalidate() // just in case this button is tapped multiple times
     
     // start the timer
-    timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
   }
   
   // stop timer

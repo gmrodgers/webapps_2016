@@ -37,18 +37,6 @@ class CardViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
   }
   
-//  func initializeGestureRecognizer()
-//  {
-//    //For RotateGesture Recoginsation
-//    let rotateGesture: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: Selector("recogniseRotateGesture:"))
-//    photoImageView.addGestureRecognizer(rotateGesture)
-//  }
-//  
-//  func recogniseRotateGesture(sender: UIRotationGestureRecognizer)
-//  {
-//    sender.view!.transform = CGAffineTransformRotate(sender.view!.transform, sender.rotation)
-//    sender.rotation = 0
-//  }
   
   // MARK: UIImagePickerControllerDelegate
   
