@@ -10,7 +10,7 @@ import UIKit
 
 class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
   
-    // MARK: Properties
+  // MARK: Properties
   
   @IBOutlet weak var topicTextField: UITextField!
   @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -44,6 +44,7 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   
   func textFieldDidBeginEditing(textField: UITextField) {
     saveButton.enabled = false
+    topicTextField.selectedTextRange = self.topicTextField.textRangeFromPosition(self.topicTextField.beginningOfDocument, toPosition: self.topicTextField.endOfDocument)
   }
   
   func textFieldDidEndEditing(textField: UITextField) {
@@ -60,7 +61,8 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   }
 
   @IBAction func cancel(sender: UIBarButtonItem) {
-    dismissViewControllerAnimated(true, completion: nil)
+    self.dismissViewControllerAnimated(true, completion: nil)
+    print("Cancel")
   }
 
 }

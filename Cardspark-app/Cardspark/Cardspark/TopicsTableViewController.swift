@@ -8,13 +8,18 @@
 
 import UIKit
 
-class TopicsTableViewController: UITableViewController {
+class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
     // MARK: Properties
-    var topics = [Topic]()
-
-    override func viewDidLoad() {
+  @IBOutlet weak var searchBar: UISearchBar!
+  
+  var searchActive : Bool = false
+  var topics = [Topic]()
+  var filtered = [Topic]()
+  
+  override func viewDidLoad() {
       super.viewDidLoad()
+    
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,8 +28,13 @@ class TopicsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
       
       navigationItem.leftBarButtonItem = editButtonItem()
+      searchBar.delegate = self
       
-      loadSampleData()
+      if let savedTopics = loadTopics() {
+        topics += savedTopics
+      } else {
+        loadSampleData()
+      }
     }
   
   func loadSampleData() {
@@ -37,6 +47,34 @@ class TopicsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  // MARK: SearchBar Delegate
+  func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    searchActive = true;
+  }
+  
+  func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    searchActive = false;
+  }
+  
+  func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    searchActive = false;
+  }
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    searchActive = false;
+  }
+  
+  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    
+    filtered = topics.filter({ (topic) -> Bool in
+      let tmp: NSString = topic.name
+      let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+      return range.location != NSNotFound
+    })
+    searchActive = !(filtered.count == 0)
+    self.tableView.reloadData()
+  }
 
     // MARK: - Table view data source
 
@@ -45,43 +83,24 @@ class TopicsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.count
+      if(searchActive) {
+        return filtered.count
+      }
+      return topics.count
     }
   
     // MARK: Actions
-//  @IBAction func createNewTopicAlert(sender: UIBarButtonItem) {
-//    // Create alert controller
-//    let alert = UIAlertController(title: "Enter New Topic", message: "", preferredStyle: .Alert)
-//    
-//    //2. Add the text field. You can configure it however you need.
-//    alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-//      textField.text = "Topic Name"
-//    })
-//    
-//    //3. Grab the value from the text field, and print it when the user clicks OK.
-//    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-//      let textField = alert.textFields![0] as UITextField
-//      print("text: \(textField.text)")
-//      let topic = Topic(name: textField.text!)
-//      self.topics += [topic]
-//    }))
-//    
-//    // 4. Present the alert.
-//    self.presentViewController(alert, animated: true, completion: nil)
-//  }
-  
-
   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       // Table view cells are reused and should be dequeued using a cell identifier.
       let cellIdentifier = "TopicsTableViewCell"
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
-      
-      // Fetches the appropriate meal for the data source layout.
-      let topic = topics[indexPath.row]
-      
-      cell.topicLabel.text = topic.name
-      
+      if(searchActive){
+        cell.topicLabel.text = filtered[indexPath.row].name
+      } else {
+        // Fetches the appropriate topic for the data source layout.
+        cell.topicLabel.text = topics[indexPath.row].name
+      }
       return cell
     }
  
@@ -99,8 +118,8 @@ class TopicsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-          
             topics.removeAtIndex(indexPath.row)
+            saveTopics()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -139,8 +158,20 @@ class TopicsTableViewController: UITableViewController {
       let newIndexPath = NSIndexPath(forRow: topics.count, inSection: 0)
       topics.append(topic)
       tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+      saveTopics()
     }
-    
+  }
+  
+  // MARK: NSCoding
+  func saveTopics() {
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(topics, toFile: Topic.ArchiveURL.path!)
+    if !isSuccessfulSave {
+      print("Failed to save topics")
+    }
+  }
+  
+  func loadTopics() -> [Topic]? {
+    return NSKeyedUnarchiver.unarchiveObjectWithFile(Topic.ArchiveURL.path!) as? [Topic]
     
   }
 

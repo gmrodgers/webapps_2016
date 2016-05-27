@@ -24,6 +24,7 @@ class CardViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   // MARK: Actions
   
   @IBAction func selectPhotoFromLibary(sender: UITapGestureRecognizer) {
+
     
     let imagePickerController = UIImagePickerController()
     
@@ -35,6 +36,7 @@ class CardViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     presentViewController(imagePickerController, animated: true, completion: nil)
     
   }
+  
   
   // MARK: UIImagePickerControllerDelegate
   
