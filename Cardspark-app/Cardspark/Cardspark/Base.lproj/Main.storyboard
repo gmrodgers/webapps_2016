@@ -61,7 +61,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYS-Fk-5xz">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Sign Up"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="1" green="0.98001075699999995" blue="0.98294713560000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="173" y="525" width="55" height="30"/>
                                 </variation>
@@ -333,7 +335,7 @@
                                     <constraint firstAttribute="width" constant="110" id="hG4-p3-etg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Pause"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="hG4-p3-etg"/>
