@@ -44,6 +44,7 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   
   func textFieldDidBeginEditing(textField: UITextField) {
     saveButton.enabled = false
+    topicTextField.selectedTextRange = self.topicTextField.textRangeFromPosition(self.topicTextField.beginningOfDocument, toPosition: self.topicTextField.endOfDocument)
   }
   
   func textFieldDidEndEditing(textField: UITextField) {
