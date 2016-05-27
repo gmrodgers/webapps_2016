@@ -1,4 +1,5 @@
-class CardsController < ApplicationControllerskip_before_filter  :verify_authenticity_token
+class CardsController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
 	respond_to :json
 
 	def index
@@ -41,11 +42,11 @@ class CardsController < ApplicationControllerskip_before_filter  :verify_authent
   end
 
   def destroy
-  @card = Card.find(params[:id])
-  @card.destroy
- 
-  redirect_to cards_path
-end
+    @card = Card.find(params[:id])
+    @card.destroy
+   
+    redirect_to cards_path
+  end
 
 private
 def card_params
