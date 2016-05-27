@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
 	def index
 		@topics = Topic.all
-  	render @topics
+  	render :nothing => true
 	end
 
 	def create
@@ -49,6 +49,7 @@ class TopicsController < ApplicationController
 
 	def get_topics
 		@topics = User.find(params[:id]).topics
+  end
 
 private
 def topic_params
