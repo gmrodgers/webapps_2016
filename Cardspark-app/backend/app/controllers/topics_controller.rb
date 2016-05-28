@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
 	def index
 		@topics = Topic.all
-  	render :nothing => true
+  	render :json => @topics
 	end
 
 	def create
