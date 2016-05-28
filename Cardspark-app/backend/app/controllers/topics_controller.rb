@@ -11,7 +11,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     respond_to do |format|
       if @topic.save
-      	redirect_to @topic
+      	redirect_to @topics
       else
         render 'new'
       end
@@ -25,6 +25,7 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
+    render :nothing => true
   end
 
   def show
@@ -46,6 +47,11 @@ class TopicsController < ApplicationController
 	  @topic.destroy
 	  redirect_to topics_path
 	end
+
+  def tcards 
+    @cards = Card.where(topic_id: params[:id])
+    render :nothing => true
+  end
 
 private
 def topic_params

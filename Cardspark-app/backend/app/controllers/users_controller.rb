@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    render :nothing => true
   end
 
   def show
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+    render :nothing => true
   end
 
   def destroy

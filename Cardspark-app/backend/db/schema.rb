@@ -44,9 +44,4 @@ ActiveRecord::Schema.define(version: 20160527021125) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "users_topics", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "topic_id"
-  end
-
 end
