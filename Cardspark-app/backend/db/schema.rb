@@ -17,16 +17,13 @@ ActiveRecord::Schema.define(version: 20160527021125) do
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.integer  "topic_id"
-    t.string   "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "topic_id"
+    t.string  "filename"
+    t.binary  "card_file"
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "topics_users", id: false, force: :cascade do |t|
@@ -38,15 +35,8 @@ ActiveRecord::Schema.define(version: 20160527021125) do
   add_index "topics_users", ["user_id", "topic_id"], name: "index_topics_users_on_user_id_and_topic_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_hash"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "users_topics", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "topic_id"
+    t.string "email"
+    t.string "password_hash"
   end
 
 end
