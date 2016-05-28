@@ -9,6 +9,11 @@
 import UIKit
 
 class CardTableViewController: UITableViewController {
+  
+  
+  var pdfFiles = [""]
+  
+  
     
 
     @IBAction func dismissCards(sender: AnyObject) {
@@ -37,15 +42,12 @@ class CardTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-        
-        var pdfFiles = [""]
         
         do {
             let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
@@ -54,18 +56,18 @@ class CardTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
         
-        return 2
+        return pdfFiles.count
     }
 
-    /*
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
-        // Configure the cell...
-
-        return cell
-    }
-    */
+      let cellIdentifier = "CardTableViewCell"
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardTableViewCell
+      //cell.cardLabel.text = pdfFiles[indexPath.row]
+      return cell
+  }
+  
 
     /*
     // Override to support conditional editing of the table view.
