@@ -28,6 +28,9 @@ class LoginViewController: UIViewController {
       if error != nil {
         self.login()
       } else {
+        let alert = UIAlertController(title: "New user has been created", message: "email: \(self.emailTextField.text)" , preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
         print ("User Created")
         self.login()
       }
