@@ -20,16 +20,16 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Cardspark.LoginViewController.__deallocating_deinit"
+                  symbolName = "Cardspark.LoginViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Cardspark.LoginViewController"
                   moduleName = "Cardspark"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leannelyons/webapps_2016/Cardspark-app/Cardspark/Cardspark/LoginViewController.swift"
-                  timestampString = "486040185.357157"
+                  urlString = "file:///Users/leannelyons/Desktop/webapps_2016/Cardspark-app/Cardspark/Cardspark/LoginViewController.swift"
+                  timestampString = "486151794.215309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "70">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -38,8 +38,8 @@
                   symbolName = "Cardspark.LoginViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cardspark.LoginViewController&gt;"
                   moduleName = "Cardspark"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leannelyons/webapps_2016/Cardspark-app/Cardspark/Cardspark/LoginViewController.swift"
-                  timestampString = "486040185.364009"
+                  urlString = "file:///Users/leannelyons/Desktop/webapps_2016/Cardspark-app/Cardspark/Cardspark/LoginViewController.swift"
+                  timestampString = "486151794.215485"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -47,6 +47,22 @@
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cardspark/LoginViewController.swift"
+            timestampString = "486151945.260441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "login()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

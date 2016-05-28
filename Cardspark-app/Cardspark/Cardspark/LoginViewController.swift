@@ -13,14 +13,6 @@ class LoginViewController: UIViewController {
   
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
-
-    @IBAction func login(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        appDelegate.window?.rootViewController = tabBar
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +39,16 @@ class LoginViewController: UIViewController {
     FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!, completion: {
       user, error in
       if error != nil {
-        print("Incorrect")
+        let alert  = UIAlertController(title: "Incorrect Details Enterred", message: "Please try again", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
       } else {
-        print ("Correct")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.window?.rootViewController = tabBar
       }
     })
   }
