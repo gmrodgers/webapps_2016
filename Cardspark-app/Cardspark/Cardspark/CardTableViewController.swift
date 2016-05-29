@@ -49,10 +49,12 @@ class CardTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-      let cellIdentifier = "CardTableViewCell"
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardTableViewCell
-      //cell.cardLabel.text = pdfFiles[indexPath.row]
-      return cell
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "CardTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardTableViewCell
+            // Fetches the appropriate topic for the data source layout.
+            cell.cardLabel.text = cards[indexPath.row].name
+        return cell
         
     }
     
@@ -70,7 +72,7 @@ class CardTableViewController: UITableViewController {
         }
         
         for file in pdfFiles {
-            cards.append(Card(name: file.lastPathComponent!, url: file))
+            cards.append(Card(name: file.lastPathComponent, url: file))
         }
         
         return cards
