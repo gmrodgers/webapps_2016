@@ -24,6 +24,7 @@
 		3EBF5F551CF213900079B23F /* CardsparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F541CF213900079B23F /* CardsparkTests.swift */; };
 		3EBF5F5F1CF215500079B23F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F5E1CF215500079B23F /* LoginViewController.swift */; };
 		3EBF5F611CF238360079B23F /* cardspark white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F601CF238360079B23F /* cardspark white.png */; };
+		3EDDF69B1CFB308C0021FA52 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDDF69A1CFB308C0021FA52 /* Card.swift */; };
 		9E08721EBC6922CEEDFE2DDC /* libPods-Cardspark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		3EBF5F541CF213900079B23F /* CardsparkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsparkTests.swift; sourceTree = "<group>"; };
 		3EBF5F5E1CF215500079B23F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EBF5F601CF238360079B23F /* cardspark white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardspark white.png"; sourceTree = "<group>"; };
+		3EDDF69A1CFB308C0021FA52 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		61E15A3DF9901B414F165A3F /* Pods-Cardspark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardspark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark.debug.xcconfig"; sourceTree = "<group>"; };
 		D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cardspark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97028E318C2E008C941002B /* Pods-Cardspark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardspark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */,
 				308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */,
 				308C22EA1CF4B1DE003B77B5 /* Topic.swift */,
+				3EDDF69A1CFB308C0021FA52 /* Card.swift */,
 				308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */,
 				3EBF5F451CF213900079B23F /* Images.xcassets */,
 				3EBF5F471CF213900079B23F /* LaunchScreen.xib */,
@@ -331,6 +334,7 @@
 				30D290D91CF5EA84006E3AED /* CardViewController.swift in Sources */,
 				308C22EB1CF4B1DE003B77B5 /* Topic.swift in Sources */,
 				3EBF5F3D1CF213900079B23F /* AppDelegate.swift in Sources */,
+				3EDDF69B1CFB308C0021FA52 /* Card.swift in Sources */,
 				308C22E31CF4A00F003B77B5 /* NewTopicViewController.swift in Sources */,
 				308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */,
 				308C22E91CF4AED9003B77B5 /* TopicsTableViewCell.swift in Sources */,

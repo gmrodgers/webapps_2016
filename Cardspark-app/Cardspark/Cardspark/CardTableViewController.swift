@@ -9,12 +9,8 @@
 import UIKit
 
 class CardTableViewController: UITableViewController {
-  
-  
-  var pdfFiles = [""]
-  
-  
     
+    var cards = [Card]()
 
     @IBAction func dismissCards(sender: AnyObject) {
         
@@ -24,8 +20,9 @@ class CardTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        cards = getCards()
+        print(cards.description)
+        print(cards.count)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -46,17 +43,7 @@ class CardTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-        
-        do {
-            let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
-             pdfFiles = directoryUrls.filter{ $0.pathExtension! == "pdf" }.map{ $0.lastPathComponent! }
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-        return pdfFiles.count
+        return cards.count
     }
 
 
@@ -66,7 +53,29 @@ class CardTableViewController: UITableViewController {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardTableViewCell
       //cell.cardLabel.text = pdfFiles[indexPath.row]
       return cell
-  }
+        
+    }
+    
+    func getCards() -> [Card] {
+    
+        let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        var pdfFiles = [NSURL]()
+        
+        
+        do {
+            let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
+            pdfFiles = directoryUrls.filter{ $0.pathExtension! == "pdf" }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+        for file in pdfFiles {
+            cards.append(Card(name: file.lastPathComponent!, url: file))
+        }
+        
+        return cards
+    }
+    
   
 
     /*
