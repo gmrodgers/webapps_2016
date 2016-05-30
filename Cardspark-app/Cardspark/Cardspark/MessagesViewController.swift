@@ -73,12 +73,6 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    // messages from someone else
-    addMessage("foo", text: "Hey person!")
-    // messages sent from local sender
-    addMessage(senderId, text: "Yo!")
-    addMessage(senderId, text: "I like turtles!")
-    // animates the receiving of a new message on the view
     finishReceivingMessage()
   }
   
@@ -96,5 +90,14 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     return cell
+  }
+  
+  override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
+                                   senderDisplayName: String!, date: NSDate!) {
+    
+    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+    addMessage(senderId, text: text)
+    
+    finishSendingMessage()
   }
 }
