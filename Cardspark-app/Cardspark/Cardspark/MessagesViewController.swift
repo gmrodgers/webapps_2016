@@ -24,8 +24,11 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-        title = "Messenger"
-        setupBubbles()
+    title = "Messenger"
+    setupBubbles()
+    
+    inputToolbar.contentView.leftBarButtonItem = nil
+    automaticallyScrollsToMostRecentMessage = true
     
     // These need to be set properly
     self.senderId = AppState.sharedInstance.userID
@@ -115,7 +118,7 @@ class MessagesViewController: JSQMessagesViewController {
     itemRef.setValue(messageItem)
     
     JSQSystemSoundPlayer.jsq_playMessageSentSound()
-    addMessage(senderId, text: text)
+//    addMessage(senderId, text: text)
     
     finishSendingMessage()
   }
