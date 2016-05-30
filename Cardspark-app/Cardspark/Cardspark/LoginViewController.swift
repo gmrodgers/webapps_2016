@@ -81,6 +81,7 @@ class LoginViewController: UIViewController {
     
     AppState.sharedInstance.displayName = user?.displayName ?? user?.email
     AppState.sharedInstance.signedIn = true
+    AppState.sharedInstance.userID = user!.uid
     
     NSNotificationCenter.defaultCenter().postNotificationName("onSignInCompleted", object: nil, userInfo: nil)
 //    let storyboard = UIStoryboard(name: "Main", bundle: nil)

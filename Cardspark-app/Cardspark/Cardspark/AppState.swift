@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class AppState: NSObject {
   
@@ -14,4 +15,6 @@ class AppState: NSObject {
   
   var signedIn = false
   var displayName: String?
+  var userID : String?
+  
 }

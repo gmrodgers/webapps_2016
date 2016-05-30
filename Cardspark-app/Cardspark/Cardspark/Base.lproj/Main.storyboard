@@ -397,14 +397,14 @@
                                 <exclude reference="ZpN-YX-ZfT"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Pj1-SN-qla"/>
-                                <exclude reference="bHw-PJ-noE"/>
+                                <exclude reference="GhN-7g-RZ9"/>
+                                <exclude reference="xg5-r6-ugu"/>
                                 <exclude reference="Br7-Mh-aab"/>
                                 <exclude reference="MV7-oG-92b"/>
                                 <exclude reference="tba-WE-se3"/>
                                 <exclude reference="z3Z-ZN-Nox"/>
-                                <exclude reference="GhN-7g-RZ9"/>
-                                <exclude reference="xg5-r6-ugu"/>
+                                <exclude reference="Pj1-SN-qla"/>
+                                <exclude reference="bHw-PJ-noE"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -415,14 +415,14 @@
                                 <include reference="ZpN-YX-ZfT"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Pj1-SN-qla"/>
-                                <include reference="bHw-PJ-noE"/>
+                                <include reference="GhN-7g-RZ9"/>
+                                <include reference="xg5-r6-ugu"/>
                                 <include reference="Br7-Mh-aab"/>
                                 <include reference="MV7-oG-92b"/>
                                 <include reference="tba-WE-se3"/>
                                 <include reference="z3Z-ZN-Nox"/>
-                                <include reference="GhN-7g-RZ9"/>
-                                <include reference="xg5-r6-ugu"/>
+                                <include reference="Pj1-SN-qla"/>
+                                <include reference="bHw-PJ-noE"/>
                             </mask>
                         </variation>
                     </view>
