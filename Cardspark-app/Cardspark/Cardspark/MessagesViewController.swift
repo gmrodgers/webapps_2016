@@ -36,12 +36,13 @@ class MessagesViewController: JSQMessagesViewController {
     collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
     
     messageRef = rootRef.child("messages")
+    
+    observeMessages()
   
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    observeMessages()
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
