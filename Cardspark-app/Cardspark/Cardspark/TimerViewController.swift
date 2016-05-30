@@ -46,6 +46,9 @@ class TimerViewController: UIViewController {
     label.text = "\(counter / 60)m \(counter % 60)s"
   }
   
+  @IBAction func resetButtonTapped(sender: UIButton) {
+    counter = 60 * 25
+  }
 
     /*
     // MARK: - Navigation
