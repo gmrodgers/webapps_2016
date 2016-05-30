@@ -13,7 +13,7 @@ import Firebase
 class MessagesViewController: JSQMessagesViewController {
 
   // MARK: Properties
-  var messages = [JSQMessage]()
+  var messages = [Message]()
   
   var outgoingBubbleImageView: JSQMessagesBubbleImage!
   var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -69,7 +69,7 @@ class MessagesViewController: JSQMessagesViewController {
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
     let message = messages[indexPath.item]
-    if message.senderId == senderId {
+    if message.senderId() == senderId {
         return outgoingBubbleImageView
     } else {
       return incomingBubbleImageView
@@ -82,14 +82,10 @@ class MessagesViewController: JSQMessagesViewController {
   }
   
   func addMessage(id: String, text: String) {
-    let message = JSQMessage(senderId: id, displayName: "", text: text)
+    let message = Message(senderId: id, senderDisplayName: "", isMediaMessage: false, hash: 0, text: text)
     messages.append(message)
   }
   
-//  override func viewDidAppear(animated: Bool) {
-//    super.viewDidAppear(animated)
-//    finishReceivingMessage()
-//  }
   
   override func collectionView(collectionView: UICollectionView,
                                cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -98,7 +94,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     let message = messages[indexPath.item]
     
-    if message.senderId == senderId {
+    if message.senderId() == senderId {
       cell.textView!.textColor = UIColor.whiteColor()
     } else {
       cell.textView!.textColor = UIColor.blackColor()
@@ -118,8 +114,6 @@ class MessagesViewController: JSQMessagesViewController {
     itemRef.setValue(messageItem)
     
     JSQSystemSoundPlayer.jsq_playMessageSentSound()
-//    addMessage(senderId, text: text)
-    
     finishSendingMessage()
   }
   
@@ -132,5 +126,44 @@ class MessagesViewController: JSQMessagesViewController {
       self.addMessage(id, text: text)
       self.finishReceivingMessage()
     })
+  }
+  
+  // View  usernames above bubbles
+  override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+    let message = messages[indexPath.item];
+    
+    // Sent by me, skip
+    if message.senderId() == senderId {
+      return nil;
+    }
+    
+    // Same as previous sender, skip
+    if indexPath.item > 0 {
+      let previousMessage = messages[indexPath.item - 1];
+      if previousMessage.senderId() == message.senderId() {
+        return nil;
+      }
+    }
+    
+    return NSAttributedString(string:message.senderId())
+  }
+  
+  override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    let message = messages[indexPath.item]
+    
+    // Sent by me, skip
+    if message.senderId() == senderId {
+      return CGFloat(0.0);
+    }
+    
+    // Same as previous sender, skip
+    if indexPath.item > 0 {
+      let previousMessage = messages[indexPath.item - 1];
+      if previousMessage.senderId() == message.senderId() {
+        return CGFloat(0.0);
+      }
+    }
+    
+    return kJSQMessagesCollectionViewCellLabelHeightDefault
   }
 }
