@@ -129,8 +129,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="xai-yY-cao" kind="relationship" relationship="viewControllers" id="GP7-iK-8iJ"/>
-                        <segue destination="lhP-1r-Zcj" kind="relationship" relationship="viewControllers" id="eta-sW-DPA"/>
                         <segue destination="UjX-Od-8Bo" kind="relationship" relationship="viewControllers" id="Lb1-pc-OFy"/>
+                        <segue destination="mQl-fN-MJK" kind="relationship" relationship="viewControllers" id="ClB-BJ-7X7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -289,35 +289,6 @@
             </objects>
             <point key="canvasLocation" x="2805" y="-821"/>
         </scene>
-        <!--Messenger-->
-        <scene sceneID="iOT-R6-nBH">
-            <objects>
-                <tableViewController id="lhP-1r-Zcj" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BgX-Ej-VpB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessengerTableViewCell" id="XOQ-qu-i2Q">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XOQ-qu-i2Q" id="UMu-sZ-wWi">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lhP-1r-Zcj" id="sJg-To-i9v"/>
-                            <outlet property="delegate" destination="lhP-1r-Zcj" id="tlp-Aq-yNz"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Messenger" image="first" id="Qso-2I-zPI"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v4B-Qg-J3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="734" y="312"/>
-        </scene>
         <!--Timer-->
         <scene sceneID="fMw-qS-flo">
             <objects>
@@ -445,7 +416,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPb-L1-yGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733.5" y="985"/>
+            <point key="canvasLocation" x="7.5" y="777"/>
+        </scene>
+        <!--Messenger-->
+        <scene sceneID="Qgc-rT-oh4">
+            <objects>
+                <viewController id="mQl-fN-MJK" customClass="MessagesViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p24-s7-jFj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hjk-tl-lqN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="90i-zG-kvS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Messenger" image="first" id="1EG-3k-YXc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3c2-DS-Goi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709.5" y="470"/>
         </scene>
         <!--Cards-->
         <scene sceneID="q29-Za-IHo">

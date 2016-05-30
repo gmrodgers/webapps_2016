@@ -1,0 +1,6 @@
+framework module Pods_Cardspark {
+  umbrella header "Pods-Cardspark-umbrella.h"
+
+  export *
+  module * { export * }
+}

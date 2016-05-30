@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3035E31C1CFC6BB500872740 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3035E31B1CFC6BB500872740 /* MessagesViewController.swift */; };
 		304CCFD31CF85C7600EE0489 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 304CCFD21CF85C7600EE0489 /* GoogleService-Info.plist */; };
 		306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306881571CF78A1A00D16BC1 /* TimerViewController.swift */; };
 		308C22E31CF4A00F003B77B5 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */; };
@@ -26,7 +27,7 @@
 		3EBF5F5F1CF215500079B23F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F5E1CF215500079B23F /* LoginViewController.swift */; };
 		3EBF5F611CF238360079B23F /* cardspark white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F601CF238360079B23F /* cardspark white.png */; };
 		3EDDF69B1CFB308C0021FA52 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDDF69A1CFB308C0021FA52 /* Card.swift */; };
-		9E08721EBC6922CEEDFE2DDC /* libPods-Cardspark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */; };
+		DC4352C1BE2A111911E4FCA9 /* Pods_Cardspark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33EB3C8E7E28B724AB2ED229 /* Pods_Cardspark.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3035E31B1CFC6BB500872740 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		304CCFD21CF85C7600EE0489 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		306881571CF78A1A00D16BC1 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 		30914EA81CFC559500E09D68 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		30D290D81CF5EA84006E3AED /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardViewController.swift; path = ../CardViewController.swift; sourceTree = "<group>"; };
+		33EB3C8E7E28B724AB2ED229 /* Pods_Cardspark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardspark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E004C341CF77B4000474F16 /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
 		3E004C361CF77C3E00474F16 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		3EBF5F371CF213900079B23F /* Cardspark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardspark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +67,6 @@
 		3EBF5F601CF238360079B23F /* cardspark white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardspark white.png"; sourceTree = "<group>"; };
 		3EDDF69A1CFB308C0021FA52 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		61E15A3DF9901B414F165A3F /* Pods-Cardspark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardspark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark.debug.xcconfig"; sourceTree = "<group>"; };
-		D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cardspark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97028E318C2E008C941002B /* Pods-Cardspark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardspark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardspark/Pods-Cardspark.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E08721EBC6922CEEDFE2DDC /* libPods-Cardspark.a in Frameworks */,
+				DC4352C1BE2A111911E4FCA9 /* Pods_Cardspark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,7 @@
 				3EBF5F3C1CF213900079B23F /* AppDelegate.swift */,
 				3EBF5F421CF213900079B23F /* Main.storyboard */,
 				306881571CF78A1A00D16BC1 /* TimerViewController.swift */,
+				3035E31B1CFC6BB500872740 /* MessagesViewController.swift */,
 				30914EA81CFC559500E09D68 /* AppState.swift */,
 				3E004C361CF77C3E00474F16 /* AddCardViewController.swift */,
 				30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */,
@@ -170,7 +173,7 @@
 		4D4161F28160625AFD572F5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D841390FB6C1F46788B8EA39 /* libPods-Cardspark.a */,
+				33EB3C8E7E28B724AB2ED229 /* Pods_Cardspark.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3035E31C1CFC6BB500872740 /* MessagesViewController.swift in Sources */,
 				306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */,
 				30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */,
 				3EBF5F5F1CF215500079B23F /* LoginViewController.swift in Sources */,
