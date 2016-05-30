@@ -8,7 +8,6 @@
 
 import UIKit
 import JSQMessagesViewController
-import Firebase
 
 class MessagesViewController: JSQMessagesViewController {
 
@@ -17,6 +16,7 @@ class MessagesViewController: JSQMessagesViewController {
   
   var outgoingBubbleImageView: JSQMessagesBubbleImage!
   var incomingBubbleImageView: JSQMessagesBubbleImage!
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,12 +24,13 @@ class MessagesViewController: JSQMessagesViewController {
         setupBubbles()
     
     // These need to be set properly
-    self.senderId = ""
-    self.senderDisplayName = ""
+    self.senderId = AppState.sharedInstance.displayName
+    self.senderDisplayName = AppState.sharedInstance.displayName
     
     // No avatars
     collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
     collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+  
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
