@@ -48,7 +48,7 @@ class AddCardViewController: UIViewController {
         
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
-        pdfData.writeToFile("\(documentsPath)/cards/\(titleTextField.text).pdf", atomically: true)
+        pdfData.writeToFile("\(documentsPath)/\(titleTextField.text).pdf", atomically: true)
         
         print("saved")
         
