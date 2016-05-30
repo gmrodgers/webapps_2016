@@ -8,6 +8,7 @@
 
 import UIKit
 import JSQMessagesViewController
+import Firebase
 
 class MessagesViewController: JSQMessagesViewController {
 
@@ -16,6 +17,9 @@ class MessagesViewController: JSQMessagesViewController {
   
   var outgoingBubbleImageView: JSQMessagesBubbleImage!
   var incomingBubbleImageView: JSQMessagesBubbleImage!
+  
+  var rootRef = FIRDatabase.database().reference()
+  var messageRef: FIRDatabaseReference!
 
   
   override func viewDidLoad() {
@@ -30,6 +34,8 @@ class MessagesViewController: JSQMessagesViewController {
     // No avatars
     collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
     collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+    
+    messageRef = rootRef.child("messages")
   
   }
   
@@ -94,6 +100,13 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
                                    senderDisplayName: String!, date: NSDate!) {
+    
+    let itemRef = messageRef.childByAutoId()
+    let messageItem = [
+      "text": text,
+      "senderId": senderId
+    ]
+    itemRef.setValue(messageItem)
     
     JSQSystemSoundPlayer.jsq_playMessageSentSound()
     addMessage(senderId, text: text)
