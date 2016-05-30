@@ -39,6 +39,11 @@ class MessagesViewController: JSQMessagesViewController {
   
   }
   
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    observeMessages()
+  }
+  
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
     return messages[indexPath.item]
@@ -77,10 +82,10 @@ class MessagesViewController: JSQMessagesViewController {
     messages.append(message)
   }
   
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-    finishReceivingMessage()
-  }
+//  override func viewDidAppear(animated: Bool) {
+//    super.viewDidAppear(animated)
+//    finishReceivingMessage()
+//  }
   
   override func collectionView(collectionView: UICollectionView,
                                cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -112,5 +117,16 @@ class MessagesViewController: JSQMessagesViewController {
     addMessage(senderId, text: text)
     
     finishSendingMessage()
+  }
+  
+  private func observeMessages() {
+    let messagesQuery = messageRef.queryLimitedToLast(25)
+    
+    messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
+      let id = AppState.sharedInstance.displayName
+      let text = snapshot.value!["text"] as! String
+      self.addMessage(id!, text: text)
+      self.finishReceivingMessage()
+    })
   }
 }
