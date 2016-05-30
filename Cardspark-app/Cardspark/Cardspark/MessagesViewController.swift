@@ -28,8 +28,8 @@ class MessagesViewController: JSQMessagesViewController {
         setupBubbles()
     
     // These need to be set properly
-    self.senderId = AppState.sharedInstance.displayName
-    self.senderDisplayName = AppState.sharedInstance.displayName
+    self.senderId = AppState.sharedInstance.userID
+    self.senderDisplayName = ""
     
     // No avatars
     collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
@@ -124,9 +124,9 @@ class MessagesViewController: JSQMessagesViewController {
     let messagesQuery = messageRef.queryLimitedToLast(25)
     
     messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
-      let id = AppState.sharedInstance.displayName
       let text = snapshot.value!["text"] as! String
-      self.addMessage(id!, text: text)
+      let id = snapshot.value!["senderId"] as! String
+      self.addMessage(id, text: text)
       self.finishReceivingMessage()
     })
   }
