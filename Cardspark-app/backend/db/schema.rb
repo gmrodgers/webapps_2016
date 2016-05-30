@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527021125) do
+ActiveRecord::Schema.define(version: 20160530140433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20160527021125) do
     t.integer "topic_id"
     t.string  "filename"
     t.binary  "card_file"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "topics", force: :cascade do |t|

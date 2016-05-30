@@ -49,7 +49,7 @@ class CardsController < ApplicationController
   end
 
 private
-def card_params
-  params.require(:card).permit(:name)
-end
+  def card_params
+    params.require(:card).permit(:topic_id, :cardname, :card_file)
+  end
 end
