@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cardspark/LoginViewController.swift"
@@ -17,29 +17,14 @@
             endingLineNumber = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cardspark.LoginViewController.__deallocating_deinit"
-                  moduleName = "Cardspark"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leannelyons/Desktop/webapps_2016/Cardspark-app/Cardspark/Cardspark/LoginViewController.swift"
-                  timestampString = "486153673.97362"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Cardspark.LoginViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Cardspark.LoginViewController"
                   moduleName = "Cardspark"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/leannelyons/Desktop/webapps_2016/Cardspark-app/Cardspark/Cardspark/LoginViewController.swift"
-                  timestampString = "486153673.973734"
+                  timestampString = "486300396.823144"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -47,14 +32,14 @@
                   offsetFromSymbolStart = "70">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Cardspark.LoginViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Cardspark.LoginViewController&gt;"
                   moduleName = "Cardspark"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/leannelyons/Desktop/webapps_2016/Cardspark-app/Cardspark/Cardspark/LoginViewController.swift"
-                  timestampString = "486153673.973822"
+                  timestampString = "486300396.823306"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -78,6 +63,38 @@
             endingLineNumber = "19"
             landmarkName = "dismissCards(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cardspark/TopicsTableViewController.swift"
+            timestampString = "486300126.432979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "TopicsTableViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cardspark/TopicsTableViewController.swift"
+            timestampString = "486300395.752287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "TopicsTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

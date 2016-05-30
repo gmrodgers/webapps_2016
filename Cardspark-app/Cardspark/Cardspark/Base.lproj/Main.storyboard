@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Oeu-2J-ouq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -110,11 +110,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="alD-zV-Uaa" id="X61-ex-KAz"/>
                         <outlet property="passwordTextField" destination="FuZ-zQ-hrE" id="0bC-zG-iBA"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="SignIn" id="ILP-OK-zPv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-pM-VMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="675"/>
+            <point key="canvasLocation" x="-664.5" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -185,6 +186,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Topics" id="BAK-NU-NmX">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="9qO-Tu-vpC">
+                            <connections>
+                                <action selector="didTapDignOut:" destination="nni-N2-6Mo" id="yh1-ki-Aj0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WEj-gm-fcd">
                             <connections>
                                 <action selector="createNewTopicAlert:" destination="nni-N2-6Mo" id="Bh3-ti-CY8"/>
@@ -204,7 +210,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1400" y="-821"/>
+            <point key="canvasLocation" x="721.5" y="-713"/>
         </scene>
         <!--New Topic-->
         <scene sceneID="245-3v-5bc">
@@ -458,7 +464,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSw-AX-qN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="-821"/>
+            <point key="canvasLocation" x="-16.5" y="-713"/>
         </scene>
         <!--Card Viewer-->
         <scene sceneID="QCd-nh-FeA">

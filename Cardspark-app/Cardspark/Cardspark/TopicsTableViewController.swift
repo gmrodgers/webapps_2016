@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
@@ -27,7 +28,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
       
-      navigationItem.leftBarButtonItem = editButtonItem()
+      //navigationItem.leftBarButtonItem = editButtonItem()
       searchBar.delegate = self
       
       if let savedTopics = loadTopics() {
@@ -160,6 +161,17 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       topics.append(topic)
       tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
       saveTopics()
+    }
+  }
+  
+  @IBAction func didTapDignOut(sender: UIBarButtonItem) {
+    let firebaseAuth = FIRAuth.auth()
+    do {
+      try firebaseAuth?.signOut()
+      AppState.sharedInstance.signedIn = false
+      dismissViewControllerAnimated(true, completion: nil)
+    } catch let signOutError as NSError {
+      print ("Error signing out: \(signOutError)")
     }
   }
   

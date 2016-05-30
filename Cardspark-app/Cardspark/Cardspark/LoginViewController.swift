@@ -13,12 +13,12 @@ class LoginViewController: UIViewController {
   
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  
+  override func viewDidAppear(animated: Bool) {
+    if let user = FIRAuth.auth()?.currentUser {
+      self.login(user)
     }
+  }
   
   // MARK: Login
 
@@ -83,11 +83,12 @@ class LoginViewController: UIViewController {
     AppState.sharedInstance.signedIn = true
     
     NSNotificationCenter.defaultCenter().postNotificationName("onSignInCompleted", object: nil, userInfo: nil)
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    
-    appDelegate.window?.rootViewController = tabBar
+//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//    let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+//    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//    
+//    appDelegate.window?.rootViewController = tabBar
+    performSegueWithIdentifier("SignIn", sender: nil)
   }
   
     override func didReceiveMemoryWarning() {
