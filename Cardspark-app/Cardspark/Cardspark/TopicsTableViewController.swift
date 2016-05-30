@@ -33,15 +33,16 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       if let savedTopics = loadTopics() {
         topics += savedTopics
       } else {
-        loadSampleData()
+//        loadSampleData()
+        loadTopicsData()
       }
     }
   
-  func loadSampleData() {
-    let topic1 = Topic(name: "Compilers")
-    let topic2 = Topic(name: "OS")
-    topics += [topic1, topic2]
-  }
+//  func loadSampleData() {
+//    let topic1 = Topic(name: "Compilers")
+//    let topic2 = Topic(name: "OS")
+//    topics += [topic1, topic2]
+//  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -174,5 +175,41 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     return NSKeyedUnarchiver.unarchiveObjectWithFile(Topic.ArchiveURL.path!) as? [Topic]
     
   }
+    
+    func loadTopicsData() {
+        NSLog("Connect with URL for loading topics")
+        let urlString = "https://radiant-meadow-37906.herokuapp.com/topics"
+        let url = NSURL(string: urlString)!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data, response, error) -> Void in
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            
+            if (statusCode == 200) {
+                do {
+                    print("Everything is okay")
+                    let topicsArray = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as! NSArray
+                    
+                    for topic in topicsArray {
+                        
+                        if let topicName = topic["name"] as? String {
+                            let newTopic = Topic(name: topicName)
+                            self.topics.append(newTopic)
+                        }
+                    }
+                }catch {
+                    print("Error with Json")
+                }
+            }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
+        }
+        
+        task.resume()
+    }
 
 }
