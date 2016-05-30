@@ -42,7 +42,7 @@
                                     <rect key="frame" x="177" y="487" width="46" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="createAccount:" destination="Oeu-2J-ouq" eventType="touchUpInside" id="HgJ-2T-MFJ"/>
+                                    <action selector="didClickLogin:" destination="Oeu-2J-ouq" eventType="touchUpInside" id="ao4-hl-LJo"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="alD-zV-Uaa">
@@ -59,6 +59,28 @@
                                     <rect key="frame" x="53" y="44" width="294" height="309"/>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqO-ot-dIL">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sign Up"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="173" y="520" width="55" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="didTapSignUp:" destination="Oeu-2J-ouq" eventType="touchUpInside" id="nY6-1Y-tLC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYH-yk-gyC">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Forgot Password">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="143" y="558" width="115" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="didRequestPasswordReset:" destination="Oeu-2J-ouq" eventType="touchUpInside" id="S8x-5f-m1h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.52753785185124202" blue="0.13990598817237998" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
@@ -70,6 +92,8 @@
                                 <exclude reference="4Qq-Vr-5qT"/>
                                 <exclude reference="alD-zV-Uaa"/>
                                 <exclude reference="YEc-Zb-WeN"/>
+                                <exclude reference="LqO-ot-dIL"/>
+                                <exclude reference="kYH-yk-gyC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -78,6 +102,8 @@
                                 <include reference="4Qq-Vr-5qT"/>
                                 <include reference="alD-zV-Uaa"/>
                                 <include reference="YEc-Zb-WeN"/>
+                                <include reference="LqO-ot-dIL"/>
+                                <include reference="kYH-yk-gyC"/>
                             </mask>
                         </variation>
                     </view>

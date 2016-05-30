@@ -22,54 +22,77 @@ class LoginViewController: UIViewController {
   
   // MARK: Login
 
-  @IBAction func createAccount(sender: AnyObject) {
-    FIRAuth.auth()?.createUserWithEmail(emailTextField.text!, password: passwordTextField.text!, completion: {
-      user, error in
-      if error != nil {
-        self.login()
-      } else {
-        let alert = UIAlertController(title: "New user has been created", message: "email: \(self.emailTextField.text)" , preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        print ("User Created")
-        self.login()
+  @IBAction func didClickLogin(sender: AnyObject) {
+    FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+      if let error = error {
+        print(error.localizedDescription)
+        return
       }
-    })
-    
+      self.login(user!)
+    }
   }
   
-  func login() {
-    FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!, completion: {
-      user, error in
-      if error != nil {
-        let alert  = UIAlertController(title: "Incorrect Details Enterred", message: "Please try again", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-      } else {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        appDelegate.window?.rootViewController = tabBar
+  @IBAction func didTapSignUp(sender: AnyObject) {
+    let email = emailTextField.text
+    let password = passwordTextField.text
+    FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
+      if let error = error {
+        print(error.localizedDescription)
+        return
       }
-    })
+      self.setDisplayName(user!)
+    }
+  }
+  
+  @IBAction func didRequestPasswordReset(sender: AnyObject) {
+    let prompt = UIAlertController.init(title: nil, message: "Email:", preferredStyle: UIAlertControllerStyle.Alert)
+    let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Default) { (action) in
+      let userInput = prompt.textFields![0].text
+      if (userInput!.isEmpty) {
+        return
+      }
+      FIRAuth.auth()?.sendPasswordResetWithEmail(userInput!) { (error) in
+        if let error = error {
+          print(error.localizedDescription)
+          return
+        }
+      }
+    }
+    prompt.addTextFieldWithConfigurationHandler(nil)
+    prompt.addAction(okAction)
+    presentViewController(prompt, animated: true, completion: nil)
+  }
+
+
+  func setDisplayName(user: FIRUser) {
+    let changeRequest = user.profileChangeRequest()
+    changeRequest.displayName = user.email!.componentsSeparatedByString("@")[0]
+    changeRequest.commitChangesWithCompletion(){ (error) in
+      if let error = error {
+        print(error.localizedDescription)
+        return
+      }
+      self.login(FIRAuth.auth()?.currentUser)
+    }
+  }
+  
+  func login(user: FIRUser?) {
+    FIRAnalytics.logEventWithName(kFIREventLogin, parameters: nil)
+    
+    AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+    AppState.sharedInstance.signedIn = true
+    
+    NSNotificationCenter.defaultCenter().postNotificationName("onSignInCompleted", object: nil, userInfo: nil)
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    appDelegate.window?.rootViewController = tabBar
   }
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

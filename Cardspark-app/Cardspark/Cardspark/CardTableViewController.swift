@@ -72,7 +72,7 @@ class CardTableViewController: UITableViewController {
         }
         
         for file in pdfFiles {
-//            cards.append(Card(name: file.lastPathComponent, url: file))
+            cards.append(Card(name: file.lastPathComponent!, url: file))
         }
         
         return cards
