@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
       
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().barTintColor = UIColor.orangeColor()
+      
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
 //        self.window?.rootViewController = loginVC
