@@ -47,22 +47,26 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func didRequestPasswordReset(sender: AnyObject) {
-    let prompt = UIAlertController.init(title: nil, message: "Email:", preferredStyle: UIAlertControllerStyle.Alert)
-    let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Default) { (action) in
-      let userInput = prompt.textFields![0].text
-      if (userInput!.isEmpty) {
-        return
-      }
-      FIRAuth.auth()?.sendPasswordResetWithEmail(userInput!) { (error) in
-        if let error = error {
-          print(error.localizedDescription)
-          return
-        }
-      }
-    }
-    prompt.addTextFieldWithConfigurationHandler(nil)
-    prompt.addAction(okAction)
-    presentViewController(prompt, animated: true, completion: nil)
+    let alert = UIAlertController(title: "",
+                                  message: "Mate, you are going to need to sort this out with Google",
+                                  preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "OK",
+      style: UIAlertActionStyle.Default,
+      handler: nil))
+    presentViewController(alert, animated: true, completion: nil)
+  
+//      (action) in
+//      let userInput = prompt.textFields![0].text
+//      if (userInput!.isEmpty) {
+//        return
+//      }
+//      FIRAuth.auth()?.sendPasswordResetWithEmail(userInput!) { (error) in
+//        if let error = error {
+//          print(error.localizedDescription)
+//          return
+//        }
+//      }
+//    }
   }
 
 

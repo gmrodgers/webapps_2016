@@ -10,7 +10,7 @@ import UIKit
 
 class TimerViewController: UIViewController {
   
-  var counter = 60*25
+  var counter = 5
   var timer = NSTimer()
   
   @IBOutlet weak var label: UILabel!
