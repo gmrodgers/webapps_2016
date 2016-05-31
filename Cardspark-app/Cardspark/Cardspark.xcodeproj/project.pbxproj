@@ -93,6 +93,7 @@
 		037203CAFA3CF66C17363400 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				3EBF5F511CF213900079B23F /* CardsparkTests */,
 				61E15A3DF9901B414F165A3F /* Pods-Cardspark.debug.xcconfig */,
 				E97028E318C2E008C941002B /* Pods-Cardspark.release.xcconfig */,
 			);
@@ -103,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				3EBF5F391CF213900079B23F /* Cardspark */,
-				3EBF5F511CF213900079B23F /* CardsparkTests */,
 				3EBF5F381CF213900079B23F /* Products */,
 				037203CAFA3CF66C17363400 /* Pods */,
 				4D4161F28160625AFD572F5F /* Frameworks */,

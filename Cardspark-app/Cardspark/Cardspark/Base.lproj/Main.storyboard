@@ -170,13 +170,11 @@
                                         <constraint firstItem="IyS-nM-GAZ" firstAttribute="top" secondItem="AUg-gx-1s2" secondAttribute="topMargin" id="14p-Mi-PXU"/>
                                         <constraint firstItem="IyS-nM-GAZ" firstAttribute="leading" secondItem="AUg-gx-1s2" secondAttribute="leadingMargin" id="6yJ-uM-tf7"/>
                                     </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="85S-4P-YXq" appends="YES" id="uQk-B9-2nN"/>
-                                    </connections>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="topicLabel" destination="IyS-nM-GAZ" id="rsz-u9-Add"/>
+                                    <segue destination="dD2-Zf-bDJ" kind="show" action="showDetailViewController:sender:" id="72a-oh-X57"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -204,11 +202,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfM-0X-WeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="85S-4P-YXq">
-                    <connections>
-                        <segue destination="dD2-Zf-bDJ" kind="show" id="efZ-Hf-q3T"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="721.5" y="-713"/>
         </scene>
