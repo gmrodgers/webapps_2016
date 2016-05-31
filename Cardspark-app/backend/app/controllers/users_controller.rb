@@ -20,17 +20,17 @@ class UsersController < ApplicationController
 
   def new
   	@user = User.new
-  	render :nothing => true	
+  	render :json => @user	
   end
 
   def edit
     @user = User.find(params[:id])
-    render :nothing => true
+    render :json => @user
   end
 
   def show
     @user = User.find(params[:id])
-  	render :nothing => true
+  	render :json => @user
   end
 
   def update
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-    render :nothing => true
+    render :json => @user
   end
 
   def destroy
@@ -50,14 +50,11 @@ class UsersController < ApplicationController
 	end 
 
   def utopics
-    @topics = Topic.select(:topic_id, :name)
-                   .joins(:users).all
-    # @topics = Topic.joins(:users)
-    #                .where("users.id == topics.user_id");
+    @topics = User.find(params[:id]).topics
     render :json => @topics 
   end
 
-private
+private 
   def user_params
     params.require(:user).permit(:email)
   end

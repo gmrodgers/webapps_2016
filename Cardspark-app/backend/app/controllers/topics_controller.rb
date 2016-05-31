@@ -9,6 +9,9 @@ class TopicsController < ApplicationController
 
 	def create
     @topic = Topic.new(topic_params)
+    user = User.find(params[:user_id])
+    user.topics << @topic
+    user.save!  
     respond_to do |format|
       if @topic.save
       	redirect_to @topics
@@ -35,6 +38,9 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
+    user = User.find(params[:user_id])
+    user.topics << @topic
+    user.save!  
     if @topic.update(topic_params)
       redirect_to @topic
     else
