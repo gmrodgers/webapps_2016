@@ -10,7 +10,7 @@ import UIKit
 
 class TimerViewController: UIViewController {
   
-  var counter = 60 * 25
+  var counter = 60*25
   var timer = NSTimer()
   
   @IBOutlet weak var label: UILabel!
@@ -41,15 +41,34 @@ class TimerViewController: UIViewController {
   // called every time interval from the timer
   func timerAction() {
     counter -= 1
-    label.text = "\(counter / 60):\(counter % 60)"
+    var zero = ""
+    if counter < 10 {
+      zero = "0"
+    }
+    label.text = "\(counter / 60):\(zero)\(counter % 60)"
+    if counter == 0 {
+      let alert = UIAlertController(title: "Timer is up!",
+                                    message: "",
+                                    preferredStyle: UIAlertControllerStyle.Alert)
+      alert.addAction(UIAlertAction(title: "Dismiss",
+                                    style: UIAlertActionStyle.Default,
+                                    handler: { action in self.counter = 60 * 25
+                                               }))
+      presentViewController(alert, animated: true, completion: {self.timer.invalidate()})
+      
+    }
   }
   
   @IBAction func resetButtonTapped(sender: UIButton) {
+    timer.invalidate()
     counter = 60 * 25
+    timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
   }
 
   @IBAction func breakButtonTapped(sender: AnyObject) {
+    timer.invalidate()
     counter = 60 * 5
+    timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
   }
   
     /*
