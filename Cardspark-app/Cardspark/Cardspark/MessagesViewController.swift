@@ -13,7 +13,7 @@ import Firebase
 class MessagesViewController: JSQMessagesViewController {
 
   // MARK: Properties
-  var messages = [Message]()
+  var messages = [JSQMessage]()
   
   var outgoingBubbleImageView: JSQMessagesBubbleImage!
   var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -69,7 +69,7 @@ class MessagesViewController: JSQMessagesViewController {
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
     let message = messages[indexPath.item]
-    if message.senderId() == senderId {
+    if message.senderId == senderId {
         return outgoingBubbleImageView
     } else {
       return incomingBubbleImageView
@@ -82,7 +82,7 @@ class MessagesViewController: JSQMessagesViewController {
   }
   
   func addMessage(id: String, text: String) {
-    let message = Message(senderId: id, senderDisplayName: self.senderDisplayName, isMediaMessage: false, hash: 0, text: text)
+    let message = JSQMessage(senderId: id, displayName: self.senderDisplayName, text: text)
     messages.append(message)
   }
   
@@ -94,7 +94,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     let message = messages[indexPath.item]
     
-    if message.senderId() == senderId {
+    if message.senderId == senderId {
       cell.textView!.textColor = UIColor.whiteColor()
     } else {
       cell.textView!.textColor = UIColor.blackColor()
@@ -133,33 +133,33 @@ class MessagesViewController: JSQMessagesViewController {
     let message = messages[indexPath.item];
     
     // Sent by me, skip
-    if message.senderId() == senderId {
+    if message.senderId == senderId {
       return nil;
     }
     
     // Same as previous sender, skip
     if indexPath.item > 0 {
       let previousMessage = messages[indexPath.item - 1];
-      if previousMessage.senderId() == message.senderId() {
+      if previousMessage.senderId == message.senderId {
         return nil;
       }
     }
     
-    return NSAttributedString(string:message.senderDisplayName())
+    return NSAttributedString(string:message.senderDisplayName)
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
     let message = messages[indexPath.item]
     
     // Sent by me, skip
-    if message.senderId() == senderId {
+    if message.senderId == senderId {
       return CGFloat(0.0);
     }
     
     // Same as previous sender, skip
     if indexPath.item > 0 {
       let previousMessage = messages[indexPath.item - 1];
-      if previousMessage.senderId() == message.senderId() {
+      if previousMessage.senderId == message.senderId {
         return CGFloat(0.0);
       }
     }

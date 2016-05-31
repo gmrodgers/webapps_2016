@@ -84,11 +84,6 @@ class LoginViewController: UIViewController {
     AppState.sharedInstance.userID = user!.uid
     
     NSNotificationCenter.defaultCenter().postNotificationName("onSignInCompleted", object: nil, userInfo: nil)
-//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//    let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-//    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//    
-//    appDelegate.window?.rootViewController = tabBar
     performSegueWithIdentifier("SignIn", sender: nil)
   }
   
