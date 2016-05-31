@@ -1,3 +1,4 @@
+
 //
 //  LoginViewController.swift
 //  Cardspark
@@ -39,9 +40,15 @@ class LoginViewController: UIViewController {
         print(error.localizedDescription)
         return
       }
-      self.setDisplayName(user!)
-      let _ = UIAlertController.init(title: nil, message: "New user \(user?.displayName) has been created", preferredStyle: UIAlertControllerStyle.Alert)
-      let _ = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+      let alert = UIAlertController.init(title: "",
+                                         message: "New user has been created",
+                                         preferredStyle: .Alert)
+      alert.addAction(UIAlertAction.init(title: "OK",
+                                          style: UIAlertActionStyle.Default,
+                                          handler: { action in
+                                            self.setDisplayName(user!)
+                                          }))
+      self.presentViewController(alert, animated: true, completion: nil)
     }
   }
   
@@ -50,8 +57,8 @@ class LoginViewController: UIViewController {
                                   message: "Mate, you are going to need to sort this out with Google",
                                   preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "OK",
-      style: UIAlertActionStyle.Default,
-      handler: nil))
+                                  style: UIAlertActionStyle.Default,
+                                  handler: nil))
     presentViewController(alert, animated: true, completion: nil)
   }
 
