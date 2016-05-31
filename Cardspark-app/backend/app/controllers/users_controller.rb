@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
-  	render :nothing => true
+  	render :json => @users
 	end
 
 	def create
@@ -50,12 +50,15 @@ class UsersController < ApplicationController
 	end 
 
   def utopics
-    @topics = Topic.select(:topic_id, :name).joins(:users).find(params[:id])
-    render :nothing => true 
+    @topics = Topic.select(:topic_id, :name)
+                   .joins(:users).all
+    # @topics = Topic.joins(:users)
+    #                .where("users.id == topics.user_id");
+    render :json => @topics 
   end
 
 private
   def user_params
-    params.require(:user).permit(:email, :password_hash)
+    params.require(:user).permit(:email)
   end
 end
