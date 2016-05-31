@@ -41,6 +41,8 @@ class LoginViewController: UIViewController {
         return
       }
       self.setDisplayName(user!)
+      let _ = UIAlertController.init(title: nil, message: "New user \(user?.displayName) has been created", preferredStyle: UIAlertControllerStyle.Alert)
+      let _ = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
     }
   }
   
