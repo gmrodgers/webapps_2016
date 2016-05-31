@@ -20,6 +20,9 @@ class MessagesViewController: JSQMessagesViewController {
   
   var rootRef = FIRDatabase.database().reference()
   var messageRef: FIRDatabaseReference!
+  var userIsTypingRef: FIRDatabaseReference!
+  
+  var usersTypingQuery: FIRDatabaseQuery!
 
   
   override func viewDidLoad() {
@@ -46,6 +49,7 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    observeTyping()
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
@@ -134,12 +138,12 @@ class MessagesViewController: JSQMessagesViewController {
   override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
     let message = messages[indexPath.item];
     
-    // Sent by me, skip
+    // Skip if I sent this messgage
     if message.senderId == senderId {
       return nil;
     }
     
-    // Same as previous sender, skip
+    // Skip if message is from previous sender
     if indexPath.item > 0 {
       let previousMessage = messages[indexPath.item - 1];
       if previousMessage.senderId == message.senderId {
@@ -153,12 +157,12 @@ class MessagesViewController: JSQMessagesViewController {
   override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
     let message = messages[indexPath.item]
     
-    // Sent by me, skip
+    // Skip if I sent this messgage
     if message.senderId == senderId {
       return CGFloat(0.0);
     }
     
-    // Same as previous sender, skip
+    // Skip if message is from previous sender
     if indexPath.item > 0 {
       let previousMessage = messages[indexPath.item - 1];
       if previousMessage.senderId == message.senderId {
@@ -167,5 +171,32 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     return kJSQMessagesCollectionViewCellLabelHeightDefault
+  }
+  
+  private var localTyping = false
+  var isTyping: Bool {
+    get {
+      return localTyping
+    }
+    set {
+      localTyping = newValue
+      userIsTypingRef.setValue(newValue)
+    }
+  }
+  
+  private func observeTyping() {
+    let typingIndicatorRef = rootRef.child("typingIndicator")
+    userIsTypingRef = typingIndicatorRef.child(senderId)
+    userIsTypingRef.onDisconnectRemoveValue()
+    
+    usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
+    usersTypingQuery.observeEventType(.Value, withBlock: { snapshot in
+      // If only you are typing don't show the indicator
+      if snapshot.childrenCount == 1 && self.isTyping { return }
+      
+      // If others are typing
+      self.showTypingIndicator = snapshot.childrenCount > 0
+      self.scrollToBottomAnimated(true)
+    })
   }
 }

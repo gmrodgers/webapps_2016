@@ -17,18 +17,16 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   
   var topic: Topic?
 
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      
-      topicTextField.delegate = self
-      
-      checkValidTopicName()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    topicTextField.delegate = self
+    checkValidTopicName()
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
   
     // MARK: UITextFieldDelegate
   func checkValidTopicName() {

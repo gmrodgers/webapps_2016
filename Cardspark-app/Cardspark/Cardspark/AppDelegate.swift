@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         UITabBar.appearance().barTintColor = UIColor.orangeColor()
       
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-//        self.window?.rootViewController = loginVC
-      
         FIRApp.configure()
         return true
     }
