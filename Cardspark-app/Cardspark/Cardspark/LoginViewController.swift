@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
   func login(user: FIRUser?) {
     FIRAnalytics.logEventWithName(kFIREventLogin, parameters: nil)
     
-    AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+    AppState.sharedInstance.displayName = user!.email!.componentsSeparatedByString("@")[0]
     AppState.sharedInstance.signedIn = true
     AppState.sharedInstance.userID = user!.uid
     

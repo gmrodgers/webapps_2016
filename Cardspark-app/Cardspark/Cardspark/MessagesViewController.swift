@@ -32,7 +32,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     // These need to be set properly
     self.senderId = AppState.sharedInstance.userID
-    self.senderDisplayName = ""
+    self.senderDisplayName = AppState.sharedInstance.displayName
     
     // No avatars
     collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
@@ -82,7 +82,7 @@ class MessagesViewController: JSQMessagesViewController {
   }
   
   func addMessage(id: String, text: String) {
-    let message = Message(senderId: id, senderDisplayName: "", isMediaMessage: false, hash: 0, text: text)
+    let message = Message(senderId: id, senderDisplayName: self.senderDisplayName, isMediaMessage: false, hash: 0, text: text)
     messages.append(message)
   }
   
@@ -145,7 +145,7 @@ class MessagesViewController: JSQMessagesViewController {
       }
     }
     
-    return NSAttributedString(string:message.senderId())
+    return NSAttributedString(string:message.senderDisplayName())
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
