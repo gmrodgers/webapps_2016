@@ -19,36 +19,21 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   var filtered = [Topic]()
   
   override func viewDidLoad() {
-      super.viewDidLoad()
-    
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    super.viewDidLoad()
+    //navigationItem.leftBarButtonItem = editButtonItem()
+    searchBar.delegate = self
       
-      //navigationItem.leftBarButtonItem = editButtonItem()
-      searchBar.delegate = self
-      
-      if let savedTopics = loadTopics() {
-        topics += savedTopics
-      } else {
-//        loadSampleData()
-        loadTopicsData()
-      }
+    if let savedTopics = loadTopics() {
+      topics += savedTopics
+    } else {
+      loadTopicsData()
     }
-  
-//  func loadSampleData() {
-//    let topic1 = Topic(name: "Compilers")
-//    let topic2 = Topic(name: "OS")
-//    topics += [topic1, topic2]
-//  }
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
   
   // MARK: SearchBar Delegate
   func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
@@ -78,81 +63,50 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     self.tableView.reloadData()
   }
 
-    // MARK: - Table view data source
+  // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      if(searchActive) {
-        return filtered.count
-      }
-      return topics.count
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if(searchActive) {
+      return filtered.count
     }
+    return topics.count
+  }
   
-    // MARK: Actions
-  
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  // MARK: Actions
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       // Table view cells are reused and should be dequeued using a cell identifier.
-      let cellIdentifier = "TopicsTableViewCell"
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
-      if(searchActive){
+    let cellIdentifier = "TopicsTableViewCell"
+    let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
+    if(searchActive){
         cell.topicLabel.text = filtered[indexPath.row].name
-      } else {
-        // Fetches the appropriate topic for the data source layout.
-        cell.topicLabel.text = topics[indexPath.row].name
-      }
-      return cell
+    } else {
+      // Fetches the appropriate topic for the data source layout.
+      cell.topicLabel.text = topics[indexPath.row].name
     }
+    return cell
+  }
  
-
+  // Override to support conditional editing of the table view.
+  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+  // Return false if you do not want the specified item to be editable.
+    return true
+  }
   
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+  // Override to support editing the table view.
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+    // Delete the row from the data source
+      topics.removeAtIndex(indexPath.row)
+      saveTopics()
+      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    } else if editingStyle == .Insert {
+    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
-  
-
-  
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            topics.removeAtIndex(indexPath.row)
-            saveTopics()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  }
   
   @IBAction func unwindToTopicsList(sender: UIStoryboardSegue) {
     if let sourceViewController = sender.sourceViewController as? NewTopicViewController, topic = sourceViewController.topic {
@@ -188,40 +142,35 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     
   }
     
-    func loadTopicsData() {
-        NSLog("Connect with URL for loading topics")
-        let urlString = "https://radiant-meadow-37906.herokuapp.com/topics"
-        let url = NSURL(string: urlString)!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data, response, error) -> Void in
+  func loadTopicsData() {
+    NSLog("Connect with URL for loading topics")
+    let urlString = "https://radiant-meadow-37906.herokuapp.com/topics"
+    let url = NSURL(string: urlString)!
+    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+    let session = NSURLSession.sharedSession()
+    let task = session.dataTaskWithRequest(urlRequest) {
+        (data, response, error) -> Void in
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
             
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.statusCode
-            
-            if (statusCode == 200) {
-                do {
-                    print("Everything is okay")
-                    let topicsArray = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as! NSArray
-                    
-                    for topic in topicsArray {
-                        
-                        if let topicName = topic["name"] as? String {
-                            let newTopic = Topic(name: topicName)
-                            self.topics.append(newTopic)
-                        }
-                    }
-                }catch {
-                    print("Error with Json")
+        if (statusCode == 200) {
+          do {
+            print("Everything is okay")
+            let topicsArray = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSArray
+            for topic in topicsArray {
+              if let topicName = topic["name"] as? String {
+                let newTopic = Topic(name: topicName)
+                  self.topics.append(newTopic)
                 }
+              }
+            }catch {
+              print("Error with Json")
             }
-            dispatch_async(dispatch_get_main_queue()) {
-                self.tableView.reloadData()
-            }
+          }
+          dispatch_async(dispatch_get_main_queue()) {
+          self.tableView.reloadData()
         }
-        
-        task.resume()
+      }
+      task.resume()
     }
-
 }

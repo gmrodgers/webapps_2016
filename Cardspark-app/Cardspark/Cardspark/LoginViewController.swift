@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
   }
   
   // MARK: Login
-
   @IBAction func didClickLogin(sender: AnyObject) {
     FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!) { (user, error) in
       if let error = error {
@@ -54,19 +53,6 @@ class LoginViewController: UIViewController {
       style: UIAlertActionStyle.Default,
       handler: nil))
     presentViewController(alert, animated: true, completion: nil)
-  
-//      (action) in
-//      let userInput = prompt.textFields![0].text
-//      if (userInput!.isEmpty) {
-//        return
-//      }
-//      FIRAuth.auth()?.sendPasswordResetWithEmail(userInput!) { (error) in
-//        if let error = error {
-//          print(error.localizedDescription)
-//          return
-//        }
-//      }
-//    }
   }
 
 

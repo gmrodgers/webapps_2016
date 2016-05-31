@@ -603,17 +603,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messenger" image="first" id="1EG-3k-YXc"/>
+                    <tabBarItem key="tabBarItem" title="Messenger" image="first" selectedImage="first" id="1EG-3k-YXc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3c2-DS-Goi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709.5" y="470"/>
         </scene>
-        <!--Cards-->
+        <!--Topics-->
         <scene sceneID="q29-Za-IHo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xai-yY-cao" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cards" image="first" id="LSc-4l-8Ca"/>
+                    <tabBarItem key="tabBarItem" title="Topics" image="first" id="LSc-4l-8Ca"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J7a-9j-cOn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
