@@ -41,11 +41,7 @@ class TimerViewController: UIViewController {
   // called every time interval from the timer
   func timerAction() {
     counter -= 1
-    var zero = ""
-    if counter < 10 {
-      zero = "0"
-    }
-    label.text = "\(counter / 60):\(zero)\(counter % 60)"
+    label.text = "\(counter / 60)m\(counter % 60)s"
     if counter == 0 {
       let alert = UIAlertController(title: "Timer is up!",
                                     message: "",
