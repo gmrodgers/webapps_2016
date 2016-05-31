@@ -81,8 +81,8 @@ class MessagesViewController: JSQMessagesViewController {
     return nil
   }
   
-  func addMessage(id: String, text: String) {
-    let message = JSQMessage(senderId: id, displayName: self.senderDisplayName, text: text)
+  func addMessage(id: String, displayName : String, text: String) {
+    let message = JSQMessage(senderId: id, displayName: displayName, text: text)
     messages.append(message)
   }
   
@@ -109,7 +109,8 @@ class MessagesViewController: JSQMessagesViewController {
     let itemRef = messageRef.childByAutoId()
     let messageItem = [
       "text": text,
-      "senderId": senderId
+      "senderId": senderId,
+      "displayName": senderDisplayName
     ]
     itemRef.setValue(messageItem)
     
@@ -123,7 +124,8 @@ class MessagesViewController: JSQMessagesViewController {
     messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
       let text = snapshot.value!["text"] as! String
       let id = snapshot.value!["senderId"] as! String
-      self.addMessage(id, text: text)
+      let name = snapshot.value!["displayName"] as! String
+      self.addMessage(id, displayName: name, text: text)
       self.finishReceivingMessage()
     })
   }
