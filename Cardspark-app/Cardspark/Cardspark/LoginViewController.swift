@@ -10,15 +10,25 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
+  
+  override func viewDidLoad() {
+    emailTextField.delegate = self
+    passwordTextField.delegate = self
+  }
   
   override func viewDidAppear(animated: Bool) {
     if let user = FIRAuth.auth()?.currentUser {
       self.login(user)
     }
+  }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.endEditing(true)
+    return false
   }
   
   // MARK: Login

@@ -19,6 +19,10 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
   
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {
+    if text == "\n"
+    {
+      textView.resignFirstResponder()
+    }
     return textView.text.characters.count + (text.characters.count - range.length) <= COMMENTS_LIMIT;
     
   }

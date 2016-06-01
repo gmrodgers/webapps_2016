@@ -21,21 +21,18 @@ class TopicsController < ApplicationController
       render_error @topic
     end
   end
-
-#   def new
-#   	@topic = Topic.new
-#   	render :nothing => true	
-#   end
-
-#   def edit
-#     @topic = Topic.find(params[:id])
-#     render :nothing => true
-#   end
-
-#   def show
-#     @topic = Topic.find(params[:id])
-#   	render :nothing => true
-#   end
+  
+  def add_viewer
+    @user = User.find_by_email(params[:email])
+    topic = Topic.find(params[:id])
+    if @user
+      topic.users << @user
+      topic.save!
+      render_instance @user
+    else
+      render_error @user
+    end
+  end
 
 #   def update
 #     @topic = Topic.find(params[:id])

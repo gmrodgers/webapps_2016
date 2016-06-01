@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   # get '/topics/tcards/:id' => 'topics#tcards'
   resources :users, param: :email, :only => [:create, :update, :destroy] do
     resources :topics, :except => [:show, :new, :edit]
-    post 'topics/new_user/:email' => 'topics#new_user'
   end
+  
+  post 'topics/:id/new_viewer/:email' => 'topics#add_viewer'
   
   # resources :topics
   # resources :cards
