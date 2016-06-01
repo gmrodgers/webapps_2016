@@ -3,9 +3,14 @@ Rails.application.routes.draw do
 
   # get '/users/utopics/:id' => 'users#utopics'
   # get '/topics/tcards/:id' => 'topics#tcards'
-  resources :users, param: :email, :only => [:create, :update, :destroy]
+  resources :users, param: :email, :only => [:create, :update, :destroy] do
+    resources :topics, :except => [:show, :new, :edit]
+    post 'topics/new_user/:email' => 'topics#new_user'
+  end
+  
   # resources :topics
   # resources :cards
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
