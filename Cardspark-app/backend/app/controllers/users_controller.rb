@@ -28,13 +28,8 @@ class UsersController < ApplicationController
     else
       render_error @user
     end
-  end 
-
-#   def utopics
-#     @topics = User.find(params[:id]).topics
-#     render :json => @topics 
-#   end
-
+  end
+  
 private 
   def user_params
     params.require(:user).permit(:email)
