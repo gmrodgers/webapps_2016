@@ -670,7 +670,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="0.0" y="8" width="367" height="21"/>
+                                                <rect key="frame" x="8" y="8" width="359" height="21"/>
                                             </variation>
                                         </label>
                                     </subviews>
