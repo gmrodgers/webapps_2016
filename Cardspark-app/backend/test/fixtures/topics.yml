@@ -1,1 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+topic1:
+  name: "topic1"
+  
+topic2:
+  name: "topic2"
+  
+topic3:
+  name: "topic3"

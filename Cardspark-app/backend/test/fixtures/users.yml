@@ -1,3 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 user:
+  id: 1
   email: "test@email.com"
+  topics: topic1, topic2, topic3
