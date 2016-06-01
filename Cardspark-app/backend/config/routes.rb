@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # get '/users/utopics/:id' => 'users#utopics'
   # get '/topics/tcards/:id' => 'topics#tcards'
-  resources :users, :only => [:create, :update, :destroy]
+  resources :users, param: :email, :only => [:create, :update, :destroy]
   # resources :topics
   # resources :cards
   # The priority is based upon order of creation: first created -> highest priority.
