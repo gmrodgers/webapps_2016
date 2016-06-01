@@ -25,7 +25,9 @@ class TopicsControllerTest < ActionController::TestCase
   
   test "should add user relation to topic in association records" do
     assert_difference('topics(:topic2).users.count') do
-      post :add_viewer, email: users(:viewer_user).email, id: topics(:topic2).id
+      assert_difference('users(:viewer_user).topics.count') do
+        post :add_viewer, email: users(:viewer_user).email, id: topics(:topic2).id
+      end
     end
   end
   
