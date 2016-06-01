@@ -6,26 +6,29 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      render :json => @user, status: :no_content
+      render_user @user
     else
-      render :json => { :errors => @user.errors.full_messages }
+      render_error @user
     end
   end
 
   def update
     @user = User.find_by_email(params[:email])
     if @user.update(user_params)
-      render :json => @user, status: :no_content
+      render_user @user
     else
-      render :json => { :errors => @user.errors.full_messages }
+      render_error @user
     end
   end
 
-#   def destroy
-# 	  @user = User.find(params[:id])
-# 	  @user.destroy
-# 	  redirect_to users_path
-# 	end 
+  def destroy
+    @user = User.find_by_email(params[:email])
+    if @user.destroy
+      render_user @user
+    else
+      render_error @user
+    end
+  end 
 
 #   def utopics
 #     @topics = User.find(params[:id]).topics
@@ -35,5 +38,15 @@ class UsersController < ApplicationController
 private 
   def user_params
     params.require(:user).permit(:email)
+  end
+  
+private
+  def render_error(user)
+    render :json => { :errors => user.errors.full_messages }
+  end
+  
+private
+  def render_user(user)
+    render :json => user, status: :no_content
   end
 end
