@@ -1,26 +1,26 @@
 class TopicsController < ApplicationController
+  include ApplicationHelper
+  
 	skip_before_filter  :verify_authenticity_token
 	# should check that the above does not lead to security issues
 	respond_to :json
 
 	def index
 		@topics = User.find_by_email(params[:user_email]).topics
-  	render :json => @topics
+  	render_instance @topics
 	end
 
-# 	def create
-#     @topic = Topic.new(topic_params)
-#     user = User.find(params[:user_id])
-#     user.topics << @topic
-#     user.save!  
-#     respond_to do |format|
-#       if @topic.save
-#       	redirect_to @topics
-#       else
-#         render 'new'
-#       end
-#     end
-#   end
+  def create
+    @topic = Topic.new(topic_params)
+    user = User.find_by_email(params[:user_email])
+    if @topic.save
+      user.topics << @topic
+      user.save!
+      render_instance @topic
+    else
+      render_error @topic
+    end
+  end
 
 #   def new
 #   	@topic = Topic.new
@@ -60,9 +60,9 @@ class TopicsController < ApplicationController
 #     render :nothing => true
 #   end
 
-# private
-#   def topic_params
-#     params.require(:topic).permit(:name)
-#   end
+private
+  def topic_params
+    params.require(:topic).permit(:name)
+  end
 
 end
