@@ -18,6 +18,7 @@
 		30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */; };
 		3E004C351CF77B4000474F16 /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E004C341CF77B4000474F16 /* CardTableViewController.swift */; };
 		3E004C371CF77C3E00474F16 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E004C361CF77C3E00474F16 /* AddCardViewController.swift */; };
+		3E4267BC1CFE87CF00E12B7A /* ViewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4267BB1CFE87CF00E12B7A /* ViewCardViewController.swift */; };
 		3EBF5F3D1CF213900079B23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF5F3C1CF213900079B23F /* AppDelegate.swift */; };
 		3EBF5F441CF213900079B23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F421CF213900079B23F /* Main.storyboard */; };
 		3EBF5F461CF213900079B23F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBF5F451CF213900079B23F /* Images.xcassets */; };
@@ -52,6 +53,7 @@
 		33EB3C8E7E28B724AB2ED229 /* Pods_Cardspark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardspark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E004C341CF77B4000474F16 /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
 		3E004C361CF77C3E00474F16 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		3E4267BB1CFE87CF00E12B7A /* ViewCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCardViewController.swift; sourceTree = "<group>"; };
 		3EBF5F371CF213900079B23F /* Cardspark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardspark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBF5F3B1CF213900079B23F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EBF5F3C1CF213900079B23F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				3E004C361CF77C3E00474F16 /* AddCardViewController.swift */,
 				30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */,
 				3E004C341CF77B4000474F16 /* CardTableViewController.swift */,
+				3E4267BB1CFE87CF00E12B7A /* ViewCardViewController.swift */,
 				308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */,
 				308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */,
 				308C22EA1CF4B1DE003B77B5 /* Topic.swift */,
@@ -341,6 +344,7 @@
 				308C22E31CF4A00F003B77B5 /* NewTopicViewController.swift in Sources */,
 				308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */,
 				30914EA91CFC559500E09D68 /* AppState.swift in Sources */,
+				3E4267BC1CFE87CF00E12B7A /* ViewCardViewController.swift in Sources */,
 				308C22E91CF4AED9003B77B5 /* TopicsTableViewCell.swift in Sources */,
 				3E004C371CF77C3E00474F16 /* AddCardViewController.swift in Sources */,
 			);

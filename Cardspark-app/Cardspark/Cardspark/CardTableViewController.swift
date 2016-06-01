@@ -67,4 +67,13 @@ class CardTableViewController: UITableViewController {
         
         return cards
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if  segue.identifier == "viewCardSegue",
+            let destination = segue.destinationViewController as? ViewCardViewController,
+            let row = tableView.indexPathForSelectedRow?.row
+        {
+            destination.url = cards[row].url
+        }
+    }
 }

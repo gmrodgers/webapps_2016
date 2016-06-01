@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -30,7 +31,8 @@
                                         <exclude reference="DNk-y9-roi"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="159" y="364" width="83.5" height="30"/>
                                     <mask key="constraints">
                                         <include reference="DNk-y9-roi"/>
                                     </mask>
@@ -56,7 +58,8 @@
                                         <exclude reference="8a0-CP-shc"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="177" y="402" width="46" height="30"/>
                                     <mask key="constraints">
                                         <include reference="8a0-CP-shc"/>
                                     </mask>
@@ -77,7 +80,8 @@
                                         <exclude reference="Blt-5e-Eia"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="157" y="326" width="87.5" height="30"/>
                                     <mask key="constraints">
                                         <include reference="Blt-5e-Eia"/>
                                     </mask>
@@ -85,6 +89,9 @@
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="cardspark white.png" translatesAutoresizingMaskIntoConstraints="NO" id="YEc-Zb-WeN">
                                 <rect key="frame" x="20" y="20" width="320" height="320"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="60" y="36" width="280" height="273"/>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqO-ot-dIL">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -97,7 +104,8 @@
                                         <exclude reference="swo-zt-Dn6"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="173" y="424" width="55" height="30"/>
                                     <mask key="constraints">
                                         <include reference="swo-zt-Dn6"/>
                                     </mask>
@@ -111,15 +119,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="txQ-e7-Wlh"/>
                                 </constraints>
-                                <state key="normal" title="Forgot Password">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="txQ-e7-Wlh"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="139" y="448" width="123" height="30"/>
                                     <mask key="constraints">
                                         <include reference="txQ-e7-Wlh"/>
                                     </mask>
@@ -159,6 +168,10 @@
                                 <exclude reference="kYH-yk-gyC"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="nMT-Ja-8z9"/>
+                                <exclude reference="YPA-IP-Ugw"/>
+                                <exclude reference="xjz-J1-g5u"/>
+                                <exclude reference="R1Q-Hi-2Gn"/>
                                 <exclude reference="D6j-aY-HTe"/>
                                 <exclude reference="Jv6-if-fUn"/>
                                 <exclude reference="gdR-rd-rMM"/>
@@ -169,10 +182,6 @@
                                 <exclude reference="oVe-3J-dT9"/>
                                 <exclude reference="tXH-QP-Vwe"/>
                                 <exclude reference="v1Z-A4-mCb"/>
-                                <exclude reference="YPA-IP-Ugw"/>
-                                <exclude reference="xjz-J1-g5u"/>
-                                <exclude reference="R1Q-Hi-2Gn"/>
-                                <exclude reference="nMT-Ja-8z9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -185,6 +194,10 @@
                                 <include reference="kYH-yk-gyC"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="nMT-Ja-8z9"/>
+                                <include reference="YPA-IP-Ugw"/>
+                                <include reference="xjz-J1-g5u"/>
+                                <include reference="R1Q-Hi-2Gn"/>
                                 <include reference="D6j-aY-HTe"/>
                                 <include reference="Jv6-if-fUn"/>
                                 <include reference="gdR-rd-rMM"/>
@@ -195,10 +208,6 @@
                                 <include reference="oVe-3J-dT9"/>
                                 <include reference="tXH-QP-Vwe"/>
                                 <include reference="v1Z-A4-mCb"/>
-                                <include reference="YPA-IP-Ugw"/>
-                                <include reference="xjz-J1-g5u"/>
-                                <include reference="R1Q-Hi-2Gn"/>
-                                <include reference="nMT-Ja-8z9"/>
                             </mask>
                         </variation>
                     </view>
@@ -489,7 +498,7 @@
                                     <constraint firstAttribute="height" constant="60" id="3Tk-ck-PGP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -538,20 +547,20 @@
                                 <exclude reference="G7d-Pu-ES5"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="khV-AO-r1m"/>
+                                <exclude reference="SGz-aG-20V"/>
+                                <exclude reference="IuB-9z-w2D"/>
+                                <exclude reference="hMV-iv-GhQ"/>
+                                <exclude reference="oSH-fE-XFS"/>
+                                <exclude reference="xq0-Xo-eCH"/>
+                                <exclude reference="5ko-vx-Dbj"/>
+                                <exclude reference="YeL-YL-oLz"/>
                                 <exclude reference="e0r-kW-kMh"/>
                                 <exclude reference="fwG-I1-dSh"/>
                                 <exclude reference="sbw-fj-bHU"/>
                                 <exclude reference="BLq-93-fb4"/>
                                 <exclude reference="Pwi-XB-ql5"/>
                                 <exclude reference="b4Q-ui-kui"/>
-                                <exclude reference="5ko-vx-Dbj"/>
-                                <exclude reference="YeL-YL-oLz"/>
-                                <exclude reference="oSH-fE-XFS"/>
-                                <exclude reference="xq0-Xo-eCH"/>
-                                <exclude reference="IuB-9z-w2D"/>
-                                <exclude reference="hMV-iv-GhQ"/>
-                                <exclude reference="SGz-aG-20V"/>
-                                <exclude reference="khV-AO-r1m"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -564,20 +573,20 @@
                                 <include reference="G7d-Pu-ES5"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="khV-AO-r1m"/>
+                                <include reference="SGz-aG-20V"/>
+                                <include reference="IuB-9z-w2D"/>
+                                <include reference="hMV-iv-GhQ"/>
+                                <include reference="oSH-fE-XFS"/>
+                                <include reference="xq0-Xo-eCH"/>
+                                <include reference="5ko-vx-Dbj"/>
+                                <include reference="YeL-YL-oLz"/>
                                 <include reference="e0r-kW-kMh"/>
                                 <include reference="fwG-I1-dSh"/>
                                 <include reference="sbw-fj-bHU"/>
                                 <include reference="BLq-93-fb4"/>
                                 <include reference="Pwi-XB-ql5"/>
                                 <include reference="b4Q-ui-kui"/>
-                                <include reference="5ko-vx-Dbj"/>
-                                <include reference="YeL-YL-oLz"/>
-                                <include reference="oSH-fE-XFS"/>
-                                <include reference="xq0-Xo-eCH"/>
-                                <include reference="IuB-9z-w2D"/>
-                                <include reference="hMV-iv-GhQ"/>
-                                <include reference="SGz-aG-20V"/>
-                                <include reference="khV-AO-r1m"/>
                             </mask>
                         </variation>
                     </view>
@@ -686,6 +695,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cardLabel" destination="cCH-s1-oNF" id="WU5-8E-IEV"/>
+                                    <segue destination="Ntt-pu-6Ux" kind="show" identifier="viewCardSegue" id="MZV-0E-lgZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -711,6 +721,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydH-tc-6Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2089.5" y="-124"/>
+        </scene>
+        <!--View Card View Controller-->
+        <scene sceneID="yej-Xf-wkk">
+            <objects>
+                <viewController storyboardIdentifier="viewCard" id="Ntt-pu-6Ux" customClass="ViewCardViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dpW-2V-j8Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="TX9-lm-GIJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p3u-nl-Qo0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9R-Cd-o7Z">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="644"/>
+                                </variation>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Z9R-Cd-o7Z"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Z9R-Cd-o7Z"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="Z9R-Cd-o7Z" id="Vyf-KB-4Wl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHv-VY-0Zi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2089.5" y="726"/>
         </scene>
         <!--Add Card-->
         <scene sceneID="Kcv-Li-OFP">
