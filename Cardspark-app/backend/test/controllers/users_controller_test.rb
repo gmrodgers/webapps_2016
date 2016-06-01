@@ -20,4 +20,11 @@ class UsersControllerTest < ActionController::TestCase
     end
   end
   
+  test "should delete user" do
+    assert_no_difference('User.count') do
+      post :create, user: { email: @user.email }
+      delete :destroy, email: @user.email
+    end
+  end
+  
 end
