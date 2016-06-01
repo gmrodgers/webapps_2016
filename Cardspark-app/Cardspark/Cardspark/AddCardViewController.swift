@@ -28,7 +28,7 @@ class AddCardViewController: UIViewController {
         let fmt = UIMarkupTextPrintFormatter(markupText: html)
         let render = UIPrintPageRenderer()
         render.addPrintFormatter(fmt, startingAtPageAtIndex: 0)
-        let page = CGRect(x: 0, y: 0, width: 375, height: 600)
+        let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8)
         let printable = CGRectInset(page, 0, 0)
         
         render.setValue(NSValue(CGRect: page), forKey: "paperRect")
