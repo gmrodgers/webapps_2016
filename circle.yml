@@ -1,2 +1,13 @@
 general:
   build_dir: Cardspark-app/backend
+
+  ## Customize the test machine
+machine:
+  # Version of ruby to use
+  ruby:
+    version:
+      2.3.11
+
+  # Add some environment variables
+  environment:
+    CIRCLE_ENV: test
