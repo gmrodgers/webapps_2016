@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  # root 'users#index'
 
-  get '/users/utopics/:id' => 'users#utopics'
-  get '/topics/tcards/:id' => 'topics#tcards'
-  resources :users
-  resources :topics
-  resources :cards
+  # get '/users/utopics/:id' => 'users#utopics'
+  # get '/topics/tcards/:id' => 'topics#tcards'
+  resources :users, :only => [:create, :update, :destroy]
+  # resources :topics
+  # resources :cards
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
