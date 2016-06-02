@@ -16,7 +16,7 @@ class TopicsController < ApplicationController
     if @topic.save
       user.topics << @topic
       user.save!
-      render_instance @topic
+      render :json => { id: @topic.id, object: @topic, status: :created }
     else
       render_error @topic
     end

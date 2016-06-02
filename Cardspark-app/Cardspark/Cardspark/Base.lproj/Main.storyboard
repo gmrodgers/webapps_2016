@@ -715,9 +715,14 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9R-Cd-o7Z">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <gestureRecognizers/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="64" width="375" height="644"/>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TV1-Vv-jaG" appends="YES" id="Ovg-gH-tEp"/>
+                                    <outletCollection property="gestureRecognizers" destination="Ouh-st-BT8" appends="YES" id="ylZ-nH-MSC"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -737,6 +742,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHv-VY-0Zi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="TV1-Vv-jaG">
+                    <connections>
+                        <action selector="nextCard:" destination="Ntt-pu-6Ux" id="xsu-MG-AXz"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Ouh-st-BT8">
+                    <connections>
+                        <action selector="prevCard:" destination="Ntt-pu-6Ux" id="wp3-vB-C53"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2089.5" y="726"/>
         </scene>
