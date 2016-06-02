@@ -43,16 +43,14 @@ class TopicsController < ApplicationController
     end
   end
 
-#   def destroy
-# 	  @topic = Topic.find(params[:id])
-# 	  @topic.destroy
-# 	  redirect_to topics_path
-# 	end
-
-#   def tcards 
-#     @cards = Card.where(topic_id: params[:id])
-#     render :nothing => true
-#   end
+  def destroy
+    @topic = Topic.find(params[:id])
+    user = @topic.users.find_by_email(params[:user_email])
+    @topic.users.delete(user) if user
+    
+    @topic.destroy if @topic.users.count == 0
+    render_instance @topic
+  end
 
 private
   def topic_params
@@ -60,5 +58,3 @@ private
   end
 
 end
-
-    # render :nothing => true
