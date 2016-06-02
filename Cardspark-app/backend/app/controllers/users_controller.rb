@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 	# should check that the above does not lead to security issues
 	respond_to :json
 	
+	# Could have a get_id function which returns a users id in the database.
+	# This would be saved in the app and would allow future calls to be made
+	# using the id instead of email for lookup.
+	
   def create
     @user = User.new(user_params)
     if @user.save
