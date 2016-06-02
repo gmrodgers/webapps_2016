@@ -189,6 +189,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="alD-zV-Uaa" id="X61-ex-KAz"/>
+                        <outlet property="loginButton" destination="4Qq-Vr-5qT" id="npO-21-Fda"/>
                         <outlet property="passwordTextField" destination="FuZ-zQ-hrE" id="0bC-zG-iBA"/>
                         <outlet property="scrollView" destination="22D-No-UL0" id="KRh-SJ-xTC"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="SignIn" id="ILP-OK-zPv"/>

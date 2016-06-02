@@ -55,7 +55,7 @@ class CardTableViewController: UITableViewController {
       print(error.localizedDescription)
     }
     for file in pdfFiles {
-      cards.append(Card(name: file.lastPathComponent!, url: file))
+      cards += [Card(name: file.lastPathComponent!, url: file)]
     }
     
     return cards

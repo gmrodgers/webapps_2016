@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   
+  @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var scrollView: UIScrollView!
   
   override func viewDidLoad() {
@@ -26,6 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     if let user = FIRAuth.auth()?.currentUser {
       self.login(user)
     }
+    loginButton.enabled = true
   }
   
   // MARK: UITextFieldDelegate
@@ -45,6 +47,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   
   // MARK: Login
   @IBAction func didClickLogin(sender: AnyObject) {
+    loginButton.enabled = false
     FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!) { (user, error) in
       if let error = error {
         print(error.localizedDescription)
