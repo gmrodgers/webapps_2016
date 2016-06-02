@@ -34,10 +34,10 @@ class TopicsControllerTest < ActionController::TestCase
     end
   end
   
-  # test "should update topic name" do
-  #   id = 
-  #   put :update, user_email: users(:user).email, 
-  #   assert_equal "new_title", topics(:topic1).name, 
-  # end
+  test "should update topic name" do
+    topic = topics(:topic1)
+    put :update, id: topic.id, topic: { name: "new_title" }
+    assert_equal "new_title", Topic.find(topic.id).name
+  end
   
 end
