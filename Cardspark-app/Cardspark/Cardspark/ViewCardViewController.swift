@@ -11,6 +11,23 @@ import UIKit
 class ViewCardViewController: UIViewController {
     
     var url = NSURL()
+    var cards = [Card]()
+    var index = Int()
+    
+    @IBAction func nextCard(sender: AnyObject) {
+        print(index)
+        if index > 0{
+        index = index-1
+        let urlReq = NSURLRequest(URL: cards[index].url)
+        
+        webview.loadRequest(urlReq)
+        }
+        
+    }
+    
+    
+    @IBAction func prevCard(sender: AnyObject) {
+    }
 
     @IBOutlet weak var webview: UIWebView!
     
