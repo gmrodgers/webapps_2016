@@ -42,14 +42,17 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
   func searchBarTextDidEndEditing(searchBar: UISearchBar) {
     searchActive = false;
+    searchBar.resignFirstResponder()
   }
   
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
     searchActive = false;
+    searchBar.resignFirstResponder()
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
     searchActive = false;
+    searchBar.resignFirstResponder()
   }
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
