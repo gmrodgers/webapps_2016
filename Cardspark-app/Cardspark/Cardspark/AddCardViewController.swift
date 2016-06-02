@@ -17,6 +17,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
   
   let COMMENTS_LIMIT = 140
   
+  @IBOutlet weak var scrollView: UIScrollView!
+  
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {
     if text == "\n"
@@ -25,6 +27,20 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
     }
     return textView.text.characters.count + (text.characters.count - range.length) <= COMMENTS_LIMIT;
     
+  }
+  func textViewDidEndEditing(textView : UITextView) {
+    scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+  }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  
+  func textViewDidBeginEditing(textView: UITextView) {
+    if textView == point3TextField {
+      scrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
   }
   
   @IBAction func saveCard(sender: AnyObject) {
