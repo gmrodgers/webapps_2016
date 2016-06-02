@@ -54,4 +54,6 @@ class TopicsControllerTest < ActionController::TestCase
     end
   end
   
+  # TODO: Test that all cards are deleted when a topic is deleted
+  
 end
