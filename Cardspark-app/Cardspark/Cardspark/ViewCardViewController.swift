@@ -14,19 +14,29 @@ class ViewCardViewController: UIViewController {
     var cards = [Card]()
     var index = Int()
     
-    @IBAction func nextCard(sender: AnyObject) {
-        print(index)
-        if index > 0{
-        index = index-1
+    @IBAction func prevCard(sender: AnyObject) {
+        print("drag right")
+        if index < cards.count-1{
+        index = index+1
         let urlReq = NSURLRequest(URL: cards[index].url)
         
         webview.loadRequest(urlReq)
+        }
+        else{
+            print("index too high")
         }
         
     }
     
     
-    @IBAction func prevCard(sender: AnyObject) {
+    @IBAction func nextCard(sender: AnyObject) {
+        print("drag left")
+        if index > 0{
+            index = index-1
+            let urlReq = NSURLRequest(URL: cards[index].url)
+            
+            webview.loadRequest(urlReq)
+        }
     }
 
     @IBOutlet weak var webview: UIWebView!
