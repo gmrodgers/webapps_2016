@@ -40,4 +40,18 @@ class TopicsControllerTest < ActionController::TestCase
     assert_equal "new_title", Topic.find(topic.id).name
   end
   
+  test "should remove user association with topic" do
+    user = users(:user)
+    assert_difference('user.topics.count', -1) do
+      delete :destroy, user_email: user.email, id: topics(:topic1).id
+    end
+  end
+  
+  test "should delete topic when requested and only one user owns the topic" do
+    user = users(:user)
+    assert_difference('Topic.count', -1) do
+      delete :destroy, user_email: user.email, id: topics(:topic2).id
+    end
+  end
+  
 end
