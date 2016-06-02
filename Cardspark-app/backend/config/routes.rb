@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-  # root 'users#index'
 
-  # get '/users/utopics/:id' => 'users#utopics'
-  # get '/topics/tcards/:id' => 'topics#tcards'
   resources :users, param: :email, :only => [:create, :update, :destroy] do
-    resources :topics, :except => [:show, :new, :edit]
+    resources :topics, :except => [:show, :new, :edit, :update]
   end
   
   post 'topics/:id/new_viewer/:email' => 'topics#add_viewer'
+  put 'topics/:id' => 'topics#update'
   
-  # resources :topics
   # resources :cards
   
   # The priority is based upon order of creation: first created -> highest priority.
