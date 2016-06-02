@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cardspark/LoginViewController.swift"
-            timestampString = "486477607.498299"
+            timestampString = "486553017.280072"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "login(_:)"
             landmarkType = "5">
          </BreakpointContent>

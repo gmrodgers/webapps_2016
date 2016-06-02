@@ -15,6 +15,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   
+  @IBOutlet weak var scrollView: UIScrollView!
+  
   override func viewDidLoad() {
     emailTextField.delegate = self
     passwordTextField.delegate = self
@@ -26,9 +28,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
   }
   
+  // MARK: UITextFieldDelegate
+  
+  func textFieldDidBeginEditing(textField: UITextField) {
+    scrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+  }
+  
+  func textFieldDidEndEditing(textField: UITextField) {
+    scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+  }
+  
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    textField.endEditing(true)
-    return false
+    textField.resignFirstResponder()
+    return true
   }
   
   // MARK: Login
