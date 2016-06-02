@@ -28,6 +28,9 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     } else {
       loadTopicsData()
     }
+    
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TopicsTableViewController.dismissKeyboard))
+    view.addGestureRecognizer(tap)
   }
 
    override func didReceiveMemoryWarning() {
@@ -36,23 +39,24 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   }
   
   // MARK: SearchBar Delegate
+  func dismissKeyboard() {
+    view.endEditing(true)
+  }
+  
   func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-    searchActive = true;
+    searchActive = true
   }
   
   func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-    searchActive = false;
-    searchBar.resignFirstResponder()
+    searchActive = false
   }
   
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-    searchActive = false;
-    searchBar.resignFirstResponder()
+    searchActive = false
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-    searchActive = false;
-    searchBar.resignFirstResponder()
+    searchActive = false
   }
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
