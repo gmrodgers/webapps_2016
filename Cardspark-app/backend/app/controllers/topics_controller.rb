@@ -34,17 +34,14 @@ class TopicsController < ApplicationController
     end
   end
 
-#   def update
-#     @topic = Topic.find(params[:id])
-#     user = User.find(params[:user_id])
-#     user.topics << @topic
-#     user.save!  
-#     if @topic.update(topic_params)
-#       redirect_to @topic
-#     else
-#       render 'edit'
-#     end
-#   end
+  def update
+    @topic = Topic.find(params[:id])
+    if @topic.update(topic_params)
+      render_instance @topic
+    else
+      render_error @topic
+    end
+  end
 
 #   def destroy
 # 	  @topic = Topic.find(params[:id])
@@ -63,3 +60,5 @@ private
   end
 
 end
+
+    # render :nothing => true
