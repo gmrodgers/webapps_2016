@@ -758,211 +758,158 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJW-Pt-DSB">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJW-Pt-DSB">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBn-oq-ky1">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-gg-mrD">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5H-FX-mGO">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ki7-5p-jHy">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="22" y="175" width="333.5" height="80"/>
+                                                </variation>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="42v-o5-iHy">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="22" y="291" width="333.5" height="80"/>
+                                                </variation>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-gg-mrD">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="22" y="92" width="333.5" height="35"/>
+                                                </variation>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-GW-QqL">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="23" y="262" width="53.5" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YB-DT-pUy">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="22" y="379" width="54" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBn-oq-ky1">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="22" y="69" width="33.5" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9h-xa-ocK">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="25" y="153" width="51" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NHT-M0-c4V">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="22" y="414" width="333.5" height="81"/>
+                                                </variation>
+                                            </textView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9h-xa-ocK">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="42v-o5-iHy">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-GW-QqL">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="d7w-sb-nC3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
                                         <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="d7w-sb-nC3"/>
+                                            <mask key="subviews">
+                                                <exclude reference="ki7-5p-jHy"/>
+                                                <exclude reference="42v-o5-iHy"/>
+                                                <exclude reference="6ng-gg-mrD"/>
+                                                <exclude reference="s6e-GW-QqL"/>
+                                                <exclude reference="3YB-DT-pUy"/>
+                                                <exclude reference="jBn-oq-ky1"/>
+                                                <exclude reference="m9h-xa-ocK"/>
+                                                <exclude reference="NHT-M0-c4V"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="d7w-sb-nC3"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="-73" width="400" height="601"/>
+                                            <mask key="subviews">
+                                                <include reference="ki7-5p-jHy"/>
+                                                <include reference="42v-o5-iHy"/>
+                                                <include reference="6ng-gg-mrD"/>
+                                                <include reference="s6e-GW-QqL"/>
+                                                <include reference="3YB-DT-pUy"/>
+                                                <include reference="jBn-oq-ky1"/>
+                                                <include reference="m9h-xa-ocK"/>
+                                                <include reference="NHT-M0-c4V"/>
                                             </mask>
                                         </variation>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ki7-5p-jHy">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YB-DT-pUy">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NHT-M0-c4V">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
+                                    </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="6ng-gg-mrD" firstAttribute="top" secondItem="jBn-oq-ky1" secondAttribute="bottom" constant="8" symbolic="YES" id="08z-DY-FEe"/>
-                                    <constraint firstItem="s6e-GW-QqL" firstAttribute="top" secondItem="42v-o5-iHy" secondAttribute="bottom" constant="8" symbolic="YES" id="2VY-Cd-05D"/>
-                                    <constraint firstItem="6ng-gg-mrD" firstAttribute="top" secondItem="m9h-xa-ocK" secondAttribute="bottom" constant="1" id="6qK-66-UCt">
-                                        <variation key="widthClass=compact" constant="-62"/>
-                                    </constraint>
-                                    <constraint firstAttribute="bottom" secondItem="jBn-oq-ky1" secondAttribute="bottom" constant="422" id="7rw-sg-lMu">
-                                        <variation key="widthClass=compact" constant="486"/>
-                                    </constraint>
-                                    <constraint firstItem="NHT-M0-c4V" firstAttribute="top" secondItem="3YB-DT-pUy" secondAttribute="bottom" constant="26" id="FkC-4s-BhE">
-                                        <variation key="widthClass=compact" constant="8"/>
-                                    </constraint>
-                                    <constraint firstItem="jBn-oq-ky1" firstAttribute="leading" secondItem="42v-o5-iHy" secondAttribute="leading" id="Jfy-7c-9xr"/>
-                                    <constraint firstAttribute="trailing" secondItem="jBn-oq-ky1" secondAttribute="trailing" constant="346" id="Vpe-Ng-CBZ"/>
-                                    <constraint firstItem="jBn-oq-ky1" firstAttribute="leading" secondItem="BJW-Pt-DSB" secondAttribute="leading" constant="20" id="XH8-MG-UU5"/>
-                                    <constraint firstItem="jBn-oq-ky1" firstAttribute="top" secondItem="BJW-Pt-DSB" secondAttribute="top" constant="93" id="bKk-gq-hYB">
-                                        <variation key="widthClass=compact" constant="29"/>
-                                    </constraint>
-                                    <constraint firstItem="m9h-xa-ocK" firstAttribute="leading" secondItem="NHT-M0-c4V" secondAttribute="leading" id="erp-U1-LyV"/>
-                                    <constraint firstItem="s6e-GW-QqL" firstAttribute="top" secondItem="BJW-Pt-DSB" secondAttribute="top" constant="280" id="gK5-6y-ka9">
-                                        <variation key="widthClass=compact" constant="216"/>
-                                    </constraint>
-                                    <constraint firstItem="3YB-DT-pUy" firstAttribute="top" secondItem="BJW-Pt-DSB" secondAttribute="top" constant="401" id="gKD-wT-hCd">
-                                        <variation key="widthClass=compact" constant="337"/>
-                                    </constraint>
-                                    <constraint firstItem="42v-o5-iHy" firstAttribute="top" secondItem="m9h-xa-ocK" secondAttribute="bottom" constant="8" symbolic="YES" id="iKr-Zp-jwj"/>
-                                    <constraint firstItem="jBn-oq-ky1" firstAttribute="leading" secondItem="6ng-gg-mrD" secondAttribute="leading" id="ksX-u3-bS2"/>
-                                    <constraint firstItem="3YB-DT-pUy" firstAttribute="top" secondItem="ki7-5p-jHy" secondAttribute="bottom" constant="8" symbolic="YES" id="mMq-dM-LHA"/>
-                                    <constraint firstItem="m9h-xa-ocK" firstAttribute="leading" secondItem="ki7-5p-jHy" secondAttribute="leading" id="mXs-OP-8qK">
-                                        <variation key="widthClass=compact" constant="-1"/>
-                                    </constraint>
-                                    <constraint firstItem="3YB-DT-pUy" firstAttribute="centerX" secondItem="m9h-xa-ocK" secondAttribute="centerX" id="prb-JX-eZR">
-                                        <variation key="widthClass=compact" constant="1.5"/>
-                                    </constraint>
-                                    <constraint firstItem="ki7-5p-jHy" firstAttribute="top" secondItem="s6e-GW-QqL" secondAttribute="bottom" constant="12" id="qax-1w-D6l"/>
-                                    <constraint firstItem="jBn-oq-ky1" firstAttribute="leading" secondItem="m9h-xa-ocK" secondAttribute="leading" id="t9Y-SD-INr"/>
-                                    <constraint firstItem="s6e-GW-QqL" firstAttribute="leading" secondItem="ki7-5p-jHy" secondAttribute="leading" id="tH0-Gj-huN"/>
-                                </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="jBn-oq-ky1"/>
-                                        <exclude reference="6ng-gg-mrD"/>
-                                        <exclude reference="m9h-xa-ocK"/>
-                                        <exclude reference="42v-o5-iHy"/>
-                                        <exclude reference="s6e-GW-QqL"/>
-                                        <exclude reference="ki7-5p-jHy"/>
-                                        <exclude reference="3YB-DT-pUy"/>
-                                        <exclude reference="NHT-M0-c4V"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="7rw-sg-lMu"/>
-                                        <exclude reference="Jfy-7c-9xr"/>
-                                        <exclude reference="Vpe-Ng-CBZ"/>
-                                        <exclude reference="XH8-MG-UU5"/>
-                                        <exclude reference="bKk-gq-hYB"/>
-                                        <exclude reference="ksX-u3-bS2"/>
-                                        <exclude reference="t9Y-SD-INr"/>
-                                        <exclude reference="08z-DY-FEe"/>
-                                        <exclude reference="6qK-66-UCt"/>
-                                        <exclude reference="erp-U1-LyV"/>
-                                        <exclude reference="mXs-OP-8qK"/>
-                                        <exclude reference="iKr-Zp-jwj"/>
-                                        <exclude reference="2VY-Cd-05D"/>
-                                        <exclude reference="gK5-6y-ka9"/>
-                                        <exclude reference="tH0-Gj-huN"/>
-                                        <exclude reference="qax-1w-D6l"/>
-                                        <exclude reference="gKD-wT-hCd"/>
-                                        <exclude reference="mMq-dM-LHA"/>
-                                        <exclude reference="prb-JX-eZR"/>
-                                        <exclude reference="FkC-4s-BhE"/>
+                                        <exclude reference="W5H-FX-mGO"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="72" width="400" height="528"/>
                                     <mask key="subviews">
-                                        <include reference="jBn-oq-ky1"/>
-                                        <include reference="6ng-gg-mrD"/>
-                                        <include reference="m9h-xa-ocK"/>
-                                        <include reference="42v-o5-iHy"/>
-                                        <include reference="s6e-GW-QqL"/>
-                                        <include reference="ki7-5p-jHy"/>
-                                        <include reference="3YB-DT-pUy"/>
-                                        <include reference="NHT-M0-c4V"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="7rw-sg-lMu"/>
-                                        <include reference="Jfy-7c-9xr"/>
-                                        <include reference="Vpe-Ng-CBZ"/>
-                                        <include reference="XH8-MG-UU5"/>
-                                        <include reference="bKk-gq-hYB"/>
-                                        <include reference="ksX-u3-bS2"/>
-                                        <include reference="t9Y-SD-INr"/>
-                                        <include reference="08z-DY-FEe"/>
-                                        <include reference="6qK-66-UCt"/>
-                                        <include reference="erp-U1-LyV"/>
-                                        <include reference="mXs-OP-8qK"/>
-                                        <include reference="iKr-Zp-jwj"/>
-                                        <include reference="2VY-Cd-05D"/>
-                                        <include reference="gK5-6y-ka9"/>
-                                        <include reference="tH0-Gj-huN"/>
-                                        <include reference="qax-1w-D6l"/>
-                                        <include reference="gKD-wT-hCd"/>
-                                        <include reference="mMq-dM-LHA"/>
-                                        <include reference="prb-JX-eZR"/>
-                                        <include reference="FkC-4s-BhE"/>
+                                        <include reference="W5H-FX-mGO"/>
                                     </mask>
                                 </variation>
                             </scrollView>
