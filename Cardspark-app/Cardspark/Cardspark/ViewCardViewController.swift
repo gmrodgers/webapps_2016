@@ -46,7 +46,6 @@ class ViewCardViewController: UIViewController {
         print(url)
         let urlReq = NSURLRequest(URL: url)
         webview.loadRequest(urlReq)
-        
     }
 
     override func didReceiveMemoryWarning() {

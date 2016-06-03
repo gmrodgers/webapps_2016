@@ -802,34 +802,6 @@
                                                     </mask>
                                                 </variation>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="42v-o5-iHy">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="0hk-Co-rQh"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="0hk-Co-rQh"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="0hk-Co-rQh"/>
-                                                    </mask>
-                                                </variation>
-                                            </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-gg-mrD">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -910,6 +882,34 @@
                                                     </mask>
                                                 </variation>
                                             </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="42v-o5-iHy">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="0hk-Co-rQh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskstoBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="0hk-Co-rQh"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="0hk-Co-rQh"/>
+                                                    </mask>
+                                                </variation>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -917,17 +917,25 @@
                                             <constraint firstItem="ki7-5p-jHy" firstAttribute="trailing" secondItem="42v-o5-iHy" secondAttribute="trailing" id="5Ot-bm-8mU"/>
                                             <constraint firstItem="42v-o5-iHy" firstAttribute="leading" secondItem="3YB-DT-pUy" secondAttribute="leading" id="7NC-ke-Ukf"/>
                                             <constraint firstItem="m9h-xa-ocK" firstAttribute="top" secondItem="6ng-gg-mrD" secondAttribute="bottom" constant="8" symbolic="YES" id="8PU-gD-42j"/>
-                                            <constraint firstItem="ki7-5p-jHy" firstAttribute="top" secondItem="m9h-xa-ocK" secondAttribute="bottom" constant="8" symbolic="YES" id="8l0-PP-EkU"/>
+                                            <constraint firstItem="ki7-5p-jHy" firstAttribute="top" secondItem="m9h-xa-ocK" secondAttribute="bottom" constant="8" symbolic="YES" id="8l0-PP-EkU">
+                                                <variation key="widthClass=compact" constant="125"/>
+                                            </constraint>
                                             <constraint firstAttribute="trailing" secondItem="6ng-gg-mrD" secondAttribute="trailing" constant="44" id="8ss-Ia-E08"/>
                                             <constraint firstItem="42v-o5-iHy" firstAttribute="trailing" secondItem="NHT-M0-c4V" secondAttribute="trailing" id="9UP-yE-bEm"/>
                                             <constraint firstItem="NHT-M0-c4V" firstAttribute="top" secondItem="3YB-DT-pUy" secondAttribute="bottom" constant="8" symbolic="YES" id="AXc-Zt-3x0"/>
                                             <constraint firstItem="6ng-gg-mrD" firstAttribute="trailing" secondItem="ki7-5p-jHy" secondAttribute="trailing" id="DUr-5O-tnO"/>
                                             <constraint firstItem="m9h-xa-ocK" firstAttribute="leading" secondItem="ki7-5p-jHy" secondAttribute="leading" id="GPA-j6-gbr"/>
                                             <constraint firstAttribute="height" constant="898" id="HYF-zW-dTm"/>
-                                            <constraint firstItem="42v-o5-iHy" firstAttribute="top" secondItem="s6e-GW-QqL" secondAttribute="bottom" constant="8" symbolic="YES" id="P9W-fd-444"/>
+                                            <constraint firstItem="42v-o5-iHy" firstAttribute="top" secondItem="s6e-GW-QqL" secondAttribute="bottom" constant="8" symbolic="YES" id="P9W-fd-444">
+                                                <variation key="widthClass=compact" constant="-109"/>
+                                            </constraint>
                                             <constraint firstItem="jBn-oq-ky1" firstAttribute="leading" secondItem="6ng-gg-mrD" secondAttribute="leading" id="Rq4-Ey-H41"/>
-                                            <constraint firstItem="s6e-GW-QqL" firstAttribute="top" secondItem="ki7-5p-jHy" secondAttribute="bottom" constant="8" symbolic="YES" id="Wa1-Rv-ta1"/>
-                                            <constraint firstItem="3YB-DT-pUy" firstAttribute="top" secondItem="42v-o5-iHy" secondAttribute="bottom" constant="8" symbolic="YES" id="XYc-hA-5O8"/>
+                                            <constraint firstItem="s6e-GW-QqL" firstAttribute="top" secondItem="ki7-5p-jHy" secondAttribute="bottom" constant="8" symbolic="YES" id="Wa1-Rv-ta1">
+                                                <variation key="widthClass=compact" constant="-109"/>
+                                            </constraint>
+                                            <constraint firstItem="3YB-DT-pUy" firstAttribute="top" secondItem="42v-o5-iHy" secondAttribute="bottom" constant="8" symbolic="YES" id="XYc-hA-5O8">
+                                                <variation key="widthClass=compact" constant="125"/>
+                                            </constraint>
                                             <constraint firstItem="ki7-5p-jHy" firstAttribute="leading" secondItem="s6e-GW-QqL" secondAttribute="leading" id="Xxp-ra-tUT"/>
                                             <constraint firstItem="s6e-GW-QqL" firstAttribute="leading" secondItem="42v-o5-iHy" secondAttribute="leading" id="bJ9-VY-sPm"/>
                                             <constraint firstItem="jBn-oq-ky1" firstAttribute="top" secondItem="W5H-FX-mGO" secondAttribute="top" constant="31" id="djM-ep-OWT"/>
@@ -938,13 +946,13 @@
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="ki7-5p-jHy"/>
-                                                <exclude reference="42v-o5-iHy"/>
                                                 <exclude reference="6ng-gg-mrD"/>
                                                 <exclude reference="s6e-GW-QqL"/>
                                                 <exclude reference="3YB-DT-pUy"/>
                                                 <exclude reference="jBn-oq-ky1"/>
                                                 <exclude reference="m9h-xa-ocK"/>
                                                 <exclude reference="NHT-M0-c4V"/>
+                                                <exclude reference="42v-o5-iHy"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="HYF-zW-dTm"/>
@@ -973,13 +981,13 @@
                                         <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="ki7-5p-jHy"/>
-                                                <include reference="42v-o5-iHy"/>
                                                 <include reference="6ng-gg-mrD"/>
                                                 <include reference="s6e-GW-QqL"/>
                                                 <include reference="3YB-DT-pUy"/>
                                                 <include reference="jBn-oq-ky1"/>
                                                 <include reference="m9h-xa-ocK"/>
                                                 <include reference="NHT-M0-c4V"/>
+                                                <include reference="42v-o5-iHy"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="HYF-zW-dTm"/>
