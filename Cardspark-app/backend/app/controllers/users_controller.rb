@@ -29,6 +29,10 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by_email(params[:email])
+    @user.topics.each do |topic|
+      topic.destroy if topic.users.count - 1 == 0
+    end
+    
     if @user.destroy
       render_instance @user
     else
