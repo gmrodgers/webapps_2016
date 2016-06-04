@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
   
   def add_viewer
     @user = User.find_by_email(params[:email])
-    topic = Topic.find(params[:id])
+    topic = Topic.find(params[:topic_id])
     if @user
       topic.users << @user
       topic.save!

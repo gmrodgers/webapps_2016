@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-
+  
   resources :users, param: :email, :only => [:create, :update, :destroy] do
     resources :topics, :except => [:show, :new, :edit, :update]
   end
   
-  post 'topics/:id/new_viewer/:email' => 'topics#add_viewer'
-  put 'topics/:id' => 'topics#update'
-  
-  # resources :cards
+  resources :topics, :only => [:update] do
+    post 'new_viewer/:email' => 'topics#add_viewer'
+    resources :cards, :except => [:new, :edit]
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
