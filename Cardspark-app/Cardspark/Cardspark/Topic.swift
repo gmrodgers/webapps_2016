@@ -20,8 +20,8 @@ class Topic: NSObject, NSCoding {
     static let colorKey = "color"
   }
   
-  init(name: String, color: UIColor?) {
-    self.color = color!
+  init(name: String, color: UIColor) {
+    self.color = color
     self.name = name
     super.init()
   }

@@ -54,7 +54,7 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
       let topicName = topicTextField.text ?? ""
-      topic = Topic(name: topicName, color: AppState.sharedInstance.color)
+      topic = Topic(name: topicName, color: AppState.sharedInstance.color!)
     }
   }
 
