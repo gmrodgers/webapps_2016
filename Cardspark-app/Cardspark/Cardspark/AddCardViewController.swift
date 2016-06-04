@@ -34,8 +34,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
   }
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
+  func textViewShouldReturn(textView: UITextView) -> Bool {
+    textView.resignFirstResponder()
     return true
   }
   
@@ -51,6 +51,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     html += "<p><font size='24' face='verdana'>\(point1TextField.text)</font></p>"
     html += "<p><font size='24' face='verdana'>\(point2TextField.text)</font></p>"
     html += "<p><font size='24' face='verdana'>\(point3TextField.text)</font></p>"
+    html += "<img src='photoImageView' style='width:320px;height:320px;'>"
     
     let fmt = UIMarkupTextPrintFormatter(markupText: html)
     let render = UIPrintPageRenderer()
