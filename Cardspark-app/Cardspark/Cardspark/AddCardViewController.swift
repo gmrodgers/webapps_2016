@@ -45,10 +45,10 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
   
   @IBAction func saveCard(sender: AnyObject) {
     
-    var html: String = "<h3><center>\(titleTextField.text)</h3></center>"
-    html += "<p>\(point1TextField.text)</p>"
-    html += "<p>\(point2TextField.text)</p>"
-    html += "<p>\(point3TextField.text)</p>"
+    var html: String = "<h1><center>\(titleTextField.text)</h1></center>"
+    html += "<p><font size='24' face='verdana'>\(point1TextField.text)</font></p>"
+    html += "<p><font size='24' face='verdana'>\(point2TextField.text)</font></p>"
+    html += "<p><font size='24' face='verdana'>\(point3TextField.text)</font></p>"
     
     let fmt = UIMarkupTextPrintFormatter(markupText: html)
     let render = UIPrintPageRenderer()
