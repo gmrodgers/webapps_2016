@@ -51,7 +51,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     html += "<p><font size='24' face='verdana'>\(point1TextField.text)</font></p>"
     html += "<p><font size='24' face='verdana'>\(point2TextField.text)</font></p>"
     html += "<p><font size='24' face='verdana'>\(point3TextField.text)</font></p>"
-    html += "<img src='photoImageView' style='width:320px;height:320px;'>"
+//    html += "<img src='\(photoImageView)' style='width:320px;height:320px;'>"
     
     let fmt = UIMarkupTextPrintFormatter(markupText: html)
     let render = UIPrintPageRenderer()
