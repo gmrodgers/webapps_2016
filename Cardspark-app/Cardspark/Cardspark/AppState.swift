@@ -16,5 +16,6 @@ class AppState: NSObject {
   var signedIn = false
   var displayName: String?
   var userID : String?
+  var color : UIColor?
   
 }

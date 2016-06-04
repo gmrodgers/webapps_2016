@@ -15,11 +15,11 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
   
-  var photoImageView: UIImage?
-  
   let COMMENTS_LIMIT = 140
     
   @IBOutlet weak var scrollView: UIScrollView!
+  
+  var photoImageView : UIImage?
   
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {

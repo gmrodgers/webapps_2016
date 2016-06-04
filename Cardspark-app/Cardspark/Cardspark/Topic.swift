@@ -13,11 +13,15 @@ class Topic: NSObject, NSCoding {
   // MARK: Properties
   
   var name: String
+  var color: UIColor
+  
   struct propertyKey {
     static let nameKey = "name"
+    static let colorKey = "color"
   }
   
-  init(name: String) {
+  init(name: String, color: UIColor?) {
+    self.color = color!
     self.name = name
     super.init()
   }
@@ -25,12 +29,14 @@ class Topic: NSObject, NSCoding {
   // MARK: NSCoding
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(name, forKey: propertyKey.nameKey)
+    aCoder.encodeObject(color, forKey: propertyKey.colorKey)
   }
   
   required convenience init?(coder aDecoder: NSCoder) {
-    let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as! String
-    
-    self.init(name: name)
+    guard let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as? String,
+          let color = aDecoder.decodeObjectForKey(propertyKey.colorKey) as? UIColor
+      else { return nil }
+    self.init(name: name, color: color)
   }
   
   // MARK: Archiving Paths
