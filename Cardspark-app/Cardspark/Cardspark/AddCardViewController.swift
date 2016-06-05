@@ -15,6 +15,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
   
+  var questions: [Question] = []
+  
   let COMMENTS_LIMIT = 140
     
   @IBOutlet weak var scrollView: UIScrollView!
@@ -136,8 +138,9 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     let saveAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       
-      _ = alertController.textFields![0] as UITextField
-      _ = alertController.textFields![1] as UITextField
+      Quiz.sharedInstance.questions += [Question(question: alertController.textFields![0].text! as String, answers : ["1", "2","3", "4", "5"], answer: 0)]
+      
+      //alertController.textFields![1].text! as String
       
     })
     

@@ -19,9 +19,12 @@ class QuizViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    questions = [Question(question: "asdf", answers: ["djk;a", "kdjf", "ads;kfj", "adfjfa", "jadfk"], answer: 2),
-                 Question(question: "asdf", answers: ["djk;a", "kdjf", "ads;kfj", "adfjfa", "jadfk"], answer: 2),
-                 Question(question: "asdf", answers: ["djk;a", "kdjf", "ads;kfj", "adfjfa", "jadfk"], answer: 2)]
+//    questions = Quiz.sharedInstance.questions
+//    pickQuestion()
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    questions = Quiz.sharedInstance.questions
     pickQuestion()
   }
   

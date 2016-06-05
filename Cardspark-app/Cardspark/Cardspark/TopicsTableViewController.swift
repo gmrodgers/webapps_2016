@@ -163,7 +163,8 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
             for topic in topicsArray {
               if let topicName = topic["name"] as? String {
                 let color = topic["color"] as? UIColor
-                let newTopic = Topic(name: topicName, color: color!)
+                let questions = topic["questions"] as? [Question]
+                let newTopic = Topic(name: topicName, color: color!, questions: questions!)
                   self.topics.append(newTopic)
                 }
               }
