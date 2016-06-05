@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  3 JUN 2016 05:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  5 JUN 2016 01:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -140,7 +140,13 @@ LaTeX Warning: Unused global option(s):
 LaTeX Warning: Label `fig:sub1' multiply defined.
 
 
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
 LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
 
 
 LaTeX Warning: Label `fig:test' multiply defined.
@@ -149,7 +155,13 @@ LaTeX Warning: Label `fig:test' multiply defined.
 LaTeX Warning: Label `fig:sub1' multiply defined.
 
 
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
 LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
 
 
 LaTeX Warning: Label `fig:test' multiply defined.
@@ -239,55 +251,60 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 20.
 
-<../Pictures/slacl.png, id=1, 1863.96375pt x 1049.9225pt>
-File: ../Pictures/slacl.png Graphic file (type png)
-
-<use ../Pictures/slacl.png>
-Package pdftex.def Info: ../Pictures/slacl.png used on input line 28.
-(pdftex.def)             Requested size: 149.12015pt x 83.99551pt.
+<slackstart.png, id=1, 1927.2pt x 1084.05pt>
+File: slackstart.png Graphic file (type png)
+ <use slackstart.png>
+Package pdftex.def Info: slackstart.png used on input line 28.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 31.
 
-<../Pictures/trello.png, id=2, 1927.2pt x 1084.05pt>
-File: ../Pictures/trello.png Graphic file (type png)
+<iterationstart.png, id=2, 1927.2pt x 1084.05pt>
+File: iterationstart.png Graphic file (type png)
+ <use iterationstart.png>
+Package pdftex.def Info: iterationstart.png used on input line 34.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
 
-<use ../Pictures/trello.png>
-Package pdftex.def Info: ../Pictures/trello.png used on input line 34.
-(pdftex.def)             Requested size: 154.17915pt x 86.72577pt.
-File: ../Pictures/slacl.png Graphic file (type png)
- <use ../Pictures/slacl.png>
-Package pdftex.def Info: ../Pictures/slacl.png used on input line 48.
-(pdftex.def)             Requested size: 149.12015pt x 83.99551pt.
-File: ../Pictures/trello.png Graphic file (type png)
+<slackmiddle.png, id=3, 1927.2pt x 1084.05pt>
+File: slackmiddle.png Graphic file (type png)
+ <use slackmiddle.png>
+Package pdftex.def Info: slackmiddle.png used on input line 49.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
 
-<use ../Pictures/trello.png>
-Package pdftex.def Info: ../Pictures/trello.png used on input line 54.
-(pdftex.def)             Requested size: 154.17915pt x 86.72577pt.
-File: ../Pictures/slacl.png Graphic file (type png)
- <use ../Pictures/slacl.png>
-Package pdftex.def Info: ../Pictures/slacl.png used on input line 68.
-(pdftex.def)             Requested size: 167.7495pt x 94.48894pt.
-File: ../Pictures/trello.png Graphic file (type png)
+<iterationmiddle.png, id=4, 1927.2pt x 1084.05pt>
+File: iterationmiddle.png Graphic file (type png)
+ <use iterationmiddle.png>
+Package pdftex.def Info: iterationmiddle.png used on input line 54.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
 
-<use ../Pictures/trello.png>
-Package pdftex.def Info: ../Pictures/trello.png used on input line 74.
-(pdftex.def)             Requested size: 173.44052pt x 97.56029pt.
- [1
+<slackend.png, id=5, 1927.2pt x 1084.05pt>
+File: slackend.png Graphic file (type png)
+ <use slackend.png>
+Package pdftex.def Info: slackend.png used on input line 68.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Pictures/slacl.png (PNG
- copy)> <../Pictures/trello.png>]
-(./managementreport.aux)
+<iterationlast.png, id=6, 1927.2pt x 1084.05pt>
+File: iterationlast.png Graphic file (type png)
+ <use iterationlast.png>
+Package pdftex.def Info: iterationlast.png used on input line 73.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./slackstart.png> <./itera
+tionstart.png> <./slackmiddle.png> <./iterationmiddle.png> <./slackend.png> <./
+iterationlast.png>] (./managementreport.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3374 strings out of 494985
- 53561 string characters out of 6180356
- 110128 words of memory out of 5000000
- 6550 multiletter control sequences out of 15000+600000
+ 3393 strings out of 494985
+ 53909 string characters out of 6180356
+ 110200 words of memory out of 5000000
+ 6566 multiletter control sequences out of 15000+600000
  7282 words of font info for 26 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  53i,9n,92p,337b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -296,10 +313,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on managementreport.pdf (1 page, 330978 bytes).
+Output written on managementreport.pdf (1 page, 1004364 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
+ 34 PDF objects out of 1000 (max. 8388607)
  19 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
