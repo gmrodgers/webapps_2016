@@ -16,8 +16,15 @@ class ColourControl: UIView {
       setNeedsLayout()
     }
   }
+  
+  let col1 = UIColor(hue: 0, saturation: 0.66, brightness: 0.66, alpha: 1)
+  let col2 = UIColor(hue: 0.2, saturation: 0.66, brightness: 0.66, alpha: 1)
+  let col3 = UIColor(hue: 0.4, saturation: 0.66, brightness: 0.66, alpha: 1)
+  let col4 = UIColor(hue: 0.6, saturation: 0.66, brightness: 0.66, alpha: 1)
+  let col5 = UIColor(hue: 0.8, saturation: 0.66, brightness: 0.66, alpha: 1)
+  
   var colorButtons = [UIButton]()
-  var colorArray = [UIColor.whiteColor(), UIColor.redColor(), UIColor.blueColor(), UIColor.greenColor(), UIColor.orangeColor(), UIColor.yellowColor()]
+  var colorArray = [UIColor]()
   
   let spacing = 5
   let buttonCount = 5
@@ -27,17 +34,12 @@ class ColourControl: UIView {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
-    let selected = UIImage(named: "selected")
+//    let selected = UIImage(named: "selected")
+    colorArray = [col1, col2, col3, col4, col5]
     
     for i in 0..<buttonCount {
       let button = UIButton()
       button.backgroundColor = colorArray[i]
-      
-      button.setImage(selected, forState: .Selected)
-      button.setImage(selected, forState: [.Highlighted, .Selected])
-      
-      button.layer.borderWidth = 1.0
-      button.layer.borderColor = UIColor(white: 0.0, alpha: 0.5).CGColor
       
       button.adjustsImageWhenHighlighted = false
       
@@ -67,7 +69,14 @@ class ColourControl: UIView {
   
   func updateButtonSelectionStates() {
     for (index, button) in colorButtons.enumerate() {
-        button.selected = index == buttonPressed
+      button.selected = index == buttonPressed
+      if button.selected {
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.blackColor().CGColor
+      } else {
+        button.layer.borderWidth = 0
+      }
     }
   }
   
