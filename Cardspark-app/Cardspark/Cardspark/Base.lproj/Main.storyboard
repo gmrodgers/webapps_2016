@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -649,7 +650,7 @@
             </objects>
             <point key="canvasLocation" x="1501.5" y="-1261"/>
         </scene>
-        <!--Cards-->
+        <!--Card Table View Controller-->
         <scene sceneID="UCy-g1-SsU">
             <objects>
                 <tableViewController id="c6b-99-XhE" customClass="CardTableViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
@@ -697,17 +698,20 @@
                             <outlet property="delegate" destination="c6b-99-XhE" id="gHJ-Sp-HRg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cards" id="hrk-bi-rk0">
+                    <navigationItem key="navigationItem" id="hrk-bi-rk0">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="UdR-CH-eMh">
                             <connections>
                                 <action selector="dismissCards:" destination="c6b-99-XhE" id="NZB-Gc-XOf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HfH-4C-YMc">
-                            <connections>
-                                <segue destination="Yi7-P0-bWv" kind="presentation" id="WBt-Sq-O9V"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="HfH-4C-YMc">
+                                <connections>
+                                    <segue destination="Yi7-P0-bWv" kind="presentation" id="WBt-Sq-O9V"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add User" id="q79-kU-KNH"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
