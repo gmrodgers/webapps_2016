@@ -11,7 +11,11 @@ import UIKit
 class ColourControl: UIView {
   
   // MARK: Properties
-  var color = UIColor.whiteColor()
+  var color = UIColor.whiteColor() {
+    didSet{
+      setNeedsLayout()
+    }
+  }
   var colorButtons = [UIButton]()
   var colorArray = [UIColor.redColor(), UIColor.blueColor(), UIColor.greenColor(), UIColor.orangeColor(), UIColor.yellowColor()]
   
@@ -23,9 +27,17 @@ class ColourControl: UIView {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
+    let selected = UIImage(named: "selected")
+    
     for i in 0..<buttonCount {
       let button = UIButton()
       button.backgroundColor = colorArray[i]
+      
+      button.setImage(selected, forState: .Selected)
+      button.setImage(selected, forState: [.Highlighted, .Selected])
+      
+      button.adjustsImageWhenHighlighted = false
+      
       button.addTarget(self, action: #selector(ColourControl.colourButtonTapped(_:)), forControlEvents: .TouchDown)
       colorButtons += [button]
       addSubview(button)
@@ -52,6 +64,7 @@ class ColourControl: UIView {
   // MARK: Button Action
   func colourButtonTapped(button: UIButton) {
     AppState.sharedInstance.color = button.backgroundColor
+    button.selected = true
   }
   
   
