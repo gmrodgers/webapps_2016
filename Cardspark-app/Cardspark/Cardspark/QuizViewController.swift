@@ -31,7 +31,10 @@ class QuizViewController: UIViewController {
   }
   
   func pickQuestion() {
-    if questions.count > 0 {
+    if questions.count <= 4 {
+      qLabel.text = "ADD MORE QUESTIONS"
+    }
+    else {
       qNumber = random() % questions.count
       qLabel.text = questions[qNumber].question
       
@@ -42,11 +45,8 @@ class QuizViewController: UIViewController {
           let ranAns = random() % questions.count
           answerButtons[i].setTitle(questions[ranAns].answer, forState: UIControlState.Normal)
         }
+        answerButtons[i].tintColor = UIColor(hue: 0.4, saturation: 0.66, brightness: 0.66, alpha: 1)
       }
-      
-//      questions.removeAtIndex(qNumber)
-    } else {
-      NSLog("done")
     }
   }
   
