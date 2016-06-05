@@ -17,7 +17,7 @@ class ColourControl: UIView {
     }
   }
   var colorButtons = [UIButton]()
-  var colorArray = [UIColor.redColor(), UIColor.blueColor(), UIColor.greenColor(), UIColor.orangeColor(), UIColor.yellowColor()]
+  var colorArray = [UIColor.whiteColor(), UIColor.redColor(), UIColor.blueColor(), UIColor.greenColor(), UIColor.orangeColor(), UIColor.yellowColor()]
   
   let spacing = 5
   let buttonCount = 5
@@ -35,6 +35,9 @@ class ColourControl: UIView {
       
       button.setImage(selected, forState: .Selected)
       button.setImage(selected, forState: [.Highlighted, .Selected])
+      
+      button.layer.borderWidth = 1.0
+      button.layer.borderColor = UIColor(white: 0.0, alpha: 0.5).CGColor
       
       button.adjustsImageWhenHighlighted = false
       
