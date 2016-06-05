@@ -87,7 +87,9 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     } else {
       // Fetches the appropriate topic for the data source layout.
       cell.topicLabel.text = topics[indexPath.row].name
+      
     }
+    cell.backgroundColor = topics[indexPath.row].color
     return cell
   }
  
@@ -160,7 +162,8 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
             let topicsArray = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSArray
             for topic in topicsArray {
               if let topicName = topic["name"] as? String {
-                let newTopic = Topic(name: topicName)
+                let color = topic["color"] as? UIColor
+                let newTopic = Topic(name: topicName, color: color!)
                   self.topics.append(newTopic)
                 }
               }

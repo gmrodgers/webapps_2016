@@ -15,11 +15,11 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
   
-  var photoImageView: UIImage?
-  
   let COMMENTS_LIMIT = 140
     
   @IBOutlet weak var scrollView: UIScrollView!
+  
+  var photoImageView : UIImage?
   
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {
@@ -100,7 +100,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func selectImageFromPhotoLibrary(sender: AnyObject) {
+  @IBAction func selectImageFromLibrary(sender: UIBarButtonItem) {
     
     // UIImagePickerController is a view controller that lets a user pick media from their photo library.
     let imagePickerController = UIImagePickerController()
@@ -128,5 +128,35 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     
     // Dismiss the picker.
     dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  @IBAction func addQuestion(sender: UIBarButtonItem) {
+    let alertController = UIAlertController(title: "QUIZ", message: "Insert a question for the quiz", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let saveAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: {
+      alert -> Void in
+      
+      _ = alertController.textFields![0] as UITextField
+      _ = alertController.textFields![1] as UITextField
+      
+    })
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {
+      (action : UIAlertAction!) -> Void in
+      
+    })
+    
+    alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
+      textField.placeholder = "Question"
+    }
+    alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
+      textField.placeholder = "Answer"
+    }
+    
+    alertController.addAction(saveAction)
+    alertController.addAction(cancelAction)
+    
+    self.presentViewController(alertController, animated: true, completion: nil)
+    
   }
 }

@@ -22,17 +22,19 @@ class ColourPickerViewController: UIViewController {
   var greenColour : Float = 0
   var blueColour : Float = 0
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  var colour : UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    // Do any additional setup after loading the view.
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
   @IBAction func redSliderAction(sender: UISlider) {
     changeColours()
   }
@@ -52,16 +54,9 @@ class ColourPickerViewController: UIViewController {
   }
   
   func changeDisplayColour() {
-    displayLabel.backgroundColor = UIColor(red: CGFloat(redColour), green: CGFloat(greenColour), blue: CGFloat(blueColour), alpha: 1.0)
+    let color = UIColor(red: CGFloat(redColour), green: CGFloat(greenColour), blue: CGFloat(blueColour), alpha: 1.0)
+    displayLabel.backgroundColor = color
+    AppState.sharedInstance.color = color
   }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
