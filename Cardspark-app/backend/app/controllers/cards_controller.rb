@@ -1,51 +1,56 @@
 class CardsController < ApplicationController
+  include ApplicationHelper
+  
   skip_before_filter  :verify_authenticity_token
+  
 	respond_to :json
 
 	def index
-		@cards = Card.all
-  	render :nothing => true
+	  topic = Topic.find(params[:topic_id])
+	  @cards = topic.cards
+		render_instance @cards
 	end
 
-	def create
+  def create
+    topic = Topic.find(params[:topic_id])
     @card = Card.new(card_params)
-    respond_to do |format|
-      if @card.save
-      	redirect_to @card
-      else
-        render 'new'
-      end
+    if @card.save
+      topic.cards << @card
+      topic.save!
+      render :json => { id: @card.id, object: @card, status: :created }
+    else
+      render_error @card
     end
-  end
-
-  def new
-  	@card = Card.new
-  	render :nothing => true	
-  end
-
-  def edit
-    @card = Card.find(params[:id])
   end
 
   def show
-    @card = Card.find(params[:id])
-  	render :nothing => true
+    topic = Topic.find(params[:topic_id])
+    @card = topic.cards.find(params[:id])
+  	render_instance @card
   end
 
   def update
-    @card = Card.find(params[:id])
+    topic = Topic.find(params[:topic_id])
+    @card = topic.cards.find(params[:id])
     if @card.update(card_params)
-      redirect_to @card
+      render_instance @card
     else
-      render 'edit'
+      render_error @card
     end
   end
+  
+  # def download
+  #   send_data(@card.card_file,
+  #         type: @card.content_type,
+  #         filename: @card.filename)
+  # end
 
   def destroy
-    @card = Card.find(params[:id])
+    topic = Topic.find(params[:topic_id])
+    @card = topic.cards.find(params[:id])
     @card.destroy
    
-    redirect_to cards_path
+    render_instance @card
   end
 
 private
