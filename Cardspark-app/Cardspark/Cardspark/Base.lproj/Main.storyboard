@@ -710,7 +710,11 @@
                                     <segue destination="Yi7-P0-bWv" kind="presentation" id="WBt-Sq-O9V"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Add User" id="q79-kU-KNH"/>
+                            <barButtonItem title="Add User" id="q79-kU-KNH">
+                                <connections>
+                                    <action selector="addUser:" destination="c6b-99-XhE" id="2Ay-kT-s03"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
