@@ -68,6 +68,32 @@ class CardTableViewController: UITableViewController {
     }
   }
   
+  @IBAction func addUser(sender: UIBarButtonItem) {
+    let alertController = UIAlertController(title: "Add User", message: "Enter the email address of a user you want to add", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let saveAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: {
+      alert -> Void in
+      
+      var _ = alertController.textFields![0].text! as String
+      
+    })
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {
+      (action : UIAlertAction!) -> Void in
+      
+    })
+    
+    alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
+      textField.placeholder = "Email Adress"
+    }
+    
+    alertController.addAction(saveAction)
+    alertController.addAction(cancelAction)
+    
+    self.presentViewController(alertController, animated: true, completion: nil)
+    
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if  segue.identifier == "viewCardSegue",
       let destination = segue.destinationViewController as? ViewCardViewController,
