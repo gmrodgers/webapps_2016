@@ -37,7 +37,7 @@ class ColourControl: UIView {
     var buttonFrame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
     
     for (index, button) in colorButtons.enumerate() {
-      buttonFrame.origin.x = CGFloat(index * (44 + spacing))
+      buttonFrame.origin.x = CGFloat(index * (buttonSize + spacing) + spacing)
       button.frame = buttonFrame
     }
   }
