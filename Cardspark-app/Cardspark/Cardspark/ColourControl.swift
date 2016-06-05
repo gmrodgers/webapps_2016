@@ -79,11 +79,10 @@ class ColourControl: UIView {
     }
   }
   
-  
   // MARK: Button Action
   func colourButtonTapped(button: UIButton) {
     buttonPressed = colorButtons.indexOf(button)!
-    AppState.sharedInstance.color = button.backgroundColor
+    AppState.sharedInstance.color = button.backgroundColor!
     updateButtonSelectionStates()
   }
   
