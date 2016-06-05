@@ -15,12 +15,9 @@ class QuizViewController: UIViewController {
   
   var questions = [Question]()
   var qNumber = Int()
-  var aNumber = Int()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    questions = Quiz.sharedInstance.questions
-//    pickQuestion()
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -37,20 +34,24 @@ class QuizViewController: UIViewController {
     if questions.count > 0 {
       qNumber = random() % questions.count
       qLabel.text = questions[qNumber].question
-      aNumber = questions[qNumber].answer
       
       for i in 0..<answerButtons.count {
-        answerButtons[i].setTitle(questions[qNumber].answers[i], forState: UIControlState.Normal)
+        if i == qNumber {
+          answerButtons[i].setTitle(questions[qNumber].answer, forState: UIControlState.Normal)
+        } else {
+          let ranAns = random() % questions.count
+          answerButtons[i].setTitle(questions[ranAns].answer, forState: UIControlState.Normal)
+        }
       }
       
-      questions.removeAtIndex(qNumber)
+//      questions.removeAtIndex(qNumber)
     } else {
       NSLog("done")
     }
   }
   
   @IBAction func button1(sender: UIButton) {
-    if aNumber == 0 {
+    if qNumber == 0 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
@@ -58,28 +59,28 @@ class QuizViewController: UIViewController {
   }
   
   @IBAction func button2(sender: UIButton) {
-    if aNumber == 1 {
+    if qNumber == 1 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button3(sender: UIButton) {
-    if aNumber == 2 {
+    if qNumber == 2 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button4(sender: UIButton) {
-    if aNumber == 3 {
+    if qNumber == 3 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button5(sender: UIButton) {
-    if aNumber == 4 {
+    if qNumber == 4 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()

@@ -13,7 +13,5 @@ class Quiz: NSObject {
   static let sharedInstance = Quiz()
   
   var questions = [Question]()
-  var qNumber = Int()
-  var aNumber = Int()
-
+  var answers = [String]()
 }

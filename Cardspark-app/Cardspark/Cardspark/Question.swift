@@ -10,12 +10,11 @@ import UIKit
 
 class Question : NSObject {
   var question : String!
-  var answers : [String]!
-  var answer: Int!
+  var answer : String!
+//  var answer: Int!
   
-  init(question : String!, answers : [String]!, answer: Int!) {
+  init(question : String!, answer : String!) {
     self.question = question
-    self.answers = answers
     self.answer = answer
   }
 }
