@@ -17,5 +17,6 @@ class AppState: NSObject {
   var displayName: String?
   var userID : String?
   var color : UIColor?
+  var topic : Topic?
   
 }

@@ -29,6 +29,10 @@ class Topic: NSObject, NSCoding {
     super.init()
   }
   
+  func getQuestions() -> [Question] {
+    return self.questions
+  }
+  
   // MARK: NSCoding
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(name, forKey: propertyKey.nameKey)
