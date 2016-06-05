@@ -11,7 +11,7 @@ import UIKit
 class ColourControl: UIView {
   
   // MARK: Properties
-  var color = UIColor.whiteColor() {
+  var buttonPressed = -1 {
     didSet{
       setNeedsLayout()
     }
@@ -52,6 +52,7 @@ class ColourControl: UIView {
       buttonFrame.origin.x = CGFloat(index * (buttonSize + spacing) + spacing)
       button.frame = buttonFrame
     }
+    updateButtonSelectionStates()
   }
   
   override func intrinsicContentSize() -> CGSize {
@@ -61,10 +62,18 @@ class ColourControl: UIView {
     return CGSize(width: width, height: buttonSize)
   }
   
+  func updateButtonSelectionStates() {
+    for (index, button) in colorButtons.enumerate() {
+        button.selected = index == buttonPressed
+    }
+  }
+  
+  
   // MARK: Button Action
   func colourButtonTapped(button: UIButton) {
+    buttonPressed = colorButtons.indexOf(button)!
     AppState.sharedInstance.color = button.backgroundColor
-    button.selected = true
+    updateButtonSelectionStates()
   }
   
   
