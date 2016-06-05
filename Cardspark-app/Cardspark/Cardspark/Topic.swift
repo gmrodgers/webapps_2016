@@ -14,7 +14,7 @@ class Topic: NSObject, NSCoding {
   
   var name: String
   var color: UIColor
-  
+    
   struct propertyKey {
     static let nameKey = "name"
     static let colorKey = "color"

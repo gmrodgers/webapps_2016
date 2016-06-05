@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct Question {
-  var question : String!
-  var answers : [String]!
-  var answer: Int!
-}
-
 class QuizViewController: UIViewController {
   
   @IBOutlet weak var qLabel: UILabel!
@@ -88,14 +82,4 @@ class QuizViewController: UIViewController {
       sender.tintColor = UIColor.redColor()
     }
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }
