@@ -34,7 +34,6 @@ class ColourControl: UIView {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
-//    let selected = UIImage(named: "selected")
     colorArray = [col1, col2, col3, col4, col5]
     
     for i in 0..<buttonCount {
@@ -80,11 +79,10 @@ class ColourControl: UIView {
     }
   }
   
-  
   // MARK: Button Action
   func colourButtonTapped(button: UIButton) {
     buttonPressed = colorButtons.indexOf(button)!
-    AppState.sharedInstance.color = button.backgroundColor
+    AppState.sharedInstance.color = button.backgroundColor!
     updateButtonSelectionStates()
   }
   

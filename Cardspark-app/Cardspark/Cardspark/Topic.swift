@@ -14,29 +14,38 @@ class Topic: NSObject, NSCoding {
   
   var name: String
   var color: UIColor
-  
+  var questions: [Question]
+    
   struct propertyKey {
     static let nameKey = "name"
     static let colorKey = "color"
+    static let questionKey = "question"
   }
   
-  init(name: String, color: UIColor) {
+  init(name: String, color: UIColor, questions: [Question]) {
     self.color = color
     self.name = name
+    self.questions = questions
     super.init()
+  }
+  
+  func getQuestions() -> [Question] {
+    return self.questions
   }
   
   // MARK: NSCoding
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(name, forKey: propertyKey.nameKey)
     aCoder.encodeObject(color, forKey: propertyKey.colorKey)
+    aCoder.encodeObject(questions, forKey: propertyKey.questionKey)
   }
   
   required convenience init?(coder aDecoder: NSCoder) {
     guard let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as? String,
-          let color = aDecoder.decodeObjectForKey(propertyKey.colorKey) as? UIColor
+          let color = aDecoder.decodeObjectForKey(propertyKey.colorKey) as? UIColor,
+          let questions = aDecoder.decodeObjectForKey(propertyKey.questionKey) as? [Question]
       else { return nil }
-    self.init(name: name, color: color)
+    self.init(name: name, color: color, questions: questions)
   }
   
   // MARK: Archiving Paths
