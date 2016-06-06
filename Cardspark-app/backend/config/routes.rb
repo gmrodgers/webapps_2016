@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get '/users/topics/:' => 'topics#index'
+  
   resources :users, param: :email, :only => [:create, :update, :destroy] do
     resources :topics, :except => [:show, :new, :edit, :update]
   end

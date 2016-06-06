@@ -6,8 +6,13 @@ class TopicsController < ApplicationController
 	respond_to :json
 
 	def index
-		@topics = User.find_by_email(params[:user_email]).topics
-  	render_instance @topics
+    user = User.find_by_email(params[:email])
+    if user
+      @topics = user.topics
+      render :json => { topics: @topics }
+    else
+      render_error user
+    end
 	end
 
   def create
@@ -55,6 +60,11 @@ class TopicsController < ApplicationController
 private
   def topic_params
     params.require(:topic).permit(:name)
+  end
+  
+private
+  def user_params
+    params.require(:user).permit(:email)
   end
 
 end
