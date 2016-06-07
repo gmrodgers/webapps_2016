@@ -10,33 +10,41 @@ class UsersController < ApplicationController
 	# using the id instead of email for lookup.
 	
   def create
-    @user = User.new(user_params)
-    if @user.save
-      render_instance @user
+    user = User.new(user_params)
+    if user.save
+      render_id user
     else
-      render_error @user
+      render_error user
     end
   end
 
   def update
-    @user = User.find_by_email(params[:email])
-    if @user.update(user_params)
-      render_instance @user
+    user = User.find_by_email(params[:email])
+    if user
+      if user.update(user_params)
+        render_no_content
+      else
+        render_error user
+      end
     else
-      render_error @user
+      render_not_present
     end
   end
 
   def destroy
-    @user = User.find_by_email(params[:email])
-    @user.topics.each do |topic|
-      topic.destroy if topic.users.count - 1 == 0
-    end
-    
-    if @user.destroy
-      render_instance @user
+    user = User.find_by_email(params[:email])
+    if user
+      user.topics.each do |topic|
+        topic.destroy if topic.users.count - 1 == 0
+      end
+      
+      if user.destroy
+        render_no_content
+      else
+        render_error user
+      end
     else
-      render_error @user
+      render_not_present
     end
   end
   
