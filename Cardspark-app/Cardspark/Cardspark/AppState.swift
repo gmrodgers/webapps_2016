@@ -16,6 +16,9 @@ class AppState: NSObject {
   var signedIn = false
   var displayName: String?
   var userID : String?
+  var userEmail : String?
+    
+  // Why is there a global colour and topic?
   var color : UIColor = UIColor.whiteColor()
   var topic : Topic?
   

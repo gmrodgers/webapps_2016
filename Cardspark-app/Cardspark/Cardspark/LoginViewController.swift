@@ -1,4 +1,3 @@
-
 //
 //  LoginViewController.swift
 //  Cardspark
@@ -103,9 +102,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   func login(user: FIRUser?) {
     FIRAnalytics.logEventWithName(kFIREventLogin, parameters: nil)
     
-    AppState.sharedInstance.displayName = user!.email!.componentsSeparatedByString("@")[0]
     AppState.sharedInstance.signedIn = true
+    AppState.sharedInstance.displayName = user!.email!.componentsSeparatedByString("@")[0]
     AppState.sharedInstance.userID = user!.uid
+    AppState.sharedInstance.userEmail = user!.email
     
     NSNotificationCenter.defaultCenter().postNotificationName("onSignInCompleted", object: nil, userInfo: nil)
     performSegueWithIdentifier("SignIn", sender: nil)
