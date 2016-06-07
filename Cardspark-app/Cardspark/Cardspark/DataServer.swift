@@ -10,55 +10,109 @@ import Foundation
 import UIKit
 
 class DataServer: NSObject, NSURLConnectionDelegate {
-    let baseURL = "https://radiant-meadow-37906.herokuapp.com/"
-    var controller = UIViewController()
-    
-    func loadTopicsList(email: String, controller: UIViewController) {
-        self.controller = controller
-        let route = "users/topics"
-        let parameters = ["user_email" : email]
-        NSLog("Connect with URL for loading topics")
-        sendGetRequest(route, parameters: parameters, completionHandler: topicsListHandler)
-    }
-    
-    func topicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
-        let httpResponse = response as! NSHTTPURLResponse
-        let statusCode = httpResponse.statusCode
-        
-        if (statusCode == 200) {
-            print("Everything is okay")
-        }
-    }
+    private let baseURL = "https://radiant-meadow-37906.herokuapp.com/"
+    private var controller = UIViewController()
+
     
     func createNewUser(email: String) {
         let route = "users"
         let postData = ["email" : email]
+        let httpMethod = "POST"
         NSLog("Connect with URL for creating new user")
-        sendPostRequest(route, parameters: nil, postData: postData, completionHandler: newUserHandler)
+        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData, completionHandler: createUserHandler)
     }
     
-    func newUserHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    private func createUserHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
         let httpResponse = response as! NSHTTPURLResponse
         let statusCode = httpResponse.statusCode
         
-        if (statusCode == 200) {
-            print("Everything is okay")
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
         }
     }
     
-    func sendGetRequest(url: String, parameters: [String: AnyObject], completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    func updateUser(old_email: String, new_email: String) {
+        let route = "users"
+        let postData = ["user" : ["email" : old_email], "email" : new_email]
+        let httpMethod = "PUT"
+        NSLog("Connect with URL for updating user")
+        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String : AnyObject], completionHandler: updateUserHandler)
+    }
+    
+    private func updateUserHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    func deleteUser(email: String) {
+        let route = "users"
+        let parameters = ["email" : email]
+        let httpMethod = "DELETE"
+        NSLog("Connect with URL for deleting user")
+        sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: deleteUserHandler)
+    }
+    
+    private func deleteUserHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    func createNewTopic(email: String, topic: Topic) {
+        let route = "users/topics"
+        let postData = ["email" : email, "topic" : ["name" : topic.name]]
+        let httpMethod = "POST"
+        NSLog("Connect with URL for creating new topic")
+        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String : AnyObject], completionHandler: createTopicHandler)
+    }
+    
+    private func createTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    func loadTopicsList(email: String, controller: UIViewController) {
+        self.controller = controller
+        let route = "users/topics"
+        let parameters = ["email" : email]
+        let httpMethod = "GET"
+        NSLog("Connect with URL for loading topics")
+        sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: loadTopicsListHandler)
+    }
+    
+    private func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    private func sendActionRequest(httpMethod: String, url: String, parameters: [String: AnyObject], completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let parameterString = parameters.stringFromHttpParameters()
         let requestURL = NSURL(string: baseURL + "\(url)?\(parameterString)")!
         
         let request = NSMutableURLRequest(URL: requestURL)
-        request.HTTPMethod = "GET"
+        request.HTTPMethod = httpMethod
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request, completionHandler:completionHandler)
         task.resume()
     }
     
-    func sendPostRequest(url: String, parameters: [String: AnyObject]?, postData: [String: AnyObject], completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    private func sendDataRequest(httpMethod: String, url: String, parameters: [String: AnyObject]?, inputData: [String: AnyObject], completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let parameterString = parameters?.stringFromHttpParameters()
         var requestURL = NSURL(string: "")!
         if ((parameterString) != nil) {
@@ -68,11 +122,11 @@ class DataServer: NSObject, NSURLConnectionDelegate {
         }
         
         let request = NSMutableURLRequest(URL: requestURL)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = httpMethod
 
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postData, options: NSJSONWritingOptions.PrettyPrinted)
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(inputData, options: NSJSONWritingOptions.PrettyPrinted)
         } catch {
             
         }
@@ -85,32 +139,20 @@ class DataServer: NSObject, NSURLConnectionDelegate {
 }
 
 extension String {
-    
-    /// Percent escapes values to be added to a URL query as specified in RFC 3986
-    ///
-    /// This percent-escapes all characters besides the alphanumeric character set and "-", ".", "_", and "~".
-    ///
-    /// http://www.ietf.org/rfc/rfc3986.txt
-    ///
-    /// :returns: Returns percent-escaped string.
+    /// This percent escapes in compliance with RFC 3986: http://www.ietf.org/rfc/rfc3986.txt
+    // Percent-escapes all characters besides the alphanumeric character set and "-", ".", "_", and "~".
+    //
+    // returns: Returns percent-escaped string.
     
     func stringByAddingPercentEncodingForURLQueryValue() -> String? {
         let allowedCharacters = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
         
         return self.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)
     }
-    
 }
 
 extension Dictionary {
-    
-    /// Build string representation of HTTP parameter dictionary of keys and objects
-    ///
-    /// This percent escapes in compliance with RFC 3986
-    ///
-    /// http://www.ietf.org/rfc/rfc3986.txt
-    ///
-    /// :returns: String representation in the form of key1=value1&key2=value2 where the keys and values are percent escaped
+    // returns: Percent-escaped string representation of HTTP parameters e.g. key1=value1&key2=value2
     
     func stringFromHttpParameters() -> String {
         let parameterArray = self.map { (key, value) -> String in
@@ -121,5 +163,4 @@ extension Dictionary {
         
         return parameterArray.joinWithSeparator("&")
     }
-    
 }
