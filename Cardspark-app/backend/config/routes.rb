@@ -1,15 +1,33 @@
 Rails.application.routes.draw do
+
+  # Users routes
+  post 'users'                   => 'users#create'
+  put 'users'                    => 'users#update'
+  delete 'users'                 => 'users#destroy'
   
-  get '/users/topics' => 'topics#index'
+  # Topics routes
+  get 'users/topics'             => 'topics#index'
+  post 'users/topics'            => 'topics#create'
+  post 'users/topics/new_viewer' => 'topics#add_viewer'
+  put 'topics'                   => 'topics#update'
+  delete 'users/topics'          => 'topics#destroy'
   
-  resources :users, param: :email, :only => [:create, :update, :destroy] do
-    resources :topics, :except => [:show, :new, :edit, :update]
-  end
+  # Cards routes
+  get 'topics/cards'             => 'cards#index'
+  post 'topics/cards'            => 'cards#create'
+  get 'topics/cards/show'        => 'cards#show'
+  put 'topics/cards'             => 'cards#update'
+  delete 'topics/cards'          => 'cards#destroy'  
   
-  resources :topics, :only => [:update] do
-    post 'new_viewer/:email' => 'topics#add_viewer'
-    resources :cards, :except => [:new, :edit]
-  end
+  
+  # resources :users, param: :email, :only => [:create, :update, :destroy] do
+  #   resources :topics, :except => [:show, :new, :edit, :update]
+  # end
+  
+  # resources :topics, :only => [:update] do
+  #   post 'new_viewer/:email' => 'topics#add_viewer'
+  #   resources :cards, :except => [:new, :edit]
+  # end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
