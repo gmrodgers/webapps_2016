@@ -11,7 +11,7 @@ import UIKit
 
 class DataServer: NSObject, NSURLConnectionDelegate {
     private let baseURL = "https://radiant-meadow-37906.herokuapp.com/"
-    private var controller = UIViewController()
+//    private var controller = UIViewController()
 
     
     func createNewUser(email: String) {
@@ -82,16 +82,117 @@ class DataServer: NSObject, NSURLConnectionDelegate {
         }
     }
     
-    func loadTopicsList(email: String, controller: UIViewController) {
-        self.controller = controller
+    func addNewTopicViewer(email: String, topic_id: Int) {
+        let route = "users/topics/new_viewer"
+        let postData = ["email" : email, "topic_id" : topic_id]
+        let httpMethod = "POST"
+        NSLog("Connect with URL for adding viewer to topic")
+        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String : AnyObject], completionHandler: addTopicViewerHandler)
+    }
+    
+    private func addTopicViewerHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    func updateTopic(topic_id: Int, updated_topic: Topic) {
+        let route = "topics"
+        let postData = ["topic_id" : topic_id, "topic" : ["name" : updated_topic.name]]
+        let httpMethod = "PUT"
+        NSLog("Connect with URL for updating topic")
+        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String: AnyObject], completionHandler: updateTopicHandler)
+    }
+    
+    private func updateTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    func loadTopicsList(email: String, controller: TopicsTableViewController) {
         let route = "users/topics"
         let parameters = ["email" : email]
         let httpMethod = "GET"
         NSLog("Connect with URL for loading topics")
-        sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: loadTopicsListHandler)
+        sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadTopicsListHandler)
     }
     
-    private func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+//    private func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+//        let httpResponse = response as! NSHTTPURLResponse
+//        let statusCode = httpResponse.statusCode
+//        
+//        if (statusCode == 200) {
+////            print("status code: \(statusCode)")
+//            do {
+//                let topicsArray = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSArray
+//                for topic in topicsArray {
+//                    if let topicName = topic["name"] as? String {
+////                        let color = topic["color"] as? UIColor
+//                        let newTopic = Topic(name: topicName, color: UIColor.whiteColor())
+//                        TopicsTableViewController.topics.append(newTopic)
+//                        self.controller.topics.append(newTopic)
+//                    }
+//                }
+//            }catch {
+//                print("Error with Json")
+//            }
+//        }
+//        dispatch_async(dispatch_get_main_queue()) {
+//            viewController.tableView.reloadData()
+//            
+//        }
+//    }
+    
+    func deleteTopic(email: String, topic_id: Int) {
+        let route = "users/topics"
+        let parameters = ["email" : email, "topic_id" : topic_id]
+        let httpMethod = "DELETE"
+        NSLog("Connect with URL for deleting topic")
+        sendActionRequest(httpMethod, url: route, parameters: parameters as! [String: AnyObject], completionHandler: deleteTopicHandler)
+    }
+    
+    private func deleteTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    func createNewCard(card: Card) {
+        let route = "topics/cards"
+        let postData = ["card" : ["topic_id" : card.topic_id, "cardname" : card.name, "cardfile" : card.pdfData]]
+        let httpMethod = "POST"
+        NSLog("Connect with URL for creating new card")
+        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData, completionHandler: createCardHandler)
+    }
+    
+    private func createCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode > 0) {
+            print("status code: \(statusCode)")
+        }
+    }
+    
+    func loadCardsList(topic_id : Int) {
+        let route = "topics/cards"
+        let parameters = ["topic_id" : topic_id]
+        let httpMethod = "GET"
+        NSLog("Connect with URL for loading cards")
+        sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: loadCardsListHandler)
+    }
+    
+    private func loadCardsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
         let httpResponse = response as! NSHTTPURLResponse
         let statusCode = httpResponse.statusCode
         

@@ -17,6 +17,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   var searchActive : Bool = false
   var topics = [Topic]()
   var filtered = [Topic]()
+  var dataServer = DataServer()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,7 +27,11 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     if let savedTopics = loadTopics() {
       topics += savedTopics
     } else {
-      loadTopicsData()
+//      loadTopicsData()
+        let user = "willaboh@gmail.com"
+//        let topic = Topic(name: "anotherNewTopic", color: UIColor.whiteColor())
+//        dataServer.createNewTopic(user, topic: topic)
+        dataServer.loadTopicsList(user, controller: self)
     }
   }
 
@@ -176,5 +181,30 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
         }
       }
       task.resume()
+    }
+    
+    func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+        let httpResponse = response as! NSHTTPURLResponse
+        let statusCode = httpResponse.statusCode
+        
+        if (statusCode == 200) {
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+                if let topics = dict.valueForKey("object") as? [[String: AnyObject]] {
+                    for topic in topics {
+                        if let name = topic["name"] as? String {
+                            let newTopic = Topic(name: name, color: UIColor.whiteColor())
+                            self.topics.append(newTopic)
+                        }
+                    }
+                }
+            }catch {
+                print("Error with Json")
+            }
+        }
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+            
+        }
     }
 }
