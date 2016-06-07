@@ -5,8 +5,8 @@ class UsersControllerTest < ActionController::TestCase
   
   test "should create user" do
     assert_difference('User.count') do
-      @user = User.new(email: "example@email.com")
-      post :create, user: { email: @user.email }
+      user = User.new(email: "example@email.com")
+      post :create, user: { email: user.email }
     end
   end
   
