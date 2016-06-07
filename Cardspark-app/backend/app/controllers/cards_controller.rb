@@ -16,30 +16,24 @@ class CardsController < ApplicationController
 	end
 
   def create
-    topic = Topic.find(params[:topic_id])
-    if topic
-      card = Card.new(card_params)
-      if card.save
-        topic.cards << card
-        topic.save!
-        render_id card
-      else
-        render_error card
-      end      
+    card = Card.new(card_params)
+    topic = Topic.find(card.topic_id)
+    if card.save
+      topic.cards << card
+      topic.save!
+      render_id card
     else
-      render_error topic
+      render_error card
     end
   end
 
   def show
-    topic = Topic.find(params[:topic_id])
-    @card = topic.cards.find(params[:card_id])
+    @card = Card.find(params[:card_id])
   	render_object @card
   end
 
   def update
-    topic = Topic.find(params[:topic_id])
-    card = topic.cards.find(params[:card_id])
+    card = Card.find(params[:card_id])
     if card.update(card_params)
       render_no_content
     else
@@ -54,8 +48,7 @@ class CardsController < ApplicationController
   # end
 
   def destroy
-    topic = Topic.find(params[:topic_id])
-    card = topic.cards.find(params[:card_id])
+    card = Card.find(params[:card_id])
     card.destroy
     render_no_content
   end
