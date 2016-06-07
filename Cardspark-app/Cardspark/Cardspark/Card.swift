@@ -11,6 +11,8 @@ import UIKit
 class Card: NSObject {
     
     var name = String()
+    var topic_id = Int()
+    var pdfData = NSMutableData()
     
     var url = NSURL()
     
