@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
       if topic.save
         user.topics << topic
         user.save!
-        render_id topic
+        render_object topic
       else
         render_error topic
       end

@@ -21,7 +21,7 @@ class CardsController < ApplicationController
     if card.save
       topic.cards << card
       topic.save!
-      render_id card
+      render_object card
     else
       render_error card
     end
