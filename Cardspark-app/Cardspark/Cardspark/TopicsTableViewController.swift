@@ -17,6 +17,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   var searchActive : Bool = false
   var topics = [Topic]()
   var filtered = [Topic]()
+  var dataServer = DataServer()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,7 +27,8 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     if let savedTopics = loadTopics() {
       topics += savedTopics
     } else {
-      loadTopicsData()
+        let user = "willaboh@gmail.com"
+        dataServer.loadTopicsList(user, controller: self)
     }
   }
 
@@ -145,37 +147,28 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     
   }
     
-  func loadTopicsData() {
-    NSLog("Connect with URL for loading topics")
-    let urlString = "https://radiant-meadow-37906.herokuapp.com/topics"
-    let url = NSURL(string: urlString)!
-    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-    let session = NSURLSession.sharedSession()
-    let task = session.dataTaskWithRequest(urlRequest) {
-        (data, response, error) -> Void in
+    func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
         let httpResponse = response as! NSHTTPURLResponse
         let statusCode = httpResponse.statusCode
-            
+        
         if (statusCode == 200) {
-          do {
-            print("Everything is okay")
-            let topicsArray = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSArray
-            for topic in topicsArray {
-              if let topicName = topic["name"] as? String {
-                let color = topic["color"] as? UIColor
-                let questions = topic["questions"] as? [Question]
-                let newTopic = Topic(name: topicName, color: color!, questions: questions!)
-                  self.topics.append(newTopic)
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+                if let topics = dict.valueForKey("object") as? [[String: AnyObject]] {
+                    for topic in topics {
+                        if let name = topic["name"] as? String {
+                            let newTopic = Topic(name: name, color: UIColor.whiteColor(), questions: [Question]())
+                            self.topics.append(newTopic)
+                        }
+                    }
                 }
-              }
             }catch {
-              print("Error with Json")
+                print("Error with Json")
             }
-          }
-          dispatch_async(dispatch_get_main_queue()) {
-          self.tableView.reloadData()
         }
-      }
-      task.resume()
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+            
+        }
     }
 }
