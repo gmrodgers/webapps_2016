@@ -27,6 +27,7 @@ class Quiz: NSObject {
     
     init(question: String) {
       self.question = question
+      super.init()
     }
   }
   
