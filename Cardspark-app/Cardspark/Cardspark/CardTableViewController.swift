@@ -10,7 +10,9 @@ import UIKit
 
 class CardTableViewController: UITableViewController {
   
+  var topicId = Int()
   var cards = [Card]()
+  var dataServer = AppState.sharedInstance.dataServer
   
   @IBAction func dismissCards(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
@@ -74,8 +76,8 @@ class CardTableViewController: UITableViewController {
     let saveAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       
-      var _ = alertController.textFields![0].text! as String
-      
+      let email = alertController.textFields![0].text! as String
+      self.dataServer.addNewTopicViewer(email, topic_id: self.topicId)
     })
     
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {
@@ -84,7 +86,7 @@ class CardTableViewController: UITableViewController {
     })
     
     alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
-      textField.placeholder = "Email Adress"
+      textField.placeholder = "Email Address"
     }
     
     alertController.addAction(saveAction)
