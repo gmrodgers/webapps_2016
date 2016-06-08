@@ -64,6 +64,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print(error.localizedDescription)
         return
       }
+      
+      AppState.sharedInstance.dataServer.createNewUser(email!)
+      
       let alert = UIAlertController.init(title: "",
                                          message: "New user has been created",
                                          preferredStyle: .Alert)
