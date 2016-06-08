@@ -11,45 +11,55 @@ import UIKit
 class Topic: NSObject, NSCoding {
   
   // MARK: Properties
-  
+  var id: Int?
   var name: String
   var color: UIColor
-  var questions: [Question]
+  var quiz: Quiz?
     
   struct propertyKey {
+    static let idKey = "id"
     static let nameKey = "name"
     static let colorKey = "color"
-    static let questionKey = "question"
+    static let quizKey = "quiz"
   }
   
-  init(name: String, color: UIColor, questions: [Question]) {
-    self.color = color
+  init(name: String, color: UIColor) {
     self.name = name
-    self.questions = questions
+    self.color = color
     super.init()
   }
+    
+  convenience init(name: String) {
+    self.init(name: name, color: UIColor.whiteColor())
+  }
   
-  func getQuestions() -> [Question] {
-    return self.questions
+  func addQuiz(quiz: Quiz) {
+    self.quiz = quiz
+  }
+  
+  func setId(id: Int) {
+    self.id = id
   }
   
   // MARK: NSCoding
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(name, forKey: propertyKey.nameKey)
     aCoder.encodeObject(color, forKey: propertyKey.colorKey)
-    aCoder.encodeObject(questions, forKey: propertyKey.questionKey)
+    aCoder.encodeObject(quiz, forKey: propertyKey.quizKey)
   }
   
   required convenience init?(coder aDecoder: NSCoder) {
     guard let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as? String,
           let color = aDecoder.decodeObjectForKey(propertyKey.colorKey) as? UIColor,
-          let questions = aDecoder.decodeObjectForKey(propertyKey.questionKey) as? [Question]
+          let quiz = aDecoder.decodeObjectForKey(propertyKey.quizKey) as? Quiz,
+          let id = aDecoder.decodeObjectForKey(propertyKey.idKey) as? Int
       else { return nil }
-    self.init(name: name, color: color, questions: questions)
+    self.init(name: name, color: color)
+    self.addQuiz(quiz)
+    self.setId(id)
   }
   
   // MARK: Archiving Paths
-  
   static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
   static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("topics")
 }

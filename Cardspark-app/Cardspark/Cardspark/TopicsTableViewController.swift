@@ -11,30 +11,32 @@ import Firebase
 
 class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
-    // MARK: Properties
+  // MARK: Properties
   @IBOutlet weak var searchBar: UISearchBar!
   
   var searchActive : Bool = false
   var topics = [Topic]()
   var filtered = [Topic]()
-  var dataServer = DataServer()
+  var dataServer = AppState.sharedInstance.dataServer
+  var newIndexPath: NSIndexPath?
+  
+  let topicTableToCardTableSegueIdentifier = "CardTableViewSegue"
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //navigationItem.leftBarButtonItem = editButtonItem()
     searchBar.delegate = self
-      
-    if let savedTopics = loadTopics() {
-      topics += savedTopics
-    } else {
-        let user = "willaboh@gmail.com"
-        dataServer.loadTopicsList(user, controller: self)
-    }
+    
+    dataServer.loadTopicsList(self)
+    
+//    if let savedTopics = loadTopics() {
+//      topics += savedTopics
+//    } else {
+//    }
   }
 
-   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
   }
   
   // MARK: SearchBar Delegate
@@ -56,7 +58,6 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   }
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    
     filtered = topics.filter({ (topic) -> Bool in
       let tmp: NSString = topic.name
       let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
@@ -67,7 +68,6 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   }
 
   // MARK: - Table view data source
-
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
@@ -86,12 +86,12 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
     if(searchActive){
         cell.topicLabel.text = filtered[indexPath.row].name
+        cell.backgroundColor = filtered[indexPath.row].color
     } else {
       // Fetches the appropriate topic for the data source layout.
-      cell.topicLabel.text = topics[indexPath.row].name
-      
+        cell.topicLabel.text = topics[indexPath.row].name
+        cell.backgroundColor = topics[indexPath.row].color
     }
-    cell.backgroundColor = topics[indexPath.row].color
     return cell
   }
  
@@ -105,25 +105,24 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
     // Delete the row from the data source
+      deleteTopicFromServer(topics[indexPath.row])
       topics.removeAtIndex(indexPath.row)
-      saveTopics()
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     } else if editingStyle == .Insert {
     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+      tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
     }
   }
   
   @IBAction func unwindToTopicsList(sender: UIStoryboardSegue) {
     if let sourceViewController = sender.sourceViewController as? NewTopicViewController, topic = sourceViewController.topic {
       // Add a new topic
-      let newIndexPath = NSIndexPath(forRow: topics.count, inSection: 0)
-      topics.append(topic)
-      tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-      saveTopics()
+      newIndexPath = NSIndexPath(forRow: topics.count, inSection: 0)
+      saveTopicToServer(topic)
     }
   }
   
-  @IBAction func didTapDignOut(sender: UIBarButtonItem) {
+  @IBAction func didTapSignOut(sender: UIBarButtonItem) {
     let firebaseAuth = FIRAuth.auth()
     do {
       try firebaseAuth?.signOut()
@@ -135,30 +134,39 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   }
   
   // MARK: NSCoding
-  func saveTopics() {
-    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(topics, toFile: Topic.ArchiveURL.path!)
-    if !isSuccessfulSave {
-      print("Failed to save topics")
-    }
+  func saveTopicToServer(topic: Topic) {
+    dataServer.createNewTopic(topic, controller: self)
   }
   
-  func loadTopics() -> [Topic]? {
-    return NSKeyedUnarchiver.unarchiveObjectWithFile(Topic.ArchiveURL.path!) as? [Topic]
-    
+  func deleteTopicFromServer(topic: Topic) {
+    dataServer.deleteTopic(topic.id!, controller: self)
   }
-    
+  
+//  func saveTopics() {
+//    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(topics, toFile: Topic.ArchiveURL.path!)
+//    if !isSuccessfulSave {
+//      print("Failed to save topics")
+//    }
+//  }
+  
+//  func loadTopics() -> [Topic]? {
+//    return NSKeyedUnarchiver.unarchiveObjectWithFile(Topic.ArchiveURL.path!) as? [Topic]
+//    
+//  }
+  
     func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
         let httpResponse = response as! NSHTTPURLResponse
         let statusCode = httpResponse.statusCode
         
         if (statusCode == 200) {
             do {
-                let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+              let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
                 if let topics = dict.valueForKey("object") as? [[String: AnyObject]] {
                     for topic in topics {
-                        if let name = topic["name"] as? String {
-                            let newTopic = Topic(name: name, color: UIColor.whiteColor(), questions: [Question]())
-                            self.topics.append(newTopic)
+                        if let name = topic["name"] as? String, id = topic["id"] as? Int {
+                          let newTopic = Topic(name: name)
+                          newTopic.setId(id)
+                          self.topics.append(newTopic)
                         }
                     }
                 }
@@ -168,7 +176,54 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
         }
         dispatch_async(dispatch_get_main_queue()) {
             self.tableView.reloadData()
-            
         }
     }
+  
+  func createTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.statusCode
+    
+    if (statusCode == 200) {
+      do {
+        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+        if let topic = dict.valueForKey("object") as? [String: AnyObject] {
+          if let name = topic["name"] as? String, id = topic["id"] as? Int {
+            let newTopic = Topic(name: name)
+            newTopic.setId(id)
+            self.topics.append(newTopic)
+            
+          }
+        }
+      }catch {
+        print("Error with Json")
+      }
+    }
+    dispatch_async(dispatch_get_main_queue()) {
+      self.tableView(self.tableView, commitEditingStyle: .Insert, forRowAtIndexPath: self.newIndexPath!)
+    }
+  }
+  
+  func deleteTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.statusCode
+    
+    if (statusCode == 200) {
+      print("status code: \(statusCode), Everything is okay!")
+    } else {
+      print("Failed to delete Topic")
+    }
+  }
+  
+  // MARK: - Navigation
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if  segue.identifier == topicTableToCardTableSegueIdentifier {
+      let tabBarVC: UITabBarController = segue.destinationViewController as! UITabBarController
+      let navC: UINavigationController = tabBarVC.viewControllers?.first as! UINavigationController
+      let cardTableVC: CardTableViewController = navC.viewControllers[0] as! CardTableViewController
+      let topicIndex = tableView.indexPathForSelectedRow?.row
+      print(topicIndex)
+      cardTableVC.topicId = topics[topicIndex!].id!
+    }
+  }
+  
 }
