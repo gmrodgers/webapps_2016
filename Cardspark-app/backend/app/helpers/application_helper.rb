@@ -15,8 +15,4 @@ module ApplicationHelper
     def render_not_present
         render :json => { report: "Record not present in database!" }
     end
-    
-    def render_id(arg)
-        render :json => { id: arg.id }
-    end
 end
