@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      render_id user
+      render_object user
     else
       render_error user
     end

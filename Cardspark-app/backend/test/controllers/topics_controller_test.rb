@@ -21,9 +21,6 @@ class TopicsControllerTest < ActionController::TestCase
         post :create, topic: { name: topic.name }, email: users(:user).email
       end
     end
-    
-    value = JSON.parse(response.body)
-    assert_not_nil value['id']
   end
   
   test "should add relation between user and topic in association records" do
