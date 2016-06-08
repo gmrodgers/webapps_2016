@@ -247,7 +247,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="IyS-nM-GAZ" firstAttribute="top" secondItem="AUg-gx-1s2" secondAttribute="topMargin" id="14p-Mi-PXU"/>
                                         <constraint firstItem="IyS-nM-GAZ" firstAttribute="leading" secondItem="AUg-gx-1s2" secondAttribute="leadingMargin" id="6yJ-uM-tf7"/>
@@ -256,12 +256,12 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="topicLabel" destination="IyS-nM-GAZ" id="rsz-u9-Add"/>
-                                    <segue destination="4fu-fR-kx1" kind="show" action="showDetailViewController:sender:" id="72a-oh-X57"/>
+                                    <segue destination="4fu-fR-kx1" kind="show" identifier="CardTableViewSegue" action="showDetailViewController:sender:" id="72a-oh-X57"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="nni-N2-6Mo" id="Ssf-DH-AIM"/>
+                            <outlet property="dataSource" destination="nni-N2-6Mo" id="PyF-b9-riy"/>
                             <outlet property="delegate" destination="nni-N2-6Mo" id="PI7-UB-bry"/>
                         </connections>
                     </tableView>
@@ -721,7 +721,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydH-tc-6Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3103.5" y="-204"/>
+            <point key="canvasLocation" x="3103" y="-212"/>
         </scene>
         <!--View Card View Controller-->
         <scene sceneID="yej-Xf-wkk">
@@ -1140,7 +1140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-qd-NTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4632" y="-241"/>
+            <point key="canvasLocation" x="4638" y="-204"/>
         </scene>
         <!--Quiz-->
         <scene sceneID="Chr-kF-qdQ">
@@ -1151,6 +1151,7 @@
                         <viewControllerLayoutGuide type="bottom" id="g2y-n6-LCu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Aqp-YJ-rhL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1O-F0-Bpv">
@@ -1159,7 +1160,7 @@
                                     <constraint firstAttribute="height" constant="97" id="cS1-Ax-UCS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1302,25 +1303,25 @@
                                 <exclude reference="AOS-VC-WvH"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="mMc-4C-Q5N"/>
+                                <exclude reference="PMM-t0-w8x"/>
+                                <exclude reference="llV-Bd-FPw"/>
+                                <exclude reference="q6n-df-o3g"/>
+                                <exclude reference="NfY-vS-1g3"/>
+                                <exclude reference="Nj4-YZ-xRD"/>
+                                <exclude reference="Tyc-Uk-fqI"/>
+                                <exclude reference="K3R-Ap-sSp"/>
+                                <exclude reference="fbh-bA-IYE"/>
+                                <exclude reference="j75-iG-Wvp"/>
+                                <exclude reference="7DA-DN-3JU"/>
+                                <exclude reference="NaX-Of-Brq"/>
+                                <exclude reference="OZk-Aw-z07"/>
+                                <exclude reference="QlD-pm-b6B"/>
                                 <exclude reference="12Z-3U-Aju"/>
                                 <exclude reference="7sS-4I-Wrx"/>
                                 <exclude reference="kFi-9R-e4B"/>
                                 <exclude reference="svn-sC-Dx8"/>
                                 <exclude reference="y6F-b3-oVX"/>
-                                <exclude reference="NfY-vS-1g3"/>
-                                <exclude reference="Nj4-YZ-xRD"/>
-                                <exclude reference="Tyc-Uk-fqI"/>
-                                <exclude reference="PMM-t0-w8x"/>
-                                <exclude reference="llV-Bd-FPw"/>
-                                <exclude reference="q6n-df-o3g"/>
-                                <exclude reference="NaX-Of-Brq"/>
-                                <exclude reference="OZk-Aw-z07"/>
-                                <exclude reference="QlD-pm-b6B"/>
-                                <exclude reference="K3R-Ap-sSp"/>
-                                <exclude reference="fbh-bA-IYE"/>
-                                <exclude reference="j75-iG-Wvp"/>
-                                <exclude reference="7DA-DN-3JU"/>
-                                <exclude reference="mMc-4C-Q5N"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1333,25 +1334,25 @@
                                 <include reference="AOS-VC-WvH"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="mMc-4C-Q5N"/>
+                                <include reference="PMM-t0-w8x"/>
+                                <include reference="llV-Bd-FPw"/>
+                                <include reference="q6n-df-o3g"/>
+                                <include reference="NfY-vS-1g3"/>
+                                <include reference="Nj4-YZ-xRD"/>
+                                <include reference="Tyc-Uk-fqI"/>
+                                <include reference="K3R-Ap-sSp"/>
+                                <include reference="fbh-bA-IYE"/>
+                                <include reference="j75-iG-Wvp"/>
+                                <include reference="7DA-DN-3JU"/>
+                                <include reference="NaX-Of-Brq"/>
+                                <include reference="OZk-Aw-z07"/>
+                                <include reference="QlD-pm-b6B"/>
                                 <include reference="12Z-3U-Aju"/>
                                 <include reference="7sS-4I-Wrx"/>
                                 <include reference="kFi-9R-e4B"/>
                                 <include reference="svn-sC-Dx8"/>
                                 <include reference="y6F-b3-oVX"/>
-                                <include reference="NfY-vS-1g3"/>
-                                <include reference="Nj4-YZ-xRD"/>
-                                <include reference="Tyc-Uk-fqI"/>
-                                <include reference="PMM-t0-w8x"/>
-                                <include reference="llV-Bd-FPw"/>
-                                <include reference="q6n-df-o3g"/>
-                                <include reference="NaX-Of-Brq"/>
-                                <include reference="OZk-Aw-z07"/>
-                                <include reference="QlD-pm-b6B"/>
-                                <include reference="K3R-Ap-sSp"/>
-                                <include reference="fbh-bA-IYE"/>
-                                <include reference="j75-iG-Wvp"/>
-                                <include reference="7DA-DN-3JU"/>
-                                <include reference="mMc-4C-Q5N"/>
                             </mask>
                         </variation>
                     </view>
@@ -1384,7 +1385,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2s-on-hzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2301" y="-204"/>
+            <point key="canvasLocation" x="2299" y="-212"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dIa-pM-Swx">
@@ -1433,10 +1434,10 @@
                                 <exclude reference="Wsn-H5-nfl"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="zC1-PN-DOv"/>
                                 <exclude reference="6cF-wF-dQD"/>
                                 <exclude reference="7Ij-4Q-wFl"/>
                                 <exclude reference="Lih-s7-sPU"/>
-                                <exclude reference="zC1-PN-DOv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1444,17 +1445,17 @@
                                 <include reference="Wsn-H5-nfl"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="zC1-PN-DOv"/>
                                 <include reference="6cF-wF-dQD"/>
                                 <include reference="7Ij-4Q-wFl"/>
                                 <include reference="Lih-s7-sPU"/>
-                                <include reference="zC1-PN-DOv"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb7-sN-uyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3045" y="-1261"/>
+            <point key="canvasLocation" x="3113" y="-1261"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="e6T-Yj-1WR">
