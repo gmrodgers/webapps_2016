@@ -26,8 +26,8 @@ class DataServer: NSObject, NSURLConnectionDelegate {
         let httpResponse = response as! NSHTTPURLResponse
         let statusCode = httpResponse.statusCode
         
-        if (statusCode > 0) {
-            print("status code: \(statusCode)")
+        if (statusCode == 200) {
+            print("status code: \(statusCode), Everything is okay!")
         }
     }
     
@@ -65,21 +65,12 @@ class DataServer: NSObject, NSURLConnectionDelegate {
         }
     }
     
-    func createNewTopic(email: String, topic: Topic) {
+  func createNewTopic(email: String, topic: Topic, controller: TopicsTableViewController) {
         let route = "users/topics"
         let postData = ["email" : email, "topic" : ["name" : topic.name]]
         let httpMethod = "POST"
         NSLog("Connect with URL for creating new topic")
-        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String : AnyObject], completionHandler: createTopicHandler)
-    }
-    
-    private func createTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
-        let httpResponse = response as! NSHTTPURLResponse
-        let statusCode = httpResponse.statusCode
-        
-        if (statusCode > 0) {
-            print("status code: \(statusCode)")
-        }
+        sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String : AnyObject], completionHandler: controller.createTopicHandler)
     }
     
     func addNewTopicViewer(email: String, topic_id: Int) {
@@ -124,21 +115,12 @@ class DataServer: NSObject, NSURLConnectionDelegate {
         sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadTopicsListHandler)
     }
     
-    func deleteTopic(email: String, topic_id: Int) {
+  func deleteTopic(email: String, topic_id: Int, controller: TopicsTableViewController) {
         let route = "users/topics"
-        let parameters = ["email" : email, "topic_id" : topic_id]
+        let parameters = ["email" : email, "topic_id" : String(topic_id)]
         let httpMethod = "DELETE"
         NSLog("Connect with URL for deleting topic")
-        sendActionRequest(httpMethod, url: route, parameters: parameters as! [String: AnyObject], completionHandler: deleteTopicHandler)
-    }
-    
-    private func deleteTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
-        let httpResponse = response as! NSHTTPURLResponse
-        let statusCode = httpResponse.statusCode
-        
-        if (statusCode > 0) {
-            print("status code: \(statusCode)")
-        }
+        sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.deleteTopicHandler)
     }
     
     func createNewCard(card: Card) {
