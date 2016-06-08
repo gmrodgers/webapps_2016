@@ -11,7 +11,6 @@ import UIKit
 class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
   
   // MARK: Properties
-  
   @IBOutlet weak var topicTextField: UITextField!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   
@@ -54,13 +53,12 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
       let topicName = topicTextField.text ?? ""
-      topic = Topic(name: topicName, color: AppState.sharedInstance.color, questions: Quiz.sharedInstance.questions)
+      self.topic = Topic(name: topicName)
     }
   }
 
   @IBAction func cancel(sender: UIBarButtonItem) {
     self.dismissViewControllerAnimated(true, completion: nil)
-    print("Cancel")
   }
 
 }
