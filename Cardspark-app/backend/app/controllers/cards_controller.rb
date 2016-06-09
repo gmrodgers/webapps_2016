@@ -27,10 +27,10 @@ class CardsController < ApplicationController
     end
   end
 
-  def show
-    @card = Card.find(params[:card_id])
-  	render_object @card
-  end
+  # def show
+  #   @card = Card.find(params[:card_id])
+  # 	render_object @card
+  # end
 
   def update
     card = Card.find(params[:card_id])
@@ -55,6 +55,6 @@ class CardsController < ApplicationController
 
 private
   def card_params
-    params.require(:card).permit(:topic_id, :cardname, :card_file)
+    params.require(:card).permit(:topic_id, :cardname, :card_data )
   end
 end
