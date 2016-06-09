@@ -6,19 +6,32 @@ class CardsControllerTest < ActionController::TestCase
   #   self.use_instantiated_fixtures = true
   # end
   
-  # test "should list all cards belonging to particular topic" do
-  # end
+  test "should list all cards belonging to particular topic" do
+    get :index, topic_id: topics(:topic1).id
+
+    assert_response :success
+    assert_not_nil assigns(:cards)
+  end
   
-  # test "should create new card" do
-  # end
+  test "should create new card" do
+    assert_difference('Card.count') do
+      topic = topics(:topic1)
+      card = Card.new(topic_id: topic.id, cardname: "example", card_data: "binary")
+      post :create, card: { topic_id: card.topic_id, cardname: card.cardname, card_data: card.card_data }
+    end
+  end
   
-  # test "should return card to be displayed" do
-  # end
+  test "should update card attributes" do
+    card = cards(:card_one)
+    put :update, card_id: card.id, card: { cardname: "example" } 
+    assert_equal "example", Card.find(card.id).cardname
+  end
   
-  # test "should update card attributes" do
-  # end
-  
-  # test "should delete card" do
-  # end
+  test "should delete card" do
+    assert_difference('Card.count', -1) do
+      card = cards(:card_two)
+      delete :destroy, card_id: card.id
+    end
+  end
   
 end
