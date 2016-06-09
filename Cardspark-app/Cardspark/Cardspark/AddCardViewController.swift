@@ -22,6 +22,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var scrollView: UIScrollView!
   
   var photoImageView : UIImage?
+  var imgLoc = String()
   
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {
@@ -49,36 +50,15 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   @IBAction func saveCard(sender: AnyObject) {
     
-    var html: String = "<h1><center>\(titleTextField.text)</h1></center>"
-    html += "<p><font size='24' face='verdana'>\(point1TextField.text)</font></p>"
-    html += "<p><font size='24' face='verdana'>\(point2TextField.text)</font></p>"
-    html += "<p><font size='24' face='verdana'>\(point3TextField.text)</font></p>"
-//    html += "<img src='\(photoImageView)' style='width:320px;height:320px;'>"
-    
-    let fmt = UIMarkupTextPrintFormatter(markupText: html)
-    let render = UIPrintPageRenderer()
-    render.addPrintFormatter(fmt, startingAtPageAtIndex: 0)
-    let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8)
-    let printable = CGRectInset(page, 0, 0)
-    
-    render.setValue(NSValue(CGRect: page), forKey: "paperRect")
-    render.setValue(NSValue(CGRect: printable), forKey: "printableRect")
-    
-    let pdfData = NSMutableData()
-    UIGraphicsBeginPDFContextToData(pdfData, CGRectZero, nil)
-    
-    for i in 1...render.numberOfPages() {
-      
-      UIGraphicsBeginPDFPage();
-      let bounds = UIGraphicsGetPDFContextBounds()
-      render.drawPageAtIndex(i - 1, inRect: bounds)
-    }
-    
-    UIGraphicsEndPDFContext();
+    var html: String = "<h2><font face ='verdana'>\(titleTextField.text)</font></h1>"
+    html += "<p><font size='3' face='verdana'>\(point1TextField.text)</font></p>"
+    html += "<p><font size='3' face='verdana'>\(point2TextField.text)</font></p>"
+    html += "<p><font size='3' face='verdana'>\(point3TextField.text)</font></p>"
+    html += "<center><img src='\(titleTextField.text).png' height='200' width='200'><center>"
     
     let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-    pdfData.writeToFile("\(documentsPath)/\(titleTextField.text).pdf", atomically: true)
+    try? html.writeToFile("\(documentsPath)/\(titleTextField.text).html", atomically: true, encoding: NSUTF8StringEncoding)
     
     print("saved")
     
@@ -123,10 +103,18 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
     // The info dictionary contains multiple representations of the image, and this uses the original.
-    let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+    let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage!
     
     // Set photoImageView to display the selected image.
     photoImageView = selectedImage
+    let data = UIImagePNGRepresentation(photoImageView!)
+    let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    let filename: String = "\(documentsPath[0])/\(titleTextField.text).png"
+    print(filename)
+    data?.writeToFile(filename, atomically: true)
+    
+    imgLoc = filename
+    
     
     // Dismiss the picker.
     dismissViewControllerAnimated(true, completion: nil)
