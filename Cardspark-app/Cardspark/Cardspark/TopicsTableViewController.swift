@@ -17,6 +17,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   var searchActive : Bool = false
   var topics = [Topic]()
   var filtered = [Topic]()
+  var email = AppState.sharedInstance.userEmail!
   var dataServer = AppState.sharedInstance.dataServer
   var newIndexPath: NSIndexPath?
   
@@ -26,7 +27,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     super.viewDidLoad()
     searchBar.delegate = self
     
-    dataServer.loadTopicsList(self)
+    dataServer.loadTopicsList(email, controller: self)
     
 //    if let savedTopics = loadTopics() {
 //      topics += savedTopics
@@ -135,11 +136,11 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
   // MARK: NSCoding
   func saveTopicToServer(topic: Topic) {
-    dataServer.createNewTopic(topic, controller: self)
+    dataServer.createNewTopic(email, topic: topic, controller: self)
   }
   
   func deleteTopicFromServer(topic: Topic) {
-    dataServer.deleteTopic(topic.id!, controller: self)
+    dataServer.deleteTopic(email, topic_id: topic.id!, controller: self)
   }
   
 //  func saveTopics() {
