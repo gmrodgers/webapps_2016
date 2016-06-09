@@ -122,38 +122,45 @@ class DataServer: NSObject, NSURLConnectionDelegate {
     sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.deleteTopicHandler)
   }
   
-  func createNewCard(card: Card) {
+  func createNewCard(card: Card, controller: CardTableViewController) {
     let route = "topics/cards"
-    let postData = ["card" : ["topic_id" : card.topic_id, "cardname" : card.name, "cardfile" : card.pdfData]]
+    let postData = ["card" : ["topic_id" : String(card.topic_id), "cardname" : card.name, "card_data" : card.htmlData]]
     let httpMethod = "POST"
     NSLog("Connect with URL for creating new card")
-    sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData, completionHandler: createCardHandler)
+    sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData, completionHandler: controller.createCardHandler)
   }
   
-  private func createCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
-    let httpResponse = response as! NSHTTPURLResponse
-    let statusCode = httpResponse.statusCode
-    
-    if (statusCode > 0) {
-      print("status code: \(statusCode)")
-    }
-  }
-  
-  func loadCardsList(topic_id : Int) {
+  func loadCardsList(topic_id : Int, controller: CardTableViewController) {
     let route = "topics/cards"
-    let parameters = ["topic_id" : topic_id]
+    let parameters = ["topic_id" : String(topic_id)]
     let httpMethod = "GET"
     NSLog("Connect with URL for loading cards")
-    sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: loadCardsListHandler)
+    sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadCardsListHandler)
   }
   
-  private func loadCardsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+  func updateCard(card_id: Int, updated_card: Card) {
+    let route = "cards"
+    let postData = ["card_id" : card_id, "card" : ["topic_id" : updated_card.topic_id, "cardname" : updated_card.name, "card_data" : updated_card.htmlData]]
+    let httpMethod = "PUT"
+    NSLog("Connect with URL for updating topic")
+    sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String: AnyObject], completionHandler: updateCardHandler)
+  }
+  
+  private func updateCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
     
     if (statusCode > 0) {
       print("status code: \(statusCode)")
     }
+  }
+  
+  func deleteCard(card_id: Int, controller: CardTableViewController) {
+    let route = "topics/cards"
+    let parameters = ["card_id" : String(card_id)]
+    let httpMethod = "DELETE"
+    NSLog("Connect with URL for deleting topic")
+    sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.deleteCardHandler)
   }
   
   // MARK: Server requests
