@@ -27,10 +27,10 @@ class CardsController < ApplicationController
     end
   end
 
-  def show
-    @card = Card.find(params[:card_id])
-  	render_object @card
-  end
+  # def show
+  #   @card = Card.find(params[:card_id])
+  # 	render_object @card
+  # end
 
   def update
     card = Card.find(params[:card_id])
