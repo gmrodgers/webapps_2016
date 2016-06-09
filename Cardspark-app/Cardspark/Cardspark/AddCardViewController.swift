@@ -15,7 +15,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
   
-  var questions: [Question] = []
+//  var questions: [Question] = []
   
   let COMMENTS_LIMIT = 140
     

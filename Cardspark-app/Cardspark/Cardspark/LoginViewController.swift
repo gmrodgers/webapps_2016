@@ -61,6 +61,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let password = passwordTextField.text
     FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
       if let error = error {
+        let alert = UIAlertController(title: "",
+                                      message: "The email address is already in use by another account.",
+                                      preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK",
+          style: UIAlertActionStyle.Default,
+          handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
         print(error.localizedDescription)
         return
       }

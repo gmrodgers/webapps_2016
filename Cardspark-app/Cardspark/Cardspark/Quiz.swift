@@ -10,40 +10,30 @@ import UIKit
 
 class Quiz: NSObject {
   
+//  static let sharedInstance = Quiz()
+  
   var name: String
-  var quiz: [(question: Question, answers: Answers)] = []
+  var quiz = [String: String]()
   
   init(name: String) {
     self.name = name
     super.init()
   }
   
-  func addToQuiz(new: (question: Question, answers: Answers)) {
-    quiz.append(new)
+  func addToQuiz(question: String, answer: String) {
+    quiz[question] = answer
   }
   
-  class Question: NSObject {
-    var question: String
-    
-    init(question: String) {
-      self.question = question
-      super.init()
-    }
+  func sizeOfQuiz() -> Int {
+    return quiz.count
   }
   
-  class Answers: NSObject {
-    var answers = [String]()
-    
-    func addAnswer(answer: String) {
-      self.answers.append(answer)
-    }
-    
-    func deleteAnswer(id: Int) {
-      self.answers.removeAtIndex(id)
-    }
-    
-    func getNumAnswers() -> Int {
-      return answers.count
-    }
+  func getQuiz() -> [String: String] {
+    return quiz
   }
+  
+  func getValue(question: String) -> String {
+    return quiz[question]!
+  }
+
 }

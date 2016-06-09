@@ -20,7 +20,5 @@ class AppState: NSObject {
   var dataServer = DataServer()
     
   // Why is there a global colour and topic?
-  var color : UIColor = UIColor.whiteColor()
-  var topic : Topic?
-  
+  var color : UIColor = UIColor.whiteColor()  
 }
