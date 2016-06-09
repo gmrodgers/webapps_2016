@@ -13,6 +13,7 @@ class CardTableViewController: UITableViewController {
   var topicId = Int()
   var cards = [Card]()
   var dataServer = AppState.sharedInstance.dataServer
+  var newIndexPath: NSIndexPath?
   
   @IBAction func dismissCards(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
@@ -20,7 +21,9 @@ class CardTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    cards = getCards()
+//    cards = getCards()
+    
+    dataServer.loadCardsList(topicId, controller: self)
   }
   
   override func didReceiveMemoryWarning() {
@@ -47,26 +50,113 @@ class CardTableViewController: UITableViewController {
     
   }
   
-  func getCards() -> [Card] {
-    let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    var pdfFiles = [NSURL]()
-    do {
-      let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
-      pdfFiles = directoryUrls.filter{ $0.pathExtension! == "html" }
-    } catch let error as NSError {
-      print(error.localizedDescription)
-    }
-    for file in pdfFiles {
-      cards += [Card(name: file.lastPathComponent!, url: file)]
-    }
-    
-    return cards
+  // Override to support conditional editing of the table view.
+  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    // Return false if you do not want the specified item to be editable.
+    return true
   }
   
+  // Override to support editing the table view.
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
+      // Delete the row from the data source
+      dataServer.deleteCard((cards[indexPath.row]).id!, controller: self)
       cards.removeAtIndex(indexPath.row)
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    } else if editingStyle == .Insert {
+      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+      tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
+    }
+  }
+  
+  @IBAction func unwindToCardsList(sender: UIStoryboardSegue) {
+    if let sourceViewController = sender.sourceViewController as? AddCardViewController, card = sourceViewController.card {
+      // Add a new card
+      newIndexPath = NSIndexPath(forRow: cards.count, inSection: 0)
+      dataServer.createNewCard(card, controller: self)
+    }
+  }
+  
+//  func getCards() -> [Card] {
+//    let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+//    var pdfFiles = [NSURL]()
+//    do {
+//      let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
+//      pdfFiles = directoryUrls.filter{ $0.pathExtension! == "html" }
+//    } catch let error as NSError {
+//      print(error.localizedDescription)
+//    }
+//    for file in pdfFiles {
+//      cards += [Card(name: file.lastPathComponent!, url: file)]
+//    }
+//    
+//    return cards
+//  }
+  
+  func loadCardsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.statusCode
+    
+    if (statusCode == 200) {
+      print("status code: \(statusCode)")
+      do {
+        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+        if let cards = dict.valueForKey("object") as? [[String: AnyObject]] {
+          for card in cards {
+            if let name = card["cardname"] as? String, id = card["id"] as? Int, htmlData = card["card_data"] as? String, topic_id = card["topic_id"] as? Int {
+              let newCard = Card(name: name)
+              newCard.setId(id)
+              newCard.topic_id = topic_id
+              newCard.htmlData = htmlData
+              self.cards.append(newCard)
+            }
+          }
+        }
+      }catch {
+        print("Error with Json")
+      }
+    }
+    dispatch_async(dispatch_get_main_queue()) {
+      self.tableView.reloadData()
+    }
+  }
+  
+  func createCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.statusCode
+    
+    print("status code: \(statusCode)")
+    
+    if (statusCode == 200) {
+      do {
+        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+        if let card = dict.valueForKey("object") as? [String: AnyObject] {
+          if let name = card["cardname"] as? String, id = card["id"] as? Int, htmlData = card["card_data"] as? String, topic_id = card["topic_id"] as? Int {
+            let newCard = Card(name: name)
+            newCard.setId(id)
+            newCard.topic_id = topic_id
+            newCard.htmlData = htmlData
+            self.cards.append(newCard)
+            print("saved")
+          }
+        }
+      }catch {
+        print("Error with Json")
+      }
+    }
+    dispatch_async(dispatch_get_main_queue()) {
+      self.tableView(self.tableView, commitEditingStyle: .Insert, forRowAtIndexPath: self.newIndexPath!)
+    }
+  }
+  
+  func deleteCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.statusCode
+    
+    if (statusCode == 200) {
+      print("status code: \(statusCode), Everything is okay!")
+    } else {
+      print("Failed to delete Card")
     }
   }
   
@@ -101,9 +191,13 @@ class CardTableViewController: UITableViewController {
       let destination = segue.destinationViewController as? ViewCardViewController,
       let row = tableView.indexPathForSelectedRow?.row
     {
-      destination.url = cards[row].url
       destination.index = row
       destination.cards = cards
+      
+    } else if segue.identifier == "addCardSegue" {
+      let navC: UINavigationController = segue.destinationViewController as! UINavigationController
+      let addCardVC: AddCardViewController = navC.viewControllers[0] as! AddCardViewController
+      addCardVC.topicId = self.topicId
     }
   }
 }

@@ -10,10 +10,13 @@ import UIKit
 
 class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
+  var topicId = Int()
+  
   @IBOutlet weak var titleTextField: UITextView!
   @IBOutlet weak var point1TextField: UITextView!
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
+  @IBOutlet weak var saveButton: UIBarButtonItem!
   
 //  var questions: [Question] = []
   
@@ -23,6 +26,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   var photoImageView : UIImage?
   var imgLoc = String()
+  var card: Card?
   
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {
@@ -48,22 +52,32 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
   }
   
-  @IBAction func saveCard(sender: AnyObject) {
-    
-    var html: String = "<h2><font face ='verdana'>\(titleTextField.text)</font></h1>"
-    html += "<p><font size='3' face='verdana'>\(point1TextField.text)</font></p>"
-    html += "<p><font size='3' face='verdana'>\(point2TextField.text)</font></p>"
-    html += "<p><font size='3' face='verdana'>\(point3TextField.text)</font></p>"
-    html += "<center><img src='\(titleTextField.text).png' height='200' width='200'><center>"
-    
-    let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-    
-    try? html.writeToFile("\(documentsPath)/\(titleTextField.text).html", atomically: true, encoding: NSUTF8StringEncoding)
-    
-    print("saved")
-    
-    self.dismissViewControllerAnimated(true, completion: nil)
-    
+//  @IBAction func saveCard(sender: AnyObject) {
+//   
+//  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if saveButton === sender {
+      var html: String = "<h2><font face ='verdana'>\(titleTextField.text)</font></h1>"
+      html += "<center><img src='\(titleTextField.text).png' height='200' width='200'><center>"
+      html += "<p><font size='3' face='verdana'>\(point1TextField.text)</font></p>"
+      html += "<p><font size='3' face='verdana'>\(point2TextField.text)</font></p>"
+      html += "<p><font size='3' face='verdana'>\(point3TextField.text)</font></p>"
+      
+      //    let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+      
+      card = Card(name: titleTextField.text)
+      card?.topic_id = topicId
+      card?.htmlData = html
+      //    do {
+      //      try html.writeToFile("\(documentsPath)/\(titleTextField.text).html", atomically: true, encoding: NSUTF8StringEncoding)
+      //    } catch {
+      //      print("Write to file failed!")
+      //    }
+      //
+      //    print("saved")
+      //    self.dismissViewControllerAnimated(true, completion: nil)
+    }
   }
   
   @IBAction func dissmissAddCard(sender: AnyObject) {
