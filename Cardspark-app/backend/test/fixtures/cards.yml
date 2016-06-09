@@ -1,29 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# card_one:
-#   topic_id: 1
-#   cardname:
-#   content_type: 'application/pdf'
-#   card_file:
-#   topic: topic1
+card_one:
+  topic_id: 1
+  card_data: "another"
+  cardname: "acard"
 
-# card_two:
-#   topic_id:1
-#   cardname:
-#   content_type: 'application/pdf'
-#   card_file:
-#   topic: topic1
 
-# card_three:
-#   topic_id: 2
-#   cardname:
-#   content_type: 'application/pdf'
-#   card_file:
-#   topic: topic2
-
-# card_four:
-#   topic_id: 2
-#   cardname:
-#   content_type: 'application/pdf'
-#   card_file:
-#   topic: topic2
+card_two:
+  topic_id: 2
+  card_data: "Nowanother"
+  cardname: "anotherCard"
