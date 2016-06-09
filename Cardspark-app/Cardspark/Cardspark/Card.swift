@@ -9,16 +9,24 @@
 import UIKit
 
 class Card: NSObject {
-    
-    var name = String()
-    var topic_id = Int()
-    var pdfData = NSMutableData()
-    
-    var url = NSURL()
-    
-    init(name: String, url: NSURL){
-        self.name = name
-        self.url = url
-    }
-
+  
+  var id: Int?
+  var name = String()
+  var topic_id = Int()
+  var htmlData = String()
+  var url = NSURL()
+  
+  init(name: String, url: NSURL){
+    self.name = name
+    self.url = url
+  }
+  
+  convenience init(name: String) {
+    self.init(name: name, url: NSURL())
+  }
+  
+  func setId(id: Int) {
+    self.id = id
+  }
+  
 }
