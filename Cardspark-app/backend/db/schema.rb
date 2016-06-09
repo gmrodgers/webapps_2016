@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160527021125) do
 
   create_table "cards", force: :cascade do |t|
     t.integer "topic_id"
-    t.string  "filename"
-    t.binary  "card_file"
+    t.string  "cardname"
+    t.string  "card_data"
   end
 
   create_table "topics", force: :cascade do |t|
