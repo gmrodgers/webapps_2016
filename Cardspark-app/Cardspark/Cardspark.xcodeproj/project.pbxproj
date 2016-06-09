@@ -18,7 +18,6 @@
 		30914EA91CFC559500E09D68 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30914EA81CFC559500E09D68 /* AppState.swift */; };
 		309B7ABB1D042A8E00221287 /* ColourControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7ABA1D042A8E00221287 /* ColourControl.swift */; };
 		309B7ABD1D0455CD00221287 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7ABC1D0455CD00221287 /* QuizViewController.swift */; };
-		309B7ABF1D045F2600221287 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7ABE1D045F2600221287 /* Question.swift */; };
 		309B7AC11D04861E00221287 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7AC01D04861E00221287 /* Quiz.swift */; };
 		30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */; };
 		30E1BC661D0303A4009A6458 /* ColourPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E1BC651D0303A4009A6458 /* ColourPickerViewController.swift */; };
@@ -58,7 +57,6 @@
 		30914EA81CFC559500E09D68 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		309B7ABA1D042A8E00221287 /* ColourControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourControl.swift; sourceTree = "<group>"; };
 		309B7ABC1D0455CD00221287 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		309B7ABE1D045F2600221287 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		309B7AC01D04861E00221287 /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		30E1BC651D0303A4009A6458 /* ColourPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourPickerViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				3EBF5F421CF213900079B23F /* Main.storyboard */,
 				3035E31B1CFC6BB500872740 /* MessagesViewController.swift */,
 				308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */,
-				309B7ABE1D045F2600221287 /* Question.swift */,
 				309B7AC01D04861E00221287 /* Quiz.swift */,
 				309B7ABC1D0455CD00221287 /* QuizViewController.swift */,
 				306881571CF78A1A00D16BC1 /* TimerViewController.swift */,
@@ -357,7 +354,6 @@
 				3035E31C1CFC6BB500872740 /* MessagesViewController.swift in Sources */,
 				309B7ABD1D0455CD00221287 /* QuizViewController.swift in Sources */,
 				306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */,
-				309B7ABF1D045F2600221287 /* Question.swift in Sources */,
 				30E1BC661D0303A4009A6458 /* ColourPickerViewController.swift in Sources */,
 				309B7ABB1D042A8E00221287 /* ColourControl.swift in Sources */,
 				30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */,

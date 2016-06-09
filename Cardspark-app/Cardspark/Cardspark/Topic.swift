@@ -14,7 +14,7 @@ class Topic: NSObject, NSCoding {
   var id: Int?
   var name: String
   var color: UIColor
-  var quiz: Quiz?
+  var quiz: Quiz
     
   struct propertyKey {
     static let idKey = "id"
@@ -26,6 +26,7 @@ class Topic: NSObject, NSCoding {
   init(name: String, color: UIColor) {
     self.name = name
     self.color = color
+    self.quiz = Quiz(name: name)
     super.init()
   }
     
@@ -33,9 +34,9 @@ class Topic: NSObject, NSCoding {
     self.init(name: name, color: UIColor.whiteColor())
   }
   
-  func addQuiz(quiz: Quiz) {
-    self.quiz = quiz
-  }
+//  func addQuiz(quiz: Quiz) {
+//    self.quiz = quiz
+//  }
   
   func setId(id: Int) {
     self.id = id
@@ -51,11 +52,11 @@ class Topic: NSObject, NSCoding {
   required convenience init?(coder aDecoder: NSCoder) {
     guard let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as? String,
           let color = aDecoder.decodeObjectForKey(propertyKey.colorKey) as? UIColor,
-          let quiz = aDecoder.decodeObjectForKey(propertyKey.quizKey) as? Quiz,
+//          let quiz = aDecoder.decodeObjectForKey(propertyKey.quizKey) as? Quiz,
           let id = aDecoder.decodeObjectForKey(propertyKey.idKey) as? Int
       else { return nil }
     self.init(name: name, color: color)
-    self.addQuiz(quiz)
+//    self.addQuiz(Quiz(name: name))
     self.setId(id)
   }
   

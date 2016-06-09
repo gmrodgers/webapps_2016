@@ -11,7 +11,6 @@ import UIKit
 
 class DataServer: NSObject, NSURLConnectionDelegate {
   private let baseURL = "https://radiant-meadow-37906.herokuapp.com/"
-  let currentUserEmail = AppState.sharedInstance.userEmail
   
   // MARK: App request actions
   func createNewUser(email: String) {
@@ -65,9 +64,9 @@ class DataServer: NSObject, NSURLConnectionDelegate {
     }
   }
   
-  func createNewTopic(topic: Topic, controller: TopicsTableViewController) {
+  func createNewTopic(email: String, topic: Topic, controller: TopicsTableViewController) {
     let route = "users/topics"
-    let postData = ["email" : currentUserEmail, "topic" : ["name" : topic.name]]
+    let postData = ["email" : email, "topic" : ["name" : topic.name]]
     let httpMethod = "POST"
     NSLog("Connect with URL for creating new topic")
     sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String : AnyObject], completionHandler: controller.createTopicHandler)
@@ -107,17 +106,17 @@ class DataServer: NSObject, NSURLConnectionDelegate {
     }
   }
   
-  func loadTopicsList(controller: TopicsTableViewController) {
+  func loadTopicsList(email: String, controller: TopicsTableViewController) {
     let route = "users/topics"
-    let parameters = ["email" : currentUserEmail]
+    let parameters = ["email" : email]
     let httpMethod = "GET"
     NSLog("Connect with URL for loading topics")
     sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadTopicsListHandler)
   }
   
-  func deleteTopic(topic_id: Int, controller: TopicsTableViewController) {
+  func deleteTopic(email: String, topic_id: Int, controller: TopicsTableViewController) {
     let route = "users/topics"
-    let parameters = ["email" : currentUserEmail, "topic_id" : String(topic_id)]
+    let parameters = ["email" : email, "topic_id" : String(topic_id)]
     let httpMethod = "DELETE"
     NSLog("Connect with URL for deleting topic")
     sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.deleteTopicHandler)

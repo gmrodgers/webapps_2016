@@ -52,7 +52,7 @@ class CardTableViewController: UITableViewController {
     var pdfFiles = [NSURL]()
     do {
       let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
-      pdfFiles = directoryUrls.filter{ $0.pathExtension! == "pdf" }
+      pdfFiles = directoryUrls.filter{ $0.pathExtension! == "html" }
     } catch let error as NSError {
       print(error.localizedDescription)
     }

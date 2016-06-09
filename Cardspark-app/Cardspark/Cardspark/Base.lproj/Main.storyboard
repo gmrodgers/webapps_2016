@@ -268,7 +268,7 @@
                     <navigationItem key="navigationItem" title="Topics" id="BAK-NU-NmX">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="9qO-Tu-vpC">
                             <connections>
-                                <action selector="didTapDignOut:" destination="nni-N2-6Mo" id="yh1-ki-Aj0"/>
+                                <action selector="didTapSignOut:" destination="nni-N2-6Mo" id="rRS-ow-eWR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WEj-gm-fcd">
