@@ -34,10 +34,6 @@ class Topic: NSObject, NSCoding {
     self.init(name: name, color: AppState.sharedInstance.color)
   }
   
-//  func addQuiz(quiz: Quiz) {
-//    self.quiz = quiz
-//  }
-  
   func setId(id: Int) {
     self.id = id
   }

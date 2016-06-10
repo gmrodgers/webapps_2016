@@ -16,6 +16,7 @@ class QuizViewController: UIViewController {
   var quiz : [String:String] = [:]
 //  var questions = String()
   var question = String()
+  var answers : [String] = []
   var ansIndex = Int()
   
   override func viewDidLoad() {
@@ -24,6 +25,7 @@ class QuizViewController: UIViewController {
   
   override func viewDidAppear(animated: Bool) {
     quiz = Quiz.sharedInstance.quiz
+    answers = Array(quiz.values)
     pickQuestion()
   }
   
@@ -32,9 +34,9 @@ class QuizViewController: UIViewController {
   }
   
   func pickQuestion() {
-    if quiz.count <= 1 {
+    if quiz.count < 1 {
+      //answerButtons.count {
       qLabel.text = "ADD MORE QUESTIONS"
-      print (quiz.count)
     }
     else {
       let index = random() % quiz.count
@@ -52,9 +54,8 @@ class QuizViewController: UIViewController {
           break
         }
         let index = random() % quiz.count
-        let wrongAnswer =  Array(quiz.values)[index]
+        let wrongAnswer =  answers[index]
         answerButtons[i].setTitle(wrongAnswer, forState: UIControlState.Normal)
-        
       }
     }
   }

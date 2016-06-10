@@ -53,10 +53,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
   }
   
-//  @IBAction func saveCard(sender: AnyObject) {
-//   
-//  }
-  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
       var html: String = "<h2><font face ='verdana'>\(titleTextField.text)</font></h1>"
@@ -130,7 +126,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     data?.writeToFile(filename, atomically: true)
     
     imgLoc = filename
-    
     
     // Dismiss the picker.
     dismissViewControllerAnimated(true, completion: nil)
