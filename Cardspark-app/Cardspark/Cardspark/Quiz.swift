@@ -10,35 +10,14 @@ import UIKit
 
 class Quiz: NSObject {
   
-  // MARK: Archiving Paths
-  
-  static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-  static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("quizzes")
-  
-//  static let sharedInstance = Quiz()
+  static let sharedInstance = Quiz(name: (AppState.sharedInstance.topic?.name)!)
   
   var name: String
   var quiz = [String: String]()
   
   init(name: String) {
     self.name = name
+    quiz = [:]
     super.init()
   }
-  
-  func addToQuiz(question: String, answer: String) {
-    quiz[question] = answer
-  }
-  
-  func sizeOfQuiz() -> Int {
-    return quiz.count
-  }
-  
-  func getQuiz() -> [String: String] {
-    return quiz
-  }
-  
-  func getValue(question: String) -> String {
-    return quiz[question]!
-  }
-
 }

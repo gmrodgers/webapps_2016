@@ -142,9 +142,10 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     let saveAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       
-      AppState.sharedInstance.quiz!.addToQuiz(alertController.textFields![0].text! as String, answer: alertController.textFields![1].text! as String)
+      let question = alertController.textFields![0].text! as String
+      let answer = alertController.textFields![1].text! as String
       
-      
+      Quiz.sharedInstance.quiz[question] = answer
     })
     
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {

@@ -21,5 +21,5 @@ class AppState: NSObject {
     
   // Why is there a global colour and topic?
   var color : UIColor = UIColor.whiteColor()
-  var quiz : Quiz?
+  var topic : Topic?
 }

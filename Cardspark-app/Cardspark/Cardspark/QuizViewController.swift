@@ -13,16 +13,17 @@ class QuizViewController: UIViewController {
   @IBOutlet weak var qLabel: UILabel!
   @IBOutlet var answerButtons: [UIButton]!
   
-  var quiz : Quiz?
-  var questions = String()
+  var quiz : [String:String] = [:]
+//  var questions = String()
   var question = String()
+  var ansIndex = Int()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    quiz = AppState.sharedInstance.quiz
   }
   
   override func viewDidAppear(animated: Bool) {
+    quiz = Quiz.sharedInstance.quiz
     pickQuestion()
   }
   
@@ -31,29 +32,36 @@ class QuizViewController: UIViewController {
   }
   
   func pickQuestion() {
-    if quiz!.sizeOfQuiz() <= 4 {
+    if quiz.count <= 1 {
       qLabel.text = "ADD MORE QUESTIONS"
+      print (quiz.count)
     }
     else {
-      let index = random() % quiz!.sizeOfQuiz()
-      question =  Array(quiz!.getQuiz().values)[index]
+      let index = random() % quiz.count
+      question =  Array(quiz.keys)[index]
+      let answer = quiz[question]!
       qLabel.text = question
       
-      answerButtons[random() % answerButtons.count].setTitle(quiz!.getValue(question), forState: UIControlState.Normal)
+      ansIndex = random() % answerButtons.count
+      
+      answerButtons[ansIndex].setTitle(answer, forState: UIControlState.Normal)
       
       for i in 0..<answerButtons.count {
-        if (answerButtons[i].titleLabel == "") {
-          let index = random() % quiz!.sizeOfQuiz()
-          let answer =  Array(quiz!.getQuiz().values)[index]
-          answerButtons[i].setTitle(answer, forState: UIControlState.Normal)
-        }
         answerButtons[i].tintColor = UIColor(hue: 0.4, saturation: 0.66, brightness: 0.66, alpha: 1)
+        if answerButtons[i].titleLabel == answer {
+          break
+        }
+        let index = random() % quiz.count
+        let wrongAnswer =  Array(quiz.values)[index]
+        answerButtons[i].setTitle(wrongAnswer, forState: UIControlState.Normal)
+        
       }
     }
   }
-  
+
+
   @IBAction func button1(sender: UIButton) {
-    if sender.titleLabel == question {
+    if ansIndex == 0 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
@@ -61,28 +69,28 @@ class QuizViewController: UIViewController {
   }
   
   @IBAction func button2(sender: UIButton) {
-    if sender.titleLabel == question {
+    if ansIndex == 1 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button3(sender: UIButton) {
-    if sender.titleLabel == question {
+    if ansIndex == 2 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button4(sender: UIButton) {
-    if sender.titleLabel == question {
+    if ansIndex == 3 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button5(sender: UIButton) {
-    if sender.titleLabel == question {
+    if ansIndex == 4 {
       pickQuestion()
     } else {
       sender.tintColor = UIColor.redColor()
