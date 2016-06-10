@@ -18,8 +18,8 @@ class QuizViewController: UIViewController {
   var question = String()
   
   override func viewDidLoad() {
-//    quiz = Quiz.sharedInstance
     super.viewDidLoad()
+    quiz = AppState.sharedInstance.quiz
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -88,4 +88,5 @@ class QuizViewController: UIViewController {
       sender.tintColor = UIColor.redColor()
     }
   }
+
 }

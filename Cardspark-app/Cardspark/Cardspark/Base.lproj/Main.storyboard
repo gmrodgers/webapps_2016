@@ -809,7 +809,7 @@
                                             </barButtonItem>
                                         </items>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="242" width="400" height="44"/>
+                                            <rect key="frame" x="0.0" y="484" width="400" height="44"/>
                                         </variation>
                                     </toolbar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5H-FX-mGO">
@@ -1018,7 +1018,8 @@
                                                 <exclude reference="meB-96-rIn"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="898"/>
                                             <mask key="subviews">
                                                 <include reference="ki7-5p-jHy"/>
                                                 <include reference="6ng-gg-mrD"/>

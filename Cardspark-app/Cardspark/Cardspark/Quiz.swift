@@ -10,6 +10,11 @@ import UIKit
 
 class Quiz: NSObject {
   
+  // MARK: Archiving Paths
+  
+  static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+  static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("quizzes")
+  
 //  static let sharedInstance = Quiz()
   
   var name: String

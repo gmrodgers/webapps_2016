@@ -224,6 +224,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       let topicIndex = tableView.indexPathForSelectedRow?.row
       print(topicIndex)
       cardTableVC.topicId = topics[topicIndex!].id!
+      AppState.sharedInstance.topic = topics[topicIndex!]
     }
   }
   
