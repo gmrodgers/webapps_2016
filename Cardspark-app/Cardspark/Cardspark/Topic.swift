@@ -31,7 +31,7 @@ class Topic: NSObject, NSCoding {
   }
     
   convenience init(name: String) {
-    self.init(name: name, color: UIColor.whiteColor())
+    self.init(name: name, color: AppState.sharedInstance.color)
   }
   
 //  func addQuiz(quiz: Quiz) {
