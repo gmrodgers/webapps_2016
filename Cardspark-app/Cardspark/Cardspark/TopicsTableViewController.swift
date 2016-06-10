@@ -24,8 +24,10 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   let topicTableToCardTableSegueIdentifier = "CardTableViewSegue"
   
   override func viewDidLoad() {
+    
     super.viewDidLoad()
     searchBar.delegate = self
+    self.tableView.tableHeaderView = searchBar;
     
     dataServer.loadTopicsList(email, controller: self)
     
