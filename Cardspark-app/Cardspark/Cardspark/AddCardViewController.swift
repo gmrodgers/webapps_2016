@@ -17,6 +17,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
   @IBOutlet weak var saveButton: UIBarButtonItem!
+  @IBOutlet weak var image: UIImageView!
   
 //  var questions: [Question] = []
   
@@ -121,6 +122,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     
     // Set photoImageView to display the selected image.
     photoImageView = selectedImage
+    image.image = photoImageView
     let data = UIImagePNGRepresentation(photoImageView!)
     let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
     let filename: String = "\(documentsPath[0])/\(titleTextField.text).png"
