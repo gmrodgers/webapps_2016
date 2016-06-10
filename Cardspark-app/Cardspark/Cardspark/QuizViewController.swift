@@ -34,8 +34,7 @@ class QuizViewController: UIViewController {
   }
   
   func pickQuestion() {
-    if quiz.count < 1 {
-      //answerButtons.count {
+    if quiz.count < answerButtons.count {
       qLabel.text = "ADD MORE QUESTIONS"
     }
     else {
@@ -45,17 +44,20 @@ class QuizViewController: UIViewController {
       qLabel.text = question
       
       ansIndex = random() % answerButtons.count
-      
       answerButtons[ansIndex].setTitle(answer, forState: UIControlState.Normal)
       
       for i in 0..<answerButtons.count {
         answerButtons[i].tintColor = UIColor(hue: 0.4, saturation: 0.66, brightness: 0.66, alpha: 1)
-        if answerButtons[i].titleLabel == answer {
+        if (i == ansIndex) {
           break
         }
-        let index = random() % quiz.count
-        let wrongAnswer =  answers[index]
-        answerButtons[i].setTitle(wrongAnswer, forState: UIControlState.Normal)
+        var wIndex : Int
+        var wrongAnswer : String
+        repeat {
+          wIndex = random() % quiz.count
+          wrongAnswer = answers[wIndex]
+          answerButtons[i].setTitle(wrongAnswer, forState: UIControlState.Normal)
+        } while (wIndex == ansIndex || wrongAnswer == answer)
       }
     }
   }
