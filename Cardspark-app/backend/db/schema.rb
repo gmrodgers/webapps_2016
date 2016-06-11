@@ -20,10 +20,14 @@ ActiveRecord::Schema.define(version: 20160527021125) do
     t.integer "topic_id"
     t.string  "cardname"
     t.string  "card_data"
+    t.string  "colour"
+    t.string  "question"
+    t.string  "answer"
   end
 
   create_table "topics", force: :cascade do |t|
     t.string "name"
+    t.string "colour"
   end
 
   create_table "topics_users", id: false, force: :cascade do |t|

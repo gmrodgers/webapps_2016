@@ -4,8 +4,9 @@ class CreateCards < ActiveRecord::Migration
       t.integer :topic_id
       t.string :cardname
       t.string :card_data
-      # t.string :content_type
-      # t.binary :card_file
+      t.string :colour
+      t.string :question
+      t.string :answer
     end
   end
 end
