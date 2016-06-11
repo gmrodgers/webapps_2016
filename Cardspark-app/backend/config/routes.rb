@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post 'topics/cards'            => 'cards#create'
   put 'cards'                    => 'cards#update'
   delete 'topics/cards'          => 'cards#destroy'
-  get 'topics/answers'           => 'cards#get_answers'
+  get 'topics/cards/answers'     => 'cards#get_answers'
   
   
   # resources :users, param: :email, :only => [:create, :update, :destroy] do
