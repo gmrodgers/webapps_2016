@@ -53,6 +53,16 @@ class CardsController < ApplicationController
     render_no_content
   end
 
+  def get_answers
+    topic = Topic.find(params[:topic_id])
+    if topic
+      @cards = topic.cards.where.not(id: params[:card_id])
+      render_object @cards      
+    else
+      render_error topic
+    end
+  end
+
 private
   def card_params
     params.require(:card).permit(:topic_id, :cardname, :card_data )
