@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   # Cards routes
   get 'topics/cards'             => 'cards#index'
   post 'topics/cards'            => 'cards#create'
-  get 'topics/cards/show'        => 'cards#show'
   put 'cards'                    => 'cards#update'
-  delete 'topics/cards'          => 'cards#destroy'  
+  delete 'topics/cards'          => 'cards#destroy'
+  get 'topics/answers'           => 'cards#get_answers'
   
   
   # resources :users, param: :email, :only => [:create, :update, :destroy] do
