@@ -17,17 +17,19 @@ class ColourControl: UIView {
     }
   }
   
-  let col1 = UIColor(hue: 0, saturation: 0.66, brightness: 0.66, alpha: 1)
-  let col2 = UIColor(hue: 0.2, saturation: 0.66, brightness: 0.66, alpha: 1)
-  let col3 = UIColor(hue: 0.4, saturation: 0.66, brightness: 0.66, alpha: 1)
-  let col4 = UIColor(hue: 0.6, saturation: 0.66, brightness: 0.66, alpha: 1)
-  let col5 = UIColor(hue: 0.8, saturation: 0.66, brightness: 0.66, alpha: 1)
+  let col1 = UIColor.redColor()
+  let col2 = UIColor.blueColor()
+  let col3 = UIColor.greenColor()
+  let col4 = UIColor.orangeColor()
+  let col5 = UIColor.purpleColor()
   
   var colorButtons = [UIButton]()
   var colorArray = [UIColor]()
   
   let spacing = 5
   let buttonCount = 5
+  
+  var color : UIColor?
   
   // MARK: Initialisation
 
@@ -82,7 +84,8 @@ class ColourControl: UIView {
   // MARK: Button Action
   func colourButtonTapped(button: UIButton) {
     buttonPressed = colorButtons.indexOf(button)!
-    AppState.sharedInstance.color = button.backgroundColor!
+    color = button.backgroundColor!
+    print ("colcontrol \(color)")
     updateButtonSelectionStates()
   }
   

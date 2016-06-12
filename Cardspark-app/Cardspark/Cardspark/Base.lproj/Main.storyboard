@@ -273,14 +273,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WEj-gm-fcd">
                             <connections>
-                                <action selector="createNewTopicAlert:" destination="nni-N2-6Mo" id="Bh3-ti-CY8"/>
                                 <segue destination="auv-Vy-qA6" kind="presentation" id="Dh8-4G-61W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Dcf-Il-pXK" id="5ig-6v-Lsi"/>
-                        <outlet property="tableView" destination="80M-Q2-yHo" id="wiy-JG-bAa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfM-0X-WeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,7 +319,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="COLOUR"/>
                                 <connections>
-                                    <segue destination="ek5-uI-B7P" kind="show" id="Oi3-4Q-8fV"/>
+                                    <segue destination="uuR-Oo-iAh" kind="presentation" id="Oi3-4Q-8fV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -370,6 +368,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="colorButton" destination="1nU-Yo-OzT" id="QIZ-qG-59G"/>
                         <outlet property="saveButton" destination="voF-5K-3PF" id="YvR-0z-MNb"/>
                         <outlet property="topicTextField" destination="ja8-KB-EHm" id="8v1-p2-Mpf"/>
                     </connections>
@@ -846,6 +845,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="q2l-y2-caO"/>
+                    <connections>
+                        <outlet property="searchBar" destination="nH7-kL-IgF" id="6de-6k-EIc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="id4-Vf-TGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1244,7 +1246,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-qd-NTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bl2-dr-Sic" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4938" y="-1004"/>
+            <point key="canvasLocation" x="5856" y="-1004"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="Chr-kF-qdQ">
@@ -1521,7 +1523,9 @@
                             <constraint firstItem="Wsn-H5-nfl" firstAttribute="top" secondItem="x0I-Qm-1Yw" secondAttribute="bottom" constant="24" id="6cF-wF-dQD"/>
                             <constraint firstItem="Wsn-H5-nfl" firstAttribute="leading" secondItem="url-Q5-7Q6" secondAttribute="leading" id="7Ij-4Q-wFl"/>
                             <constraint firstAttribute="trailing" secondItem="Wsn-H5-nfl" secondAttribute="trailing" id="Lih-s7-sPU"/>
-                            <constraint firstItem="DKK-Kf-49K" firstAttribute="top" secondItem="Wsn-H5-nfl" secondAttribute="bottom" constant="423" id="zC1-PN-DOv"/>
+                            <constraint firstItem="DKK-Kf-49K" firstAttribute="top" secondItem="Wsn-H5-nfl" secondAttribute="bottom" constant="423" id="zC1-PN-DOv">
+                                <variation key="widthClass=compact" constant="379"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -1546,10 +1550,23 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="GUu-mw-BIa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jX4-WD-VrK">
+                            <connections>
+                                <segue destination="6UD-Fp-L2B" kind="unwind" identifier="addColor" unwindAction="addColor:" id="Kgg-Gi-MAg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="colourControl" destination="Wsn-H5-nfl" id="iEQ-7U-csQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb7-sN-uyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6UD-Fp-L2B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3280.5" y="-1685"/>
+            <point key="canvasLocation" x="4198.5" y="-1685"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="e6T-Yj-1WR">
@@ -1644,6 +1661,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scR-mB-4WI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3954" y="-41"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1PJ-Ap-YqX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uJa-03-C3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uuR-Oo-iAh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wX3-8b-PdH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ek5-uI-B7P" kind="relationship" relationship="rootViewController" id="ZQF-ig-Ria"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="3280.5" y="-1685"/>
         </scene>
     </scenes>
     <resources>

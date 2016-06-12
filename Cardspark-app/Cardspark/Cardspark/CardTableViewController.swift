@@ -164,9 +164,7 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
   func createCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
-    
-    print("status code: \(statusCode)")
-    
+        
     if (statusCode == 200) {
       do {
         let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
