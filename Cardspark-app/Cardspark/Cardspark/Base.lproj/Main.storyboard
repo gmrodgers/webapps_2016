@@ -715,7 +715,7 @@
                             </barButtonItem>
                             <barButtonItem title="Users" id="uu4-IY-XwM">
                                 <connections>
-                                    <segue destination="NJI-O5-5ZD" kind="presentation" id="30x-Hr-8Je"/>
+                                    <segue destination="NJI-O5-5ZD" kind="presentation" identifier="UserTableViewSegue" id="30x-Hr-8Je"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
