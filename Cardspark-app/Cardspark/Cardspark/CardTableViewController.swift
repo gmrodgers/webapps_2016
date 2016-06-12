@@ -164,9 +164,7 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
   func createCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
-    
-    print("status code: \(statusCode)")
-    
+        
     if (statusCode == 200) {
       do {
         let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
@@ -238,6 +236,10 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
       let navC: UINavigationController = segue.destinationViewController as! UINavigationController
       let addCardVC: AddCardViewController = navC.viewControllers[0] as! AddCardViewController
       addCardVC.topicId = self.topicId
+    } else if segue.identifier == "UserTableViewSegue" {
+      let navC: UINavigationController = segue.destinationViewController as! UINavigationController
+        let usersTableVC: UsersTableViewController = navC.viewControllers[0] as! UsersTableViewController
+        usersTableVC.topicId = topicId
     }
   }
 }

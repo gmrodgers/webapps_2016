@@ -13,27 +13,23 @@ class Topic: NSObject, NSCoding {
   // MARK: Properties
   var id: Int?
   var name: String
-  var color: UIColor
+  var colour: String
   var quiz: Quiz
     
   struct propertyKey {
     static let idKey = "id"
     static let nameKey = "name"
-    static let colorKey = "color"
+    static let colourKey = "colour"
     static let quizKey = "quiz"
   }
   
-  init(name: String, color: UIColor) {
+  init(name: String, colour: String) {
     self.name = name
-    self.color = color
+    self.colour = colour
     self.quiz = Quiz(name: name)
     super.init()
   }
     
-  convenience init(name: String) {
-    self.init(name: name, color: AppState.sharedInstance.color)
-  }
-  
   func setId(id: Int) {
     self.id = id
   }
@@ -41,17 +37,17 @@ class Topic: NSObject, NSCoding {
   // MARK: NSCoding
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(name, forKey: propertyKey.nameKey)
-    aCoder.encodeObject(color, forKey: propertyKey.colorKey)
+    aCoder.encodeObject(colour, forKey: propertyKey.colourKey)
     aCoder.encodeObject(quiz, forKey: propertyKey.quizKey)
   }
   
   required convenience init?(coder aDecoder: NSCoder) {
     guard let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as? String,
-          let color = aDecoder.decodeObjectForKey(propertyKey.colorKey) as? UIColor,
+          let colour = aDecoder.decodeObjectForKey(propertyKey.colourKey) as? String,
 //          let quiz = aDecoder.decodeObjectForKey(propertyKey.quizKey) as? Quiz,
           let id = aDecoder.decodeObjectForKey(propertyKey.idKey) as? Int
       else { return nil }
-    self.init(name: name, color: color)
+    self.init(name: name, colour: colour)
 //    self.addQuiz(Quiz(name: name))
     self.setId(id)
   }
