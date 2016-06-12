@@ -31,6 +31,12 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
     dataServer.loadCardsList(topicId, controller: self)
   }
   
+  override func viewDidAppear(animated: Bool) {
+    self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+    self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    self.tabBarController?.tabBar.hidden = true
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

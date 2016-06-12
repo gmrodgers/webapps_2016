@@ -57,14 +57,18 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
       let colour = getColour(colourControl.colour)
-      
+      var textColor : String
+      if colour == "white" {
+        textColor = "black"
+      } else {
+        textColor = "white"
+      }
       var html: String = "<style>body{background-color:\(colour);}</style>"
-      
-      html += "<h1><font face ='verdana'>\(titleTextField.text)</font></h1>"
+      html += "<h1 style='color:\(textColor)'><font face ='verdana'>\(titleTextField.text)</font></h1>"
       html += "<center><img src='\(titleTextField.text).png' height='200' width='200'><center>"
-      html += "<p><font size='3' face='verdana'>\(point1TextField.text)</font></p>"
-      html += "<p><font size='3' face='verdana'>\(point2TextField.text)</font></p>"
-      html += "<p><font size='3' face='verdana'>\(point3TextField.text)</font></p>"
+      html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point1TextField.text)</font></p>"
+      html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point2TextField.text)</font></p>"
+      html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point3TextField.text)</font></p>"
      
       //    let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
       
@@ -103,6 +107,12 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     point1TextField.delegate = self
     point2TextField.delegate = self
     point3TextField.delegate = self
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+    self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    self.tabBarController?.tabBar.hidden = true
   }
   
   override func didReceiveMemoryWarning() {
