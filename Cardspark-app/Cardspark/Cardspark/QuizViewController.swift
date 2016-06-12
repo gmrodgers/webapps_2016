@@ -26,7 +26,7 @@ class QuizViewController: UIViewController {
   }
   
   override func viewDidAppear(animated: Bool) {
-    quiz = Quiz.sharedInstance.quiz
+//    quiz = Quiz.sharedInstance.quiz
     pickQuestion()
   }
   

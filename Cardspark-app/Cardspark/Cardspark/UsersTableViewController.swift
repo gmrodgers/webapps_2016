@@ -119,5 +119,9 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
       self.tableView.reloadData()
     }
   }
+  
+  @IBAction func done(sender: UIBarButtonItem) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
 }
 

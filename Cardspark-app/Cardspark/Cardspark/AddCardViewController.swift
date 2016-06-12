@@ -167,7 +167,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       let question = alertController.textFields![0].text! as String
       let answer = alertController.textFields![1].text! as String
       
-      Quiz.sharedInstance.quiz[question] = answer
+//      Quiz.sharedInstance.quiz[question] = answer
     })
     
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {

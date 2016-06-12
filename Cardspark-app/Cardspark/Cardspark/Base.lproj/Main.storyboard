@@ -698,7 +698,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cardLabel" destination="cCH-s1-oNF" id="WU5-8E-IEV"/>
-                                    <segue destination="Ntt-pu-6Ux" kind="show" identifier="viewCardSegue" id="MZV-0E-lgZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -716,7 +715,7 @@
                             </barButtonItem>
                             <barButtonItem title="Users" id="uu4-IY-XwM">
                                 <connections>
-                                    <segue destination="6So-1n-Cn2" kind="show" id="VWQ-xz-wxb"/>
+                                    <segue destination="NJI-O5-5ZD" kind="presentation" id="30x-Hr-8Je"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -849,14 +848,20 @@
                             <outlet property="delegate" destination="ssm-B4-BZh" id="s3n-sx-hSu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="q2l-y2-caO"/>
+                    <navigationItem key="navigationItem" id="q2l-y2-caO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="xpu-Pf-Dlc">
+                            <connections>
+                                <action selector="done:" destination="ssm-B4-BZh" id="EUG-eF-QH2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="nH7-kL-IgF" id="6de-6k-EIc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="id4-Vf-TGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4867.5" y="-212"/>
+            <point key="canvasLocation" x="4803" y="-212"/>
         </scene>
         <!--Add Card-->
         <scene sceneID="Kcv-Li-OFP">
@@ -1283,7 +1288,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-qd-NTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bl2-dr-Sic" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5694" y="-1004"/>
+            <point key="canvasLocation" x="7530" y="-1004"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="Chr-kF-qdQ">
@@ -1615,22 +1620,22 @@
             <point key="canvasLocation" x="541.5" y="558"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Pt9-1J-JBd">
+        <scene sceneID="WOT-Sy-YOH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6So-1n-Cn2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NJI-O5-5ZD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SAW-vR-CM3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="npX-f6-Guj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ssm-B4-BZh" kind="relationship" relationship="rootViewController" id="jbJ-4e-uMT"/>
+                        <segue destination="ssm-B4-BZh" kind="relationship" relationship="rootViewController" id="nq6-Oy-cuz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NZV-47-2Zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWl-84-tqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3949.5" y="-212"/>
+            <point key="canvasLocation" x="3885" y="-212"/>
         </scene>
     </scenes>
     <resources>
