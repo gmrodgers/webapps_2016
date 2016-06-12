@@ -315,43 +315,46 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nU-Yo-OzT">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="COLOUR"/>
-                                <connections>
-                                    <segue destination="uuR-Oo-iAh" kind="presentation" id="Oi3-4Q-8fV"/>
-                                </connections>
-                            </button>
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wsn-H5-nfl" customClass="ColourControl" customModule="Cardspark" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Wsn-H5-nfl" firstAttribute="centerX" secondItem="ja8-KB-EHm" secondAttribute="centerX" id="8Rm-Gn-kjc"/>
+                            <constraint firstItem="Jca-3O-juY" firstAttribute="top" secondItem="Wsn-H5-nfl" secondAttribute="bottom" constant="256" id="IeA-eU-6Ux"/>
                             <constraint firstItem="ja8-KB-EHm" firstAttribute="centerX" secondItem="a0H-GD-hPs" secondAttribute="centerX" id="W8C-0J-7Od"/>
+                            <constraint firstItem="Wsn-H5-nfl" firstAttribute="centerY" secondItem="a0H-GD-hPs" secondAttribute="centerY" id="arK-cl-ntK"/>
                             <constraint firstItem="ja8-KB-EHm" firstAttribute="top" secondItem="IlN-Ho-AC3" secondAttribute="bottom" constant="53" id="nLC-VD-tCJ"/>
-                            <constraint firstItem="Jca-3O-juY" firstAttribute="top" secondItem="1nU-Yo-OzT" secondAttribute="bottom" constant="219" id="pIL-eD-dV3"/>
-                            <constraint firstItem="1nU-Yo-OzT" firstAttribute="centerX" secondItem="ja8-KB-EHm" secondAttribute="centerX" id="uyj-6P-2F5"/>
+                            <constraint firstItem="Wsn-H5-nfl" firstAttribute="leading" secondItem="a0H-GD-hPs" secondAttribute="leading" id="pjV-N4-1eu"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ja8-KB-EHm"/>
-                                <exclude reference="1nU-Yo-OzT"/>
+                                <exclude reference="Wsn-H5-nfl"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="pIL-eD-dV3"/>
                                 <exclude reference="W8C-0J-7Od"/>
                                 <exclude reference="nLC-VD-tCJ"/>
-                                <exclude reference="uyj-6P-2F5"/>
+                                <exclude reference="8Rm-Gn-kjc"/>
+                                <exclude reference="arK-cl-ntK"/>
+                                <exclude reference="pjV-N4-1eu"/>
+                                <exclude reference="IeA-eU-6Ux"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ja8-KB-EHm"/>
-                                <include reference="1nU-Yo-OzT"/>
+                                <include reference="Wsn-H5-nfl"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="pIL-eD-dV3"/>
                                 <include reference="W8C-0J-7Od"/>
                                 <include reference="nLC-VD-tCJ"/>
-                                <include reference="uyj-6P-2F5"/>
+                                <include reference="8Rm-Gn-kjc"/>
+                                <include reference="arK-cl-ntK"/>
+                                <include reference="pjV-N4-1eu"/>
+                                <include reference="IeA-eU-6Ux"/>
                             </mask>
                         </variation>
                     </view>
@@ -363,12 +366,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="voF-5K-3PF">
                             <connections>
-                                <segue destination="g1j-GT-Cii" kind="unwind" unwindAction="unwindToTopicsList:" id="LZR-zW-aai"/>
+                                <segue destination="g1j-GT-Cii" kind="unwind" unwindAction="unwindToTopicsList:" id="pJg-eG-Oyt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="colorButton" destination="1nU-Yo-OzT" id="QIZ-qG-59G"/>
+                        <outlet property="colourControl" destination="Wsn-H5-nfl" id="yxJ-se-Qv1"/>
                         <outlet property="saveButton" destination="voF-5K-3PF" id="YvR-0z-MNb"/>
                         <outlet property="topicTextField" destination="ja8-KB-EHm" id="8v1-p2-Mpf"/>
                     </connections>
@@ -1501,73 +1504,6 @@
             </objects>
             <point key="canvasLocation" x="3963" y="-1004"/>
         </scene>
-        <!--Colour Picker View Controller-->
-        <scene sceneID="7SI-Sk-Y1T">
-            <objects>
-                <viewController id="ek5-uI-B7P" customClass="ColourPickerViewController" customModule="Cardspark" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="x0I-Qm-1Yw"/>
-                        <viewControllerLayoutGuide type="bottom" id="DKK-Kf-49K"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="url-Q5-7Q6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wsn-H5-nfl" customClass="ColourControl" customModule="Cardspark" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Wsn-H5-nfl" firstAttribute="top" secondItem="x0I-Qm-1Yw" secondAttribute="bottom" constant="24" id="6cF-wF-dQD"/>
-                            <constraint firstItem="Wsn-H5-nfl" firstAttribute="leading" secondItem="url-Q5-7Q6" secondAttribute="leading" id="7Ij-4Q-wFl"/>
-                            <constraint firstAttribute="trailing" secondItem="Wsn-H5-nfl" secondAttribute="trailing" id="Lih-s7-sPU"/>
-                            <constraint firstItem="DKK-Kf-49K" firstAttribute="top" secondItem="Wsn-H5-nfl" secondAttribute="bottom" constant="423" id="zC1-PN-DOv">
-                                <variation key="widthClass=compact" constant="379"/>
-                            </constraint>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Wsn-H5-nfl"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="zC1-PN-DOv"/>
-                                <exclude reference="6cF-wF-dQD"/>
-                                <exclude reference="7Ij-4Q-wFl"/>
-                                <exclude reference="Lih-s7-sPU"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Wsn-H5-nfl"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="zC1-PN-DOv"/>
-                                <include reference="6cF-wF-dQD"/>
-                                <include reference="7Ij-4Q-wFl"/>
-                                <include reference="Lih-s7-sPU"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="GUu-mw-BIa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jX4-WD-VrK">
-                            <connections>
-                                <segue destination="6UD-Fp-L2B" kind="unwind" identifier="addColor" unwindAction="addColor:" id="Kgg-Gi-MAg"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="colourControl" destination="Wsn-H5-nfl" id="iEQ-7U-csQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wb7-sN-uyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="6UD-Fp-L2B" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="4198.5" y="-1685"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="e6T-Yj-1WR">
             <objects>
@@ -1661,24 +1597,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scR-mB-4WI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3954" y="-41"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="1PJ-Ap-YqX">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uJa-03-C3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uuR-Oo-iAh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wX3-8b-PdH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ek5-uI-B7P" kind="relationship" relationship="rootViewController" id="ZQF-ig-Ria"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="3280.5" y="-1685"/>
         </scene>
     </scenes>
     <resources>

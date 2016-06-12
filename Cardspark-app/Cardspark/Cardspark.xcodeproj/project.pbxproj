@@ -22,7 +22,6 @@
 		309B7ABD1D0455CD00221287 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7ABC1D0455CD00221287 /* QuizViewController.swift */; };
 		309B7AC11D04861E00221287 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7AC01D04861E00221287 /* Quiz.swift */; };
 		30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */; };
-		30E1BC661D0303A4009A6458 /* ColourPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E1BC651D0303A4009A6458 /* ColourPickerViewController.swift */; };
 		3E004C351CF77B4000474F16 /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E004C341CF77B4000474F16 /* CardTableViewController.swift */; };
 		3E004C371CF77C3E00474F16 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E004C361CF77C3E00474F16 /* AddCardViewController.swift */; };
 		3E4267BC1CFE87CF00E12B7A /* ViewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4267BB1CFE87CF00E12B7A /* ViewCardViewController.swift */; };
@@ -63,7 +62,6 @@
 		309B7ABC1D0455CD00221287 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		309B7AC01D04861E00221287 /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
-		30E1BC651D0303A4009A6458 /* ColourPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourPickerViewController.swift; sourceTree = "<group>"; };
 		33EB3C8E7E28B724AB2ED229 /* Pods_Cardspark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardspark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E004C341CF77B4000474F16 /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
 		3E004C361CF77C3E00474F16 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */,
 				3E004C341CF77B4000474F16 /* CardTableViewController.swift */,
 				309B7ABA1D042A8E00221287 /* ColourControl.swift */,
-				30E1BC651D0303A4009A6458 /* ColourPickerViewController.swift */,
 				079B17D91D0764E60035EB25 /* DataServer.swift */,
 				3EBF5F5E1CF215500079B23F /* LoginViewController.swift */,
 				3EBF5F421CF213900079B23F /* Main.storyboard */,
@@ -362,7 +359,6 @@
 				306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */,
 				307926071D0D923D002942BA /* UsersTableViewCell.swift in Sources */,
 				307926091D0D9284002942BA /* UsersTableViewController.swift in Sources */,
-				30E1BC661D0303A4009A6458 /* ColourPickerViewController.swift in Sources */,
 				309B7ABB1D042A8E00221287 /* ColourControl.swift in Sources */,
 				30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */,
 				3EBF5F5F1CF215500079B23F /* LoginViewController.swift in Sources */,

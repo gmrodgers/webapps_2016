@@ -66,7 +66,7 @@ class DataServer: NSObject, NSURLConnectionDelegate {
   
   func createNewTopic(email: String, topic: Topic, controller: TopicsTableViewController) {
     let route = "users/topics"
-    let postData = ["email" : email, "topic" : ["name" : topic.name]]
+    let postData = ["email" : email, "topic" : ["name" : topic.name, "colour" : topic.colour]]
     let httpMethod = "POST"
     NSLog("Connect with URL for creating new topic")
     sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String : AnyObject], completionHandler: controller.createTopicHandler)
@@ -91,7 +91,7 @@ class DataServer: NSObject, NSURLConnectionDelegate {
   
   func updateTopic(topic_id: Int, updated_topic: Topic) {
     let route = "topics"
-    let postData = ["topic_id" : topic_id, "topic" : ["name" : updated_topic.name]]
+    let postData = ["topic_id" : topic_id, "topic" : ["name" : updated_topic.name, "colour" : updated_topic.colour]]
     let httpMethod = "PUT"
     NSLog("Connect with URL for updating topic")
     sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData as! [String: AnyObject], completionHandler: updateTopicHandler)
