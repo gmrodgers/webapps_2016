@@ -714,7 +714,7 @@
                             </barButtonItem>
                             <barButtonItem title="Users" id="uu4-IY-XwM">
                                 <connections>
-                                    <segue destination="ssm-B4-BZh" kind="show" identifier="UserTableViewSegue" id="bqg-R8-cce"/>
+                                    <segue destination="8XR-uf-YG0" kind="show" identifier="UserTableViewSegue" id="bqg-R8-cce"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
@@ -802,6 +802,11 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="w18-1M-Ezx">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="nH7-kL-IgF">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsersTableViewCell" id="Mht-iv-WTG" customClass="UsersTableViewCell" customModule="Cardspark" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -840,10 +845,11 @@
                             <outlet property="delegate" destination="ssm-B4-BZh" id="s3n-sx-hSu"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="q2l-y2-caO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="id4-Vf-TGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3954" y="-41"/>
+            <point key="canvasLocation" x="4872" y="-41"/>
         </scene>
         <!--Add Card-->
         <scene sceneID="Kcv-Li-OFP">
@@ -1620,6 +1626,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ro-Rs-WTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="541.5" y="558"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fhc-21-yQx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8XR-uf-YG0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="efc-KD-fws">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ssm-B4-BZh" kind="relationship" relationship="rootViewController" id="9Aq-W3-DTV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scR-mB-4WI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3954" y="-41"/>
         </scene>
     </scenes>
     <resources>
