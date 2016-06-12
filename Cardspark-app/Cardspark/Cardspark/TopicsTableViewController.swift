@@ -165,8 +165,11 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
         let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
         if let topics = dict.valueForKey("object") as? [[String: AnyObject]] {
           for topic in topics {
-            if let name = topic["name"] as? String, id = topic["id"] as? Int, colour = topic["colour"] as? String {
-              let newTopic = Topic(name: name, colour: colour)
+            if let name = topic["name"] as? String, id = topic["id"] as? Int {
+              let newTopic = Topic(name: name)
+              if let colour = topic["colour"] as? String {
+                newTopic.changeColour(colour)
+              }
               newTopic.setId(id)
               self.topics.append(newTopic)
             }
@@ -189,8 +192,11 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       do {
         let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
         if let topic = dict.valueForKey("object") as? [String: AnyObject] {
-          if let name = topic["name"] as? String, id = topic["id"] as? Int, colour = topic["colour"] as? String {
-            let newTopic = Topic(name: name, colour: colour)
+          if let name = topic["name"] as? String, id = topic["id"] as? Int {
+            let newTopic = Topic(name: name)
+            if let colour = topic["colour"] as? String {
+              newTopic.changeColour(colour)
+            }
             newTopic.setId(id)
             self.topics.append(newTopic)
             
