@@ -29,7 +29,7 @@ class ColourControl: UIView {
   let spacing = 5
   let buttonCount = 5
   
-  var color = UIColor.whiteColor()
+  var colour = UIColor.whiteColor()
   
   // MARK: Initialisation
 
@@ -84,7 +84,7 @@ class ColourControl: UIView {
   // MARK: Button Action
   func colourButtonTapped(button: UIButton) {
     buttonPressed = colorButtons.indexOf(button)!
-    color = button.backgroundColor!
+    colour = button.backgroundColor!
     updateButtonSelectionStates()
   }
   
