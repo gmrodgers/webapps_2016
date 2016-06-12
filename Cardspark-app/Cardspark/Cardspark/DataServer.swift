@@ -114,6 +114,14 @@ class DataServer: NSObject, NSURLConnectionDelegate {
     sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadTopicsListHandler)
   }
   
+  func loadUsersList(topic_id: Int, controller: UsersTableViewController) {
+    let route = "users/topics/viewers"
+    let parameters = ["topic_id" : String(topic_id)]
+    let httpMethod = "GET"
+    NSLog("Connect with URL for loading topics")
+    sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadUsersListHandler)
+  }
+  
   func deleteTopic(email: String, topic_id: Int, controller: TopicsTableViewController) {
     let route = "users/topics"
     let parameters = ["email" : email, "topic_id" : String(topic_id)]

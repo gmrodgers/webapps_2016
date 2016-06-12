@@ -11,6 +11,8 @@
 		3035E31C1CFC6BB500872740 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3035E31B1CFC6BB500872740 /* MessagesViewController.swift */; };
 		304CCFD31CF85C7600EE0489 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 304CCFD21CF85C7600EE0489 /* GoogleService-Info.plist */; };
 		306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306881571CF78A1A00D16BC1 /* TimerViewController.swift */; };
+		307926071D0D923D002942BA /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307926061D0D923D002942BA /* UsersTableViewCell.swift */; };
+		307926091D0D9284002942BA /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307926081D0D9284002942BA /* UsersTableViewController.swift */; };
 		308C22E31CF4A00F003B77B5 /* NewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */; };
 		308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */; };
 		308C22E91CF4AED9003B77B5 /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */; };
@@ -50,6 +52,8 @@
 		3035E31B1CFC6BB500872740 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		304CCFD21CF85C7600EE0489 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		306881571CF78A1A00D16BC1 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		307926061D0D923D002942BA /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		307926081D0D9284002942BA /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTopicViewController.swift; sourceTree = "<group>"; };
 		308C22E61CF4A991003B77B5 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
 		308C22E81CF4AED9003B77B5 /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				079B17D91D0764E60035EB25 /* DataServer.swift */,
 				3EBF5F5E1CF215500079B23F /* LoginViewController.swift */,
 				3EBF5F421CF213900079B23F /* Main.storyboard */,
+				307926061D0D923D002942BA /* UsersTableViewCell.swift */,
+				307926081D0D9284002942BA /* UsersTableViewController.swift */,
 				3035E31B1CFC6BB500872740 /* MessagesViewController.swift */,
 				308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */,
 				309B7AC01D04861E00221287 /* Quiz.swift */,
@@ -354,6 +360,8 @@
 				3035E31C1CFC6BB500872740 /* MessagesViewController.swift in Sources */,
 				309B7ABD1D0455CD00221287 /* QuizViewController.swift in Sources */,
 				306881581CF78A1A00D16BC1 /* TimerViewController.swift in Sources */,
+				307926071D0D923D002942BA /* UsersTableViewCell.swift in Sources */,
+				307926091D0D9284002942BA /* UsersTableViewController.swift in Sources */,
 				30E1BC661D0303A4009A6458 /* ColourPickerViewController.swift in Sources */,
 				309B7ABB1D042A8E00221287 /* ColourControl.swift in Sources */,
 				30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */,
