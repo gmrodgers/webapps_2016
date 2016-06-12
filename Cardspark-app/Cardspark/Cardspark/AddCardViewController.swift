@@ -112,7 +112,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   override func viewDidAppear(animated: Bool) {
     self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
     self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    self.tabBarController?.tabBar.hidden = true
+    self.tabBarController?.tabBar.hidden = false
   }
   
   override func didReceiveMemoryWarning() {
