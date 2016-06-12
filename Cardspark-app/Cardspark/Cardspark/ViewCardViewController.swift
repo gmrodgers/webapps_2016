@@ -10,17 +10,12 @@ import UIKit
 
 class ViewCardViewController: UIViewController {
   
-  //    var url = NSURL()
   var cards = [Card]()
   var index = Int()
   
   @IBAction func prevCard(sender: AnyObject) {
-    print("drag right")
     if index < cards.count-1{
       index = index+1
-      //        let urlReq = NSURLRequest(URL: cards[index].url)
-      //
-      //        webview.loadRequest(urlReq)
       webview.loadHTMLString(cards[index].htmlData, baseURL: nil)
     }
     else{
@@ -31,12 +26,8 @@ class ViewCardViewController: UIViewController {
   
   
   @IBAction func nextCard(sender: AnyObject) {
-    print("drag left")
     if index > 0{
       index = index-1
-      //            let urlReq = NSURLRequest(URL: cards[index].url)
-      //
-      //            webview.loadRequest(urlReq)
       webview.loadHTMLString(cards[index].htmlData, baseURL: nil)
     }
   }
@@ -45,10 +36,6 @@ class ViewCardViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //        print(url)
-    //        let urlReq = NSURLRequest(URL: url)
-    //        webview.loadRequest(urlReq)
-    
     webview.loadHTMLString(cards[index].htmlData, baseURL: nil)
   }
   
