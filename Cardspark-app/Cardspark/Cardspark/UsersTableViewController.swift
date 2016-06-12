@@ -23,6 +23,8 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
     super.viewDidLoad()
     searchBar.delegate = self
     
+    print (topicId)
+    
     dataServer.loadUsersList(topicId, controller: self)
   }
   
@@ -81,6 +83,7 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
       cell.userLabel.text = filtered[indexPath.row]
     }
     cell.userLabel.text = users[indexPath.row]
+    print (cell.userLabel.text)
     return cell
     
   }
@@ -95,15 +98,21 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
     
+    print("status code: \(statusCode)")
+
     if (statusCode == 200) {
-      print("status code: \(statusCode)")
       do {
-//        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
-//        if let users = dict.valueForKey("object") as? [[String: AnyObject]] {
+        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+        if let users = dict.valueForKey("object") as? [[String: AnyObject]] {
           for user in users {
-            self.users.append(user)
-//          }
+            if let name = user["email"] as? String{
+              self.users.append(name)
+              print ("Saved")
+            }
+          }
         }
+      }catch {
+        print("Error with Json")
       }
     }
     dispatch_async(dispatch_get_main_queue()) {

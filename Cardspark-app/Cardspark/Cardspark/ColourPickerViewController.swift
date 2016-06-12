@@ -9,7 +9,11 @@
 import UIKit
 
 class ColourPickerViewController: UIViewController {
-
+  
+  @IBOutlet weak var colourControl: ColourControl!
+  
+  var topicColor : UIColor = UIColor.whiteColor()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
@@ -18,5 +22,12 @@ class ColourPickerViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "addColor" {
+      topicColor = colourControl.color!
+      print ("picker \(topicColor)")
+    }
   }
 }

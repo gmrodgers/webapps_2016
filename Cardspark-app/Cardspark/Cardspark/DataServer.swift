@@ -118,7 +118,7 @@ class DataServer: NSObject, NSURLConnectionDelegate {
     let route = "users/topics/viewers"
     let parameters = ["topic_id" : String(topic_id)]
     let httpMethod = "GET"
-    NSLog("Connect with URL for loading topics")
+    NSLog("Connect with URL for loading users")
     sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadUsersListHandler)
   }
   

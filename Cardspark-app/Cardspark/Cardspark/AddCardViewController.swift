@@ -73,7 +73,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       //    }
       //
       //    print("saved")
-      //    self.dismissViewControllerAnimated(true, completion: nil)
+      //   
     }
   }
   
