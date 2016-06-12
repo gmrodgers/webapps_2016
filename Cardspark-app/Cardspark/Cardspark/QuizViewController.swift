@@ -17,6 +17,10 @@ class QuizViewController: UIViewController {
   var question = String()
   var ansIndex = Int()
   
+  var noQuestions = 0
+  var noCorrect = 0
+  var noTrials = 0
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -31,10 +35,15 @@ class QuizViewController: UIViewController {
   }
   
   func pickQuestion() {
-    if quiz.count < answerButtons.count {
+    if (noQuestions >= 10) {
+      finishQuiz()
+    }
+    else if quiz.count < answerButtons.count {
       qLabel.text = "ADD MORE QUESTIONS"
     }
     else {
+      noTrials = 0
+      noQuestions += 1
       var answers = Array(quiz.values)
       // Get random question and corresponding answer
       question =  Array(quiz.keys)[random() % quiz.count]
@@ -64,39 +73,82 @@ class QuizViewController: UIViewController {
 
   @IBAction func button1(sender: UIButton) {
     if ansIndex == 0 {
+      if (noTrials == 0) {
+        noCorrect += 1
+      }
       pickQuestion()
     } else {
+      noTrials += 1
       sender.tintColor = UIColor.redColor()
     }
   }
   
   @IBAction func button2(sender: UIButton) {
     if ansIndex == 1 {
+      if (noTrials == 0) {
+        noCorrect += 1
+      }
       pickQuestion()
     } else {
+      noTrials += 1
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button3(sender: UIButton) {
     if ansIndex == 2 {
+      if (noTrials == 0) {
+        noCorrect += 1
+      }
       pickQuestion()
     } else {
+      noTrials += 1
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button4(sender: UIButton) {
     if ansIndex == 3 {
+      if (noTrials == 0) {
+        noCorrect += 1
+      }
       pickQuestion()
     } else {
+      noTrials += 1
       sender.tintColor = UIColor.redColor()
     }
   }
   @IBAction func button5(sender: UIButton) {
     if ansIndex == 4 {
+      if (noTrials == 0) {
+        noCorrect += 1
+      }
       pickQuestion()
     } else {
+      noTrials += 1
       sender.tintColor = UIColor.redColor()
     }
+  }
+  
+  func reset() {
+    noQuestions = 0
+    noCorrect = 0
+    noTrials = 0
+    pickQuestion()
+  }
+  
+  func finishQuiz() {
+    let alertController = UIAlertController(title: "Quiz Over", message: "You scored \(noCorrect)/\(noQuestions)", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let playAgainAction = UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {
+      alert -> Void in
+      
+      self.reset()
+      
+    })
+    
+    alertController.addAction(playAgainAction)
+    
+    self.presentViewController(alertController, animated: true, completion: nil)
+
   }
 
 }
