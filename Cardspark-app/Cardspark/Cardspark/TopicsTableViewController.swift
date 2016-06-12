@@ -27,8 +27,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     
     super.viewDidLoad()
     searchBar.delegate = self
-    self.tableView.tableHeaderView = searchBar;
-    
+   
     dataServer.loadTopicsList(email, controller: self)
     
 //    if let savedTopics = loadTopics() {

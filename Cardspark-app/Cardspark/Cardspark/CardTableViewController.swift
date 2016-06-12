@@ -8,12 +8,17 @@
 
 import UIKit
 
-class CardTableViewController: UITableViewController {
+class CardTableViewController: UITableViewController, UISearchBarDelegate {
+  
+  @IBOutlet weak var searchBar: UISearchBar!
   
   var topicId = Int()
   var cards = [Card]()
+  var filtered = [Card]()
   var dataServer = AppState.sharedInstance.dataServer
   var newIndexPath: NSIndexPath?
+  var searchActive : Bool = false
+  
   
   @IBAction func dismissCards(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
@@ -21,7 +26,7 @@ class CardTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    cards = getCards()
+    searchBar.delegate = self
     
     dataServer.loadCardsList(topicId, controller: self)
   }
@@ -31,6 +36,35 @@ class CardTableViewController: UITableViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  //MARK: SearchBar Delegate
+  func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    searchActive = true
+  }
+  
+  func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    searchActive = false
+  }
+  
+  func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    searchActive = false
+  }
+  
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    searchActive = false
+    searchBar.resignFirstResponder()
+  }
+  
+  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    filtered = cards.filter({ (card) -> Bool in
+      let tmp: NSString = card.name
+      let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+      return range.location != NSNotFound
+    })
+    searchActive = !(filtered.count == 0)
+    self.tableView.reloadData()
+  }
+
+  
   // MARK: - Table view data source
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -38,6 +72,9 @@ class CardTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if(searchActive) {
+      return filtered.count
+    }
     return cards.count
   }
   
@@ -45,6 +82,9 @@ class CardTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cellIdentifier = "CardTableViewCell"
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardTableViewCell
+    if(searchActive){
+      cell.cardLabel.text = filtered[indexPath.row].name
+    }
     cell.cardLabel.text = cards[indexPath.row].name
     return cell
     
