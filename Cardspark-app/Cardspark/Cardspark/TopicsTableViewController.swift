@@ -94,7 +94,6 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   }
   
   func getColour(colour : String) -> UIColor {
-    print (colour)
     switch colour {
     case "red":
       return UIColor.redColor()
