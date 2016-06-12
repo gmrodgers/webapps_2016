@@ -36,6 +36,9 @@ class ViewCardViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+    self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+    self.tabBarController?.tabBar.hidden = true
     webview.loadHTMLString(cards[index].htmlData, baseURL: nil)
   }
   
@@ -43,12 +46,7 @@ class ViewCardViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
-  override func viewDidAppear(animated: Bool) {
-    self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-    self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
-    self.tabBarController?.tabBar.hidden = true
-  }
+
   
   /*
    // MARK: - Navigation
