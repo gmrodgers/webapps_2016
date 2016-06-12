@@ -14,9 +14,7 @@ class QuizViewController: UIViewController {
   @IBOutlet var answerButtons: [UIButton]!
   
   var quiz : [String:String] = [:]
-//  var questions = String()
   var question = String()
-  var answers : [String] = []
   var ansIndex = Int()
   
   override func viewDidLoad() {
@@ -25,7 +23,6 @@ class QuizViewController: UIViewController {
   
   override func viewDidAppear(animated: Bool) {
     quiz = Quiz.sharedInstance.quiz
-    answers = Array(quiz.values)
     pickQuestion()
   }
   
@@ -38,9 +35,11 @@ class QuizViewController: UIViewController {
       qLabel.text = "ADD MORE QUESTIONS"
     }
     else {
-      let index = random() % quiz.count
-      question =  Array(quiz.keys)[index]
+      var answers = Array(quiz.values)
+      // Get random question and corresponding answer
+      question =  Array(quiz.keys)[random() % quiz.count]
       let answer = quiz[question]!
+      
       qLabel.text = question
       
       ansIndex = random() % answerButtons.count
@@ -49,15 +48,15 @@ class QuizViewController: UIViewController {
       for i in 0..<answerButtons.count {
         answerButtons[i].tintColor = UIColor(hue: 0.4, saturation: 0.66, brightness: 0.66, alpha: 1)
         if (i == ansIndex) {
-          break
+          continue
         }
-        var wIndex : Int
-        var wrongAnswer : String
+        var wrongAnswer: String
         repeat {
-          wIndex = random() % quiz.count
+          let wIndex = random() % answers.count
           wrongAnswer = answers[wIndex]
+          answers.removeAtIndex(wIndex)
           answerButtons[i].setTitle(wrongAnswer, forState: UIControlState.Normal)
-        } while (wIndex == ansIndex || wrongAnswer == answer)
+        } while (wrongAnswer == answer)
       }
     }
   }
