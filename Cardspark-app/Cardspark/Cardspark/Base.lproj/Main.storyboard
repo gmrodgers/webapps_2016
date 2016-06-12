@@ -698,6 +698,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cardLabel" destination="cCH-s1-oNF" id="WU5-8E-IEV"/>
+                                    <segue destination="Ntt-pu-6Ux" kind="show" identifier="viewCardSegue" id="KN5-f3-pF6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -778,6 +779,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="Arw-qX-F0V"/>
                     <connections>
                         <outlet property="webview" destination="Z9R-Cd-o7Z" id="Vyf-KB-4Wl"/>
                     </connections>
@@ -794,7 +796,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3102" y="574"/>
+            <point key="canvasLocation" x="3102" y="535"/>
         </scene>
         <!--Users Table View Controller-->
         <scene sceneID="kLg-Zk-Dgm">
