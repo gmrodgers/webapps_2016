@@ -47,6 +47,17 @@ class TopicsController < ApplicationController
     end
   end
 
+  def get_viewers
+    topic = Topic.find(params[topic_id])
+    if topic
+      @users = topic.users
+      render_object @users
+    else
+      render_not_present
+    end
+  end
+
+
   def update
     topic = Topic.find(params[:topic_id])
     if topic

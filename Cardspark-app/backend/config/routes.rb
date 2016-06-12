@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/topics'             => 'topics#index'
   post 'users/topics'            => 'topics#create'
   post 'users/topics/new_viewer' => 'topics#add_viewer'
+  get 'users/topics/viewers'     => 'topics#get_viewers'
   put 'topics'                   => 'topics#update'
   delete 'users/topics'          => 'topics#destroy'
   
