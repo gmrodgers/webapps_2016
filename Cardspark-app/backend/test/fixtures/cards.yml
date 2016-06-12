@@ -3,10 +3,18 @@
 card_one:
   topic_id: 1
   card_data: "another"
-  cardname: "acard"
+  cardname: "aCard"
+  answer: "crayon"
 
 
 card_two:
   topic_id: 2
-  card_data: "Nowanother"
+  card_data: "NowAnother"
   cardname: "anotherCard"
+
+
+card_three:
+  topic_id: 1
+  card_data: "Different"
+  cardname: "Dunno"
+  answer: "notMe"

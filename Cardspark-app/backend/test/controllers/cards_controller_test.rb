@@ -33,5 +33,15 @@ class CardsControllerTest < ActionController::TestCase
       delete :destroy, card_id: card.id
     end
   end
+
+  test "should get all answers of cards but the given card" do
+    card = cards(:card_three)
+    topic = topics(:topic1)
+    get :get_answers, topic_id: topic.id, card_id: card.id
+
+    assert_response :success
+    assert_not_nil assigns(:cards)
+    refute(@response.include? card)
+  end
   
 end
