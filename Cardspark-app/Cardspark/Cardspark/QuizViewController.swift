@@ -135,6 +135,13 @@ class QuizViewController: UIViewController {
     pickQuestion()
   }
   
+  func cancel() {
+    qLabel.text = ""
+    for button in answerButtons {
+      button.setTitle("", forState: .Normal)
+    }
+  }
+  
   func finishQuiz() {
     let alertController = UIAlertController(title: "Quiz Over", message: "You scored \(noCorrect)/\(noQuestions)", preferredStyle: UIAlertControllerStyle.Alert)
     
@@ -145,7 +152,15 @@ class QuizViewController: UIViewController {
       
     })
     
+    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {
+      (action : UIAlertAction!) -> Void in
+      
+      self.cancel()
+      
+    })
+    
     alertController.addAction(playAgainAction)
+    alertController.addAction(cancelAction)
     
     self.presentViewController(alertController, animated: true, completion: nil)
 
