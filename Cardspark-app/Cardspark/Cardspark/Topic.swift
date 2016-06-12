@@ -29,9 +29,17 @@ class Topic: NSObject, NSCoding {
     self.quiz = Quiz(name: name)
     super.init()
   }
+  
+  convenience init(name: String) {
+    self.init(name: name, colour: "white" )
+  }
     
   func setId(id: Int) {
     self.id = id
+  }
+  
+  func changeColour(colour: String) {
+    self.colour = colour
   }
   
   // MARK: NSCoding
