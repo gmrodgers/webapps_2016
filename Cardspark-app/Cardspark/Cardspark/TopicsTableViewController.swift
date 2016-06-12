@@ -27,9 +27,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     
     super.viewDidLoad()
     searchBar.delegate = self
-    
     dataServer.loadTopicsList(email, controller: self)
-    
   }
   
   override func didReceiveMemoryWarning() {
