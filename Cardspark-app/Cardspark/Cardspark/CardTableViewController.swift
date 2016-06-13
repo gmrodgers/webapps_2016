@@ -107,6 +107,16 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
     if editingStyle == .Delete {
       // Delete the row from the data source
       dataServer.deleteCard((cards[indexPath.row]).id!, controller: self)
+      if (!cards[indexPath.row].imageRef.isEmpty) {
+        let deleteRef = AppState.sharedInstance.storageRef?.child(cards[indexPath.row].imageRef)
+        deleteRef?.deleteWithCompletion { (error) -> Void in
+          if (error != nil) {
+            print("Delete of card image failed")
+          } else {
+            print("Delete successful")
+          }
+        }
+      }
       cards.removeAtIndex(indexPath.row)
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     } else if editingStyle == .Insert {
@@ -154,6 +164,9 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
               newCard.setId(id)
               newCard.topic_id = topic_id
               newCard.htmlData = htmlData
+              if let image_loc = card["image_loc"] as? String {
+                newCard.imageRef = image_loc
+              }
               self.cards.append(newCard)
             }
           }
@@ -180,6 +193,9 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
             newCard.setId(id)
             newCard.topic_id = topic_id
             newCard.htmlData = htmlData
+            if let image_loc = card["image_loc"] as? String {
+              newCard.imageRef = image_loc
+            }
             self.cards.append(newCard)
             print("saved")
           }

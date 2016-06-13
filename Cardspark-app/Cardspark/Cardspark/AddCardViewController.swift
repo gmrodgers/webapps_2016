@@ -11,6 +11,7 @@ import UIKit
 class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   var topicId = Int()
+  var imageData : NSData?
   @IBOutlet weak var colourControl: ColourControl!
   
   @IBOutlet weak var titleTextField: UITextView!
@@ -65,7 +66,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       }
       var html: String = "<style>body{background-color:\(colour);}</style>"
       html += "<h1 style='color:\(textColor)'><font face ='verdana'>\(titleTextField.text)</font></h1>"
-      html += "<center><img src='\(titleTextField.text).png' height='200' width='200'><center>"
+//      html += "<center><img src='\(titleTextField.text).png' height='200' width='200'><center>"
       html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point1TextField.text)</font></p>"
       html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point2TextField.text)</font></p>"
       html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point3TextField.text)</font></p>"
@@ -75,6 +76,21 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       card = Card(name: titleTextField.text)
       card?.topic_id = topicId
       card?.htmlData = html
+      
+      if ((imageData) != nil) {
+        let path = "users/\(AppState.sharedInstance.userEmail!)/\(topicId)/\(titleTextField.text).png"
+        let imageRef = AppState.sharedInstance.storageRef!.child(path)
+        card?.imageRef = path
+        print("Card image ref: \(path)")
+        let uploadTask = imageRef.putData((imageData!), metadata: nil) { metadata, error in
+          if (error != nil) {
+            print("Image failed to upload")
+          } else {
+            let downloadURL = metadata!.downloadURL()
+            print("saved to firebase")
+          }
+        }
+      }
       //    do {
       //      try html.writeToFile("\(documentsPath)/\(titleTextField.text).html", atomically: true, encoding: NSUTF8StringEncoding)
       //    } catch {
@@ -147,6 +163,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     photoImageView = selectedImage
     image.image = photoImageView
     let data = UIImagePNGRepresentation(photoImageView!)
+    imageData = data
     let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
     let filename: String = "\(documentsPath[0])/\(titleTextField.text).png"
     print(filename)
