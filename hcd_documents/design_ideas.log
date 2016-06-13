@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  13 JUN 2016 14:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  13 JUN 2016 21:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -424,69 +424,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 16.
 
-<images/form.png, id=1, 1786.675pt x 961.5925pt>
-File: images/form.png Graphic file (type png)
- <use images/form.png>
-Package pdftex.def Info: images/form.png used on input line 22.
-(pdftex.def)             Requested size: 250.1328pt x 134.62202pt.
+[1
 
-<images/images_colours.png, id=3, 609.27625pt x 441.65pt>
-File: images/images_colours.png Graphic file (type png)
-
-<use images/images_colours.png>
-Package pdftex.def Info: images/images_colours.png used on input line 32.
-(pdftex.def)             Requested size: 166.44981pt x 165.0253pt.
-
-<images/mobile_audio.png, id=4, 638.385pt x 441.65pt>
-File: images/mobile_audio.png Graphic file (type png)
-
-<use images/mobile_audio.png>
-Package pdftex.def Info: images/mobile_audio.png used on input line 36.
-(pdftex.def)             Requested size: 166.44374pt x 165.0253pt.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/form.png> <./imag
-es/images_colours.png> <./images/mobile_audio.png (PNG copy)>] <images/feedback
-.png, id=14, 698.61pt x 274.02374pt>
-File: images/feedback.png Graphic file (type png)
-
-<use images/feedback.png>
-Package pdftex.def Info: images/feedback.png used on input line 45.
-(pdftex.def)             Requested size: 349.30414pt x 137.01154pt.
-
-Overfull \hbox (4.30414pt too wide) in paragraph at lines 45--47
- [] 
- []
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 59.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 59.
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
-[]$\OT1/cmtt/m/n/10 https : / / sydney . edu . au / education _ social _ work /
- groupwork / docs /
- []
-
-[2 <./images/feedback.png (PNG copy)>] (./design_ideas.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./design_ideas.aux) ) 
 Here is how much of TeX's memory you used:
- 2669 strings out of 494985
- 38032 string characters out of 6180356
- 93661 words of memory out of 5000000
- 5834 multiletter control sequences out of 15000+600000
- 7448 words of font info for 27 fonts, out of 8000000 for 9000
+ 2637 strings out of 494985
+ 37439 string characters out of 6180356
+ 91655 words of memory out of 5000000
+ 5810 multiletter control sequences out of 15000+600000
+ 6675 words of font info for 24 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 40i,6n,35p,322b,298s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb>
-Output written on design_ideas.pdf (2 pages, 188938 bytes).
+ 40i,6n,35p,322b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
+</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on design_ideas.pdf (1 page, 27773 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+ 20 PDF objects out of 1000 (max. 8388607)
+ 13 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
