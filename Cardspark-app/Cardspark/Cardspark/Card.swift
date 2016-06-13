@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class Card: NSObject {
   
@@ -14,6 +15,8 @@ class Card: NSObject {
   var name = String()
   var topic_id = Int()
   var htmlData = String()
+  var imageRef = String()
+  var imageAdded = false
   var url = NSURL()
   
   init(name: String, url: NSURL){
