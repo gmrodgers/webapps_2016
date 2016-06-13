@@ -10,8 +10,8 @@ import UIKit
 
 class QuizViewController: UIViewController {
   
-  @IBOutlet weak var qLabel: UILabel!
   @IBOutlet var answerButtons: [UIButton]!
+  @IBOutlet weak var qLabel: UITextView!
   
   var quiz : [String:String] = [:]
   var question = String()
@@ -27,7 +27,13 @@ class QuizViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    dataServer.loadQuiz(topicId, controller: self)
+    quiz["What is the capital of France?"] = "Paris"
+    quiz["What is the tallest building in the World?"] = "The Burj Khalifa"
+    quiz["What is a baby rabbit called?"] = "Kitten"
+    quiz["Which animal is the tallest in the world?"] = "Giraffe"
+    quiz["First planet to be discovered by telescope"] = "Uranus"
+    quiz["City with the largest population in the world?"] = "Tokyo, Japan"
+//    dataServer.loadQuiz(topicId, controller: self)
   }
   
   override func viewDidAppear(animated: Bool) {
