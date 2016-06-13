@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 class AppState: NSObject {
   
@@ -18,6 +19,7 @@ class AppState: NSObject {
   var userID : String?
   var userEmail : String?
   var dataServer = DataServer()
+  var storageRef : FIRStorageReference?
     
   // Why is there a global colour and topic?
 //  var color = UIColor.whiteColor()

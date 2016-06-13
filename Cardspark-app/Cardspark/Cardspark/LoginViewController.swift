@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
   
@@ -116,6 +117,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     AppState.sharedInstance.displayName = user!.email!.componentsSeparatedByString("@")[0]
     AppState.sharedInstance.userID = user!.uid
     AppState.sharedInstance.userEmail = user!.email
+    let storage = FIRStorage.storage()
+    AppState.sharedInstance.storageRef = storage.referenceForURL("gs://userlogin-ff178.appspot.com")
     
     NSNotificationCenter.defaultCenter().postNotificationName("onSignInCompleted", object: nil, userInfo: nil)
     performSegueWithIdentifier("SignIn", sender: nil)
