@@ -170,15 +170,11 @@ class QuizViewController: UIViewController {
 
   }
   
-  @IBAction func unwindToQuiz(sender: UIStoryboardSegue) {
-    if let sourceViewController = sender.sourceViewController as? AddCardViewController, (q,a) = sourceViewController.quiz {
-      quiz[q] = a
-    }
-  }
-  
   func loadQuizHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
+    
+    print("status code: \(statusCode)")
     
     if (statusCode == 200) {
       print("status code: \(statusCode)")

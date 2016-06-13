@@ -1284,7 +1284,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1F8-e0-cLc">
                             <connections>
-                                <segue destination="bl2-dr-Sic" kind="unwind" unwindAction="unwindToQuiz:" id="7pu-Bg-NT7"/>
+                                <segue destination="bl2-dr-Sic" kind="unwind" unwindAction="unwindToCardsList:" id="Xma-qS-mxd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1305,7 +1305,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-qd-NTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bl2-dr-Sic" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7530" y="-1004"/>
+            <point key="canvasLocation" x="4884" y="-1084"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="Chr-kF-qdQ">

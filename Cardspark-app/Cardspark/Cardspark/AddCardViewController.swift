@@ -57,6 +57,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
+      print ("save pressed")
       let colour = getColour(colourControl.colour)
       var textColor : String
       if colour == "white" {

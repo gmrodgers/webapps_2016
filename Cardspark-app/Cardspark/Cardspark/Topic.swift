@@ -42,8 +42,8 @@ class Topic: NSObject, NSCoding {
     self.colour = colour
   }
   
-  func addToQuiz(question: String, answer: String) {
-    self.quiz[question] = answer
+  func addQuiz(quiz: [String: String]) {
+    self.quiz = quiz
   }
   
   // MARK: NSCoding
@@ -56,11 +56,11 @@ class Topic: NSObject, NSCoding {
   required convenience init?(coder aDecoder: NSCoder) {
     guard let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as? String,
           let colour = aDecoder.decodeObjectForKey(propertyKey.colourKey) as? String,
-//          let quiz = aDecoder.decodeObjectForKey(propertyKey.quizKey) as? [String: String],
+          let quiz = aDecoder.decodeObjectForKey(propertyKey.quizKey) as? [String: String],
           let id = aDecoder.decodeObjectForKey(propertyKey.idKey) as? Int
       else { return nil }
     self.init(name: name, colour: colour)
-//    self.addQuiz(Quiz(name: name))
+    self.addQuiz(quiz)
     self.setId(id)
   }
   
