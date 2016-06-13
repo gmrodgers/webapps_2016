@@ -73,8 +73,8 @@ class QuizViewController: UIViewController {
       }
     }
   }
-
-
+  
+  
   @IBAction func button1(sender: UIButton) {
     if ansIndex == 0 {
       if (noTrials == 0) {
@@ -167,7 +167,7 @@ class QuizViewController: UIViewController {
     alertController.addAction(cancelAction)
     
     self.presentViewController(alertController, animated: true, completion: nil)
-
+    
   }
   
   func loadQuizHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
@@ -192,5 +192,4 @@ class QuizViewController: UIViewController {
       }
     }
   }
-
 }

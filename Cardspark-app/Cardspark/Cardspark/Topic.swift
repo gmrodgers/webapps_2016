@@ -23,6 +23,7 @@ class Topic: NSObject, NSCoding {
     static let quizKey = "quiz"
   }
   
+  // MARK: Initialisation
   init(name: String, colour: String) {
     self.name = name
     self.colour = colour

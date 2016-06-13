@@ -17,19 +17,19 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   @IBOutlet weak var colourControl: ColourControl!
   
   var topic: Topic?
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     topicTextField.delegate = self
     checkValidTopicName()
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
-    // MARK: UITextFieldDelegate
+  // MARK: UITextFieldDelegate
   func checkValidTopicName() {
     let text = topicTextField.text ?? ""
     saveButton.enabled = !text.isEmpty
@@ -50,7 +50,7 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
     checkValidTopicName()
     navigationItem.title = topicTextField.text
   }
-
+  
   // MARK: - Navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
@@ -74,5 +74,4 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   @IBAction func cancel(sender: UIBarButtonItem) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
-  
 }

@@ -10,26 +10,48 @@ import UIKit
 
 class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
+  // MARK : Properties
+  
   var topicId = Int()
   var imageData : NSData?
-  @IBOutlet weak var colourControl: ColourControl!
+  let COMMENTS_LIMIT = 140
   
+  
+  @IBOutlet weak var colourControl: ColourControl!
   @IBOutlet weak var titleTextField: UITextView!
   @IBOutlet weak var point1TextField: UITextView!
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   @IBOutlet weak var image: UIImageView!
-  
-  let COMMENTS_LIMIT = 140
-    
   @IBOutlet weak var scrollView: UIScrollView!
   
-  var quiz : (String, String)?
   
+  var quiz : (String, String)?
   var photoImageView : UIImage?
   var imgLoc = String()
   var card: Card?
+  
+  // MARK: Initialisation
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    point1TextField.delegate = self
+    point2TextField.delegate = self
+    point3TextField.delegate = self
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+    self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    self.tabBarController?.tabBar.hidden = false
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+
   
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {
@@ -119,24 +141,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    point1TextField.delegate = self
-    point2TextField.delegate = self
-    point3TextField.delegate = self
-  }
-  
-  override func viewDidAppear(animated: Bool) {
-    self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
-    self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    self.tabBarController?.tabBar.hidden = false
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
+  // MARK : ImagePicker Delegate
   @IBAction func selectImageFromLibrary(sender: UIBarButtonItem) {
     
     // UIImagePickerController is a view controller that lets a user pick media from their photo library.
@@ -176,6 +181,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     dismissViewControllerAnimated(true, completion: nil)
   }
   
+  // MARK: Quiz Alert
   @IBAction func addQuestion(sender: UIBarButtonItem) {
     let alertController = UIAlertController(title: "QUIZ", message: "Insert a question for the quiz", preferredStyle: UIAlertControllerStyle.Alert)
     

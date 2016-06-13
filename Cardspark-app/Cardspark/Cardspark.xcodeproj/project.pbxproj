@@ -20,7 +20,6 @@
 		30914EA91CFC559500E09D68 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30914EA81CFC559500E09D68 /* AppState.swift */; };
 		309B7ABB1D042A8E00221287 /* ColourControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7ABA1D042A8E00221287 /* ColourControl.swift */; };
 		309B7ABD1D0455CD00221287 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7ABC1D0455CD00221287 /* QuizViewController.swift */; };
-		309B7AC11D04861E00221287 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B7AC01D04861E00221287 /* Quiz.swift */; };
 		30B0E4A51CFA1D1500D6B6BC /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */; };
 		3E004C351CF77B4000474F16 /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E004C341CF77B4000474F16 /* CardTableViewController.swift */; };
 		3E004C371CF77C3E00474F16 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E004C361CF77C3E00474F16 /* AddCardViewController.swift */; };
@@ -60,7 +59,6 @@
 		30914EA81CFC559500E09D68 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		309B7ABA1D042A8E00221287 /* ColourControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourControl.swift; sourceTree = "<group>"; };
 		309B7ABC1D0455CD00221287 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		309B7AC01D04861E00221287 /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		30B0E4A41CFA1D1500D6B6BC /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		33EB3C8E7E28B724AB2ED229 /* Pods_Cardspark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardspark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E004C341CF77B4000474F16 /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				3EBF5F421CF213900079B23F /* Main.storyboard */,
 				3035E31B1CFC6BB500872740 /* MessagesViewController.swift */,
 				308C22E21CF4A00F003B77B5 /* NewTopicViewController.swift */,
-				309B7AC01D04861E00221287 /* Quiz.swift */,
 				309B7ABC1D0455CD00221287 /* QuizViewController.swift */,
 				306881571CF78A1A00D16BC1 /* TimerViewController.swift */,
 				308C22EA1CF4B1DE003B77B5 /* Topic.swift */,
@@ -369,7 +366,6 @@
 				308C22E31CF4A00F003B77B5 /* NewTopicViewController.swift in Sources */,
 				308C22E71CF4A991003B77B5 /* TopicsTableViewController.swift in Sources */,
 				30914EA91CFC559500E09D68 /* AppState.swift in Sources */,
-				309B7AC11D04861E00221287 /* Quiz.swift in Sources */,
 				3E4267BC1CFE87CF00E12B7A /* ViewCardViewController.swift in Sources */,
 				308C22E91CF4AED9003B77B5 /* TopicsTableViewCell.swift in Sources */,
 				3E004C371CF77C3E00474F16 /* AddCardViewController.swift in Sources */,

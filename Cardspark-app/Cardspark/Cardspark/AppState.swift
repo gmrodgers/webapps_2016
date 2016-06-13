@@ -20,8 +20,5 @@ class AppState: NSObject {
   var userEmail : String?
   var dataServer = DataServer()
   var storageRef : FIRStorageReference?
-    
-  // Why is there a global colour and topic?
-//  var color = UIColor.whiteColor()
-  var topic : Topic?
+  
 }

@@ -12,11 +12,15 @@ import FirebaseStorage
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
   
+  // MARK: Properties
+  
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var scrollView: UIScrollView!
+  
+  // MARK: Initialisation
   
   override func viewDidLoad() {
     emailTextField.delegate = self
@@ -28,6 +32,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
       self.login(user)
     }
     loginButton.enabled = true
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
   }
   
   // MARK: UITextFieldDelegate
@@ -79,10 +87,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                          message: "New user has been created",
                                          preferredStyle: .Alert)
       alert.addAction(UIAlertAction.init(title: "OK",
-                                          style: UIAlertActionStyle.Default,
-                                          handler: { action in
-                                            self.setDisplayName(user!)
-                                          }))
+        style: UIAlertActionStyle.Default,
+        handler: { action in
+          self.setDisplayName(user!)
+      }))
       self.presentViewController(alert, animated: true, completion: nil)
     }
   }
@@ -92,12 +100,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                   message: "Mate, you are going to need to sort this out with Google",
                                   preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "OK",
-                                  style: UIAlertActionStyle.Default,
-                                  handler: nil))
+      style: UIAlertActionStyle.Default,
+      handler: nil))
     presentViewController(alert, animated: true, completion: nil)
   }
-
-
+  
+  
   func setDisplayName(user: FIRUser) {
     let changeRequest = user.profileChangeRequest()
     changeRequest.displayName = user.email!.componentsSeparatedByString("@")[0]
@@ -123,10 +131,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     NSNotificationCenter.defaultCenter().postNotificationName("onSignInCompleted", object: nil, userInfo: nil)
     performSegueWithIdentifier("SignIn", sender: nil)
   }
-  
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

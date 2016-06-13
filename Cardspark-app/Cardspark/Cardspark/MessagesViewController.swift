@@ -23,7 +23,7 @@ class MessagesViewController: JSQMessagesViewController {
   var userIsTypingRef: FIRDatabaseReference!
   
   var usersTypingQuery: FIRDatabaseQuery!
-
+  
   var topicId = Int()
   
   override func viewDidLoad() {
@@ -44,7 +44,7 @@ class MessagesViewController: JSQMessagesViewController {
     messageRef = rootRef.child("messages/\(topicId)")
     
     observeMessages()
-  
+    
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -53,35 +53,35 @@ class MessagesViewController: JSQMessagesViewController {
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
-                                 messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+                               messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
     return messages[indexPath.item]
   }
   
   override func collectionView(collectionView: UICollectionView,
-                                 numberOfItemsInSection section: Int) -> Int {
+                               numberOfItemsInSection section: Int) -> Int {
     return messages.count
   }
   
   private func setupBubbles() {
     let factory = JSQMessagesBubbleImageFactory()
     outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-    UIColor.jsq_messageBubbleBlueColor())
+      UIColor.jsq_messageBubbleBlueColor())
     incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-    UIColor.jsq_messageBubbleLightGrayColor())
+      UIColor.jsq_messageBubbleLightGrayColor())
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
-                                 messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+                               messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
     let message = messages[indexPath.item]
     if message.senderId == senderId {
-        return outgoingBubbleImageView
+      return outgoingBubbleImageView
     } else {
       return incomingBubbleImageView
     }
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
-                                 avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+                               avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
     return nil
   }
   
@@ -96,9 +96,9 @@ class MessagesViewController: JSQMessagesViewController {
       as! JSQMessagesCollectionViewCell
     
     let message = messages[indexPath.item]
-//    let message = messages[topicId]
-
-//    let message = messages[topicId]![indexPath.item]
+    //    let message = messages[topicId]
+    
+    //    let message = messages[topicId]![indexPath.item]
     if message.senderId == senderId {
       cell.textView!.textColor = UIColor.whiteColor()
     } else {
@@ -157,7 +157,7 @@ class MessagesViewController: JSQMessagesViewController {
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-
+    
     let message = messages[indexPath.item]
     
     // Skip if I sent this messgage
