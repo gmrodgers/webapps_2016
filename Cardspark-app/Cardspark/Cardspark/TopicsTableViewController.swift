@@ -228,7 +228,10 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       let tabBarVC: UITabBarController = segue.destinationViewController as! UITabBarController
       let navC: UINavigationController = tabBarVC.viewControllers?.first as! UINavigationController
       let cardTableVC: CardTableViewController = navC.viewControllers[0] as! CardTableViewController
+      let navCsecond: UINavigationController = tabBarVC.viewControllers?[1] as! UINavigationController
+      let messagesVC: MessagesViewController = navCsecond.viewControllers[0] as! MessagesViewController
       let topicIndex = tableView.indexPathForSelectedRow?.row
+      messagesVC.topicId = topics[topicIndex!].id!
       cardTableVC.topicId = topics[topicIndex!].id!
     }
   }
