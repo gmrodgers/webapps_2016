@@ -27,7 +27,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var scrollView: UIScrollView!
   
   
-  var quiz : (String, String)?
+  var question = String()
+  var answer = String()
   var photoImageView : UIImage?
   var imgLoc = String()
   var card: Card?
@@ -79,7 +80,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
-      print ("save pressed")
       let colour = getColour(colourControl.colour)
       var textColor : String
       if colour == "white" {
@@ -99,6 +99,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       card = Card(name: titleTextField.text)
       card?.topic_id = topicId
       card?.htmlData = html
+      card?.question = question
+      card?.answer = answer
       
       if ((imageData) != nil) {
         let path = "users/\(AppState.sharedInstance.userEmail!)/\(topicId)/\(titleTextField.text).png"
@@ -188,10 +190,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     let saveAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       
-      let question = alertController.textFields![0].text! as String
-      let answer = alertController.textFields![1].text! as String
-      
-      self.quiz = (question, answer)
+      self.question = alertController.textFields![0].text! as String
+      self.answer = alertController.textFields![1].text! as String
     })
     
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {

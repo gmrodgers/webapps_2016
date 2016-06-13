@@ -175,7 +175,7 @@ class DataServer: NSObject, NSURLConnectionDelegate {
     let route = "topics/cards"
     let parameters = ["topic_id" : String(topic_id)]
     let httpMethod = "GET"
-    NSLog("Connect with URL for loading cards")
+    NSLog("Connect with URL for loading cards for quiz")
     sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadQuizHandler)
   }
   

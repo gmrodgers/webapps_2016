@@ -20,6 +20,8 @@ class Card: NSObject {
   var imageRef = String()
   var imageAdded = false
   var url = NSURL()
+  var question = String()
+  var answer = String()
   
   // MARK: Initialisation
   

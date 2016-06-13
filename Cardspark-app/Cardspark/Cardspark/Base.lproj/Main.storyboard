@@ -1458,25 +1458,25 @@
                                 <exclude reference="AOS-VC-WvH"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="LVo-ke-swQ"/>
+                                <exclude reference="NDJ-fo-Vff"/>
+                                <exclude reference="SnZ-rK-0Xi"/>
+                                <exclude reference="pql-s1-L62"/>
+                                <exclude reference="3JK-dd-deB"/>
+                                <exclude reference="Hhr-Rs-VVT"/>
+                                <exclude reference="KNk-al-1Tu"/>
+                                <exclude reference="D8P-jj-1M9"/>
+                                <exclude reference="dgx-PM-TZC"/>
+                                <exclude reference="zgs-jV-nBW"/>
+                                <exclude reference="rct-ji-Ni3"/>
+                                <exclude reference="AMd-aW-Qww"/>
+                                <exclude reference="IVl-NY-Ybf"/>
+                                <exclude reference="n66-Wf-Dle"/>
                                 <exclude reference="Hio-g4-L3w"/>
                                 <exclude reference="NR2-YU-8jg"/>
                                 <exclude reference="c2o-7x-azw"/>
                                 <exclude reference="cGw-ah-gIe"/>
                                 <exclude reference="g5b-cC-1Zw"/>
-                                <exclude reference="3JK-dd-deB"/>
-                                <exclude reference="Hhr-Rs-VVT"/>
-                                <exclude reference="KNk-al-1Tu"/>
-                                <exclude reference="NDJ-fo-Vff"/>
-                                <exclude reference="SnZ-rK-0Xi"/>
-                                <exclude reference="pql-s1-L62"/>
-                                <exclude reference="AMd-aW-Qww"/>
-                                <exclude reference="IVl-NY-Ybf"/>
-                                <exclude reference="n66-Wf-Dle"/>
-                                <exclude reference="D8P-jj-1M9"/>
-                                <exclude reference="dgx-PM-TZC"/>
-                                <exclude reference="zgs-jV-nBW"/>
-                                <exclude reference="rct-ji-Ni3"/>
-                                <exclude reference="LVo-ke-swQ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1489,25 +1489,25 @@
                                 <include reference="AOS-VC-WvH"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="LVo-ke-swQ"/>
+                                <include reference="NDJ-fo-Vff"/>
+                                <include reference="SnZ-rK-0Xi"/>
+                                <include reference="pql-s1-L62"/>
+                                <include reference="3JK-dd-deB"/>
+                                <include reference="Hhr-Rs-VVT"/>
+                                <include reference="KNk-al-1Tu"/>
+                                <include reference="D8P-jj-1M9"/>
+                                <include reference="dgx-PM-TZC"/>
+                                <include reference="zgs-jV-nBW"/>
+                                <include reference="rct-ji-Ni3"/>
+                                <include reference="AMd-aW-Qww"/>
+                                <include reference="IVl-NY-Ybf"/>
+                                <include reference="n66-Wf-Dle"/>
                                 <include reference="Hio-g4-L3w"/>
                                 <include reference="NR2-YU-8jg"/>
                                 <include reference="c2o-7x-azw"/>
                                 <include reference="cGw-ah-gIe"/>
                                 <include reference="g5b-cC-1Zw"/>
-                                <include reference="3JK-dd-deB"/>
-                                <include reference="Hhr-Rs-VVT"/>
-                                <include reference="KNk-al-1Tu"/>
-                                <include reference="NDJ-fo-Vff"/>
-                                <include reference="SnZ-rK-0Xi"/>
-                                <include reference="pql-s1-L62"/>
-                                <include reference="AMd-aW-Qww"/>
-                                <include reference="IVl-NY-Ybf"/>
-                                <include reference="n66-Wf-Dle"/>
-                                <include reference="D8P-jj-1M9"/>
-                                <include reference="dgx-PM-TZC"/>
-                                <include reference="zgs-jV-nBW"/>
-                                <include reference="rct-ji-Ni3"/>
-                                <include reference="LVo-ke-swQ"/>
                             </mask>
                         </variation>
                     </view>
