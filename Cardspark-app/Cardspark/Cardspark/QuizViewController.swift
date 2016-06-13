@@ -179,8 +179,7 @@ class QuizViewController: UIViewController {
   func loadQuizHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
-    
-    print("status code: \(statusCode)")
+//    print("status code: \(statusCode)")
     
     if (statusCode == 200) {
       print("status code: \(statusCode)")
