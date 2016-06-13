@@ -171,6 +171,14 @@ class DataServer: NSObject, NSURLConnectionDelegate {
     sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.deleteCardHandler)
   }
   
+  func loadQuiz(topic_id : Int, controller: QuizViewController) {
+    let route = "topics/cards"
+    let parameters = ["topic_id" : String(topic_id)]
+    let httpMethod = "GET"
+    NSLog("Connect with URL for loading cards")
+    sendActionRequest(httpMethod, url: route, parameters: parameters, completionHandler: controller.loadQuizHandler)
+  }
+  
   // MARK: Server requests
   private func sendActionRequest(httpMethod: String, url: String, parameters: [String: AnyObject], completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
     let parameterString = parameters.stringFromHttpParameters()

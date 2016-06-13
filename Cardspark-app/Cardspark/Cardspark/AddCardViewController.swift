@@ -21,11 +21,11 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var saveButton: UIBarButtonItem!
   @IBOutlet weak var image: UIImageView!
   
-//  var questions: [Question] = []
-  
   let COMMENTS_LIMIT = 140
     
   @IBOutlet weak var scrollView: UIScrollView!
+  
+  var quiz : (String, String)?
   
   var photoImageView : UIImage?
   var imgLoc = String()
@@ -82,11 +82,11 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
         let imageRef = AppState.sharedInstance.storageRef!.child(path)
         card?.imageRef = path
         print("Card image ref: \(path)")
-        let uploadTask = imageRef.putData((imageData!), metadata: nil) { metadata, error in
+        _ = imageRef.putData((imageData!), metadata: nil) { metadata, error in
           if (error != nil) {
             print("Image failed to upload")
           } else {
-            let downloadURL = metadata!.downloadURL()
+            _ = metadata!.downloadURL()
             print("saved to firebase")
           }
         }
@@ -184,7 +184,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       let question = alertController.textFields![0].text! as String
       let answer = alertController.textFields![1].text! as String
       
-//      Quiz.sharedInstance.quiz[question] = answer
+      self.quiz = (question, answer)
     })
     
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {

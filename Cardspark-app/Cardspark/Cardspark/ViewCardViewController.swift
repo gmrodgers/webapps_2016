@@ -80,7 +80,7 @@ class ViewCardViewController: UIViewController {
       print(card.imageRef)
       let getImageRef = AppState.sharedInstance.storageRef?.child(card.imageRef)
       print(getImageRef)
-      let downloadTask = getImageRef!.writeToFile(localURL) { (URL, error) -> Void in
+      _ = getImageRef!.writeToFile(localURL) { (URL, error) -> Void in
         if (error != nil) {
           print("Image could not be downloaded")
           print(error.debugDescription)

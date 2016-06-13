@@ -17,16 +17,20 @@ class QuizViewController: UIViewController {
   var question = String()
   var ansIndex = Int()
   
+  var dataServer = AppState.sharedInstance.dataServer
+  
+  var topicId = Int()
+  
   var noQuestions = 0
   var noCorrect = 0
   var noTrials = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    dataServer.loadQuiz(topicId, controller: self)
   }
   
   override func viewDidAppear(animated: Bool) {
-//    quiz = Quiz.sharedInstance.quiz
     pickQuestion()
   }
   
@@ -164,6 +168,33 @@ class QuizViewController: UIViewController {
     
     self.presentViewController(alertController, animated: true, completion: nil)
 
+  }
+  
+  @IBAction func unwindToQuiz(sender: UIStoryboardSegue) {
+    if let sourceViewController = sender.sourceViewController as? AddCardViewController, (q,a) = sourceViewController.quiz {
+      quiz[q] = a
+    }
+  }
+  
+  func loadQuizHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.statusCode
+    
+    if (statusCode == 200) {
+      print("status code: \(statusCode)")
+      do {
+        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+        if let cards = dict.valueForKey("object") as? [[String: AnyObject]] {
+          for card in cards {
+            if let question = card["question"] as? String, answer = card["answer"] as? String{
+              quiz[question] = answer
+            }
+          }
+        }
+      }catch {
+        print("Error with Json")
+      }
+    }
   }
 
 }

@@ -1284,7 +1284,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1F8-e0-cLc">
                             <connections>
-                                <segue destination="bl2-dr-Sic" kind="unwind" unwindAction="unwindToCardsList:" id="Pdf-in-op2"/>
+                                <segue destination="bl2-dr-Sic" kind="unwind" unwindAction="unwindToQuiz:" id="7pu-Bg-NT7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -34,7 +34,6 @@ class MessagesViewController: JSQMessagesViewController {
     inputToolbar.contentView.leftBarButtonItem = nil
     automaticallyScrollsToMostRecentMessage = true
     
-    // These need to be set properly
     self.senderId = AppState.sharedInstance.userID
     self.senderDisplayName = AppState.sharedInstance.displayName
     
@@ -50,12 +49,11 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-//    observeTyping()
+    observeTyping()
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-    //return messages[topicId]
     return messages[indexPath.item]
   }
   
@@ -75,8 +73,6 @@ class MessagesViewController: JSQMessagesViewController {
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
     let message = messages[indexPath.item]
-//    let message = messages[topicId]
-//    let message = messages[topicId]![indexPath.item]
     if message.senderId == senderId {
         return outgoingBubbleImageView
     } else {
@@ -144,9 +140,6 @@ class MessagesViewController: JSQMessagesViewController {
   // View  usernames above bubbles
   override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
     let message = messages[indexPath.item];
-//    let message = messages[topicId]
-//    let message = messages[topicId]![indexPath.item]
-    
     // Skip if I sent this messgage
     if message.senderId == senderId {
       return nil;
@@ -183,30 +176,30 @@ class MessagesViewController: JSQMessagesViewController {
     return kJSQMessagesCollectionViewCellLabelHeightDefault
   }
   
-//  private var localTyping = false
-//  var isTyping: Bool {
-//    get {
-//      return localTyping
-//    }
-//    set {
-//      localTyping = newValue
-//      userIsTypingRef.setValue(newValue)
-//    }
-//  }
-//  
-//  private func observeTyping() {
-//    let typingIndicatorRef = rootRef.child("typingIndicator")
-//    userIsTypingRef = typingIndicatorRef.child(senderId)
-//    userIsTypingRef.onDisconnectRemoveValue()
-//    
-//    usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
-//    usersTypingQuery.observeEventType(.Value, withBlock: { snapshot in
-//      // If only you are typing don't show the indicator
-//      if snapshot.childrenCount == 1 && self.isTyping { return }
-//      
-//      // If others are typing
-//      self.showTypingIndicator = snapshot.childrenCount > 0
-//      self.scrollToBottomAnimated(true)
-//    })
-//  }
+  private var localTyping = false
+  var isTyping: Bool {
+    get {
+      return localTyping
+    }
+    set {
+      localTyping = newValue
+      userIsTypingRef.setValue(newValue)
+    }
+  }
+  
+  private func observeTyping() {
+    let typingIndicatorRef = rootRef.child("typingIndicator")
+    userIsTypingRef = typingIndicatorRef.child(senderId)
+    userIsTypingRef.onDisconnectRemoveValue()
+    
+    usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
+    usersTypingQuery.observeEventType(.Value, withBlock: { snapshot in
+      // If only you are typing don't show the indicator
+      if snapshot.childrenCount == 1 && self.isTyping { return }
+      
+      // If others are typing
+      self.showTypingIndicator = snapshot.childrenCount > 0
+      self.scrollToBottomAnimated(true)
+    })
+  }
 }
