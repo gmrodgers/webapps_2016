@@ -132,7 +132,7 @@ class DataServer: NSObject, NSURLConnectionDelegate {
   
   func createNewCard(card: Card, controller: CardTableViewController) {
     let route = "topics/cards"
-    let postData = ["card" : ["topic_id" : String(card.topic_id), "cardname" : card.name, "card_data" : card.htmlData]]
+    let postData = ["card" : ["topic_id" : String(card.topic_id), "cardname" : card.name, "card_data" : card.htmlData, "image_loc" : card.imageRef]]
     let httpMethod = "POST"
     NSLog("Connect with URL for creating new card")
     sendDataRequest(httpMethod, url: route, parameters: nil, inputData: postData, completionHandler: controller.createCardHandler)
