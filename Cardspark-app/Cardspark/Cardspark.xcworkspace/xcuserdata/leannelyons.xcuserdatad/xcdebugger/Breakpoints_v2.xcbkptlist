@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cardspark/MessagesViewController.swift"
-            timestampString = "487514939.788072"
+            timestampString = "487522240.650157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "collectionView(_:layout:heightForMessageBubbleTopLabelAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>

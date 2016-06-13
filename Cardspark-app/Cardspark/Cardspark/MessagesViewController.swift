@@ -13,7 +13,7 @@ import Firebase
 class MessagesViewController: JSQMessagesViewController {
 
   // MARK: Properties
-  var messages = [Int : [JSQMessage]]()
+  var messages = [JSQMessage]()
   
   var outgoingBubbleImageView: JSQMessagesBubbleImage!
   var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -42,7 +42,7 @@ class MessagesViewController: JSQMessagesViewController {
     collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
     collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
     
-    messageRef = rootRef.child("messages")
+    messageRef = rootRef.child("messages/\(topicId)")
     
     observeMessages()
   
@@ -56,18 +56,12 @@ class MessagesViewController: JSQMessagesViewController {
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
     //return messages[topicId]
-    return messages[topicId]![indexPath.item]
+    return messages[indexPath.item]
   }
   
   override func collectionView(collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
-    var count = 0
-    for (k,_) in messages {
-      if k == topicId {
-        count += 1
-      }
-    }
-    return count
+    return messages.count
   }
   
   private func setupBubbles() {
@@ -80,9 +74,9 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
-//    let message = messages[indexPath.item]
+    let message = messages[indexPath.item]
 //    let message = messages[topicId]
-    let message = messages[topicId]![indexPath.item]
+//    let message = messages[topicId]![indexPath.item]
     if message.senderId == senderId {
         return outgoingBubbleImageView
     } else {
@@ -96,7 +90,7 @@ class MessagesViewController: JSQMessagesViewController {
   }
   
   func addMessage(id: String, displayName : String, text: String, topicId: Int) {
-    messages[topicId]?.append(JSQMessage(senderId: id, displayName: displayName, text: text))
+    messages.append(JSQMessage(senderId: id, displayName: displayName, text: text))
   }
   
   
@@ -105,10 +99,10 @@ class MessagesViewController: JSQMessagesViewController {
     let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
       as! JSQMessagesCollectionViewCell
     
-//    let message = messages[indexPath.item]
+    let message = messages[indexPath.item]
 //    let message = messages[topicId]
 
-    let message = messages[topicId]![indexPath.item]
+//    let message = messages[topicId]![indexPath.item]
     if message.senderId == senderId {
       cell.textView!.textColor = UIColor.whiteColor()
     } else {
@@ -149,9 +143,9 @@ class MessagesViewController: JSQMessagesViewController {
   
   // View  usernames above bubbles
   override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-//    let message = messages[indexPath.item];
+    let message = messages[indexPath.item];
 //    let message = messages[topicId]
-    let message = messages[topicId]![indexPath.item]
+//    let message = messages[topicId]![indexPath.item]
     
     // Skip if I sent this messgage
     if message.senderId == senderId {
@@ -160,7 +154,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     // Skip if message is from previous sender
     if indexPath.item > 0 {
-      let previousMessage = messages[topicId]![indexPath.item - 1];
+      let previousMessage = messages[indexPath.item - 1];
       if previousMessage.senderId == message.senderId {
         return nil;
       }
@@ -171,7 +165,7 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
 
-    let message = messages[topicId]![indexPath.item]
+    let message = messages[indexPath.item]
     
     // Skip if I sent this messgage
     if message.senderId == senderId {
@@ -180,7 +174,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     // Skip if message is from previous sender
     if indexPath.item > 0 {
-      let previousMessage = messages[topicId]![indexPath.item - 1];
+      let previousMessage = messages[indexPath.item - 1];
       if previousMessage.senderId == message.senderId {
         return CGFloat(0.0);
       }
