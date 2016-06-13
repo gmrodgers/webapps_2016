@@ -14,6 +14,8 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   @IBOutlet weak var topicTextField: UITextField!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   
+  @IBOutlet weak var colourControl: ColourControl!
+  
   var topic: Topic?
 
   override func viewDidLoad() {
@@ -53,12 +55,24 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if saveButton === sender {
       let topicName = topicTextField.text ?? ""
-      self.topic = Topic(name: topicName)
+      let colour = getColour(colourControl.colour)
+      self.topic = Topic(name: topicName, colour: colour)
     }
   }
-
+  
+  func getColour(colour : UIColor) -> String {
+    switch colour {
+    case UIColor.redColor() : return "red"
+    case UIColor.blueColor() : return "blue"
+    case UIColor.orangeColor() : return "orange"
+    case UIColor.greenColor() : return "green"
+    case UIColor.purpleColor() : return "purple"
+    default : return "white"
+    }
+  }
+  
   @IBAction func cancel(sender: UIBarButtonItem) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
-
+  
 }

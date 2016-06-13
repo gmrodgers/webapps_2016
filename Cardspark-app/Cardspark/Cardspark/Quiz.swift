@@ -10,7 +10,7 @@ import UIKit
 
 class Quiz: NSObject {
   
-  static let sharedInstance = Quiz(name: (AppState.sharedInstance.topic?.name)!)
+//  static let sharedInstance = Quiz(name: (AppState.sharedInstance.topic?.name)!)
   
   var name: String
   var quiz = [String: String]()

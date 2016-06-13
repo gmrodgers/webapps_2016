@@ -27,15 +27,9 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     
     super.viewDidLoad()
     searchBar.delegate = self
-   
     dataServer.loadTopicsList(email, controller: self)
-    
-//    if let savedTopics = loadTopics() {
-//      topics += savedTopics
-//    } else {
-//    }
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -68,12 +62,12 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     searchActive = !(filtered.count == 0)
     self.tableView.reloadData()
   }
-
+  
   // MARK: - Table view data source
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
-
+  
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if(searchActive) {
       return filtered.count
@@ -83,35 +77,53 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
   // MARK: Actions
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      // Table view cells are reused and should be dequeued using a cell identifier.
+    // Table view cells are reused and should be dequeued using a cell identifier.
     let cellIdentifier = "TopicsTableViewCell"
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
     if(searchActive){
-        cell.topicLabel.text = filtered[indexPath.row].name
-        cell.backgroundColor = filtered[indexPath.row].color
+      cell.topicLabel.text = filtered[indexPath.row].name
+      let colour = getColour(filtered[indexPath.row].colour)
+      cell.backgroundColor = colour
     } else {
       // Fetches the appropriate topic for the data source layout.
-        cell.topicLabel.text = topics[indexPath.row].name
-        cell.backgroundColor = topics[indexPath.row].color
+      cell.topicLabel.text = topics[indexPath.row].name
+      let colour = getColour(topics[indexPath.row].colour)
+      cell.backgroundColor = colour
     }
     return cell
   }
- 
+  
+  func getColour(colour : String) -> UIColor {
+    switch colour {
+    case "red":
+      return UIColor.redColor()
+    case "blue":
+      return UIColor.blueColor()
+    case "orange":
+      return UIColor.orangeColor()
+    case "purple":
+      return UIColor.purpleColor()
+    case "green":
+      return UIColor.greenColor()
+    default :
+      return UIColor.whiteColor()
+    }
+  }
   // Override to support conditional editing of the table view.
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-  // Return false if you do not want the specified item to be editable.
+    // Return false if you do not want the specified item to be editable.
     return true
   }
   
   // Override to support editing the table view.
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
-    // Delete the row from the data source
+      // Delete the row from the data source
       deleteTopicFromServer(topics[indexPath.row])
       topics.removeAtIndex(indexPath.row)
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
       tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
     }
   }
@@ -144,42 +156,33 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
     dataServer.deleteTopic(email, topic_id: topic.id!, controller: self)
   }
   
-//  func saveTopics() {
-//    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(topics, toFile: Topic.ArchiveURL.path!)
-//    if !isSuccessfulSave {
-//      print("Failed to save topics")
-//    }
-//  }
-  
-//  func loadTopics() -> [Topic]? {
-//    return NSKeyedUnarchiver.unarchiveObjectWithFile(Topic.ArchiveURL.path!) as? [Topic]
-//    
-//  }
-  
-    func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
-        let httpResponse = response as! NSHTTPURLResponse
-        let statusCode = httpResponse.statusCode
-        
-        if (statusCode == 200) {
-            do {
-              let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
-                if let topics = dict.valueForKey("object") as? [[String: AnyObject]] {
-                    for topic in topics {
-                        if let name = topic["name"] as? String, id = topic["id"] as? Int {
-                          let newTopic = Topic(name: name)
-                          newTopic.setId(id)
-                          self.topics.append(newTopic)
-                        }
-                    }
-                }
-            }catch {
-                print("Error with Json")
+  func loadTopicsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
+    let httpResponse = response as! NSHTTPURLResponse
+    let statusCode = httpResponse.statusCode
+    
+    if (statusCode == 200) {
+      do {
+        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
+        if let topics = dict.valueForKey("object") as? [[String: AnyObject]] {
+          for topic in topics {
+            if let name = topic["name"] as? String, id = topic["id"] as? Int {
+              let newTopic = Topic(name: name)
+              if let colour = topic["colour"] as? String {
+                newTopic.changeColour(colour)
+              }
+              newTopic.setId(id)
+              self.topics.append(newTopic)
             }
+          }
         }
-        dispatch_async(dispatch_get_main_queue()) {
-            self.tableView.reloadData()
-        }
+      }catch {
+        print("Error with Json")
+      }
     }
+    dispatch_async(dispatch_get_main_queue()) {
+      self.tableView.reloadData()
+    }
+  }
   
   func createTopicHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
@@ -191,6 +194,9 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
         if let topic = dict.valueForKey("object") as? [String: AnyObject] {
           if let name = topic["name"] as? String, id = topic["id"] as? Int {
             let newTopic = Topic(name: name)
+            if let colour = topic["colour"] as? String {
+              newTopic.changeColour(colour)
+            }
             newTopic.setId(id)
             self.topics.append(newTopic)
             
@@ -223,9 +229,7 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       let navC: UINavigationController = tabBarVC.viewControllers?.first as! UINavigationController
       let cardTableVC: CardTableViewController = navC.viewControllers[0] as! CardTableViewController
       let topicIndex = tableView.indexPathForSelectedRow?.row
-      print(topicIndex)
       cardTableVC.topicId = topics[topicIndex!].id!
-      AppState.sharedInstance.topic = topics[topicIndex!]
     }
   }
   
