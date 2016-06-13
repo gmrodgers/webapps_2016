@@ -10,6 +10,8 @@ import UIKit
 
 class CardTableViewController: UITableViewController, UISearchBarDelegate {
   
+  // MARK: Properties
+  
   @IBOutlet weak var searchBar: UISearchBar!
   
   var topicId = Int()
@@ -18,11 +20,6 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
   var dataServer = AppState.sharedInstance.dataServer
   var newIndexPath: NSIndexPath?
   var searchActive : Bool = false
-  
-  
-  @IBAction func dismissCards(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,6 +37,11 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  
+  @IBAction func dismissCards(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
   }
   
   //MARK: SearchBar Delegate
@@ -69,10 +71,9 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
     searchActive = !(filtered.count == 0)
     self.tableView.reloadData()
   }
-
+  
   
   // MARK: - Table view data source
-  
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
@@ -96,16 +97,12 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
     
   }
   
-  // Override to support conditional editing of the table view.
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
     return true
   }
   
-  // Override to support editing the table view.
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
-      // Delete the row from the data source
       dataServer.deleteCard((cards[indexPath.row]).id!, controller: self)
       if (!cards[indexPath.row].imageRef.isEmpty) {
         let deleteRef = AppState.sharedInstance.storageRef?.child(cards[indexPath.row].imageRef)
@@ -120,34 +117,16 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
       cards.removeAtIndex(indexPath.row)
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     } else if editingStyle == .Insert {
-      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
       tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
     }
   }
   
   @IBAction func unwindToCardsList(sender: UIStoryboardSegue) {
     if let sourceViewController = sender.sourceViewController as? AddCardViewController, card = sourceViewController.card {
-      // Add a new card
       newIndexPath = NSIndexPath(forRow: cards.count, inSection: 0)
       dataServer.createNewCard(card, controller: self)
     }
   }
-  
-//  func getCards() -> [Card] {
-//    let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-//    var pdfFiles = [NSURL]()
-//    do {
-//      let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
-//      pdfFiles = directoryUrls.filter{ $0.pathExtension! == "html" }
-//    } catch let error as NSError {
-//      print(error.localizedDescription)
-//    }
-//    for file in pdfFiles {
-//      cards += [Card(name: file.lastPathComponent!, url: file)]
-//    }
-//    
-//    return cards
-//  }
   
   func loadCardsListHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
@@ -183,7 +162,7 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
   func createCardHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
-        
+    
     if (statusCode == 200) {
       do {
         let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
@@ -260,8 +239,8 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
       addCardVC.topicId = self.topicId
     } else if segue.identifier == "UserTableViewSegue" {
       let navC: UINavigationController = segue.destinationViewController as! UINavigationController
-        let usersTableVC: UsersTableViewController = navC.viewControllers[0] as! UsersTableViewController
-        usersTableVC.topicId = topicId
+      let usersTableVC: UsersTableViewController = navC.viewControllers[0] as! UsersTableViewController
+      usersTableVC.topicId = topicId
     }
   }
 }

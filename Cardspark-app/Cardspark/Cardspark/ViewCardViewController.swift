@@ -80,7 +80,7 @@ class ViewCardViewController: UIViewController {
       print(card.imageRef)
       let getImageRef = AppState.sharedInstance.storageRef?.child(card.imageRef)
       print(getImageRef)
-      let downloadTask = getImageRef!.writeToFile(localURL) { (URL, error) -> Void in
+      _ = getImageRef!.writeToFile(localURL) { (URL, error) -> Void in
         if (error != nil) {
           print("Image could not be downloaded")
           print(error.debugDescription)
@@ -94,16 +94,4 @@ class ViewCardViewController: UIViewController {
       }
     }
   }
-
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }

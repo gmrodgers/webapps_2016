@@ -235,5 +235,4 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       cardTableVC.topicId = topics[topicIndex!].id!
     }
   }
-  
 }

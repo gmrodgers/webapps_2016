@@ -32,7 +32,7 @@ class ColourControl: UIView {
   var colour = UIColor.whiteColor()
   
   // MARK: Initialisation
-
+  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
@@ -87,7 +87,4 @@ class ColourControl: UIView {
     colour = button.backgroundColor!
     updateButtonSelectionStates()
   }
-  
-  
-
 }

@@ -10,26 +10,49 @@ import UIKit
 
 class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
+  // MARK : Properties
+  
   var topicId = Int()
   var imageData : NSData?
-  @IBOutlet weak var colourControl: ColourControl!
+  let COMMENTS_LIMIT = 140
   
+  
+  @IBOutlet weak var colourControl: ColourControl!
   @IBOutlet weak var titleTextField: UITextView!
   @IBOutlet weak var point1TextField: UITextView!
   @IBOutlet weak var point2TextField: UITextView!
   @IBOutlet weak var point3TextField: UITextView!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   @IBOutlet weak var image: UIImageView!
-  
-//  var questions: [Question] = []
-  
-  let COMMENTS_LIMIT = 140
-    
   @IBOutlet weak var scrollView: UIScrollView!
   
+  
+  var question = String()
+  var answer = String()
   var photoImageView : UIImage?
   var imgLoc = String()
   var card: Card?
+  
+  // MARK: Initialisation
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    point1TextField.delegate = self
+    point2TextField.delegate = self
+    point3TextField.delegate = self
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+    self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    self.tabBarController?.tabBar.hidden = false
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+
   
   // MARK: UITextViewDelegate
   func textView(textView: UITextView, shouldChangeTextInRange range:NSRange, replacementText text:String ) -> Bool {
@@ -76,17 +99,19 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       card = Card(name: titleTextField.text)
       card?.topic_id = topicId
       card?.htmlData = html
+      card?.question = question
+      card?.answer = answer
       
       if ((imageData) != nil) {
         let path = "users/\(AppState.sharedInstance.userEmail!)/\(topicId)/\(titleTextField.text).png"
         let imageRef = AppState.sharedInstance.storageRef!.child(path)
         card?.imageRef = path
         print("Card image ref: \(path)")
-        let uploadTask = imageRef.putData((imageData!), metadata: nil) { metadata, error in
+        _ = imageRef.putData((imageData!), metadata: nil) { metadata, error in
           if (error != nil) {
             print("Image failed to upload")
           } else {
-            let downloadURL = metadata!.downloadURL()
+            _ = metadata!.downloadURL()
             print("saved to firebase")
           }
         }
@@ -118,24 +143,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    point1TextField.delegate = self
-    point2TextField.delegate = self
-    point3TextField.delegate = self
-  }
-  
-  override func viewDidAppear(animated: Bool) {
-    self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
-    self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    self.tabBarController?.tabBar.hidden = false
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
+  // MARK : ImagePicker Delegate
   @IBAction func selectImageFromLibrary(sender: UIBarButtonItem) {
     
     // UIImagePickerController is a view controller that lets a user pick media from their photo library.
@@ -175,16 +183,15 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     dismissViewControllerAnimated(true, completion: nil)
   }
   
+  // MARK: Quiz Alert
   @IBAction func addQuestion(sender: UIBarButtonItem) {
     let alertController = UIAlertController(title: "QUIZ", message: "Insert a question for the quiz", preferredStyle: UIAlertControllerStyle.Alert)
     
     let saveAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       
-      let question = alertController.textFields![0].text! as String
-      let answer = alertController.textFields![1].text! as String
-      
-//      Quiz.sharedInstance.quiz[question] = answer
+      self.question = alertController.textFields![0].text! as String
+      self.answer = alertController.textFields![1].text! as String
     })
     
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {

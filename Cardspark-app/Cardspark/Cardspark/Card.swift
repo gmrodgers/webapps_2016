@@ -11,6 +11,8 @@ import FirebaseStorage
 
 class Card: NSObject {
   
+  // MARK: Properties
+  
   var id: Int?
   var name = String()
   var topic_id = Int()
@@ -18,6 +20,10 @@ class Card: NSObject {
   var imageRef = String()
   var imageAdded = false
   var url = NSURL()
+  var question = String()
+  var answer = String()
+  
+  // MARK: Initialisation
   
   init(name: String, url: NSURL){
     self.name = name
