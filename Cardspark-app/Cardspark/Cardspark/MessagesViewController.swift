@@ -13,7 +13,7 @@ import Firebase
 class MessagesViewController: JSQMessagesViewController {
 
   // MARK: Properties
-  var messages = [JSQMessage]()
+  var messages = [Int : [JSQMessage]]()
   
   var outgoingBubbleImageView: JSQMessagesBubbleImage!
   var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -24,6 +24,7 @@ class MessagesViewController: JSQMessagesViewController {
   
   var usersTypingQuery: FIRDatabaseQuery!
 
+  var topicId = Int()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,17 +50,24 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    observeTyping()
+//    observeTyping()
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-    return messages[indexPath.item]
+    //return messages[topicId]
+    return messages[topicId]![indexPath.item]
   }
   
   override func collectionView(collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
-    return messages.count
+    var count = 0
+    for (k,_) in messages {
+      if k == topicId {
+        count += 1
+      }
+    }
+    return count
   }
   
   private func setupBubbles() {
@@ -72,7 +80,9 @@ class MessagesViewController: JSQMessagesViewController {
   
   override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
-    let message = messages[indexPath.item]
+//    let message = messages[indexPath.item]
+//    let message = messages[topicId]
+    let message = messages[topicId]![indexPath.item]
     if message.senderId == senderId {
         return outgoingBubbleImageView
     } else {
@@ -85,9 +95,8 @@ class MessagesViewController: JSQMessagesViewController {
     return nil
   }
   
-  func addMessage(id: String, displayName : String, text: String) {
-    let message = JSQMessage(senderId: id, displayName: displayName, text: text)
-    messages.append(message)
+  func addMessage(id: String, displayName : String, text: String, topicId: Int) {
+    messages[topicId]?.append(JSQMessage(senderId: id, displayName: displayName, text: text))
   }
   
   
@@ -96,8 +105,10 @@ class MessagesViewController: JSQMessagesViewController {
     let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
       as! JSQMessagesCollectionViewCell
     
-    let message = messages[indexPath.item]
-    
+//    let message = messages[indexPath.item]
+//    let message = messages[topicId]
+
+    let message = messages[topicId]![indexPath.item]
     if message.senderId == senderId {
       cell.textView!.textColor = UIColor.whiteColor()
     } else {
@@ -114,7 +125,8 @@ class MessagesViewController: JSQMessagesViewController {
     let messageItem = [
       "text": text,
       "senderId": senderId,
-      "displayName": senderDisplayName
+      "displayName": senderDisplayName,
+      "topicId": topicId
     ]
     itemRef.setValue(messageItem)
     
@@ -129,14 +141,17 @@ class MessagesViewController: JSQMessagesViewController {
       let text = snapshot.value!["text"] as! String
       let id = snapshot.value!["senderId"] as! String
       let name = snapshot.value!["displayName"] as! String
-      self.addMessage(id, displayName: name, text: text)
+      let topicId = snapshot.value!["topicId"] as! Int
+      self.addMessage(id, displayName: name, text: text, topicId: topicId)
       self.finishReceivingMessage()
     })
   }
   
   // View  usernames above bubbles
   override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-    let message = messages[indexPath.item];
+//    let message = messages[indexPath.item];
+//    let message = messages[topicId]
+    let message = messages[topicId]![indexPath.item]
     
     // Skip if I sent this messgage
     if message.senderId == senderId {
@@ -145,7 +160,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     // Skip if message is from previous sender
     if indexPath.item > 0 {
-      let previousMessage = messages[indexPath.item - 1];
+      let previousMessage = messages[topicId]![indexPath.item - 1];
       if previousMessage.senderId == message.senderId {
         return nil;
       }
@@ -155,7 +170,8 @@ class MessagesViewController: JSQMessagesViewController {
   }
   
   override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-    let message = messages[indexPath.item]
+
+    let message = messages[topicId]![indexPath.item]
     
     // Skip if I sent this messgage
     if message.senderId == senderId {
@@ -164,7 +180,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     // Skip if message is from previous sender
     if indexPath.item > 0 {
-      let previousMessage = messages[indexPath.item - 1];
+      let previousMessage = messages[topicId]![indexPath.item - 1];
       if previousMessage.senderId == message.senderId {
         return CGFloat(0.0);
       }
@@ -173,30 +189,30 @@ class MessagesViewController: JSQMessagesViewController {
     return kJSQMessagesCollectionViewCellLabelHeightDefault
   }
   
-  private var localTyping = false
-  var isTyping: Bool {
-    get {
-      return localTyping
-    }
-    set {
-      localTyping = newValue
-      userIsTypingRef.setValue(newValue)
-    }
-  }
-  
-  private func observeTyping() {
-    let typingIndicatorRef = rootRef.child("typingIndicator")
-    userIsTypingRef = typingIndicatorRef.child(senderId)
-    userIsTypingRef.onDisconnectRemoveValue()
-    
-    usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
-    usersTypingQuery.observeEventType(.Value, withBlock: { snapshot in
-      // If only you are typing don't show the indicator
-      if snapshot.childrenCount == 1 && self.isTyping { return }
-      
-      // If others are typing
-      self.showTypingIndicator = snapshot.childrenCount > 0
-      self.scrollToBottomAnimated(true)
-    })
-  }
+//  private var localTyping = false
+//  var isTyping: Bool {
+//    get {
+//      return localTyping
+//    }
+//    set {
+//      localTyping = newValue
+//      userIsTypingRef.setValue(newValue)
+//    }
+//  }
+//  
+//  private func observeTyping() {
+//    let typingIndicatorRef = rootRef.child("typingIndicator")
+//    userIsTypingRef = typingIndicatorRef.child(senderId)
+//    userIsTypingRef.onDisconnectRemoveValue()
+//    
+//    usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
+//    usersTypingQuery.observeEventType(.Value, withBlock: { snapshot in
+//      // If only you are typing don't show the indicator
+//      if snapshot.childrenCount == 1 && self.isTyping { return }
+//      
+//      // If others are typing
+//      self.showTypingIndicator = snapshot.childrenCount > 0
+//      self.scrollToBottomAnimated(true)
+//    })
+//  }
 }
