@@ -27,11 +27,6 @@ class CardsController < ApplicationController
     end
   end
 
-  # def show
-  #   @card = Card.find(params[:card_id])
-  # 	render_object @card
-  # end
-
   def update
     card = Card.find(params[:card_id])
     if card.update(card_params)
@@ -40,27 +35,11 @@ class CardsController < ApplicationController
       render_error card
     end
   end
-  
-  # def download
-  #   send_data(@card.card_file,
-  #         type: @card.content_type,
-  #         filename: @card.filename)
-  # end
 
   def destroy
     card = Card.find(params[:card_id])
     card.destroy
     render_no_content
-  end
-
-  def get_answers
-    topic = Topic.find(params[:topic_id])
-    if topic
-      @cards = topic.cards.where.not(id: params[:card_id])
-      render_object @cards      
-    else
-      render_error topic
-    end
   end
 
 private
