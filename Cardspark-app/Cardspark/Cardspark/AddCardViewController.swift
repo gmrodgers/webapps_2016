@@ -11,7 +11,6 @@ import UIKit
 class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   // MARK : Properties
-  
   var topicId = Int()
   var imageData : NSData?
   let COMMENTS_LIMIT = 140
@@ -32,7 +31,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var scrollView: UIScrollView!
   
   // MARK: Initialisation
-  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -128,7 +126,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   // MARK : ImagePicker Delegate
   @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
-    print ("tapped")
     let imagePickerController = UIImagePickerController()
     imagePickerController.sourceType = .PhotoLibrary
     imagePickerController.delegate = self
