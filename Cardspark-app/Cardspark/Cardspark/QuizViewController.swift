@@ -20,6 +20,7 @@ class QuizViewController: UIViewController {
   var dataServer = AppState.sharedInstance.dataServer
   
   var topicId = Int()
+  var questionsLoaded = false
   
   var noQuestions = 0
   var noCorrect = 0
@@ -33,11 +34,15 @@ class QuizViewController: UIViewController {
 //    quiz["Which animal is the tallest in the world?"] = "Giraffe"
 //    quiz["First planet to be discovered by telescope"] = "Uranus"
 //    quiz["City with the largest population in the world?"] = "Tokyo, Japan
+    print(topicId)
+    questionsLoaded = false
+    dataServer.loadQuiz(topicId, controller: self)
   }
   
   override func viewDidAppear(animated: Bool) {
-    dataServer.loadQuiz(topicId, controller: self)
-    pickQuestion()
+    if (questionsLoaded) {
+      pickQuestion()
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -146,7 +151,7 @@ class QuizViewController: UIViewController {
   }
   
   func cancel() {
-    qLabel.text = ""
+    qLabel.text = "See You Later!"
     for button in answerButtons {
       button.setTitle("", forState: .Normal)
     }
@@ -189,12 +194,16 @@ class QuizViewController: UIViewController {
           for card in cards {
             if let question = card["question"] as? String, answer = card["answer"] as? String{
               quiz[question] = answer
+//              print("assigned question")
             }
           }
         }
       }catch {
         print("Error with Json")
       }
+    }
+    dispatch_async(dispatch_get_main_queue()) {
+      self.pickQuestion()
     }
   }
 }
