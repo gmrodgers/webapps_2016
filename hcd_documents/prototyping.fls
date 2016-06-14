@@ -106,8 +106,15 @@ INPUT images/placeholder.png
 INPUT ./images/placeholder.png
 INPUT ./images/placeholder.png
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT images/placeholder.png
-INPUT ./images/placeholder.png
+INPUT images/storyboard.png
+INPUT ./images/storyboard.png
+INPUT ./images/storyboard.png
+INPUT images/prototype_use.jpg
+INPUT ./images/prototype_use.jpg
+INPUT ./images/prototype_use.jpg
+INPUT images/prototype_swipe.jpg
+INPUT ./images/prototype_swipe.jpg
+INPUT ./images/prototype_swipe.jpg
 INPUT prototyping.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
