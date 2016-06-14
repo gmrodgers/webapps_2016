@@ -11,7 +11,6 @@ import UIKit
 class CardTableViewController: UITableViewController, UISearchBarDelegate {
   
   // MARK: Properties
-  
   @IBOutlet weak var searchBar: UISearchBar!
   
   var topicId = Int()
@@ -21,10 +20,9 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
   var newIndexPath: NSIndexPath?
   var searchActive : Bool = false
   
+  // MARK: Initialisation
   override func viewDidLoad() {
     super.viewDidLoad()
-    searchBar.delegate = self
-    
     dataServer.loadCardsList(topicId, controller: self)
   }
   
@@ -36,7 +34,6 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   
@@ -176,7 +173,6 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
               newCard.imageRef = image_loc
             }
             self.cards.append(newCard)
-            print("saved")
           }
         }
       }catch {

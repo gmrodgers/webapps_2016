@@ -5,7 +5,6 @@
 //  Created by Leanne Lyons on 24/05/2016.
 //  Copyright © 2016 Mango Productions. All rights reserved.
 //
-
 import UIKit
 import Firebase
 
@@ -24,15 +23,12 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   let topicTableToCardTableSegueIdentifier = "CardTableViewSegue"
   
   override func viewDidLoad() {
-    
     super.viewDidLoad()
-    searchBar.delegate = self
     dataServer.loadTopicsList(email, controller: self)
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   // MARK: SearchBar Delegate
@@ -77,7 +73,6 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   
   // MARK: Actions
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    // Table view cells are reused and should be dequeued using a cell identifier.
     let cellIdentifier = "TopicsTableViewCell"
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TopicsTableViewCell
     if(searchActive){
@@ -85,7 +80,6 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       let colour = getColour(filtered[indexPath.row].colour)
       cell.backgroundColor = colour
     } else {
-      // Fetches the appropriate topic for the data source layout.
       cell.topicLabel.text = topics[indexPath.row].name
       let colour = getColour(topics[indexPath.row].colour)
       cell.backgroundColor = colour
@@ -109,28 +103,23 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       return UIColor.whiteColor()
     }
   }
-  // Override to support conditional editing of the table view.
+
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
     return true
   }
   
-  // Override to support editing the table view.
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
-      // Delete the row from the data source
       deleteTopicFromServer(topics[indexPath.row])
       topics.removeAtIndex(indexPath.row)
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     } else if editingStyle == .Insert {
-      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
       tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
     }
   }
   
   @IBAction func unwindToTopicsList(sender: UIStoryboardSegue) {
     if let sourceViewController = sender.sourceViewController as? NewTopicViewController, topic = sourceViewController.topic {
-      // Add a new topic
       newIndexPath = NSIndexPath(forRow: topics.count, inSection: 0)
       saveTopicToServer(topic)
     }

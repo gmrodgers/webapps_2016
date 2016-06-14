@@ -26,7 +26,6 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   // MARK: UITextFieldDelegate
@@ -36,7 +35,6 @@ class NewTopicViewController: UIViewController, UITextFieldDelegate, UIImagePick
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    // Hide the keyboard
     topicTextField.resignFirstResponder()
     return true
   }

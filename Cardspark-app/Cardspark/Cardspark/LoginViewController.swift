@@ -39,7 +39,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   }
   
   // MARK: UITextFieldDelegate
-  
   func textFieldDidBeginEditing(textField: UITextField) {
     scrollView.setContentOffset(CGPointMake(0, 250), animated: true)
   }

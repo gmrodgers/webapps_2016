@@ -10,31 +10,25 @@ import UIKit
 
 class QuizViewController: UIViewController {
   
+  // MARK: Properties
+  
   @IBOutlet var answerButtons: [UIButton]!
   @IBOutlet weak var qLabel: UITextView!
   
   var quiz : [String:String] = [:]
   var question = String()
   var ansIndex = Int()
-  
   var dataServer = AppState.sharedInstance.dataServer
-  
   var topicId = Int()
   var questionsLoaded = false
-  
   var noQuestions = 0
   var noCorrect = 0
   var noTrials = 0
   
+  // MARK: Initialisation
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-//    quiz["What is the capital of France?"] = "Paris"
-//    quiz["What is the tallest building in the World?"] = "The Burj Khalifa"
-//    quiz["What is a baby rabbit called?"] = "Kitten"
-//    quiz["Which animal is the tallest in the world?"] = "Giraffe"
-//    quiz["First planet to be discovered by telescope"] = "Uranus"
-//    quiz["City with the largest population in the world?"] = "Tokyo, Japan
-    print(topicId)
     questionsLoaded = false
     dataServer.loadQuiz(topicId, controller: self)
   }
@@ -60,7 +54,6 @@ class QuizViewController: UIViewController {
       noTrials = 0
       noQuestions += 1
       var answers = Array(quiz.values)
-      // Get random question and corresponding answer
       question =  Array(quiz.keys)[random() % quiz.count]
       let answer = quiz[question]!
       
@@ -184,17 +177,14 @@ class QuizViewController: UIViewController {
   func loadQuizHandler(data: NSData?, response: NSURLResponse?, err: NSError?) -> Void {
     let httpResponse = response as! NSHTTPURLResponse
     let statusCode = httpResponse.statusCode
-//    print("status code: \(statusCode)")
     
     if (statusCode == 200) {
-      print("status code: \(statusCode)")
       do {
         let dict = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as!NSDictionary
         if let cards = dict.valueForKey("object") as? [[String: AnyObject]] {
           for card in cards {
             if let question = card["question"] as? String, answer = card["answer"] as? String{
               quiz[question] = answer
-//              print("assigned question")
             }
           }
         }

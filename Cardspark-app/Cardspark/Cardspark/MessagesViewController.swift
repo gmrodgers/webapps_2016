@@ -37,7 +37,6 @@ class MessagesViewController: JSQMessagesViewController {
     self.senderId = AppState.sharedInstance.userID
     self.senderDisplayName = AppState.sharedInstance.displayName
     
-    // No avatars
     collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
     collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
     
@@ -94,11 +93,7 @@ class MessagesViewController: JSQMessagesViewController {
                                cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
       as! JSQMessagesCollectionViewCell
-    
     let message = messages[indexPath.item]
-    //    let message = messages[topicId]
-    
-    //    let message = messages[topicId]![indexPath.item]
     if message.senderId == senderId {
       cell.textView!.textColor = UIColor.whiteColor()
     } else {
@@ -119,14 +114,12 @@ class MessagesViewController: JSQMessagesViewController {
       "topicId": topicId
     ]
     itemRef.setValue(messageItem)
-    
     JSQSystemSoundPlayer.jsq_playMessageSentSound()
     finishSendingMessage()
   }
   
   private func observeMessages() {
     let messagesQuery = messageRef.queryLimitedToLast(25)
-    
     messagesQuery.observeEventType(.ChildAdded, withBlock: { snapshot in
       let text = snapshot.value!["text"] as! String
       let id = snapshot.value!["senderId"] as! String
@@ -152,7 +145,6 @@ class MessagesViewController: JSQMessagesViewController {
         return nil;
       }
     }
-    
     return NSAttributedString(string:message.senderDisplayName)
   }
   

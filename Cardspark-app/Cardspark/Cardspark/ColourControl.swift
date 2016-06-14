@@ -25,10 +25,8 @@ class ColourControl: UIView {
   
   var colorButtons = [UIButton]()
   var colorArray = [UIColor]()
-  
   let spacing = 5
   let buttonCount = 5
-  
   var colour = UIColor.whiteColor()
   
   // MARK: Initialisation
@@ -41,9 +39,7 @@ class ColourControl: UIView {
     for i in 0..<buttonCount {
       let button = UIButton()
       button.backgroundColor = colorArray[i]
-      
       button.adjustsImageWhenHighlighted = false
-      
       button.addTarget(self, action: #selector(ColourControl.colourButtonTapped(_:)), forControlEvents: .TouchDown)
       colorButtons += [button]
       addSubview(button)
@@ -64,7 +60,6 @@ class ColourControl: UIView {
   override func intrinsicContentSize() -> CGSize {
     let buttonSize = Int(frame.size.height)
     let width = (buttonSize * buttonCount) + (spacing * (buttonCount - 1))
-    
     return CGSize(width: width, height: buttonSize)
   }
   

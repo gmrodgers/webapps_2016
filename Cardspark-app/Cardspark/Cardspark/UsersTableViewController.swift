@@ -5,10 +5,11 @@
 //  Created by Leanne Lyons on 12/06/2016.
 //  Copyright © 2016 Mango Productions. All rights reserved.
 //
-
 import UIKit
 
 class UsersTableViewController: UITableViewController, UISearchBarDelegate {
+  
+  // MARK: Properties
 
   @IBOutlet weak var searchBar: UISearchBar!
   
@@ -19,18 +20,15 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
   var newIndexPath: NSIndexPath?
   var searchActive : Bool = false
   
+  // MARK: Initialisation
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    searchBar.delegate = self
-    
-    print (topicId)
-    
     dataServer.loadUsersList(topicId, controller: self)
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   //MARK: SearchBar Delegate
@@ -63,7 +61,6 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
   
   
   // MARK: - Table view data source
-  
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
@@ -83,14 +80,11 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
       cell.userLabel.text = filtered[indexPath.row]
     }
     cell.userLabel.text = users[indexPath.row]
-    print (cell.userLabel.text)
     return cell
     
   }
   
-  // Override to support conditional editing of the table view.
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
     return true
   }
 
@@ -105,7 +99,6 @@ class UsersTableViewController: UITableViewController, UISearchBarDelegate {
           for user in users {
             if let name = user["email"] as? String{
               self.users.append(name)
-              print ("Saved")
             }
           }
         }

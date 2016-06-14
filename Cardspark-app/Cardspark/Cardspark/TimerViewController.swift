@@ -10,35 +10,30 @@ import UIKit
 
 class TimerViewController: UIViewController {
   
+  // MARK: Properties
+  
   var counter = 60*20
   var timer = NSTimer()
   
   @IBOutlet weak var label: UILabel!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
- 
   
-  // start timer
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
+  
   @IBAction func startTimerButtonTapped(sender: UIButton) {
-    timer.invalidate() // just in case this button is tapped multiple times
-    
-    // start the timer
+    timer.invalidate()
     timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
   }
   
-  // stop timer
   @IBAction func cancelTimerButtonTapped(sender: UIButton) {
     timer.invalidate()
   }
   
-  // called every time interval from the timer
   func timerAction() {
     counter -= 1
     label.text = "\(counter / 60)m\(counter % 60)s"
@@ -47,9 +42,9 @@ class TimerViewController: UIViewController {
                                     message: "",
                                     preferredStyle: UIAlertControllerStyle.Alert)
       alert.addAction(UIAlertAction(title: "Dismiss",
-                                    style: UIAlertActionStyle.Default,
-                                    handler: { action in self.counter = 60 * 25
-                                               }))
+        style: UIAlertActionStyle.Default,
+        handler: { action in self.counter = 60 * 25
+      }))
       presentViewController(alert, animated: true, completion: {self.timer.invalidate()})
       
     }
@@ -57,24 +52,13 @@ class TimerViewController: UIViewController {
   
   @IBAction func resetButtonTapped(sender: UIButton) {
     timer.invalidate()
-    counter = 60 * 25
+    counter = 60 * 20
     timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
   }
-
+  
   @IBAction func breakButtonTapped(sender: AnyObject) {
     timer.invalidate()
     counter = 60 * 5
     timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
   }
-  
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

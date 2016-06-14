@@ -231,6 +231,9 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="nni-N2-6Mo" id="m4S-xr-4Nv"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TopicsTableViewCell" rowHeight="90" id="Cth-Zp-rW5" userLabel="TopicsTableViewCell" customClass="TopicsTableViewCell" customModule="Cardspark" customModuleProvider="target">
@@ -666,6 +669,9 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="c6b-99-XhE" id="xCm-PY-NNw"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CardTableViewCell" rowHeight="90" id="nxb-Z5-Djm" customClass="CardTableViewCell" customModule="Cardspark" customModuleProvider="target">
@@ -821,10 +827,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="nH7-kL-IgF">
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="nH7-kL-IgF">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="ssm-B4-BZh" id="m4b-WN-Eo8"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsersTableViewCell" id="Mht-iv-WTG" customClass="UsersTableViewCell" customModule="Cardspark" customModuleProvider="target">
@@ -925,6 +934,9 @@
                                                         <include reference="izk-8c-im7"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BN3-3k-9dP" id="bjJ-S1-a4l"/>
+                                                </connections>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-gg-mrD">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -953,6 +965,9 @@
                                                         <include reference="jbW-wy-i9F"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BN3-3k-9dP" id="Dqp-A0-B4l"/>
+                                                </connections>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-GW-QqL">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -999,6 +1014,9 @@
                                                         <include reference="63t-PN-0OI"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BN3-3k-9dP" id="0ga-mk-gcM"/>
+                                                </connections>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Add text..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="42v-o5-iHy">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1027,6 +1045,9 @@
                                                         <include reference="Olx-8n-dy1"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BN3-3k-9dP" id="oA7-dK-GMQ"/>
+                                                </connections>
                                             </textView>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JC-hy-dk4">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

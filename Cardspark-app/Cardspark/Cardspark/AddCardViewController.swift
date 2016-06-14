@@ -15,6 +15,11 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   var topicId = Int()
   var imageData : NSData?
   let COMMENTS_LIMIT = 140
+  var question = String()
+  var answer = String()
+  var photoImageView : UIImage?
+  var imgLoc = String()
+  var card: Card?
   
   
   @IBOutlet weak var colourControl: ColourControl!
@@ -26,20 +31,10 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   @IBOutlet weak var image: UIImageView!
   @IBOutlet weak var scrollView: UIScrollView!
   
-  
-  var question = String()
-  var answer = String()
-  var photoImageView : UIImage?
-  var imgLoc = String()
-  var card: Card?
-  
   // MARK: Initialisation
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    point1TextField.delegate = self
-    point2TextField.delegate = self
-    point3TextField.delegate = self
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -50,7 +45,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
   
@@ -89,12 +83,9 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
       }
       var html: String = "<style>body{background-color:\(colour);}</style>"
       html += "<h1 style='color:\(textColor)'><font face ='verdana'>\(titleTextField.text)</font></h1>"
-//      html += "<center><img src='\(titleTextField.text).png' height='200' width='200'><center>"
       html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point1TextField.text)</font></p>"
       html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point2TextField.text)</font></p>"
       html += "<p style='color:\(textColor)'><font size='3' face='verdana'>\(point3TextField.text)</font></p>"
-     
-      //    let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
       
       card = Card(name: titleTextField.text)
       card?.topic_id = topicId
@@ -116,14 +107,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
           }
         }
       }
-      //    do {
-      //      try html.writeToFile("\(documentsPath)/\(titleTextField.text).html", atomically: true, encoding: NSUTF8StringEncoding)
-      //    } catch {
-      //      print("Write to file failed!")
-      //    }
-      //
-      //    print("saved")
-      //   
     }
   }
   
@@ -145,29 +128,19 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   
   // MARK : ImagePicker Delegate
   @IBAction func selectImageFromLibrary(sender: UIBarButtonItem) {
-    
-    // UIImagePickerController is a view controller that lets a user pick media from their photo library.
     let imagePickerController = UIImagePickerController()
-    
-    // Only allow photos to be picked, not taken.
     imagePickerController.sourceType = .PhotoLibrary
-    
-    // Make sure ViewController is notified when the user picks an image.
     imagePickerController.delegate = self
-    
     presentViewController(imagePickerController, animated: true, completion: nil)
   }
   
   func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-    // Dismiss the picker if the user canceled.
     dismissViewControllerAnimated(true, completion: nil)
   }
   
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    // The info dictionary contains multiple representations of the image, and this uses the original.
     let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage!
     
-    // Set photoImageView to display the selected image.
     photoImageView = selectedImage
     image.image = photoImageView
     let data = UIImagePNGRepresentation(photoImageView!)
@@ -178,8 +151,6 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
     data?.writeToFile(filename, atomically: true)
     
     imgLoc = filename
-    
-    // Dismiss the picker.
     dismissViewControllerAnimated(true, completion: nil)
   }
   
