@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  14 JUN 2016 06:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  14 JUN 2016 16:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -428,47 +428,64 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 File: images/fluidlogin.png Graphic file (type png)
 
 <use images/fluidlogin.png>
-Package pdftex.def Info: images/fluidlogin.png used on input line 23.
-(pdftex.def)             Requested size: 105.09343pt x 187.90344pt.
+Package pdftex.def Info: images/fluidlogin.png used on input line 24.
+(pdftex.def)             Requested size: 87.57697pt x 156.58461pt.
 
 <images/fluidcard.png, id=2, 354.32375pt x 625.33624pt>
 File: images/fluidcard.png Graphic file (type png)
 
 <use images/fluidcard.png>
-Package pdftex.def Info: images/fluidcard.png used on input line 27.
-(pdftex.def)             Requested size: 106.29794pt x 187.60231pt.
+Package pdftex.def Info: images/fluidcard.png used on input line 28.
+(pdftex.def)             Requested size: 88.58072pt x 156.33368pt.
 
 <images/placeholder.png, id=3, 250.9375pt x 527.9725pt>
 File: images/placeholder.png Graphic file (type png)
 
 <use images/placeholder.png>
-Package pdftex.def Info: images/placeholder.png used on input line 34.
+Package pdftex.def Info: images/placeholder.png used on input line 35.
 (pdftex.def)             Requested size: 50.1866pt x 105.59262pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/fluidlogin.png> <
-./images/fluidcard.png> <./images/placeholder.png>]
-File: images/placeholder.png Graphic file (type png)
- <use images/placeholder.png>
-Package pdftex.def Info: images/placeholder.png used on input line 44.
-(pdftex.def)             Requested size: 50.1866pt x 105.59262pt.
- [2] (./prototyping.aux) ) 
+./images/fluidcard.png> <./images/placeholder.png>] <images/storyboard.png, id=
+14, 1074.0125pt x 673.51625pt>
+File: images/storyboard.png Graphic file (type png)
+
+<use images/storyboard.png>
+Package pdftex.def Info: images/storyboard.png used on input line 47.
+(pdftex.def)             Requested size: 322.20624pt x 202.05643pt.
+
+<images/prototype_use.jpg, id=15, 1336.995pt x 1782.66pt>
+File: images/prototype_use.jpg Graphic file (type jpg)
+
+<use images/prototype_use.jpg>
+Package pdftex.def Info: images/prototype_use.jpg used on input line 57.
+(pdftex.def)             Requested size: 133.70732pt x 178.27644pt.
+
+<images/prototype_swipe.jpg, id=16, 1336.995pt x 1782.66pt>
+File: images/prototype_swipe.jpg Graphic file (type jpg)
+
+<use images/prototype_swipe.jpg>
+Package pdftex.def Info: images/prototype_swipe.jpg used on input line 61.
+(pdftex.def)             Requested size: 133.70732pt x 178.27644pt.
+ [2 <./images/storyboard.png> <./images/prototype_use.jpg> <./images/prototype_
+swipe.jpg>] (./prototyping.aux) ) 
 Here is how much of TeX's memory you used:
- 2655 strings out of 494985
- 37804 string characters out of 6180356
+ 2671 strings out of 494985
+ 38199 string characters out of 6180356
  92655 words of memory out of 5000000
- 5823 multiletter control sequences out of 15000+600000
+ 5835 multiletter control sequences out of 15000+600000
  6675 words of font info for 24 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 40i,7n,35p,321b,276s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17
-.pfb>
-Output written on prototyping.pdf (2 pages, 74289 bytes).
+ 40i,6n,35p,378b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr17.pfb>
+Output written on prototyping.pdf (2 pages, 510894 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 32 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
