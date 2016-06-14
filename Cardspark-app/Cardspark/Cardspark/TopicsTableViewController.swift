@@ -230,9 +230,12 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
       let cardTableVC: CardTableViewController = navC.viewControllers[0] as! CardTableViewController
       let navCsecond: UINavigationController = tabBarVC.viewControllers?[1] as! UINavigationController
       let messagesVC: MessagesViewController = navCsecond.viewControllers[0] as! MessagesViewController
+      let navCthird: UINavigationController = tabBarVC.viewControllers?[2] as! UINavigationController
+      let quizVC: QuizViewController = navCthird.viewControllers[0] as! QuizViewController
       let topicIndex = tableView.indexPathForSelectedRow?.row
       messagesVC.topicId = topics[topicIndex!].id!
       cardTableVC.topicId = topics[topicIndex!].id!
+      quizVC.topicId = topics[topicIndex!].id!
     }
   }
 }
