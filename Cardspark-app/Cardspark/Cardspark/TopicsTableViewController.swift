@@ -25,6 +25,16 @@ class TopicsTableViewController: UITableViewController, UISearchBarDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     dataServer.loadTopicsList(email, controller: self)
+
+    self.refreshControl?.addTarget(self, action: #selector(TopicsTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+  }
+  
+  func handleRefresh(refreshControl: UIRefreshControl) {
+    topics = []
+    self.tableView.reloadData()
+    dataServer.loadTopicsList(email, controller: self)
+
+    refreshControl.endRefreshing()
   }
   
   override func didReceiveMemoryWarning() {
