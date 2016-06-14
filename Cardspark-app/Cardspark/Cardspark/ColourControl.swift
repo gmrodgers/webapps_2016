@@ -28,6 +28,7 @@ class ColourControl: UIView {
   let spacing = 5
   let buttonCount = 5
   var colour = UIColor.whiteColor()
+  var buttonSize = 44
   
   // MARK: Initialisation
   
@@ -47,18 +48,16 @@ class ColourControl: UIView {
   }
   
   override func layoutSubviews() {
-    let buttonSize = Int(frame.size.height)
     var buttonFrame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
     
     for (index, button) in colorButtons.enumerate() {
-      buttonFrame.origin.x = CGFloat(index * (buttonSize + spacing) + spacing)
+      buttonFrame.origin.x = CGFloat(index * (buttonSize + spacing))
       button.frame = buttonFrame
     }
     updateButtonSelectionStates()
   }
   
   override func intrinsicContentSize() -> CGSize {
-    let buttonSize = Int(frame.size.height)
     let width = (buttonSize * buttonCount) + (spacing * (buttonCount - 1))
     return CGSize(width: width, height: buttonSize)
   }
