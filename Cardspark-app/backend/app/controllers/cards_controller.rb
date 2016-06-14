@@ -44,6 +44,6 @@ class CardsController < ApplicationController
 
 private
   def card_params
-    params.require(:card).permit(:topic_id, :cardname, :card_data, :image_loc )
+    params.require(:card).permit(:topic_id, :cardname, :card_data, :image_loc, :colour, :question, :answer )
   end
 end
