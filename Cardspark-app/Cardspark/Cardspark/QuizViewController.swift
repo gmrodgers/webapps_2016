@@ -29,6 +29,7 @@ class QuizViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    qLabel.selectable = false
     questionsLoaded = false
     dataServer.loadQuiz(topicId, controller: self)
   }
