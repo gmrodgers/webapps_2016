@@ -1082,8 +1082,12 @@
                                                     <outlet property="delegate" destination="BN3-3k-9dP" id="oA7-dK-GMQ"/>
                                                 </connections>
                                             </textView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-xM-pOf">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-xM-pOf">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="GCD-o9-PM8" appends="YES" id="bIE-w2-4HS"/>
+                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBn-oq-ky1">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -1108,12 +1112,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <items>
-                                                    <barButtonItem title="Add Image" width="111" id="pbn-Ms-MrK">
-                                                        <connections>
-                                                            <action selector="selectImageFromLibrary:" destination="BN3-3k-9dP" id="vsu-iL-n4R"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Add Question" width="192" id="J4d-ln-EbO">
+                                                    <barButtonItem title="Add Question" width="381" id="J4d-ln-EbO">
                                                         <connections>
                                                             <action selector="addQuestion:" destination="BN3-3k-9dP" id="taj-SA-kdj"/>
                                                         </connections>
@@ -1349,6 +1348,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbc-qd-NTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bl2-dr-Sic" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="GCD-o9-PM8">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BN3-3k-9dP" id="ngE-E0-BO7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4884" y="-1084"/>
         </scene>

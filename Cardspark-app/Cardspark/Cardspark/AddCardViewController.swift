@@ -127,7 +127,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate, UIImagePicker
   }
   
   // MARK : ImagePicker Delegate
-  @IBAction func selectImageFromLibrary(sender: UIBarButtonItem) {
+  @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
+    print ("tapped")
     let imagePickerController = UIImagePickerController()
     imagePickerController.sourceType = .PhotoLibrary
     imagePickerController.delegate = self
