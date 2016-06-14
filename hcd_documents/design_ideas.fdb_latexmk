@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1465848077 "design_ideas.tex" "design_ideas.pdf" "design_ideas" 1465848077
+["pdflatex"] 1465880942 "design_ideas.tex" "design_ideas.pdf" "design_ideas" 1465880942
   "/etc/texmf/web2c/texmf.cnf" 1463952337 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -57,9 +57,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1463953347 127758 2c8a4499080148ca8c5956dd2e628608 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1463953343 856211 d7c835f35c4ff923337d03cbe8f7372e ""
-  "design_ideas.aux" 1465848077 45 9108cb1e5d0715b696fc51716bdec3e1 ""
-  "design_ideas.tex" 1465848076 285 2efd9a045f5deebe0dac410b2c33ceea ""
+  "design_ideas.aux" 1465880942 45 9108cb1e5d0715b696fc51716bdec3e1 ""
+  "design_ideas.tex" 1465880941 941 886f7c69ef45666c3ffe8f5ff400feb0 ""
+  "images/placeholder.png" 1465879971 26264 79598bb2ff74f05b08c42cd163ab7d63 ""
   (generated)
   "design_ideas.aux"
-  "design_ideas.log"
   "design_ideas.pdf"
+  "design_ideas.log"
