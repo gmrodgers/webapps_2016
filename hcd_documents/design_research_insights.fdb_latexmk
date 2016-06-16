@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1465847989 "design_research_insights.tex" "design_research_insights.pdf" "design_research_insights" 1465913767
+["pdflatex"] 1466114675 "design_research_insights.tex" "design_research_insights.pdf" "design_research_insights" 1466114675
   "/etc/texmf/web2c/texmf.cnf" 1463952337 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -18,6 +18,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
@@ -36,6 +37,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty" 1337209790 7112 f0440fa8b74253e1bc8b4f4227a9df9d ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1254151887 20571 b8bd218bf2e18b4f5817ee643cd9c515 ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty" 1254151887 4388 1cb2ca8d423695bd22ea8d126c276f33 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd" 1254151887 2109 c400bd6c901edc4a09e4d53fcffd3b3c ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu" 1254151887 1868 39c80c053f689193a1ca9a83d05b2744 ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu" 1254151887 2620 9a36ef7e0369aa29d9d298a6bf19588e ""
   "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1254151887 9042 248dfba326a1b8733d6bb8e0a3ac1e49 ""
@@ -61,13 +63,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1463953347 127758 2c8a4499080148ca8c5956dd2e628608 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1463953343 856211 d7c835f35c4ff923337d03cbe8f7372e ""
-  "design_research_insights.aux" 1465847990 137 32363989a7f4ea9199c92b23940eb1cc ""
-  "design_research_insights.tex" 1465847897 2269 68817d5bd167da1bce02561ce4bf5e32 ""
+  "design_research_insights.aux" 1466114675 137 32363989a7f4ea9199c92b23940eb1cc ""
+  "design_research_insights.tex" 1466114674 2473 e2525305a9b717c3e02996b6ee1d6953 ""
   "images/feedback.png" 1465830132 21777 a93bcc384c2ea894c2c84dbaeedc87cd ""
   "images/form.png" 1465830132 81004 51da2b60aa1e64e4e90d6125d1179cb5 ""
   "images/images_colours.png" 1465830132 26093 ef5ad1f3683a44652838300dcd84e750 ""
   "images/mobile_audio.png" 1465830132 26114 99c6d55417dd43f35e1092ce14347202 ""
   (generated)
-  "design_research_insights.log"
   "design_research_insights.pdf"
   "design_research_insights.aux"
+  "design_research_insights.log"
