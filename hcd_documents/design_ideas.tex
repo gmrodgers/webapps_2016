@@ -1,9 +1,9 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
-\usepackage{subfigure}
-\usepackage{url}
+\usepackage{subfig}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \graphicspath {
 	{images/}
 }
@@ -15,20 +15,44 @@
 \date{\today}
 \maketitle
 
-I'm guessing this one is how we generated ideas about our app\\
-Seems very similar to the first one\\
-Talk about our research again and how we took inspiration from that\\
-Also should talk about other app and how they inspired us\\
+We took the problems that we had found through our research of our target audience and undertook the process of generating ideas.
+The following are the problems or wants had by our users and how we tried to solve them:
+\vspace{-2mm}
 
-Eg
-We examined other popular apps and seen features that users liked and tried to see if they could be applied to our own app. This included the swipe feature that apps like Tinder have which is a very natural action and when we applied it to our flashcards, users who tried it enjoyed our app much more. 
+\paragraph{\textbf{- That solution notes are often too large and difficult to consume}}
+	\mbox{}\\
+	We looked around at other apps and saw different ways of dealing with large amounts of information.
+	\begin{figure}[!ht]
+	  \centering
+	  \subfloat{\includegraphics[scale=0.4]{tinder.jpg}\label{fig:f1}}
+	  \hfill
+	  \subfloat{\includegraphics[scale=0.13]{anki.png}\label{fig:f2}}
+	\end{figure}
+	\\Tinder (above left) deals with the thousands of possible "matches" a person has to scroll through by using a swiping mechanism. Anki (above right) is a flash card that requires the user to provide a response to a flashcard.  We decided to go with the swiping option to allow the user more manipulation of their cards.
+\newpage
 
+\paragraph{\textbf{- There were not enough opportunities for group work in learning}}
+	\mbox{}\\
+	\begin{figure}[!ht]
+	  \centering
+	  \subfloat{\includegraphics[scale=0.35]{messenger.png}\label{fig:f4}}
+	\end{figure}
+	\\We investigated mobile apps like Messenger that focused on group features, in that case communication.  We wanted to transfer this idea of collaboration to Cardspark by allowing multiple people to create flashcards and then share them, almost like the messages in Messenger.
 
-(Placeholder)
-\begin{center}
-	\vspace{1mm}
-	\includegraphics[scale=0.2]{placeholder.png}
-	\vspace{1mm}
-\end{center}
+\vspace{5mm}
+\paragraph{\textbf{- That testing themselves was an important part of the learning process for them}}
+	\mbox{}\\
+	\begin{figure}[!ht]
+	  \centering
+	  \subfloat{\includegraphics[scale=0.5]{buzzfeed.jpg}\label{fig:f5}}
+	  \hfill
+	  \subfloat{\includegraphics[scale=0.35]{memrise.png}\label{fig:f6}}
+	\end{figure}
+	\\The testing feature that was wanted was inspired by Memrise's (language app) and to an extent Buzzfeed's quiz.  Buzzfeed's quiz feature shares the multi-choice functionality of Memrise so we saw this as a good idea for our own quiz system.
+
+\vspace{5mm}
+\paragraph{\textbf{- Visual cues like images and colours were very helpful to them}}
+	\mbox{}\\
+	We, again, took inspiration from Tinder for their image placement and how it shows that they could be used well in a card format.  Buzzfeed also made use of images in their quiz format but users did not like this in the mobile format.
 
 \end{document}

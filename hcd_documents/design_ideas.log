@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  14 JUN 2016 06:09
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  16 JUN 2016 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -317,30 +317,48 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen113
 \@vwid@roff=\dimen114
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip43
-\subfigcapskip=\skip44
-\subfigcaptopadj=\dimen115
-\subfigbottomskip=\skip45
-\subfigcapmargin=\dimen116
-\subfiglabelskip=\skip46
-\c@subfigure=\count91
-\c@lofdepth=\count92
-\c@subtable=\count93
-\c@lotdepth=\count94
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip47
-\subfig@bottom=\skip48
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen115
+\captionmargin@=\dimen116
+\captionwidth=\dimen117
+\caption@tempdima=\dimen118
+\caption@indent=\dimen119
+\caption@parindent=\dimen120
+\caption@hangindent=\dimen121
 )
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (./design_ideas.aux)
+\c@ContinuedFloat=\count91
+)
+\c@KVtest=\count92
+\sf@farskip=\skip43
+\sf@captopadj=\dimen122
+\sf@capskip=\skip44
+\sf@nearskip=\skip45
+\c@subfigure=\count93
+\c@subfigure@save=\count94
+\c@lofdepth=\count95
+\c@subtable=\count96
+\c@subtable@save=\count97
+\c@lotdepth=\count98
+\sf@top=\skip46
+\sf@bottom=\skip47
+)
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen123
+\WF@size=\dimen124
+\c@WF@wrappedlines=\count99
+\WF@box=\box28
+\WF@everypar=\toks18
+Package: wrapfig 2003/01/31  v 3.6
+)
+(./design_ideas.aux)
 \openout1 = `design_ideas.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -358,17 +376,17 @@ LaTeX Font Info:    ... okay on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
-\scratchdimen=\dimen117
-\scratchbox=\box28
-\nofMPsegments=\count96
-\nofMParguments=\count97
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count98
-\MPscratchDim=\dimen118
-\MPnumerator=\count99
-\makeMPintoPDFobject=\count100
-\everyMPtoPDFconversion=\toks19
+\scratchcounter=\count100
+\scratchdimen=\dimen125
+\scratchbox=\box29
+\nofMPsegments=\count101
+\nofMParguments=\count102
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen126
+\MPnumerator=\count104
+\makeMPintoPDFobject=\count105
+\everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -417,6 +435,10 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -424,36 +446,58 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 16.
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--22
+<images/tinder.jpg, id=1, 290.08376pt x 358.33875pt>
+File: images/tinder.jpg Graphic file (type jpg)
+ <use images/tinder.jpg>
+Package pdftex.def Info: images/tinder.jpg used on input line 27.
+(pdftex.def)             Requested size: 116.03143pt x 143.33296pt.
 
- []
-
-<images/placeholder.png, id=1, 250.9375pt x 527.9725pt>
-File: images/placeholder.png Graphic file (type png)
-
-<use images/placeholder.png>
-Package pdftex.def Info: images/placeholder.png used on input line 30.
-(pdftex.def)             Requested size: 50.1866pt x 105.59262pt.
+<images/anki.png, id=2, 642.4pt x 1140.26pt>
+File: images/anki.png Graphic file (type png)
+ <use images/anki.png>
+Package pdftex.def Info: images/anki.png used on input line 29.
+(pdftex.def)             Requested size: 83.51492pt x 148.239pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/placeholder.png>]
- (./design_ideas.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/tinder.jpg> <./im
+ages/anki.png>] <images/messenger.png, id=12, 600.2425pt x 343.2825pt>
+File: images/messenger.png Graphic file (type png)
+
+<use images/messenger.png>
+Package pdftex.def Info: images/messenger.png used on input line 38.
+(pdftex.def)             Requested size: 210.08801pt x 120.15067pt.
+
+<images/buzzfeed.jpg, id=14, 221.82875pt x 215.80624pt>
+File: images/buzzfeed.jpg Graphic file (type jpg)
+
+<use images/buzzfeed.jpg>
+Package pdftex.def Info: images/buzzfeed.jpg used on input line 47.
+(pdftex.def)             Requested size: 110.9141pt x 107.90285pt.
+
+<images/memrise.png, id=15, 523.9575pt x 310.15875pt>
+File: images/memrise.png Graphic file (type png)
+ <use images/memrise.png>
+Package pdftex.def Info: images/memrise.png used on input line 49.
+(pdftex.def)             Requested size: 183.38786pt x 108.55717pt.
+
+[2 <./images/messenger.png> <./images/buzzfeed.jpg> <./images/memrise.png>]
+(./design_ideas.aux) ) 
 Here is how much of TeX's memory you used:
- 2644 strings out of 494985
- 37572 string characters out of 6180356
- 92655 words of memory out of 5000000
- 5814 multiletter control sequences out of 15000+600000
- 6675 words of font info for 24 fonts, out of 8000000 for 9000
+ 3706 strings out of 494985
+ 57188 string characters out of 6180356
+ 115563 words of memory out of 5000000
+ 6866 multiletter control sequences out of 15000+600000
+ 6983 words of font info for 25 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 40i,6n,35p,322b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
-b>
-Output written on design_ideas.pdf (1 page, 45067 bytes).
+ 61i,8n,96p,339b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on design_ideas.pdf (2 pages, 831330 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
- 14 compressed objects within 1 object stream
+ 34 PDF objects out of 1000 (max. 8388607)
+ 19 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
