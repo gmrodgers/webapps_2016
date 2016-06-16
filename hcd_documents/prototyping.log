@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  14 JUN 2016 16:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.22)  16 JUN 2016 22:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,17 +438,17 @@ File: images/fluidcard.png Graphic file (type png)
 Package pdftex.def Info: images/fluidcard.png used on input line 28.
 (pdftex.def)             Requested size: 88.58072pt x 156.33368pt.
 
-<images/placeholder.png, id=3, 250.9375pt x 527.9725pt>
-File: images/placeholder.png Graphic file (type png)
+<images/fluidstory.png, id=3, 850.17625pt x 566.115pt>
+File: images/fluidstory.png Graphic file (type png)
 
-<use images/placeholder.png>
-Package pdftex.def Info: images/placeholder.png used on input line 35.
-(pdftex.def)             Requested size: 50.1866pt x 105.59262pt.
+<use images/fluidstory.png>
+Package pdftex.def Info: images/fluidstory.png used on input line 35.
+(pdftex.def)             Requested size: 212.54353pt x 141.5284pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/fluidlogin.png> <
-./images/fluidcard.png> <./images/placeholder.png>] <images/storyboard.png, id=
-14, 1074.0125pt x 673.51625pt>
+./images/fluidcard.png> <./images/fluidstory.png>] <images/storyboard.png, id=1
+4, 1074.0125pt x 673.51625pt>
 File: images/storyboard.png Graphic file (type png)
 
 <use images/storyboard.png>
@@ -472,17 +472,17 @@ Package pdftex.def Info: images/prototype_swipe.jpg used on input line 61.
 swipe.jpg>] (./prototyping.aux) ) 
 Here is how much of TeX's memory you used:
  2671 strings out of 494985
- 38199 string characters out of 6180356
+ 38194 string characters out of 6180356
  92655 words of memory out of 5000000
  5835 multiletter control sequences out of 15000+600000
  6675 words of font info for 24 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 40i,6n,35p,378b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,6n,35p,340b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr17.pfb>
-Output written on prototyping.pdf (2 pages, 510894 bytes).
+Output written on prototyping.pdf (2 pages, 713698 bytes).
 PDF statistics:
  32 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream

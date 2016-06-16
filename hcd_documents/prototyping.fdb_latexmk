@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1465919269 "prototyping.tex" "prototyping.pdf" "prototyping" 1465919269
+["pdflatex"] 1466114183 "prototyping.tex" "prototyping.pdf" "prototyping" 1466114183
   "/etc/texmf/web2c/texmf.cnf" 1463952337 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -59,13 +59,13 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1463953343 856211 d7c835f35c4ff923337d03cbe8f7372e ""
   "images/fluidcard.png" 1465848969 32403 1a5f95480377792acedca95e5075d850 ""
   "images/fluidlogin.png" 1465849437 10166 27f15194291df43327d546438f268907 ""
-  "images/placeholder.png" 1465879971 26264 79598bb2ff74f05b08c42cd163ab7d63 ""
+  "images/fluidstory.png" 1466091536 307871 748bb2815b9b74833e1bf06e5ba147bf ""
   "images/prototype_swipe.jpg" 1465919001 152415 47ac42a40a6bee8a3e05465adfce162b ""
   "images/prototype_use.jpg" 1465918678 184379 536e0aac30894e153af71bcc4d47e246 ""
   "images/storyboard.png" 1465915624 213907 b4a02af90f7d4ec3bb538d4623750913 ""
-  "prototyping.aux" 1465919269 45 9108cb1e5d0715b696fc51716bdec3e1 ""
-  "prototyping.tex" 1465919269 2102 c54be360d1bf4ff81f1e382751e44307 ""
+  "prototyping.aux" 1466114183 45 9108cb1e5d0715b696fc51716bdec3e1 ""
+  "prototyping.tex" 1466114182 1964 43ade9d3b41ac2329fb8d4243f23962e ""
   (generated)
   "prototyping.log"
-  "prototyping.pdf"
   "prototyping.aux"
+  "prototyping.pdf"
